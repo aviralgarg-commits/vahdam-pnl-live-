@@ -45,13 +45,22 @@ def main():
     import ingest_seller
     import merge_pnl
     import fetch_google_sheets
+    import scrape_affiliate
+    import scrape_smart_promo
 
-    # Step 0: refresh source-of-truth snapshot from live Google Sheets (no-op if
-    # credentials missing — manual snapshot stays as-is).
+    # Step 0: refresh source-of-truth snapshot from live Google Sheets (verifier
+    # uses this; no-op if credentials missing).
     run_step("Refresh Google Sheets snapshot", fetch_google_sheets.main)
 
     # Step 1: Windsor ads + tiktok_shop orders + statement affiliate fees
     windsor_result = run_step("Windsor ads fetch", fetch_windsor.run)
+
+    # Step 1.5: Chrome-driven Seller Center scrapes (idempotent, gracefully fail
+    # if Playwright auth missing). These pull data Windsor doesn't expose:
+    #   - affiliate orders CSVs (UK + US) — drops new files into raw_csvs/
+    #   - Smart Promotion buckets (UK + US) — appends to smart_promo_monthly.json
+    run_step("Scrape affiliate CSVs (Seller Center)", scrape_affiliate.main)
+    run_step("Scrape Smart Promotion (Seller Center)", scrape_smart_promo.main)
     if windsor_result is None:
         from merge_pnl import load_json
         ad_daily = load_json(ROOT / "data" / "windsor_ads_daily.json", {})

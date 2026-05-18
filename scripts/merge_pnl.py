@@ -176,10 +176,10 @@ def run(
             print(f"  Windsor top-up: injected {injected} SKU-allocated rows (any (date, region) "
                   f"not covered by overlay/CSV); units/order multiplier from {mix_window_start}->{overlay_end}")
 
-    # 3) Affiliate commission top-up from Windsor Statement table
-    #    Fills aff_daily holes (e.g. recent days where affiliate CSVs haven't been
-    #    dropped yet). Statement only includes SETTLED transactions so it lags
-    #    by a few days — only inject for (date, region) where aff_daily is empty.
+    # 3) Affiliate commission top-up from Windsor Statement table (settled-only).
+    #    Fresh affiliate CSVs land via scripts/scrape_affiliate.py (Chrome-driven
+    #    Seller Center download) — NOT from any snapshot of the user's
+    #    verification sheet (that would create a circular dependency).
     if shop_aff_daily:
         existing_aff_keys = {(r.get("date"), r.get("region")) for r in aff_daily
                              if r.get("date") and r.get("region")}
