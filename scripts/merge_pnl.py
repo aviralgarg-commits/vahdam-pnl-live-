@@ -50,53 +50,113 @@ def run(
         print(f"  Overlay: replaced {b_start}->{b_end} with reference baseline ({len(baseline['orders_daily'])} records)")
 
     # 2) Top-up: for dates AFTER the overlay window where affiliate CSVs have no
-    #    coverage either, inject Windsor tiktok_shop daily totals as single
-    #    "(all)" SKU rows per region. This gives the dashboard live numbers for
-    #    yesterday/today even when fresh affiliate CSVs haven't been dropped.
+    #    coverage either, inject Windsor tiktok_shop daily totals — allocated
+    #    across SKU/variation using the historical mix from the last 14 days of
+    #    overlay data. This way the per-SKU breakdown table still populates for
+    #    yesterday/today instead of showing a single "(all)" row.
     if shop_orders_daily:
+        from datetime import timedelta as _td
         cutoff = overlay_end or "0000-00-00"
+        cutoff_d = date.fromisoformat(cutoff) if cutoff != "0000-00-00" else None
         existing_dates = {(r.get("date"), r.get("region")) for r in orders_daily}
+
+        # Build (region, sku, variation) -> share of regional net_sales across
+        # the last 14 days of overlay data (the SKU-aware reference rows).
+        mix_window_start = (cutoff_d - _td(days=13)).isoformat() if cutoff_d else "2000-01-01"
+        mix_totals: dict[str, dict[tuple, float]] = {"UK": {}, "US": {}}
+        for r in orders_daily:
+            d = r.get("date", "")
+            if not d or d < mix_window_start or d > cutoff or r.get("is_free_gift"):
+                continue
+            region = r.get("region")
+            if region not in mix_totals:
+                continue
+            key = (r.get("sku", ""), r.get("variation", ""))
+            mix_totals[region][key] = mix_totals[region].get(key, 0.0) + (r.get("net_sales", 0) or 0)
+        # Convert each region's mix to shares
+        mix_share: dict[str, list[tuple]] = {}
+        for region, sk_map in mix_totals.items():
+            total = sum(sk_map.values()) or 1.0
+            mix_share[region] = sorted(
+                ((sku, var, amt / total) for (sku, var), amt in sk_map.items()),
+                key=lambda x: -x[2],
+            )
+
         injected = 0
         for day, regions in shop_orders_daily.items():
             if day <= cutoff:
                 continue
             for region, b in regions.items():
-                # Skip if affiliate CSV already populated this (date, region)
                 if (day, region) in existing_dates:
                     continue
                 ccy = b.get("currency", "GBP" if region == "UK" else "USD")
-                net_orders = b.get("net_orders", 0) or 0
-                cancelled = b.get("cancelled_orders", 0) or 0
-                orders_daily.append({
-                    "date": day, "region": region, "sku": "(all)", "variation": "(all)",
-                    "currency": ccy, "is_free_gift": False,
-                    "orders": (b.get("orders", 0) or 0),
-                    "qty": net_orders,  # approximation: 1 unit / order
-                    "return_qty": 0,
-                    "gross": b.get("gross", 0) or 0,
-                    "plat_disc": b.get("plat_disc", 0) or 0,
-                    "seller_disc": b.get("seller_disc", 0) or 0,
-                    "net_sku": b.get("sub_total", 0) or 0,
-                    "shipping": 0, "tax": 0, "refund": 0,
-                    "sales": b.get("net_sales", 0) or 0,
-                    "revenue_after_refund": b.get("net_sales", 0) or 0,
-                    "return_value": 0,
-                    "cancelled_orders": cancelled, "cancelled_qty": cancelled,
-                    "cancelled_amt": b.get("cancelled_amt", 0) or 0,
-                    "sample_orders": 0, "sample_qty": 0,
-                    "net_orders": net_orders, "net_qty": net_orders,
-                    "net_gross": b.get("gross", 0) or 0,
-                    "net_plat_disc": b.get("plat_disc", 0) or 0,
-                    "net_seller_disc": b.get("seller_disc", 0) or 0,
-                    "net_sku_total": b.get("sub_total", 0) or 0,
-                    "net_shipping": 0, "net_refund": 0,
-                    "net_return_qty": 0, "net_return_value": 0,
-                    "net_sales": b.get("net_sales", 0) or 0,
-                    "order_amt": b.get("total_paid", 0) or 0,
-                })
-                injected += 1
+                total_net_orders = b.get("net_orders", 0) or 0
+                total_cancelled = b.get("cancelled_orders", 0) or 0
+                total_net_sales = b.get("net_sales", 0) or 0
+                total_gross = b.get("gross", 0) or 0
+                total_plat = b.get("plat_disc", 0) or 0
+                total_seller = b.get("seller_disc", 0) or 0
+                total_sub = b.get("sub_total", 0) or 0
+                total_cancel_amt = b.get("cancelled_amt", 0) or 0
+                total_paid = b.get("total_paid", 0) or 0
+
+                buckets = mix_share.get(region, [])
+                if not buckets:
+                    # No historical data to allocate against — fall back to a single
+                    # "(all)" row so the totals still surface in top-line KPIs.
+                    buckets = [("(all)", "(all)", 1.0)]
+
+                # Allocate proportionally; track residuals so totals match exactly.
+                allocated_orders = 0
+                allocated_qty = 0
+                allocated_cancelled = 0
+                for i, (sku, var, share) in enumerate(buckets):
+                    is_last = (i == len(buckets) - 1)
+                    if is_last:
+                        # Assign the remainder to absorb rounding drift
+                        sku_orders = total_net_orders - allocated_orders
+                        sku_qty = total_net_orders - allocated_qty  # 1 unit / order approx
+                        sku_cancelled = total_cancelled - allocated_cancelled
+                    else:
+                        sku_orders = int(round(total_net_orders * share))
+                        sku_qty = sku_orders
+                        sku_cancelled = int(round(total_cancelled * share))
+                    allocated_orders += sku_orders
+                    allocated_qty += sku_qty
+                    allocated_cancelled += sku_cancelled
+
+                    if sku_orders <= 0 and sku_cancelled <= 0:
+                        continue
+
+                    orders_daily.append({
+                        "date": day, "region": region, "sku": sku, "variation": var,
+                        "currency": ccy, "is_free_gift": False,
+                        "orders": sku_orders + sku_cancelled,
+                        "qty": sku_qty, "return_qty": 0,
+                        "gross": round(total_gross * share, 2),
+                        "plat_disc": round(total_plat * share, 2),
+                        "seller_disc": round(total_seller * share, 2),
+                        "net_sku": round(total_sub * share, 2),
+                        "shipping": 0, "tax": 0, "refund": 0,
+                        "sales": round(total_net_sales * share, 2),
+                        "revenue_after_refund": round(total_net_sales * share, 2),
+                        "return_value": 0,
+                        "cancelled_orders": sku_cancelled, "cancelled_qty": sku_cancelled,
+                        "cancelled_amt": round(total_cancel_amt * share, 2),
+                        "sample_orders": 0, "sample_qty": 0,
+                        "net_orders": sku_orders, "net_qty": sku_qty,
+                        "net_gross": round(total_gross * share, 2),
+                        "net_plat_disc": round(total_plat * share, 2),
+                        "net_seller_disc": round(total_seller * share, 2),
+                        "net_sku_total": round(total_sub * share, 2),
+                        "net_shipping": 0, "net_refund": 0,
+                        "net_return_qty": 0, "net_return_value": 0,
+                        "net_sales": round(total_net_sales * share, 2),
+                        "order_amt": round(total_paid * share, 2),
+                    })
+                    injected += 1
         if injected:
-            print(f"  Windsor top-up: injected {injected} (date, region) rows for dates after {cutoff}")
+            print(f"  Windsor top-up: injected {injected} SKU-allocated rows for dates after {cutoff} (mix from {mix_window_start} -> {cutoff})")
 
     # Determine window from orders (per-region and global)
     dates = [r["date"] for r in orders_daily if r.get("date")]
