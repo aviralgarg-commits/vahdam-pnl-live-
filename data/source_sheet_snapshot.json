@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "source": "Google Sheets (manually transcribed from screenshots 2026-05-18)",
+    "uk_sheet": "https://docs.google.com/spreadsheets/d/1cLjkuNQf4NB0iTuPb9SB6MJ1ELIf3jFVurj37P80I2I/edit#gid=1932099571",
+    "us_sheet": "https://docs.google.com/spreadsheets/d/1kqOvsf4EFsay5oK6oD5o2hBAkwT4NZCYBOEKRYeByq4/edit#gid=1310969871",
+    "tab": "TikTok Overall DoD",
+    "captured_at": "2026-05-18",
+    "notes": [
+      "Net Revenue is the sheet's top-line equivalent of dashboard's net_sales.",
+      "Actual Commission = TT commission paid (per-unit × qty); Affiliated Commission = TT affiliate commission.",
+      "UK Spend (Incl VAT) and Spend (Excl VAT) tracked separately; dashboard stores ex-VAT and grosses at render.",
+      "Abs CM1 / Abs CM2 are post-VAT values per UK methodology; CM2 is Inc-VAT in this sheet (Spend already grossed)."
+    ]
+  },
+  "UK": {
+    "monthly": {
+      "2026-01": {"net_rev": 196567, "abs_cm1": 141639, "abs_cm2": 12562, "ad_spend": 129076},
+      "2026-02": {"net_rev": 170020, "abs_cm1": 122651, "abs_cm2": -5255,  "ad_spend": 127905},
+      "2026-03": {"net_rev": 208185, "abs_cm1": 138011, "abs_cm2": -17916, "ad_spend": 155927},
+      "2026-04": {"net_rev": 230189, "abs_cm1": 139409, "abs_cm2": -48821, "ad_spend": 188230},
+      "2026-05-MTD": {"net_rev": 135066, "abs_cm1": 81697, "abs_cm2": -14928, "ad_spend": 96626}
+    },
+    "daily": {
+      "2026-05-17": {"net_rev": 5860, "net_unit": 338, "net_order": 181, "cancelled": 35, "actual_comm": 633, "other_fix": 1667, "abs_cm1": 3561, "cm1_pct": 0.608, "free_samples": 1,  "spend_incl_vat": 3625, "spend_excl_vat": 3021, "aff_comm": 908,  "abs_cm2": -232,   "cm2_pct": -0.040, "ad_spend": 3792},
+      "2026-05-16": {"net_rev": 5510, "net_unit": 315, "net_order": 175, "cancelled": 34, "actual_comm": 595, "other_fix": 1559, "abs_cm1": 3356, "cm1_pct": 0.609, "free_samples": 0,  "spend_incl_vat": 3903, "spend_excl_vat": 3252, "aff_comm": 1109, "abs_cm2": -828,   "cm2_pct": -0.150, "ad_spend": 4184},
+      "2026-05-15": {"net_rev": 7399, "net_unit": 424, "net_order": 227, "cancelled": 35, "actual_comm": 799, "other_fix": 2089, "abs_cm1": 4512, "cm1_pct": 0.610, "free_samples": 23, "spend_incl_vat": 5261, "spend_excl_vat": 4384, "aff_comm": 1368, "abs_cm2": -1141,  "cm2_pct": -0.154, "ad_spend": 5653},
+      "2026-05-14": {"net_rev": 7803, "net_unit": 441, "net_order": 231, "cancelled": 46, "actual_comm": 842, "other_fix": 2143, "abs_cm1": 4818, "cm1_pct": 0.617, "free_samples": 26, "spend_incl_vat": 5307, "spend_excl_vat": 4422, "aff_comm": 1284, "abs_cm2": -822,   "cm2_pct": -0.105, "ad_spend": 5640},
+      "2026-05-13": {"net_rev": 7011, "net_unit": 394, "net_order": 220, "cancelled": 49, "actual_comm": 756, "other_fix": 1949, "abs_cm1": 4306, "cm1_pct": 0.614, "free_samples": 25, "spend_incl_vat": 4606, "spend_excl_vat": 3838, "aff_comm": 1146, "abs_cm2": -622,   "cm2_pct": -0.089, "ad_spend": 4928},
+      "2026-05-12": {"net_rev": 7638, "net_unit": 433, "net_order": 250, "cancelled": 42, "actual_comm": 824, "other_fix": 2180, "abs_cm1": 4634, "cm1_pct": 0.607, "free_samples": 29, "spend_incl_vat": 4860, "spend_excl_vat": 4050, "aff_comm": 927,  "abs_cm2": -341,   "cm2_pct": -0.045, "ad_spend": 4975},
+      "2026-05-11": {"net_rev": 7193, "net_unit": 408, "net_order": 233, "cancelled": 49, "actual_comm": 775, "other_fix": 2057, "abs_cm1": 4361, "cm1_pct": 0.606, "free_samples": 50, "spend_incl_vat": 4857, "spend_excl_vat": 4048, "aff_comm": 269,  "abs_cm2": -167,   "cm2_pct": -0.023, "ad_spend": 4529},
+      "2026-05-10": {"net_rev": 5944, "net_unit": 333, "net_order": 207, "cancelled": 44, "actual_comm": 641, "other_fix": 1716, "abs_cm1": 3587, "cm1_pct": 0.604, "free_samples": 1,  "spend_incl_vat": 4038, "spend_excl_vat": 3365, "aff_comm": 814,  "abs_cm2": -461,   "cm2_pct": -0.078, "ad_spend": 4049},
+      "2026-05-09": {"net_rev": 7116, "net_unit": 410, "net_order": 233, "cancelled": 29, "actual_comm": 768, "other_fix": 2055, "abs_cm1": 4294, "cm1_pct": 0.603, "free_samples": 1,  "spend_incl_vat": 4717, "spend_excl_vat": 3931, "aff_comm": 1260, "abs_cm2": -699,   "cm2_pct": -0.098, "ad_spend": 4993},
+      "2026-05-08": {"net_rev": 8691, "net_unit": 501, "net_order": 290, "cancelled": 61, "actual_comm": 938, "other_fix": 2523, "abs_cm1": 5231, "cm1_pct": 0.602, "free_samples": 33, "spend_incl_vat": 5618, "spend_excl_vat": 4681, "aff_comm": 1085, "abs_cm2": -525,   "cm2_pct": -0.060, "ad_spend": 5756},
+      "2026-05-07": {"net_rev": 8922, "net_unit": 517, "net_order": 292, "cancelled": 41, "actual_comm": 963, "other_fix": 2584, "abs_cm1": 5375, "cm1_pct": 0.602, "free_samples": 53, "spend_incl_vat": 5565, "spend_excl_vat": 4638, "aff_comm": 1313, "abs_cm2": -629,   "cm2_pct": -0.071, "ad_spend": 6004}
+    }
+  },
+  "US": {
+    "monthly": {
+      "2026-01": {"net_rev": 50793, "abs_cm1": 28197, "abs_cm2": -44261, "ad_spend_total": 72458},
+      "2026-02": {"net_rev": 145352,"abs_cm1": 67673, "abs_cm2": -102309,"ad_spend_total": 169982},
+      "2026-03": {"net_rev": 124766,"abs_cm1": 56811, "abs_cm2": -90693, "ad_spend_total": 147504},
+      "2026-04": {"net_rev": 107494,"abs_cm1": 51728, "abs_cm2": -63127, "ad_spend_total": 114855},
+      "2026-05-MTD": {"net_rev": 56080, "abs_cm1": 26326, "abs_cm2": -41285, "ad_spend_total": 67610}
+    },
+    "daily": {
+      "2026-05-17": {"net_rev": 2844, "net_unit": 147, "net_order": 96,  "cancelled": 3, "actual_comm": 171, "other_fix": 1396, "abs_cm1": 1278, "cm1_pct": 0.449, "free_samples": 36, "spend_live": 2125, "aff_comm": 97,  "abs_cm2": -1286, "cm2_pct": -0.452, "ad_spend_total": 2564},
+      "2026-05-16": {"net_rev": 1926, "net_unit": 100, "net_order": 71,  "cancelled": 5, "actual_comm": 116, "other_fix": 927,  "abs_cm1": 883,  "cm1_pct": 0.459, "free_samples": 31, "spend_live": 1823, "aff_comm": 52,  "abs_cm2": -1361, "cm2_pct": -0.707, "ad_spend_total": 2245},
+      "2026-05-15": {"net_rev": 1913, "net_unit": 95,  "net_order": 74,  "cancelled": 3, "actual_comm": 115, "other_fix": 872,  "abs_cm1": 926,  "cm1_pct": 0.484, "free_samples": 71, "spend_live": 1766, "aff_comm": 119, "abs_cm2": -1702, "cm2_pct": -0.890, "ad_spend_total": 2629},
+      "2026-05-14": {"net_rev": 2252, "net_unit": 116, "net_order": 82,  "cancelled": 3, "actual_comm": 135, "other_fix": 1087, "abs_cm1": 1029, "cm1_pct": 0.457, "free_samples": 77, "spend_live": 2367, "aff_comm": 129, "abs_cm2": -2306, "cm2_pct": -1.024, "ad_spend_total": 3335},
+      "2026-05-13": {"net_rev": 3201, "net_unit": 168, "net_order": 123, "cancelled": 2, "actual_comm": 192, "other_fix": 1553, "abs_cm1": 1455, "cm1_pct": 0.455, "free_samples": 51, "spend_live": 3152, "aff_comm": 150, "abs_cm2": -2480, "cm2_pct": -0.775, "ad_spend_total": 3936},
+      "2026-05-12": {"net_rev": 2369, "net_unit": 116, "net_order": 88,  "cancelled": 6, "actual_comm": 142, "other_fix": 1079, "abs_cm1": 1148, "cm1_pct": 0.484, "free_samples": 53, "spend_live": 2152, "aff_comm": 116, "abs_cm2": -1728, "cm2_pct": -0.729, "ad_spend_total": 2876},
+      "2026-05-11": {"net_rev": 3631, "net_unit": 190, "net_order": 125, "cancelled": 5, "actual_comm": 218, "other_fix": 1783, "abs_cm1": 1630, "cm1_pct": 0.449, "free_samples": 19, "spend_live": 2764, "aff_comm": 155, "abs_cm2": -1593, "cm2_pct": -0.439, "ad_spend_total": 3223},
+      "2026-05-10": {"net_rev": 4457, "net_unit": 217, "net_order": 149, "cancelled": 4, "actual_comm": 267, "other_fix": 2012, "abs_cm1": 2178, "cm1_pct": 0.489, "free_samples": 17, "spend_live": 3811, "aff_comm": 75,  "abs_cm2": -2058, "cm2_pct": -0.462, "ad_spend_total": 4236},
+      "2026-05-09": {"net_rev": 4546, "net_unit": 215, "net_order": 158, "cancelled": 7, "actual_comm": 273, "other_fix": 2049, "abs_cm1": 2224, "cm1_pct": 0.489, "free_samples": 0,  "spend_live": 4345, "aff_comm": 328, "abs_cm2": -2631, "cm2_pct": -0.579, "ad_spend_total": 4855},
+      "2026-05-08": {"net_rev": 4809, "net_unit": 242, "net_order": 173, "cancelled": 6, "actual_comm": 289, "other_fix": 2294, "abs_cm1": 2227, "cm1_pct": 0.463, "free_samples": 29, "spend_live": 4046, "aff_comm": 133, "abs_cm2": -2440, "cm2_pct": -0.507, "ad_spend_total": 4667}
+    }
+  }
+}
