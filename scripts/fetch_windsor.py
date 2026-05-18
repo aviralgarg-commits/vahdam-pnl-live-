@@ -188,6 +188,43 @@ def fetch_shop_orders(date_from: str, date_to: str) -> list[dict]:
     return rows
 
 
+# ── tiktok_shop STATEMENT-table fields — SKU-level affiliate commission ─────────
+SHOP_STATEMENT_FIELDS = [
+    "date",
+    "account_id",
+    "statement_transaction_fee_affiliate_ads_commission_amount",
+    "statement_transaction_fee_tap_shop_ads_commission",
+]
+
+
+def fetch_shop_statement(date_from: str, date_to: str) -> list[dict]:
+    """Pull statement-table affiliate fees from tiktok_shop. Only includes SETTLED transactions."""
+    print(f"  Fetching TikTok Shop statement (affiliate fees) {date_from} -> {date_to}...")
+    rows = windsor_fetch("tiktok_shop", SHOP_STATEMENT_FIELDS, None, date_from, date_to)
+    cache_file = CACHE_DIR / f"shop_statement_{date_to}.json"
+    cache_file.write_text(json.dumps(rows, indent=2), encoding="utf-8")
+    print(f"  -> {len(rows)} statement rows (cached {cache_file.name})")
+    return rows
+
+
+def aggregate_statement_aff(rows: list[dict]) -> dict:
+    """Per (date, region) -> total affiliate commission fee paid (abs values)."""
+    acct = _shop_region_map()
+    out: dict[str, dict[str, float]] = {}
+    for r in rows:
+        region = acct.get(str(r.get("account_id", "") or ""))
+        if not region:
+            continue
+        d = str(r.get("date", "") or "")[:10]
+        if not d:
+            continue
+        aff_ads = abs(float(r.get("statement_transaction_fee_affiliate_ads_commission_amount") or 0))
+        tap_ads = abs(float(r.get("statement_transaction_fee_tap_shop_ads_commission") or 0))
+        out.setdefault(d, {})
+        out[d][region] = out[d].get(region, 0.0) + aff_ads + tap_ads
+    return out
+
+
 def aggregate_shop_orders(rows: list[dict]) -> dict:
     """
     Aggregate tiktok_shop Order rows into per-(date, region) daily totals.
@@ -496,10 +533,10 @@ def aggregate_ads(all_rows: list[dict],
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
-def run(lookback_days: int = LOOKBACK, shop_topup_days: int = 14) -> tuple[dict, dict, dict]:
+def run(lookback_days: int = LOOKBACK, shop_topup_days: int = 14) -> tuple[dict, dict, dict, dict]:
     """
-    Pull TikTok Ads spend + TikTok Shop orders from Windsor.
-    Returns (ad_spend_daily, ad_spend_30d, shop_orders_daily).
+    Pull TikTok Ads spend + TikTok Shop orders + Statement affiliate fees from Windsor.
+    Returns (ad_spend_daily, ad_spend_30d, shop_orders_daily, shop_aff_daily).
 
     shop_orders_daily is the per-(date, region) daily totals from tiktok_shop
     Order-table. The merge step uses it to top-up orders_daily for days not
@@ -546,7 +583,18 @@ def run(lookback_days: int = LOOKBACK, shop_topup_days: int = 14) -> tuple[dict,
         print(f"  {d}: UK net_orders={uk.get('net_orders',0)} net_sales=£{uk.get('net_sales',0):,.0f}"
               f" | US net_orders={us.get('net_orders',0)} net_sales=${us.get('net_sales',0):,.0f}")
 
-    return ad_spend_daily, ad_spend_30d, shop_orders_daily
+    # Statement-table affiliate commission (settled transactions only)
+    print(f"\n=== Windsor TikTok Shop statement (affiliate fees) {shop_from} -> {date_to} ===")
+    stmt_rows = fetch_shop_statement(shop_from, date_to)
+    shop_aff_daily = aggregate_statement_aff(stmt_rows)
+    (ROOT / "data" / "windsor_shop_aff_daily.json").write_text(
+        json.dumps(shop_aff_daily, indent=2), encoding="utf-8"
+    )
+    aff_uk = sum(d.get("UK", 0) for d in shop_aff_daily.values())
+    aff_us = sum(d.get("US", 0) for d in shop_aff_daily.values())
+    print(f"  Statement affiliate fees (top-up window): UK £{aff_uk:,.0f} | US ${aff_us:,.0f}")
+
+    return ad_spend_daily, ad_spend_30d, shop_orders_daily, shop_aff_daily
 
 
 if __name__ == "__main__":

@@ -44,16 +44,22 @@ def main():
     import fetch_windsor
     import ingest_seller
     import merge_pnl
+    import fetch_google_sheets
 
-    # Step 1: Windsor ads + tiktok_shop orders
+    # Step 0: refresh source-of-truth snapshot from live Google Sheets (no-op if
+    # credentials missing — manual snapshot stays as-is).
+    run_step("Refresh Google Sheets snapshot", fetch_google_sheets.main)
+
+    # Step 1: Windsor ads + tiktok_shop orders + statement affiliate fees
     windsor_result = run_step("Windsor ads fetch", fetch_windsor.run)
     if windsor_result is None:
         from merge_pnl import load_json
         ad_daily = load_json(ROOT / "data" / "windsor_ads_daily.json", {})
         ad_30d = load_json(ROOT / "data" / "windsor_ads_30d.json", {})
         shop_orders_daily = load_json(ROOT / "data" / "windsor_shop_orders_daily.json", {})
+        shop_aff_daily = load_json(ROOT / "data" / "windsor_shop_aff_daily.json", {})
     else:
-        ad_daily, ad_30d, shop_orders_daily = windsor_result
+        ad_daily, ad_30d, shop_orders_daily, shop_aff_daily = windsor_result
 
     # Step 2: Affiliate ingestion (also derives orders_daily from GMV)
     aff_result = run_step("Affiliate ingestion", ingest_seller.run)
@@ -64,7 +70,8 @@ def main():
 
     # Step 3: Merge
     def do_merge():
-        return merge_pnl.run(aff_daily, orders_daily, ad_daily, ad_30d, smart_promo, shop_orders_daily)
+        return merge_pnl.run(aff_daily, orders_daily, ad_daily, ad_30d, smart_promo,
+                             shop_orders_daily, shop_aff_daily)
 
     run_step("Merge pnl_daily.json", do_merge)
 

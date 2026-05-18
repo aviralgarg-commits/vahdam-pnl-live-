@@ -33,6 +33,7 @@ def run(
     ad_spend_30d: dict,
     smart_promo_monthly: list[dict],
     shop_orders_daily: dict | None = None,
+    shop_aff_daily: dict | None = None,
 ) -> dict:
     today = date.today().isoformat()
 
@@ -49,31 +50,34 @@ def run(
         orders_daily.extend(baseline["orders_daily"])
         print(f"  Overlay: replaced {b_start}->{b_end} with reference baseline ({len(baseline['orders_daily'])} records)")
 
-    # 2) Top-up: for dates AFTER the overlay window where affiliate CSVs have no
-    #    coverage either, inject Windsor tiktok_shop daily totals — allocated
-    #    across SKU/variation using the historical mix from the last 14 days of
-    #    overlay data. This way the per-SKU breakdown table still populates for
-    #    yesterday/today instead of showing a single "(all)" row.
+    # 2) Top-up: for ANY (date, region) where the overlay+CSVs have no rows,
+    #    inject Windsor tiktok_shop daily totals — allocated across SKU/variation
+    #    using the historical mix from the last 14 days of overlay data, with a
+    #    per-(sku, variation) units/orders multiplier so net_qty isn't undercounted.
     if shop_orders_daily:
         from datetime import timedelta as _td
-        cutoff = overlay_end or "0000-00-00"
-        cutoff_d = date.fromisoformat(cutoff) if cutoff != "0000-00-00" else None
-        existing_dates = {(r.get("date"), r.get("region")) for r in orders_daily}
+        # Set of (date, region) keys that already have at least one row
+        existing_keys = {(r.get("date"), r.get("region")) for r in orders_daily
+                         if r.get("date") and r.get("region")}
 
-        # Build (region, sku, variation) -> share of regional net_sales across
-        # the last 14 days of overlay data (the SKU-aware reference rows).
+        # Mix + units-per-order multiplier from last 14 days of overlay-window data
+        cutoff_d = date.fromisoformat(overlay_end) if overlay_end else None
         mix_window_start = (cutoff_d - _td(days=13)).isoformat() if cutoff_d else "2000-01-01"
         mix_totals: dict[str, dict[tuple, float]] = {"UK": {}, "US": {}}
+        upo_orders: dict[str, dict[tuple, int]] = {"UK": {}, "US": {}}
+        upo_qty: dict[str, dict[tuple, float]] = {"UK": {}, "US": {}}
         for r in orders_daily:
             d = r.get("date", "")
-            if not d or d < mix_window_start or d > cutoff or r.get("is_free_gift"):
+            if not d or d < mix_window_start or (overlay_end and d > overlay_end) or r.get("is_free_gift"):
                 continue
             region = r.get("region")
             if region not in mix_totals:
                 continue
             key = (r.get("sku", ""), r.get("variation", ""))
             mix_totals[region][key] = mix_totals[region].get(key, 0.0) + (r.get("net_sales", 0) or 0)
-        # Convert each region's mix to shares
+            upo_orders[region][key] = upo_orders[region].get(key, 0) + (r.get("net_orders", 0) or 0)
+            upo_qty[region][key] = upo_qty[region].get(key, 0.0) + (r.get("net_qty", 0) or 0)
+
         mix_share: dict[str, list[tuple]] = {}
         for region, sk_map in mix_totals.items():
             total = sum(sk_map.values()) or 1.0
@@ -82,13 +86,26 @@ def run(
                 key=lambda x: -x[2],
             )
 
+        def units_per_order(region: str, sku: str, var: str) -> float:
+            """Average units per net order for this region+sku+variation from history."""
+            o = upo_orders.get(region, {}).get((sku, var), 0)
+            q = upo_qty.get(region, {}).get((sku, var), 0.0)
+            if o > 0 and q > 0:
+                return q / o
+            # Fallback: regional avg
+            ro = sum(upo_orders.get(region, {}).values())
+            rq = sum(upo_qty.get(region, {}).values())
+            return rq / ro if ro > 0 else 1.0
+
+        # Per-region availability of Windsor shop orders
+        windsor_uk_dates = {d for d, regs in shop_orders_daily.items() if "UK" in regs}
+        windsor_us_dates = {d for d, regs in shop_orders_daily.items() if "US" in regs}
+
         injected = 0
         for day, regions in shop_orders_daily.items():
-            if day <= cutoff:
-                continue
             for region, b in regions.items():
-                if (day, region) in existing_dates:
-                    continue
+                if (day, region) in existing_keys:
+                    continue  # overlay/CSV already populated this date
                 ccy = b.get("currency", "GBP" if region == "UK" else "USD")
                 total_net_orders = b.get("net_orders", 0) or 0
                 total_cancelled = b.get("cancelled_orders", 0) or 0
@@ -100,26 +117,26 @@ def run(
                 total_cancel_amt = b.get("cancelled_amt", 0) or 0
                 total_paid = b.get("total_paid", 0) or 0
 
-                buckets = mix_share.get(region, [])
-                if not buckets:
-                    # No historical data to allocate against — fall back to a single
-                    # "(all)" row so the totals still surface in top-line KPIs.
-                    buckets = [("(all)", "(all)", 1.0)]
+                buckets = mix_share.get(region, []) or [("(all)", "(all)", 1.0)]
 
-                # Allocate proportionally; track residuals so totals match exactly.
                 allocated_orders = 0
-                allocated_qty = 0
                 allocated_cancelled = 0
+                # Compute target total qty so allocated rows sum to it
+                target_total_qty = int(round(sum(
+                    units_per_order(region, sku, var) * total_net_orders * share
+                    for sku, var, share in buckets
+                )))
+                allocated_qty = 0
                 for i, (sku, var, share) in enumerate(buckets):
                     is_last = (i == len(buckets) - 1)
+                    upo = units_per_order(region, sku, var)
                     if is_last:
-                        # Assign the remainder to absorb rounding drift
                         sku_orders = total_net_orders - allocated_orders
-                        sku_qty = total_net_orders - allocated_qty  # 1 unit / order approx
+                        sku_qty = target_total_qty - allocated_qty
                         sku_cancelled = total_cancelled - allocated_cancelled
                     else:
                         sku_orders = int(round(total_net_orders * share))
-                        sku_qty = sku_orders
+                        sku_qty = int(round(sku_orders * upo))
                         sku_cancelled = int(round(total_cancelled * share))
                     allocated_orders += sku_orders
                     allocated_qty += sku_qty
@@ -156,7 +173,37 @@ def run(
                     })
                     injected += 1
         if injected:
-            print(f"  Windsor top-up: injected {injected} SKU-allocated rows for dates after {cutoff} (mix from {mix_window_start} -> {cutoff})")
+            print(f"  Windsor top-up: injected {injected} SKU-allocated rows (any (date, region) "
+                  f"not covered by overlay/CSV); units/order multiplier from {mix_window_start}->{overlay_end}")
+
+    # 3) Affiliate commission top-up from Windsor Statement table
+    #    Fills aff_daily holes (e.g. recent days where affiliate CSVs haven't been
+    #    dropped yet). Statement only includes SETTLED transactions so it lags
+    #    by a few days — only inject for (date, region) where aff_daily is empty.
+    if shop_aff_daily:
+        existing_aff_keys = {(r.get("date"), r.get("region")) for r in aff_daily
+                             if r.get("date") and r.get("region")}
+        # Also dedup against rows that have positive aff_commission already
+        aff_topup = 0
+        for day, regions in shop_aff_daily.items():
+            for region, amt in regions.items():
+                if (day, region) in existing_aff_keys:
+                    continue
+                if amt <= 0:
+                    continue
+                aff_daily.append({
+                    "date": day, "region": region, "sku": "(all)",
+                    "aff_orders": 0,
+                    "aff_revenue": 0.0,
+                    "aff_commission": round(amt, 2),
+                    "aff_std": 0.0,
+                    "aff_shop_ads": round(amt, 2),
+                    "aff_co_funded": 0.0,
+                    "_source": "windsor_statement",
+                })
+                aff_topup += 1
+        if aff_topup:
+            print(f"  Affiliate top-up from Windsor Statement: {aff_topup} (date, region) rows added")
 
     # Determine window from orders (per-region and global)
     dates = [r["date"] for r in orders_daily if r.get("date")]
