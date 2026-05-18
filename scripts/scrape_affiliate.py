@@ -1,20 +1,18 @@
 """
-scrape_affiliate.py — drive Chrome via Playwright to download fresh affiliate
-order CSVs from TikTok Seller Center (UK + US). Idempotent: only fetches the
-date gap between the most recent CSV in raw_csvs/ and today.
+scrape_affiliate.py — Playwright-driven affiliate-order CSV downloader.
 
-Setup (one-time, per region):
-  1) pip install playwright && playwright install chromium
-  2) Run once interactively to log in and persist auth:
-       python scripts/scrape_affiliate.py --setup-uk
-       python scripts/scrape_affiliate.py --setup-us
-     A Chromium window opens. Log in to TikTok Seller Center. Close when done.
-     Auth state is saved to config/playwright_storage_{uk,us}.json.
-  3) Subsequent runs (including from refresh_daily.py) use headless mode + the
-     stored auth — no manual interaction needed.
+Pre-flight auth check: navigates to {region}/homepage and confirms 'VAHDAM'
+(or the seller name) appears in DOM within 10 seconds. If not, logs
+"AUTH REQUIRED" and SKIPS that region (never attempts to log in on the user's
+behalf). UK auth failure does not block US, and vice versa.
 
-If Playwright is not installed or auth state is missing, the script logs a
-warning and exits 0 (the pipeline continues; CSVs land manually instead).
+Pagination: TikTok Seller Center exports CSV per page, not as one big file.
+The scraper iterates through pages and downloads each.
+
+One-time setup:
+  pip install playwright && playwright install chromium
+  python scripts/scrape_affiliate.py --setup-uk    # opens browser, log in once
+  python scripts/scrape_affiliate.py --setup-us
 """
 from __future__ import annotations
 
@@ -34,8 +32,16 @@ DOWNLOADS = pathlib.Path.home() / "Downloads"
 LOG = ROOT / "logs" / "scrape_affiliate.log"
 LOG.parent.mkdir(exist_ok=True)
 
-UK_URL = "https://seller-uk.tiktok.com/affiliate/orders"
-US_URL = "https://seller-us.tiktok.com/affiliate/orders"
+HOMEPAGE = {
+    "UK": "https://seller-uk.tiktok.com/homepage",
+    "US": "https://seller-us.tiktok.com/homepage",
+}
+ORDERS_URL = {
+    "UK": "https://seller-uk.tiktok.com/affiliate/orders",
+    "US": "https://seller-us.tiktok.com/affiliate/orders",
+}
+AUTH_TIMEOUT_SEC = 10
+AUTH_MARKERS = ["VAHDAM", "Vahdam"]
 
 
 def log(msg: str) -> None:
@@ -45,10 +51,12 @@ def log(msg: str) -> None:
         fh.write(line + "\n")
 
 
+def storage_state_path(region: str) -> pathlib.Path:
+    return CONFIG_DIR / f"playwright_storage_{region.lower()}.json"
+
+
 def latest_csv_dates() -> tuple[str | None, str | None]:
-    """Return (latest UK order date, latest US order date) from existing CSVs.
-    Reads each CSV's 'Time Created' column (DD/MM/YYYY) to find the actual data
-    cutoff, not just the file mtime."""
+    """Latest 'Time Created' (DD/MM/YYYY) per region across raw_csvs/."""
     import csv as _csv
     import re as _re
     uk_max = us_max = None
@@ -59,15 +67,13 @@ def latest_csv_dates() -> tuple[str | None, str | None]:
                 header = next(reader, None)
                 if not header or len(header) < 28:
                     continue
-                has_uk_col = "Creator Region" in header
-                off = 0 if has_uk_col else -1
+                off = 0 if "Creator Region" in header else -1
                 idx_time = 26 + off
                 idx_ccy = 6
                 for row in reader:
                     if len(row) <= idx_time:
                         continue
-                    raw = row[idx_time]
-                    m = _re.match(r"(\d{1,2})/(\d{1,2})/(\d{4})", raw or "")
+                    m = _re.match(r"(\d{1,2})/(\d{1,2})/(\d{4})", row[idx_time] or "")
                     if not m:
                         continue
                     iso = f"{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}"
@@ -81,39 +87,49 @@ def latest_csv_dates() -> tuple[str | None, str | None]:
     return uk_max, us_max
 
 
-def storage_state_path(region: str) -> pathlib.Path:
-    return CONFIG_DIR / f"playwright_storage_{region.lower()}.json"
-
-
 def setup_auth(region: str) -> int:
-    """Interactive: open a non-headless window so the user can log in."""
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
         log("ERROR: playwright not installed. Run: pip install playwright && playwright install chromium")
         return 1
-    url = UK_URL if region.upper() == "UK" else US_URL
-    sp = storage_state_path(region)
-    log(f"Setup {region}: opening Chromium. Log in to Seller Center, then close the window.")
+    log(f"Setup {region}: opening Chromium. Log in to TikTok Seller Center, then close window.")
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
         ctx = browser.new_context()
         page = ctx.new_page()
-        page.goto(url, wait_until="domcontentloaded", timeout=120_000)
-        # Wait for the user to close the browser
+        page.goto(HOMEPAGE[region], wait_until="domcontentloaded", timeout=120_000)
         try:
             while not page.is_closed():
                 time.sleep(2)
         except Exception:
             pass
-        ctx.storage_state(path=str(sp))
+        ctx.storage_state(path=str(storage_state_path(region)))
         browser.close()
-    log(f"Saved auth state -> {sp}")
+    log(f"Saved auth state -> {storage_state_path(region)}")
     return 0
 
 
-def download_csvs(region: str, gap_from: str, gap_to: str) -> int:
-    """Headless Playwright run to export affiliate CSVs covering gap_from..gap_to."""
+def preflight_auth(page, region: str) -> bool:
+    """Navigate to homepage, look for AUTH_MARKERS within 10s."""
+    try:
+        page.goto(HOMEPAGE[region], wait_until="domcontentloaded", timeout=30_000)
+    except Exception as e:
+        log(f"{region}: homepage navigation failed — {e}")
+        return False
+    deadline = time.time() + AUTH_TIMEOUT_SEC
+    while time.time() < deadline:
+        try:
+            body = page.inner_text("body")
+            if any(m in body for m in AUTH_MARKERS):
+                return True
+        except Exception:
+            pass
+        time.sleep(1)
+    return False
+
+
+def scrape_region(region: str, gap_from: str, gap_to: str) -> int:
     try:
         from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
     except ImportError:
@@ -121,66 +137,122 @@ def download_csvs(region: str, gap_from: str, gap_to: str) -> int:
         return 1
     sp = storage_state_path(region)
     if not sp.exists():
-        log(f"ERROR: no auth state for {region} at {sp}. Run --setup-{region.lower()} first.")
+        log(f"AUTH REQUIRED — {region} no Playwright storage state at {sp}. "
+            f"Run: python scripts/scrape_affiliate.py --setup-{region.lower()}")
         return 1
-    url = UK_URL if region.upper() == "UK" else US_URL
-    log(f"{region}: downloading CSVs for {gap_from} -> {gap_to}")
+
+    log(f"{region}: starting scrape for {gap_from} -> {gap_to}")
     downloaded: list[pathlib.Path] = []
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             ctx = browser.new_context(storage_state=str(sp), accept_downloads=True)
             page = ctx.new_page()
-            page.goto(url, wait_until="domcontentloaded", timeout=60_000)
-            # NOTE: TikTok's Seller Center DOM is volatile. The selectors below are
-            # placeholders pinned to common element patterns. They may need updating
-            # when TikTok ships UI changes. Wrap in try/except so partial breakage
-            # doesn't kill the pipeline.
-            try:
-                page.wait_for_selector('input[placeholder*="Start" i], input[placeholder*="start" i]', timeout=15_000)
-            except PWTimeout:
-                log(f"{region}: date picker did not appear within 15s — Seller Center may be slow or auth expired")
+
+            # Pre-flight auth check
+            if not preflight_auth(page, region):
+                log(f"AUTH REQUIRED — {region} Chrome not logged in (no VAHDAM marker in DOM within "
+                    f"{AUTH_TIMEOUT_SEC}s). Skipping. Re-run --setup-{region.lower()}.")
                 browser.close()
                 return 2
-            # Click date input → custom range
-            inputs = page.query_selector_all('input[placeholder*="date" i], input[placeholder*="Date" i]')
-            if len(inputs) >= 2:
-                inputs[0].fill(gap_from)
-                inputs[1].fill(gap_to)
-                page.keyboard.press("Enter")
-            else:
-                log(f"{region}: could not locate two date inputs; selectors need updating")
-            # Wait for table to load
+            log(f"{region}: auth ✓")
+
+            # Navigate to affiliate orders
+            page.goto(ORDERS_URL[region], wait_until="domcontentloaded", timeout=60_000)
             page.wait_for_timeout(3000)
-            # Trigger export — common button text: "Export", "Download"
-            export_btn = page.query_selector('button:has-text("Export"), button:has-text("Download")')
-            if not export_btn:
-                log(f"{region}: Export button not found")
-                browser.close()
-                return 3
-            with page.expect_download(timeout=120_000) as dl_info:
-                export_btn.click()
-            dl = dl_info.value
-            target = DOWNLOADS / dl.suggested_filename
-            dl.save_as(str(target))
-            downloaded.append(target)
+
+            # Set custom date range: focus start-date input, click "Yesterday" preset
+            # if the gap is exactly yesterday→today; otherwise type in both inputs.
+            try:
+                start_input = page.query_selector('input[placeholder*="Start" i]')
+                if start_input:
+                    start_input.click()
+                    page.wait_for_timeout(800)
+                    yday_btn = page.query_selector('button:text-is("Yesterday")')
+                    today_iso = _date.today().isoformat()
+                    yday_iso = (_date.today() - timedelta(days=1)).isoformat()
+                    if gap_from == yday_iso and gap_to == today_iso and yday_btn:
+                        yday_btn.click()
+                        log(f"{region}: clicked Yesterday preset")
+                    else:
+                        # Type both bounds
+                        date_inputs = page.query_selector_all('input[placeholder*="date" i]')
+                        if len(date_inputs) >= 2:
+                            date_inputs[0].fill("")
+                            date_inputs[0].type(gap_from)
+                            date_inputs[1].fill("")
+                            date_inputs[1].type(gap_to)
+                            page.keyboard.press("Enter")
+                            log(f"{region}: set custom range {gap_from} → {gap_to}")
+            except Exception as e:
+                log(f"{region}: date picker error — {e}")
+            page.wait_for_timeout(3000)
+
+            # PAGINATED export: TikTok exports per page, not in one file.
+            # Find pagination control to know how many pages exist.
+            try:
+                page_count_el = page.query_selector('[class*="pagination" i] [class*="total" i]')
+                total_pages = 1
+                if page_count_el:
+                    txt = page_count_el.inner_text()
+                    import re as _re
+                    m = _re.search(r"(\d+)\s*(?:page|of|/)", txt, _re.IGNORECASE)
+                    if m:
+                        total_pages = int(m.group(1))
+                log(f"{region}: pagination shows ~{total_pages} page(s)")
+            except Exception:
+                total_pages = 1
+
+            # Iterate pages — click Download/Export on each, advance
+            for page_idx in range(1, total_pages + 1):
+                try:
+                    export_btn = page.query_selector(
+                        'button:has-text("Download"), button:has-text("Export")'
+                    )
+                    if not export_btn:
+                        log(f"{region}: page {page_idx} — Download button not found")
+                        break
+                    with page.expect_download(timeout=120_000) as dl_info:
+                        export_btn.click()
+                    dl = dl_info.value
+                    target = DOWNLOADS / dl.suggested_filename
+                    dl.save_as(str(target))
+                    downloaded.append(target)
+                    log(f"{region}: page {page_idx} -> {dl.suggested_filename}")
+                except Exception as e:
+                    log(f"{region}: page {page_idx} export failed — {e}")
+                    break
+
+                # Click "next page" if more pages remain
+                if page_idx < total_pages:
+                    next_btn = page.query_selector(
+                        '[class*="pagination" i] button:has-text(">"), '
+                        'button[aria-label*="next" i]'
+                    )
+                    if next_btn and not next_btn.is_disabled():
+                        next_btn.click()
+                        page.wait_for_timeout(2500)
+                    else:
+                        log(f"{region}: next-page button missing/disabled — stopping pagination")
+                        break
+
             browser.close()
     except Exception as e:
-        log(f"{region}: scrape failed — {e}")
+        log(f"{region}: scrape exception — {e}")
         return 4
 
-    # Move new affiliate_orders_*.csv files into raw_csvs/
-    moved = 0
+    # Move downloads into raw_csvs/, skip dups
     existing = {p.name for p in RAW_CSVS.glob("affiliate_orders_*.csv")}
+    moved = 0
     for src in downloaded:
         if not src.name.startswith("affiliate_orders_") or not src.name.endswith(".csv"):
             continue
         if src.name in existing:
+            log(f"{region}: skip dup {src.name}")
             continue
         shutil.move(str(src), str(RAW_CSVS / src.name))
         moved += 1
-        log(f"{region}: moved {src.name} -> raw_csvs/")
-    log(f"{region}: {moved} new CSV(s) added to raw_csvs/")
+    log(f"{region}: {moved} new CSV(s) added (of {len(downloaded)} downloaded)")
     return 0
 
 
@@ -189,25 +261,21 @@ def main() -> int:
     parser.add_argument("--setup-uk", action="store_true")
     parser.add_argument("--setup-us", action="store_true")
     args = parser.parse_args()
-
-    if args.setup_uk:
-        return setup_auth("UK")
-    if args.setup_us:
-        return setup_auth("US")
+    if args.setup_uk: return setup_auth("UK")
+    if args.setup_us: return setup_auth("US")
 
     today = _date.today().isoformat()
+    week_ago = (_date.today() - timedelta(days=7)).isoformat()
     uk_latest, us_latest = latest_csv_dates()
     log(f"Latest order dates in raw_csvs/: UK={uk_latest}, US={us_latest}")
-
-    # Pick gap_from = max(latest + 1 day, today - 7) so we always re-check the last week
-    week_ago = (_date.today() - timedelta(days=7)).isoformat()
     uk_from = max(uk_latest, week_ago) if uk_latest else week_ago
     us_from = max(us_latest, week_ago) if us_latest else week_ago
 
-    rc = 0
-    rc += download_csvs("UK", uk_from, today)
-    rc += download_csvs("US", us_from, today)
-    return rc
+    # Run regions independently — failure in one doesn't abort the other
+    uk_rc = scrape_region("UK", uk_from, today)
+    us_rc = scrape_region("US", us_from, today)
+    log(f"Affiliate scrape complete: UK rc={uk_rc}, US rc={us_rc}")
+    return 0  # always 0 — failures are reports, not pipeline errors
 
 
 if __name__ == "__main__":
