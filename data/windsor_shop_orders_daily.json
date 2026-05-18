@@ -1,0 +1,422 @@
+{
+  "2026-05-04": {
+    "US": {
+      "currency": "USD",
+      "orders": 113,
+      "net_orders": 108,
+      "cancelled_orders": 5,
+      "gross": 4889.419999999994,
+      "plat_disc": 222.95000000000005,
+      "seller_disc": 2406.2200000000003,
+      "sub_total": 2260.2499999999986,
+      "net_sales": 2418.0599999999986,
+      "total_paid": 2319.859999999999,
+      "cancelled_amt": 110.24
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 327,
+      "net_orders": 295,
+      "cancelled_orders": 32,
+      "gross": 20196.82000000004,
+      "plat_disc": 1335.7700000000004,
+      "seller_disc": 9322.390000000001,
+      "sub_total": 9538.65999999998,
+      "net_sales": 9904.939999999975,
+      "total_paid": 9632.31999999998,
+      "cancelled_amt": 951.4400000000004
+    }
+  },
+  "2026-05-05": {
+    "US": {
+      "currency": "USD",
+      "orders": 115,
+      "net_orders": 111,
+      "cancelled_orders": 4,
+      "gross": 5479.3599999999915,
+      "plat_disc": 275.41000000000014,
+      "seller_disc": 2822.9300000000017,
+      "sub_total": 2381.0199999999986,
+      "net_sales": 2630.8499999999976,
+      "total_paid": 2455.6899999999982,
+      "cancelled_amt": 95.14999999999999
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 371,
+      "net_orders": 320,
+      "cancelled_orders": 51,
+      "gross": 25516.45000000015,
+      "plat_disc": 1756.62,
+      "seller_disc": 12523.849999999991,
+      "sub_total": 11235.97999999997,
+      "net_sales": 10951.479999999974,
+      "total_paid": 11355.379999999968,
+      "cancelled_amt": 1974.3000000000013
+    }
+  },
+  "2026-05-06": {
+    "US": {
+      "currency": "USD",
+      "orders": 159,
+      "net_orders": 146,
+      "cancelled_orders": 13,
+      "gross": 7838.889999999981,
+      "plat_disc": 322.2400000000002,
+      "seller_disc": 3867.6700000000033,
+      "sub_total": 3648.979999999992,
+      "net_sales": 3720.6499999999974,
+      "total_paid": 3773.8099999999963,
+      "cancelled_amt": 339.63
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 308,
+      "net_orders": 272,
+      "cancelled_orders": 36,
+      "gross": 22876.850000000093,
+      "plat_disc": 1761.1999999999987,
+      "seller_disc": 11342.389999999998,
+      "sub_total": 9773.25999999998,
+      "net_sales": 10011.079999999974,
+      "total_paid": 9842.35999999998,
+      "cancelled_amt": 1376.4100000000003
+    }
+  },
+  "2026-05-07": {
+    "US": {
+      "currency": "USD",
+      "orders": 140,
+      "net_orders": 136,
+      "cancelled_orders": 4,
+      "gross": 7499.059999999987,
+      "plat_disc": 390.2299999999998,
+      "seller_disc": 3840.0600000000054,
+      "sub_total": 3268.7699999999945,
+      "net_sales": 3663.2399999999952,
+      "total_paid": 3381.6599999999958,
+      "cancelled_amt": 98.54
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 393,
+      "net_orders": 350,
+      "cancelled_orders": 43,
+      "gross": 23676.530000000108,
+      "plat_disc": 1988.2399999999996,
+      "seller_disc": 11372.620000000004,
+      "sub_total": 10315.669999999973,
+      "net_sales": 10969.279999999972,
+      "total_paid": 10418.409999999973,
+      "cancelled_amt": 1209.5800000000004
+    }
+  },
+  "2026-05-08": {
+    "US": {
+      "currency": "USD",
+      "orders": 185,
+      "net_orders": 179,
+      "cancelled_orders": 6,
+      "gross": 8608.999999999982,
+      "plat_disc": 420.66000000000014,
+      "seller_disc": 4288.5500000000075,
+      "sub_total": 3899.78999999999,
+      "net_sales": 4208.549999999992,
+      "total_paid": 4005.0399999999954,
+      "cancelled_amt": 207.95
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 388,
+      "net_orders": 326,
+      "cancelled_orders": 62,
+      "gross": 24276.380000000147,
+      "plat_disc": 1574.1599999999996,
+      "seller_disc": 11598.720000000003,
+      "sub_total": 11103.499999999973,
+      "net_sales": 10598.599999999971,
+      "total_paid": 11181.309999999976,
+      "cancelled_amt": 1933.630000000001
+    }
+  },
+  "2026-05-09": {
+    "US": {
+      "currency": "USD",
+      "orders": 195,
+      "net_orders": 187,
+      "cancelled_orders": 8,
+      "gross": 10778.509999999975,
+      "plat_disc": 505.4899999999994,
+      "seller_disc": 5249.24000000001,
+      "sub_total": 5023.779999999985,
+      "net_sales": 5480.579999999989,
+      "total_paid": 5200.209999999992,
+      "cancelled_amt": 201.7
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 251,
+      "net_orders": 223,
+      "cancelled_orders": 28,
+      "gross": 17897.40999999999,
+      "plat_disc": 983.7399999999998,
+      "seller_disc": 8583.610000000008,
+      "sub_total": 8330.059999999981,
+      "net_sales": 8161.729999999973,
+      "total_paid": 8404.879999999981,
+      "cancelled_amt": 1137.82
+    }
+  },
+  "2026-05-10": {
+    "US": {
+      "currency": "USD",
+      "orders": 152,
+      "net_orders": 148,
+      "cancelled_orders": 4,
+      "gross": 9008.599999999977,
+      "plat_disc": 377.4899999999997,
+      "seller_disc": 4390.1600000000035,
+      "sub_total": 4240.9499999999925,
+      "net_sales": 4667.539999999997,
+      "total_paid": 4418.609999999998,
+      "cancelled_amt": 116.12
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 250,
+      "net_orders": 206,
+      "cancelled_orders": 44,
+      "gross": 16517.449999999957,
+      "plat_disc": 924.1699999999997,
+      "seller_disc": 7723.499999999995,
+      "sub_total": 7869.779999999981,
+      "net_sales": 7117.629999999977,
+      "total_paid": 7926.589999999981,
+      "cancelled_amt": 1543.21
+    }
+  },
+  "2026-05-11": {
+    "US": {
+      "currency": "USD",
+      "orders": 163,
+      "net_orders": 159,
+      "cancelled_orders": 4,
+      "gross": 8768.899999999985,
+      "plat_disc": 600.4899999999996,
+      "seller_disc": 4540.870000000004,
+      "sub_total": 3627.5399999999963,
+      "net_sales": 4234.989999999994,
+      "total_paid": 3739.0499999999965,
+      "cancelled_amt": 99.17
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 348,
+      "net_orders": 296,
+      "cancelled_orders": 52,
+      "gross": 20277.02000000005,
+      "plat_disc": 1067.2700000000004,
+      "seller_disc": 9526.539999999997,
+      "sub_total": 9683.209999999977,
+      "net_sales": 8771.68999999997,
+      "total_paid": 9743.639999999976,
+      "cancelled_amt": 1847.3300000000002
+    }
+  },
+  "2026-05-12": {
+    "US": {
+      "currency": "USD",
+      "orders": 143,
+      "net_orders": 136,
+      "cancelled_orders": 7,
+      "gross": 5319.319999999992,
+      "plat_disc": 257.17000000000013,
+      "seller_disc": 2572.1200000000003,
+      "sub_total": 2490.0299999999997,
+      "net_sales": 2598.1799999999985,
+      "total_paid": 2562.41,
+      "cancelled_amt": 203.12
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 324,
+      "net_orders": 276,
+      "cancelled_orders": 48,
+      "gross": 21276.990000000078,
+      "plat_disc": 1158.16,
+      "seller_disc": 10077.489999999993,
+      "sub_total": 10041.33999999998,
+      "net_sales": 9119.729999999969,
+      "total_paid": 10109.48999999998,
+      "cancelled_amt": 1987.3500000000006
+    }
+  },
+  "2026-05-13": {
+    "US": {
+      "currency": "USD",
+      "orders": 165,
+      "net_orders": 163,
+      "cancelled_orders": 2,
+      "gross": 6654.059999999988,
+      "plat_disc": 308.58000000000004,
+      "seller_disc": 3447.0399999999995,
+      "sub_total": 2898.4399999999964,
+      "net_sales": 3261.6299999999983,
+      "total_paid": 3015.759999999999,
+      "cancelled_amt": 62.71
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 302,
+      "net_orders": 254,
+      "cancelled_orders": 48,
+      "gross": 19457.18000000001,
+      "plat_disc": 992.2699999999996,
+      "seller_disc": 9071.309999999992,
+      "sub_total": 9393.599999999971,
+      "net_sales": 8652.03999999997,
+      "total_paid": 9444.419999999971,
+      "cancelled_amt": 1649.5999999999997
+    }
+  },
+  "2026-05-14": {
+    "US": {
+      "currency": "USD",
+      "orders": 115,
+      "net_orders": 112,
+      "cancelled_orders": 3,
+      "gross": 4849.2899999999945,
+      "plat_disc": 309.3200000000001,
+      "seller_disc": 2540.06,
+      "sub_total": 1999.910000000001,
+      "net_sales": 2290.9899999999993,
+      "total_paid": 2067.8000000000006,
+      "cancelled_amt": 86.13
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 332,
+      "net_orders": 279,
+      "cancelled_orders": 53,
+      "gross": 22496.9400000001,
+      "plat_disc": 1278.1399999999999,
+      "seller_disc": 10553.409999999996,
+      "sub_total": 10665.389999999967,
+      "net_sales": 9860.38999999996,
+      "total_paid": 10693.319999999967,
+      "cancelled_amt": 1931.49
+    }
+  },
+  "2026-05-15": {
+    "US": {
+      "currency": "USD",
+      "orders": 165,
+      "net_orders": 162,
+      "cancelled_orders": 3,
+      "gross": 4879.309999999992,
+      "plat_disc": 318.21999999999997,
+      "seller_disc": 2420.71,
+      "sub_total": 2140.3800000000015,
+      "net_sales": 2433.6899999999996,
+      "total_paid": 2195.0000000000014,
+      "cancelled_amt": 79.53
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 283,
+      "net_orders": 255,
+      "cancelled_orders": 28,
+      "gross": 18577.37000000001,
+      "plat_disc": 834.7800000000001,
+      "seller_disc": 8912.51,
+      "sub_total": 8830.079999999974,
+      "net_sales": 8586.059999999978,
+      "total_paid": 8854.019999999973,
+      "cancelled_amt": 1053.7900000000004
+    }
+  },
+  "2026-05-16": {
+    "US": {
+      "currency": "USD",
+      "orders": 91,
+      "net_orders": 84,
+      "cancelled_orders": 7,
+      "gross": 4469.259999999995,
+      "plat_disc": 327.2599999999999,
+      "seller_disc": 2317.859999999999,
+      "sub_total": 1824.14,
+      "net_sales": 2040.7700000000004,
+      "total_paid": 1886.4999999999998,
+      "cancelled_amt": 128.61
+    },
+    "UK": {
+      "currency": "GBP",
+      "orders": 220,
+      "net_orders": 182,
+      "cancelled_orders": 38,
+      "gross": 15657.779999999959,
+      "plat_disc": 552.99,
+      "seller_disc": 7501.870000000011,
+      "sub_total": 7602.919999999975,
+      "net_sales": 6711.499999999981,
+      "total_paid": 7606.539999999975,
+      "cancelled_amt": 1363.6300000000008
+    }
+  },
+  "2026-05-17": {
+    "UK": {
+      "currency": "GBP",
+      "orders": 238,
+      "net_orders": 204,
+      "cancelled_orders": 34,
+      "gross": 17997.539999999968,
+      "plat_disc": 583.7600000000001,
+      "seller_disc": 8787.690000000013,
+      "sub_total": 8626.089999999971,
+      "net_sales": 7669.979999999975,
+      "total_paid": 8642.04999999997,
+      "cancelled_amt": 1464.6800000000003
+    },
+    "US": {
+      "currency": "USD",
+      "orders": 123,
+      "net_orders": 120,
+      "cancelled_orders": 3,
+      "gross": 5799.319999999993,
+      "plat_disc": 317.63000000000005,
+      "seller_disc": 3002.18,
+      "sub_total": 2479.509999999998,
+      "net_sales": 2720.9299999999994,
+      "total_paid": 2570.0399999999986,
+      "cancelled_amt": 154.24
+    }
+  },
+  "2026-05-18": {
+    "UK": {
+      "currency": "GBP",
+      "orders": 25,
+      "net_orders": 23,
+      "cancelled_orders": 2,
+      "gross": 1999.74,
+      "plat_disc": 68.55000000000001,
+      "seller_disc": 998.7999999999998,
+      "sub_total": 932.3900000000003,
+      "net_sales": 951.5600000000002,
+      "total_paid": 932.3900000000003,
+      "cancelled_amt": 45.57
+    },
+    "US": {
+      "currency": "USD",
+      "orders": 19,
+      "net_orders": 19,
+      "cancelled_orders": 0,
+      "gross": 1039.81,
+      "plat_disc": 108.53,
+      "seller_disc": 550.12,
+      "sub_total": 381.16,
+      "net_sales": 509.68000000000006,
+      "total_paid": 401.15,
+      "cancelled_amt": 0.0
+    }
+  }
+}

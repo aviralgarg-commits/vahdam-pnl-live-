@@ -1,0 +1,1628 @@
+{
+  "pulled_at": "2026-05-18",
+  "window_start": "2026-02-17",
+  "window_end": "2026-05-18",
+  "source": "Windsor.ai tiktok connector (spend + gmv_max_ads_spend, full window)",
+  "currency": {
+    "UK": "GBP",
+    "US": "USD"
+  },
+  "days": [
+    "2026-02-17",
+    "2026-02-18",
+    "2026-02-19",
+    "2026-02-20",
+    "2026-02-21",
+    "2026-02-22",
+    "2026-02-23",
+    "2026-02-24",
+    "2026-02-25",
+    "2026-02-26",
+    "2026-02-27",
+    "2026-02-28",
+    "2026-03-01",
+    "2026-03-02",
+    "2026-03-03",
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-07",
+    "2026-03-08",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-11",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-14",
+    "2026-03-15",
+    "2026-03-16",
+    "2026-03-17",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-20",
+    "2026-03-21",
+    "2026-03-22",
+    "2026-03-23",
+    "2026-03-24",
+    "2026-03-25",
+    "2026-03-26",
+    "2026-03-27",
+    "2026-03-28",
+    "2026-03-29",
+    "2026-03-30",
+    "2026-03-31",
+    "2026-04-01",
+    "2026-04-02",
+    "2026-04-03",
+    "2026-04-04",
+    "2026-04-05",
+    "2026-04-06",
+    "2026-04-07",
+    "2026-04-08",
+    "2026-04-09",
+    "2026-04-10",
+    "2026-04-11",
+    "2026-04-12",
+    "2026-04-13",
+    "2026-04-14",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-18",
+    "2026-04-19",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-22",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-25",
+    "2026-04-26",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-01",
+    "2026-05-02",
+    "2026-05-03",
+    "2026-05-04",
+    "2026-05-05",
+    "2026-05-06",
+    "2026-05-07",
+    "2026-05-08",
+    "2026-05-09",
+    "2026-05-10",
+    "2026-05-11",
+    "2026-05-12",
+    "2026-05-13",
+    "2026-05-14",
+    "2026-05-15",
+    "2026-05-16",
+    "2026-05-17",
+    "2026-05-18"
+  ],
+  "daily_region_total": {
+    "UK": {
+      "2026-02-17": 2943.6899999999996,
+      "2026-02-18": 2875.1900000000005,
+      "2026-02-19": 4834.7699999999995,
+      "2026-02-20": 4386.1900000000005,
+      "2026-02-21": 3454.2399999999993,
+      "2026-02-22": 3284.9900000000007,
+      "2026-02-23": 3034.0400000000004,
+      "2026-02-24": 2310.65,
+      "2026-02-25": 3775.2799999999997,
+      "2026-02-26": 3736.2900000000004,
+      "2026-02-27": 4325.77,
+      "2026-02-28": 4230.81,
+      "2026-03-01": 4050.22,
+      "2026-03-02": 4139.839999999999,
+      "2026-03-03": 3166.61,
+      "2026-03-04": 3512.629999999999,
+      "2026-03-05": 3356.83,
+      "2026-03-06": 3518.31,
+      "2026-03-07": 2225.53,
+      "2026-03-08": 2385.71,
+      "2026-03-09": 1760.3999999999996,
+      "2026-03-10": 2314.2699999999995,
+      "2026-03-11": 2221.0699999999997,
+      "2026-03-12": 2198.4,
+      "2026-03-13": 3150.3499999999995,
+      "2026-03-14": 3100.7,
+      "2026-03-15": 2245.4499999999994,
+      "2026-03-16": 2924.95,
+      "2026-03-17": 1922.9499999999998,
+      "2026-03-18": 2674.7200000000007,
+      "2026-03-19": 2270.7599999999993,
+      "2026-03-20": 2261.46,
+      "2026-03-21": 3306.46,
+      "2026-03-22": 2381.0099999999998,
+      "2026-03-23": 2754.5800000000004,
+      "2026-03-24": 3653.2000000000007,
+      "2026-03-25": 4005.4300000000003,
+      "2026-03-26": 5666.120000000001,
+      "2026-03-27": 7925.969999999999,
+      "2026-03-28": 7391.339999999999,
+      "2026-03-29": 9097.419999999998,
+      "2026-03-30": 7397.47,
+      "2026-03-31": 7518.0700000000015,
+      "2026-04-01": 7951.549999999998,
+      "2026-04-02": 5578.320000000001,
+      "2026-04-03": 4165.76,
+      "2026-04-04": 4083.0300000000007,
+      "2026-04-05": 4096.210000000001,
+      "2026-04-06": 3621.310000000001,
+      "2026-04-07": 3634.1600000000008,
+      "2026-04-08": 3177.9300000000003,
+      "2026-04-09": 3236.6000000000004,
+      "2026-04-10": 4289.830000000001,
+      "2026-04-11": 4314.5199999999995,
+      "2026-04-12": 4288.289999999999,
+      "2026-04-13": 5257.989999999999,
+      "2026-04-14": 4052.2499999999995,
+      "2026-04-15": 5049.13,
+      "2026-04-16": 3988.6400000000003,
+      "2026-04-17": 4246.4400000000005,
+      "2026-04-18": 5047.609999999999,
+      "2026-04-19": 4774.540000000001,
+      "2026-04-20": 6776.690000000001,
+      "2026-04-21": 5903.7699999999995,
+      "2026-04-22": 3898.2099999999996,
+      "2026-04-23": 4444.77,
+      "2026-04-24": 3935.91,
+      "2026-04-25": 4405.739999999999,
+      "2026-04-26": 4402.15,
+      "2026-04-27": 3703.8300000000004,
+      "2026-04-28": 5523.1900000000005,
+      "2026-04-29": 5595.4400000000005,
+      "2026-04-30": 7550.0,
+      "2026-05-01": 7889.429999999999,
+      "2026-05-02": 5307.469999999999,
+      "2026-05-03": 5001.250000000001,
+      "2026-05-04": 4749.039999999999,
+      "2026-05-05": 5122.08,
+      "2026-05-06": 4612.2699999999995,
+      "2026-05-07": 4704.43,
+      "2026-05-08": 4994.67,
+      "2026-05-09": 4119.0199999999995,
+      "2026-05-10": 3547.0200000000004,
+      "2026-05-11": 4308.96,
+      "2026-05-12": 4150.739999999999,
+      "2026-05-13": 3938.4500000000003,
+      "2026-05-14": 4522.490000000001,
+      "2026-05-15": 4463.240000000001,
+      "2026-05-16": 3371.57,
+      "2026-05-17": 3120.81,
+      "2026-05-18": 278.29999999999995
+    },
+    "US": {
+      "2026-02-17": 7084.24,
+      "2026-02-18": 3973.1299999999997,
+      "2026-02-19": 5183.63,
+      "2026-02-20": 4498.6900000000005,
+      "2026-02-21": 8041.89,
+      "2026-02-22": 4014.72,
+      "2026-02-23": 3024.8799999999997,
+      "2026-02-24": 2933.4900000000002,
+      "2026-02-25": 4906.08,
+      "2026-02-26": 4531.289999999999,
+      "2026-02-27": 4425.71,
+      "2026-02-28": 5337.37,
+      "2026-03-01": 4884.88,
+      "2026-03-02": 3259.86,
+      "2026-03-03": 2507.53,
+      "2026-03-04": 3742.2,
+      "2026-03-05": 3807.0400000000004,
+      "2026-03-06": 9781.45,
+      "2026-03-07": 5943.82,
+      "2026-03-08": 3365.71,
+      "2026-03-09": 2941.31,
+      "2026-03-10": 2785.87,
+      "2026-03-11": 3654.1900000000005,
+      "2026-03-12": 2718.32,
+      "2026-03-13": 4710.07,
+      "2026-03-14": 4868.7,
+      "2026-03-15": 4325.2300000000005,
+      "2026-03-16": 4267.820000000001,
+      "2026-03-17": 3807.1300000000006,
+      "2026-03-18": 3685.86,
+      "2026-03-19": 3507.0899999999997,
+      "2026-03-20": 4089.9799999999996,
+      "2026-03-21": 4539.78,
+      "2026-03-22": 3492.41,
+      "2026-03-23": 2452.64,
+      "2026-03-24": 3249.7000000000003,
+      "2026-03-25": 2924.4700000000003,
+      "2026-03-26": 3960.34,
+      "2026-03-27": 3962.99,
+      "2026-03-28": 4298.44,
+      "2026-03-29": 4952.67,
+      "2026-03-30": 3631.81,
+      "2026-03-31": 2852.8799999999997,
+      "2026-04-01": 3603.78,
+      "2026-04-02": 3563.7900000000004,
+      "2026-04-03": 4826.55,
+      "2026-04-04": 4371.9800000000005,
+      "2026-04-05": 3474.44,
+      "2026-04-06": 2814.7900000000004,
+      "2026-04-07": 3287.5299999999997,
+      "2026-04-08": 3482.3999999999996,
+      "2026-04-09": 3745.63,
+      "2026-04-10": 4617.469999999999,
+      "2026-04-11": 4481.070000000001,
+      "2026-04-12": 4745.99,
+      "2026-04-13": 2293.810000000001,
+      "2026-04-14": 2294.12,
+      "2026-04-15": 1714.64,
+      "2026-04-16": 1607.1200000000001,
+      "2026-04-17": 2012.97,
+      "2026-04-18": 2268.5599999999995,
+      "2026-04-19": 1899.71,
+      "2026-04-20": 1596.25,
+      "2026-04-21": 2299.1200000000003,
+      "2026-04-22": 2275.4900000000002,
+      "2026-04-23": 3308.15,
+      "2026-04-24": 3556.82,
+      "2026-04-25": 3202.1,
+      "2026-04-26": 3265.19,
+      "2026-04-27": 3177.0600000000004,
+      "2026-04-28": 2627.4199999999996,
+      "2026-04-29": 3563.0299999999997,
+      "2026-04-30": 4587.910000000001,
+      "2026-05-01": 4785.51,
+      "2026-05-02": 3757.11,
+      "2026-05-03": 3518.48,
+      "2026-05-04": 1847.9300000000003,
+      "2026-05-05": 2914.4200000000005,
+      "2026-05-06": 3734.2599999999998,
+      "2026-05-07": 3446.1299999999997,
+      "2026-05-08": 4503.73,
+      "2026-05-09": 4769.04,
+      "2026-05-10": 4255.76,
+      "2026-05-11": 3217.83,
+      "2026-05-12": 2547.3400000000006,
+      "2026-05-13": 3569.4099999999994,
+      "2026-05-14": 2767.02,
+      "2026-05-15": 2237.9500000000003,
+      "2026-05-16": 2352.31,
+      "2026-05-17": 2470.9799999999996
+    }
+  },
+  "daily_by_sku": {
+    "UK": {
+      "2026-02-17": {
+        "(unallocated)": 856.1,
+        "Turmeric Ginger Tea": 76.03,
+        "Coffee": 1595.31,
+        "Green Burner": 65.01,
+        "Turmeric Curcumin": 151.24,
+        "Ashwagandha Caps": 200.0
+      },
+      "2026-02-18": {
+        "(unallocated)": 402.46,
+        "Turmeric Ginger Tea": 30.21,
+        "Coffee": 1988.77,
+        "Green Burner": 198.73,
+        "Turmeric Curcumin": 105.46,
+        "Ashwagandha Caps": 149.56
+      },
+      "2026-02-19": {
+        "(unallocated)": 1361.11,
+        "Turmeric Ginger Tea": 83.63,
+        "Coffee": 2657.44,
+        "Green Burner": 199.79,
+        "Turmeric Curcumin": 332.8,
+        "Ashwagandha Caps": 200.0
+      },
+      "2026-02-20": {
+        "(unallocated)": 1115.11,
+        "Turmeric Ginger Tea": 30.22,
+        "Coffee": 2547.75,
+        "Green Burner": 313.49,
+        "Turmeric Curcumin": 282.34,
+        "Ashwagandha Caps": 97.28
+      },
+      "2026-02-21": {
+        "(unallocated)": 946.9,
+        "Turmeric Ginger Tea": 29.85,
+        "Coffee": 1707.12,
+        "Green Burner": 95.59,
+        "Turmeric Curcumin": 646.36,
+        "Ashwagandha Caps": 28.42
+      },
+      "2026-02-22": {
+        "(unallocated)": 875.35,
+        "Turmeric Ginger Tea": 96.01,
+        "Coffee": 1813.41,
+        "Green Burner": 145.16,
+        "Turmeric Curcumin": 332.53,
+        "Ashwagandha Caps": 22.53
+      },
+      "2026-02-23": {
+        "(unallocated)": 929.99,
+        "Turmeric Ginger Tea": 38.96,
+        "Coffee": 1590.15,
+        "Green Burner": 307.48,
+        "Turmeric Curcumin": 144.54,
+        "Ashwagandha Caps": 22.92
+      },
+      "2026-02-24": {
+        "(unallocated)": 515.8,
+        "Turmeric Ginger Tea": 35.74,
+        "Coffee": 1319.06,
+        "Green Burner": 235.22,
+        "Turmeric Curcumin": 119.27,
+        "Ashwagandha Caps": 85.56
+      },
+      "2026-02-25": {
+        "(unallocated)": 638.07,
+        "Turmeric Ginger Tea": 31.27,
+        "Coffee": 2190.65,
+        "Green Burner": 667.14,
+        "Turmeric Curcumin": 194.59,
+        "Ashwagandha Caps": 53.56
+      },
+      "2026-02-26": {
+        "(unallocated)": 608.1500000000001,
+        "Turmeric Ginger Tea": 82.58,
+        "Coffee": 2482.18,
+        "Green Burner": 222.09,
+        "Turmeric Curcumin": 197.88,
+        "Ashwagandha Caps": 143.41
+      },
+      "2026-02-27": {
+        "Turmeric Ginger Tea": 74.75,
+        "Coffee": 3212.56,
+        "Green Burner": 333.56,
+        "Turmeric Curcumin": 199.23,
+        "Ashwagandha Caps": 25.98,
+        "(unallocated)": 479.68999999999994
+      },
+      "2026-02-28": {
+        "Turmeric Ginger Tea": 58.67,
+        "Coffee": 2619.53,
+        "Green Burner": 675.96,
+        "Turmeric Curcumin": 310.75,
+        "Ashwagandha Caps": 112.44,
+        "(unallocated)": 453.46
+      },
+      "2026-03-01": {
+        "Turmeric Ginger Tea": 50.12,
+        "Coffee": 3046.24,
+        "Green Burner": 325.79,
+        "Turmeric Curcumin": 158.75,
+        "Ashwagandha Caps": 45.48,
+        "(unallocated)": 423.84000000000003
+      },
+      "2026-03-02": {
+        "Turmeric Ginger Tea": 128.2,
+        "Coffee": 3312.37,
+        "Green Burner": 230.0,
+        "Turmeric Curcumin": 113.47,
+        "Ashwagandha Caps": 20.8,
+        "(unallocated)": 335.00000000000006
+      },
+      "2026-03-03": {
+        "Turmeric Ginger Tea": 51.74,
+        "Coffee": 2227.33,
+        "Green Burner": 230.0,
+        "Turmeric Curcumin": 143.9,
+        "Ashwagandha Caps": 48.01,
+        "(unallocated)": 465.63
+      },
+      "2026-03-04": {
+        "Turmeric Ginger Tea": 60.74,
+        "Coffee": 2705.04,
+        "Green Burner": 229.7,
+        "Turmeric Curcumin": 138.32,
+        "Ashwagandha Caps": 106.93,
+        "(unallocated)": 271.9
+      },
+      "2026-03-05": {
+        "Turmeric Ginger Tea": 89.92,
+        "Coffee": 2554.29,
+        "Green Burner": 166.72,
+        "Turmeric Curcumin": 320.09,
+        "Ashwagandha Caps": 20.91,
+        "(unallocated)": 204.89999999999998
+      },
+      "2026-03-06": {
+        "Turmeric Ginger Tea": 38.75,
+        "Coffee": 2585.82,
+        "Green Burner": 230.0,
+        "Turmeric Curcumin": 281.03,
+        "Ashwagandha Caps": 178.25,
+        "(unallocated)": 204.46
+      },
+      "2026-03-07": {
+        "Coffee": 1725.7,
+        "Green Burner": 230.0,
+        "Turmeric Curcumin": 96.41,
+        "Ashwagandha Caps": 68.55,
+        "(unallocated)": 104.86999999999999
+      },
+      "2026-03-08": {
+        "Coffee": 1888.55,
+        "Green Burner": 230.0,
+        "Turmeric Curcumin": 81.51,
+        "Ashwagandha Caps": 36.06,
+        "(unallocated)": 149.59
+      },
+      "2026-03-09": {
+        "Coffee": 1308.86,
+        "Green Burner": 116.33,
+        "Turmeric Curcumin": 133.39,
+        "Ashwagandha Caps": 80.29,
+        "(unallocated)": 121.53
+      },
+      "2026-03-10": {
+        "Coffee": 1743.96,
+        "Green Burner": 135.66,
+        "Turmeric Curcumin": 231.95,
+        "Ashwagandha Caps": 75.77,
+        "(unallocated)": 126.93
+      },
+      "2026-03-11": {
+        "Coffee": 1809.34,
+        "Green Burner": 88.12,
+        "Turmeric Curcumin": 95.74,
+        "Ashwagandha Caps": 38.91,
+        "(unallocated)": 188.96
+      },
+      "2026-03-12": {
+        "Coffee": 1658.45,
+        "Green Burner": 218.92,
+        "Turmeric Curcumin": 122.26,
+        "Ashwagandha Caps": 60.17,
+        "(unallocated)": 138.6
+      },
+      "2026-03-13": {
+        "Coffee": 2593.47,
+        "Green Burner": 147.18,
+        "Turmeric Curcumin": 175.21,
+        "Ashwagandha Caps": 80.64,
+        "(unallocated)": 153.85
+      },
+      "2026-03-14": {
+        "Coffee": 2383.08,
+        "Green Burner": 240.0,
+        "Turmeric Curcumin": 188.86,
+        "Ashwagandha Caps": 200.0,
+        "(unallocated)": 88.75999999999999
+      },
+      "2026-03-15": {
+        "Coffee": 1745.02,
+        "Green Burner": 239.64,
+        "Turmeric Curcumin": 47.48,
+        "Ashwagandha Caps": 71.48,
+        "(unallocated)": 141.82999999999998
+      },
+      "2026-03-16": {
+        "Coffee": 2272.07,
+        "Green Burner": 230.0,
+        "Turmeric Curcumin": 100.88,
+        "Ashwagandha Caps": 200.0,
+        "(unallocated)": 122.0
+      },
+      "2026-03-17": {
+        "Coffee": 1433.25,
+        "Green Burner": 230.0,
+        "Turmeric Curcumin": 107.2,
+        "Ashwagandha Caps": 40.7,
+        "(unallocated)": 111.80000000000001
+      },
+      "2026-03-18": {
+        "Coffee": 2050.96,
+        "Green Burner": 187.21,
+        "Turmeric Curcumin": 103.34,
+        "Ashwagandha Caps": 235.26,
+        "(unallocated)": 97.95
+      },
+      "2026-03-19": {
+        "Coffee": 1522.12,
+        "Green Burner": 201.85,
+        "Turmeric Curcumin": 124.8,
+        "Ashwagandha Caps": 300.0,
+        "(unallocated)": 121.99000000000001
+      },
+      "2026-03-20": {
+        "Coffee": 1547.9,
+        "Green Burner": 148.1,
+        "Turmeric Curcumin": 182.02,
+        "Ashwagandha Caps": 300.0,
+        "(unallocated)": 83.44
+      },
+      "2026-03-21": {
+        "Coffee": 2539.08,
+        "Green Burner": 118.51,
+        "Turmeric Curcumin": 122.54,
+        "Ashwagandha Caps": 300.0,
+        "(unallocated)": 226.33
+      },
+      "2026-03-22": {
+        "Coffee": 1943.51,
+        "Green Burner": 113.26,
+        "Turmeric Curcumin": 46.39,
+        "Ashwagandha Caps": 96.18,
+        "(unallocated)": 181.67000000000002
+      },
+      "2026-03-23": {
+        "(unallocated)": 198.32,
+        "Coffee": 1813.45,
+        "Green Burner": 230.0,
+        "Turmeric Curcumin": 168.44,
+        "Ashwagandha Caps": 344.37
+      },
+      "2026-03-24": {
+        "(unallocated)": 328.69,
+        "Coffee": 2768.01,
+        "Green Burner": 195.55,
+        "Turmeric Curcumin": 212.62,
+        "Ashwagandha Caps": 148.33
+      },
+      "2026-03-25": {
+        "(unallocated)": 425.90999999999997,
+        "Coffee": 2580.27,
+        "Green Burner": 167.02,
+        "Turmeric Curcumin": 745.56,
+        "Ashwagandha Caps": 86.67
+      },
+      "2026-03-26": {
+        "(unallocated)": 428.51,
+        "Coffee": 3667.12,
+        "Green Burner": 225.84,
+        "Turmeric Curcumin": 1162.44,
+        "Ashwagandha Caps": 182.21
+      },
+      "2026-03-27": {
+        "(unallocated)": 1039.25,
+        "Coffee": 5592.1,
+        "Green Burner": 94.36,
+        "Turmeric Curcumin": 964.07,
+        "Ashwagandha Caps": 236.19
+      },
+      "2026-03-28": {
+        "(unallocated)": 1088.76,
+        "Coffee": 5063.06,
+        "Green Burner": 132.28,
+        "Turmeric Curcumin": 707.24,
+        "Ashwagandha Caps": 400.0
+      },
+      "2026-03-29": {
+        "(unallocated)": 984.05,
+        "Coffee": 6958.11,
+        "Green Burner": 96.61,
+        "Turmeric Curcumin": 458.65,
+        "Ashwagandha Caps": 600.0
+      },
+      "2026-03-30": {
+        "Coffee": 5454.44,
+        "(unallocated)": 877.38,
+        "Green Burner": 95.94,
+        "Turmeric Curcumin": 369.71,
+        "Ashwagandha Caps": 600.0
+      },
+      "2026-03-31": {
+        "Coffee": 5366.67,
+        "(unallocated)": 944.49,
+        "Green Burner": 147.64,
+        "Turmeric Curcumin": 459.27,
+        "Ashwagandha Caps": 600.0
+      },
+      "2026-04-01": {
+        "Coffee": 6000.04,
+        "(unallocated)": 888.57,
+        "Green Burner": 186.07,
+        "Turmeric Curcumin": 476.87,
+        "Ashwagandha Caps": 400.0
+      },
+      "2026-04-02": {
+        "Coffee": 3878.42,
+        "(unallocated)": 485.54,
+        "Green Burner": 103.74,
+        "Turmeric Curcumin": 710.62,
+        "Ashwagandha Caps": 400.0
+      },
+      "2026-04-03": {
+        "Coffee": 2904.05,
+        "(unallocated)": 484.06999999999994,
+        "Green Burner": 212.42,
+        "Turmeric Curcumin": 350.89,
+        "Ashwagandha Caps": 214.33
+      },
+      "2026-04-04": {
+        "Coffee": 2591.3199999999997,
+        "(unallocated)": 223.33,
+        "Green Burner": 194.68,
+        "Turmeric Curcumin": 673.7,
+        "Ashwagandha Caps": 400.0
+      },
+      "2026-04-05": {
+        "Coffee": 2863.59,
+        "(unallocated)": 434.65999999999997,
+        "Green Burner": 121.36,
+        "Turmeric Curcumin": 335.24,
+        "Ashwagandha Caps": 341.36
+      },
+      "2026-04-06": {
+        "Coffee": 2507.3,
+        "(unallocated)": 342.34000000000003,
+        "Green Burner": 180.34,
+        "Turmeric Curcumin": 252.65,
+        "Ashwagandha Caps": 338.68
+      },
+      "2026-04-07": {
+        "Coffee": 2801.11,
+        "(unallocated)": 138.31,
+        "Green Burner": 132.19,
+        "Turmeric Curcumin": 162.55,
+        "Ashwagandha Caps": 400.0
+      },
+      "2026-04-08": {
+        "Coffee": 1879.75,
+        "(unallocated)": 372.03,
+        "Green Burner": 230.0,
+        "Turmeric Curcumin": 296.15,
+        "Ashwagandha Caps": 400.0
+      },
+      "2026-04-09": {
+        "Coffee": 2132.22,
+        "(unallocated)": 336.0200000000001,
+        "Green Burner": 230.0,
+        "Turmeric Curcumin": 138.36,
+        "Ashwagandha Caps": 400.0
+      },
+      "2026-04-10": {
+        "Coffee": 3558.77,
+        "(unallocated)": 195.45000000000002,
+        "Green Burner": 189.08,
+        "Turmeric Curcumin": 115.4,
+        "Ashwagandha Caps": 231.13
+      },
+      "2026-04-11": {
+        "Coffee": 3158.44,
+        "(unallocated)": 461.09000000000003,
+        "Green Burner": 103.14,
+        "Turmeric Curcumin": 227.04,
+        "Ashwagandha Caps": 364.81
+      },
+      "2026-04-12": {
+        "Coffee": 3567.17,
+        "(unallocated)": 214.44,
+        "Green Burner": 117.6,
+        "Turmeric Curcumin": 154.33,
+        "Ashwagandha Caps": 234.75
+      },
+      "2026-04-13": {
+        "Coffee": 4347.67,
+        "(unallocated)": 417.22,
+        "Green Burner": 100.0,
+        "Turmeric Curcumin": 182.03,
+        "Ashwagandha Caps": 211.07
+      },
+      "2026-04-14": {
+        "Coffee": 3175.23,
+        "Green Burner": 100.0,
+        "Turmeric Curcumin": 281.83,
+        "Ashwagandha Caps": 143.13,
+        "(unallocated)": 352.06
+      },
+      "2026-04-15": {
+        "Coffee": 3902.29,
+        "Green Burner": 100.0,
+        "Turmeric Curcumin": 107.63,
+        "Ashwagandha Caps": 341.31,
+        "(unallocated)": 597.9
+      },
+      "2026-04-16": {
+        "Coffee": 3068.7799999999997,
+        "Green Burner": 91.86,
+        "Turmeric Curcumin": 249.42,
+        "Ashwagandha Caps": 424.3,
+        "(unallocated)": 154.28
+      },
+      "2026-04-17": {
+        "Coffee": 3559.24,
+        "Green Burner": 53.27,
+        "Turmeric Curcumin": 172.68,
+        "Ashwagandha Caps": 123.45,
+        "(unallocated)": 337.8
+      },
+      "2026-04-18": {
+        "Coffee": 3910.53,
+        "Green Burner": 99.97,
+        "Turmeric Curcumin": 353.44,
+        "Ashwagandha Caps": 274.98,
+        "(unallocated)": 408.69
+      },
+      "2026-04-19": {
+        "Coffee": 3986.23,
+        "Green Burner": 53.05,
+        "Turmeric Curcumin": 357.82,
+        "Ashwagandha Caps": 221.46,
+        "(unallocated)": 155.98000000000002
+      },
+      "2026-04-20": {
+        "Coffee": 5261.320000000001,
+        "Green Burner": 40.0,
+        "Turmeric Curcumin": 128.83,
+        "Ashwagandha Caps": 633.09,
+        "(unallocated)": 713.45
+      },
+      "2026-04-21": {
+        "Coffee": 4817.98,
+        "Green Burner": 20.0,
+        "Turmeric Curcumin": 126.37,
+        "Ashwagandha Caps": 203.69,
+        "(unallocated)": 735.73
+      },
+      "2026-04-22": {
+        "Coffee": 3086.57,
+        "Green Burner": 20.0,
+        "Turmeric Curcumin": 185.31,
+        "Ashwagandha Caps": 154.17,
+        "(unallocated)": 452.16
+      },
+      "2026-04-23": {
+        "Coffee": 3536.27,
+        "Green Burner": 19.98,
+        "Turmeric Curcumin": 132.78,
+        "Ashwagandha Caps": 276.67,
+        "(unallocated)": 479.06999999999994
+      },
+      "2026-04-24": {
+        "Coffee": 2866.6400000000003,
+        "Green Burner": 14.98,
+        "Turmeric Curcumin": 129.61,
+        "Ashwagandha Caps": 66.35,
+        "(unallocated)": 858.33
+      },
+      "2026-04-25": {
+        "Coffee": 3503.7599999999998,
+        "Turmeric Curcumin": 337.43,
+        "Ashwagandha Caps": 269.91,
+        "(unallocated)": 294.64
+      },
+      "2026-04-26": {
+        "Coffee": 3893.33,
+        "Turmeric Curcumin": 99.37,
+        "Ashwagandha Caps": 112.96,
+        "(unallocated)": 296.49
+      },
+      "2026-04-27": {
+        "Coffee": 2982.87,
+        "Turmeric Curcumin": 73.1,
+        "Ashwagandha Caps": 191.78,
+        "(unallocated)": 456.08000000000004
+      },
+      "2026-04-28": {
+        "Coffee": 4897.95,
+        "Turmeric Curcumin": 182.83,
+        "Ashwagandha Caps": 237.14,
+        "(unallocated)": 205.27000000000004
+      },
+      "2026-04-29": {
+        "Coffee": 5152.93,
+        "Turmeric Curcumin": 161.83,
+        "Ashwagandha Caps": 74.99,
+        "(unallocated)": 205.69000000000003
+      },
+      "2026-04-30": {
+        "Coffee": 6793.71,
+        "Turmeric Curcumin": 46.11,
+        "Ashwagandha Caps": 53.47,
+        "(unallocated)": 656.71
+      },
+      "2026-05-01": {
+        "Coffee": 6432.24,
+        "Turmeric Curcumin": 280.16,
+        "Ashwagandha Caps": 474.59,
+        "(unallocated)": 702.44
+      },
+      "2026-05-02": {
+        "Coffee": 4056.2999999999997,
+        "Turmeric Curcumin": 291.85,
+        "Ashwagandha Caps": 422.2,
+        "(unallocated)": 537.12
+      },
+      "2026-05-03": {
+        "Coffee": 4137.72,
+        "Turmeric Curcumin": 164.55,
+        "Ashwagandha Caps": 255.6,
+        "(unallocated)": 443.37999999999994
+      },
+      "2026-05-04": {
+        "Coffee": 3775.49,
+        "Turmeric Curcumin": 184.74,
+        "Ashwagandha Caps": 299.54,
+        "(unallocated)": 489.27
+      },
+      "2026-05-05": {
+        "Coffee": 4169.88,
+        "Turmeric Curcumin": 201.59,
+        "Ashwagandha Caps": 334.59,
+        "(unallocated)": 416.02
+      },
+      "2026-05-06": {
+        "Coffee": 3234.66,
+        "Turmeric Curcumin": 77.12,
+        "Ashwagandha Caps": 462.74,
+        "(unallocated)": 837.7499999999999
+      },
+      "2026-05-07": {
+        "Coffee": 3489.39,
+        "Turmeric Curcumin": 131.27,
+        "Ashwagandha Caps": 318.71,
+        "(unallocated)": 765.06
+      },
+      "2026-05-08": {
+        "Coffee": 4072.31,
+        "Turmeric Curcumin": 140.41,
+        "Ashwagandha Caps": 220.26,
+        "(unallocated)": 561.69
+      },
+      "2026-05-09": {
+        "Coffee": 2881.57,
+        "Turmeric Curcumin": 182.92,
+        "Ashwagandha Caps": 214.87,
+        "(unallocated)": 839.66
+      },
+      "2026-05-10": {
+        "Coffee": 2538.9300000000003,
+        "Turmeric Curcumin": 311.99,
+        "Ashwagandha Caps": 115.88,
+        "(unallocated)": 580.2199999999999
+      },
+      "2026-05-11": {
+        "Coffee": 3003.48,
+        "Turmeric Curcumin": 348.7,
+        "Ashwagandha Caps": 127.98,
+        "(unallocated)": 828.8
+      },
+      "2026-05-12": {
+        "Coffee": 3196.3199999999997,
+        "Turmeric Curcumin": 287.59,
+        "Ashwagandha Caps": 74.85,
+        "(unallocated)": 591.98
+      },
+      "2026-05-13": {
+        "Coffee": 2703.38,
+        "Green Burner": 14.43,
+        "Turmeric Curcumin": 309.68,
+        "Ashwagandha Caps": 268.08,
+        "(unallocated)": 642.88
+      },
+      "2026-05-14": {
+        "Coffee": 3762.6,
+        "Green Burner": 170.33,
+        "Turmeric Curcumin": 104.75,
+        "Ashwagandha Caps": 26.85,
+        "(unallocated)": 457.96
+      },
+      "2026-05-15": {
+        "Coffee": 3690.79,
+        "Green Burner": 142.97,
+        "Turmeric Curcumin": 177.29,
+        "(unallocated)": 452.19000000000005
+      },
+      "2026-05-16": {
+        "Coffee": 2784.13,
+        "Green Burner": 106.91,
+        "Turmeric Curcumin": 45.04,
+        "(unallocated)": 435.49
+      },
+      "2026-05-17": {
+        "Coffee": 2673.15,
+        "Green Burner": 92.97,
+        "Turmeric Curcumin": 33.33,
+        "(unallocated)": 321.36
+      },
+      "2026-05-18": {
+        "Coffee": 246.87,
+        "Green Burner": 25.2,
+        "Turmeric Curcumin": 5.69,
+        "(unallocated)": 0.54
+      }
+    },
+    "US": {
+      "2026-02-17": {
+        "(unallocated)": 150.32,
+        "Coffee": 914.22,
+        "Turmeric Curcumin": 5942.66,
+        "Shatavari": 36.96,
+        "Ashwagandha Caps": 40.08
+      },
+      "2026-02-18": {
+        "(unallocated)": 187.22,
+        "Coffee": 1336.62,
+        "Turmeric Curcumin": 2298.19,
+        "Shatavari": 41.43,
+        "Ashwagandha Caps": 109.67
+      },
+      "2026-02-19": {
+        "(unallocated)": 774.9,
+        "Coffee": 1595.87,
+        "Turmeric Curcumin": 2569.0,
+        "Shatavari": 43.86,
+        "Ashwagandha Caps": 200.0
+      },
+      "2026-02-20": {
+        "(unallocated)": 775.0,
+        "Coffee": 1098.25,
+        "Turmeric Curcumin": 2546.53,
+        "Shatavari": 21.09,
+        "Ashwagandha Caps": 57.82
+      },
+      "2026-02-21": {
+        "(unallocated)": 774.4000000000001,
+        "Coffee": 1906.99,
+        "Turmeric Curcumin": 5288.82,
+        "Shatavari": 40.29,
+        "Ashwagandha Caps": 31.39
+      },
+      "2026-02-22": {
+        "(unallocated)": 652.04,
+        "Coffee": 767.17,
+        "Turmeric Curcumin": 2499.39,
+        "Shatavari": 35.64,
+        "Ashwagandha Caps": 60.48
+      },
+      "2026-02-23": {
+        "(unallocated)": 150.37,
+        "Coffee": 879.04,
+        "Turmeric Curcumin": 1851.44,
+        "Shatavari": 17.79,
+        "Ashwagandha Caps": 126.24
+      },
+      "2026-02-24": {
+        "(unallocated)": 159.5,
+        "Coffee": 853.91,
+        "Turmeric Curcumin": 1859.81,
+        "Shatavari": 20.51,
+        "Ashwagandha Caps": 39.76
+      },
+      "2026-02-25": {
+        "(unallocated)": 214.06,
+        "Coffee": 919.59,
+        "Turmeric Curcumin": 3680.81,
+        "Shatavari": 42.67,
+        "Ashwagandha Caps": 48.95
+      },
+      "2026-02-26": {
+        "(unallocated)": 212.15,
+        "Coffee": 1207.89,
+        "Turmeric Curcumin": 2822.41,
+        "Shatavari": 46.11,
+        "Ashwagandha Caps": 242.73
+      },
+      "2026-02-27": {
+        "(unallocated)": 211.55,
+        "Coffee": 1195.3,
+        "Turmeric Curcumin": 2617.78,
+        "Shatavari": 27.87,
+        "Ashwagandha Caps": 373.21
+      },
+      "2026-02-28": {
+        "(unallocated)": 202.44,
+        "Coffee": 1569.51,
+        "Turmeric Curcumin": 3080.26,
+        "Shatavari": 40.72,
+        "Ashwagandha Caps": 444.44
+      },
+      "2026-03-01": {
+        "(unallocated)": 200.54,
+        "Coffee": 1017.84,
+        "Turmeric Curcumin": 3261.67,
+        "Shatavari": 42.4,
+        "Ashwagandha Caps": 362.43
+      },
+      "2026-03-02": {
+        "(unallocated)": 200.44,
+        "Coffee": 544.42,
+        "Turmeric Curcumin": 1678.1,
+        "Shatavari": 41.61,
+        "Ashwagandha Caps": 795.29
+      },
+      "2026-03-03": {
+        "(unallocated)": 162.34,
+        "Coffee": 457.39,
+        "Turmeric Curcumin": 1532.5,
+        "Shatavari": 55.3,
+        "Ashwagandha Caps": 300.0
+      },
+      "2026-03-04": {
+        "(unallocated)": 272.73,
+        "Coffee": 972.17,
+        "Turmeric Curcumin": 2308.02,
+        "Shatavari": 27.39,
+        "Ashwagandha Caps": 161.89
+      },
+      "2026-03-05": {
+        "(unallocated)": 217.88,
+        "Coffee": 565.15,
+        "Turmeric Curcumin": 2850.42,
+        "Shatavari": 45.03,
+        "Ashwagandha Caps": 128.56
+      },
+      "2026-03-06": {
+        "(unallocated)": 199.82,
+        "Coffee": 528.6,
+        "Turmeric Curcumin": 8871.05,
+        "Shatavari": 54.87,
+        "Ashwagandha Caps": 127.11
+      },
+      "2026-03-07": {
+        "(unallocated)": 199.12,
+        "Coffee": 597.13,
+        "Turmeric Curcumin": 4951.54,
+        "Shatavari": 51.79,
+        "Ashwagandha Caps": 144.24
+      },
+      "2026-03-08": {
+        "(unallocated)": 200.47,
+        "Coffee": 711.78,
+        "Turmeric Curcumin": 2246.92,
+        "Shatavari": 52.83,
+        "Ashwagandha Caps": 153.71
+      },
+      "2026-03-09": {
+        "(unallocated)": 200.29000000000002,
+        "Coffee": 573.68,
+        "Turmeric Curcumin": 2039.7,
+        "Shatavari": 41.44,
+        "Ashwagandha Caps": 86.2
+      },
+      "2026-03-10": {
+        "(unallocated)": 200.43,
+        "Coffee": 477.0,
+        "Turmeric Curcumin": 1798.11,
+        "Shatavari": 45.12,
+        "Ashwagandha Caps": 264.31,
+        "Moringa": 0.9
+      },
+      "2026-03-11": {
+        "(unallocated)": 200.37,
+        "Coffee": 604.11,
+        "Turmeric Curcumin": 2688.25,
+        "Shatavari": 33.59,
+        "Ashwagandha Caps": 126.3,
+        "Moringa": 1.57
+      },
+      "2026-03-12": {
+        "(unallocated)": 199.79000000000002,
+        "Coffee": 354.02,
+        "Turmeric Curcumin": 1955.03,
+        "Shatavari": 37.89,
+        "Ashwagandha Caps": 167.02,
+        "Moringa": 4.57
+      },
+      "2026-03-13": {
+        "(unallocated)": 199.69,
+        "Coffee": 540.93,
+        "Turmeric Curcumin": 3554.17,
+        "Shatavari": 26.16,
+        "Ashwagandha Caps": 381.5,
+        "Moringa": 7.62
+      },
+      "2026-03-14": {
+        "(unallocated)": 198.97,
+        "Coffee": 664.3,
+        "Turmeric Curcumin": 3800.14,
+        "Shatavari": 17.78,
+        "Ashwagandha Caps": 144.18,
+        "Moringa": 43.33
+      },
+      "2026-03-15": {
+        "(unallocated)": 200.25,
+        "Coffee": 818.13,
+        "Turmeric Curcumin": 2595.31,
+        "Shatavari": 43.76,
+        "Ashwagandha Caps": 600.1,
+        "Moringa": 67.68
+      },
+      "2026-03-16": {
+        "(unallocated)": 200.2,
+        "Coffee": 1273.74,
+        "Turmeric Curcumin": 2284.46,
+        "Shatavari": 39.64,
+        "Ashwagandha Caps": 408.01,
+        "Moringa": 61.77
+      },
+      "2026-03-17": {
+        "(unallocated)": 200.35,
+        "Coffee": 1183.29,
+        "Turmeric Curcumin": 2238.53,
+        "Shatavari": 39.28,
+        "Ashwagandha Caps": 110.51,
+        "Moringa": 35.17
+      },
+      "2026-03-18": {
+        "(unallocated)": 202.20000000000002,
+        "Coffee": 569.84,
+        "Turmeric Curcumin": 2239.98,
+        "Shatavari": 35.21,
+        "Ashwagandha Caps": 550.12,
+        "Moringa": 88.51
+      },
+      "2026-03-19": {
+        "(unallocated)": 207.0,
+        "Coffee": 803.64,
+        "Turmeric Curcumin": 2201.54,
+        "Shatavari": 33.18,
+        "Ashwagandha Caps": 229.96,
+        "Moringa": 31.77
+      },
+      "2026-03-20": {
+        "(unallocated)": 220.38,
+        "Coffee": 745.62,
+        "Turmeric Curcumin": 2716.99,
+        "Shatavari": 41.02,
+        "Ashwagandha Caps": 335.73,
+        "Moringa": 30.24
+      },
+      "2026-03-21": {
+        "(unallocated)": 225.56,
+        "Coffee": 963.6,
+        "Turmeric Curcumin": 3184.55,
+        "Shatavari": 23.72,
+        "Ashwagandha Caps": 96.9,
+        "Moringa": 45.45
+      },
+      "2026-03-22": {
+        "(unallocated)": 236.72000000000003,
+        "Coffee": 708.44,
+        "Turmeric Curcumin": 2297.08,
+        "Shatavari": 20.59,
+        "Ashwagandha Caps": 108.88,
+        "Moringa": 120.7
+      },
+      "2026-03-23": {
+        "(unallocated)": 234.05,
+        "Coffee": 468.58,
+        "Turmeric Curcumin": 1579.99,
+        "Shatavari": 8.25,
+        "Ashwagandha Caps": 131.31,
+        "Moringa": 30.46
+      },
+      "2026-03-24": {
+        "(unallocated)": 244.04000000000002,
+        "Coffee": 720.61,
+        "Turmeric Curcumin": 2068.34,
+        "Shatavari": 46.3,
+        "Ashwagandha Caps": 136.56,
+        "Moringa": 33.85
+      },
+      "2026-03-25": {
+        "(unallocated)": 240.64,
+        "Coffee": 874.75,
+        "Turmeric Curcumin": 1624.88,
+        "Shatavari": 51.01,
+        "Ashwagandha Caps": 102.7,
+        "Moringa": 30.49
+      },
+      "2026-03-26": {
+        "(unallocated)": 243.23,
+        "Coffee": 944.23,
+        "Turmeric Curcumin": 2616.13,
+        "Shatavari": 53.43,
+        "Ashwagandha Caps": 69.44,
+        "Moringa": 33.88
+      },
+      "2026-03-27": {
+        "(unallocated)": 540.85,
+        "Coffee": 1197.92,
+        "Turmeric Curcumin": 2059.39,
+        "Shatavari": 33.53,
+        "Ashwagandha Caps": 86.85,
+        "Moringa": 44.45
+      },
+      "2026-03-28": {
+        "(unallocated)": 544.07,
+        "Coffee": 817.08,
+        "Turmeric Curcumin": 2754.91,
+        "Shatavari": 39.66,
+        "Ashwagandha Caps": 84.82,
+        "Moringa": 57.9
+      },
+      "2026-03-29": {
+        "(unallocated)": 551.36,
+        "Coffee": 818.7,
+        "Turmeric Curcumin": 3314.28,
+        "Shatavari": 57.98,
+        "Ashwagandha Caps": 162.63,
+        "Moringa": 47.72
+      },
+      "2026-03-30": {
+        "(unallocated)": 541.98,
+        "Coffee": 773.13,
+        "Turmeric Curcumin": 2130.43,
+        "Shatavari": 32.26,
+        "Ashwagandha Caps": 128.04,
+        "Moringa": 25.97
+      },
+      "2026-03-31": {
+        "(unallocated)": 541.65,
+        "Coffee": 883.57,
+        "Turmeric Curcumin": 1259.81,
+        "Shatavari": 24.89,
+        "Ashwagandha Caps": 104.21,
+        "Moringa": 38.75
+      },
+      "2026-04-01": {
+        "(unallocated)": 549.1800000000001,
+        "Coffee": 737.86,
+        "Turmeric Curcumin": 2141.95,
+        "Shatavari": 35.0,
+        "Ashwagandha Caps": 104.98,
+        "Moringa": 34.81
+      },
+      "2026-04-02": {
+        "(unallocated)": 539.26,
+        "Coffee": 466.71,
+        "Turmeric Curcumin": 2374.22,
+        "Shatavari": 47.03,
+        "Ashwagandha Caps": 53.63,
+        "Moringa": 82.94
+      },
+      "2026-04-03": {
+        "(unallocated)": 559.07,
+        "Coffee": 1071.01,
+        "Turmeric Curcumin": 3002.94,
+        "Shatavari": 32.42,
+        "Ashwagandha Caps": 95.41,
+        "Moringa": 65.7
+      },
+      "2026-04-04": {
+        "(unallocated)": 566.85,
+        "Coffee": 1250.53,
+        "Turmeric Curcumin": 2380.01,
+        "Shatavari": 28.46,
+        "Ashwagandha Caps": 99.22,
+        "Moringa": 46.91
+      },
+      "2026-04-05": {
+        "(unallocated)": 548.16,
+        "Coffee": 770.81,
+        "Turmeric Curcumin": 2005.48,
+        "Shatavari": 25.98,
+        "Ashwagandha Caps": 90.4,
+        "Moringa": 33.61
+      },
+      "2026-04-06": {
+        "(unallocated)": 543.28,
+        "Coffee": 779.02,
+        "Turmeric Curcumin": 1307.9,
+        "Shatavari": 43.85,
+        "Ashwagandha Caps": 95.36,
+        "Moringa": 45.38
+      },
+      "2026-04-07": {
+        "(unallocated)": 404.39000000000004,
+        "Coffee": 982.91,
+        "Turmeric Curcumin": 1727.09,
+        "Shatavari": 45.35,
+        "Ashwagandha Caps": 86.33,
+        "Moringa": 41.46
+      },
+      "2026-04-08": {
+        "(unallocated)": 396.49,
+        "Coffee": 942.06,
+        "Turmeric Curcumin": 1875.43,
+        "Shatavari": 41.48,
+        "Ashwagandha Caps": 184.7,
+        "Moringa": 42.24
+      },
+      "2026-04-09": {
+        "(unallocated)": 390.91999999999996,
+        "Coffee": 825.98,
+        "Turmeric Curcumin": 2255.55,
+        "Shatavari": 73.62,
+        "Ashwagandha Caps": 120.39,
+        "Moringa": 79.17
+      },
+      "2026-04-10": {
+        "(unallocated)": 387.13,
+        "Coffee": 845.47,
+        "Turmeric Curcumin": 3216.49,
+        "Shatavari": 51.53,
+        "Ashwagandha Caps": 79.58,
+        "Moringa": 37.27
+      },
+      "2026-04-11": {
+        "(unallocated)": 390.03,
+        "Coffee": 1037.79,
+        "Turmeric Curcumin": 2851.19,
+        "Shatavari": 38.06,
+        "Ashwagandha Caps": 118.99,
+        "Moringa": 45.01
+      },
+      "2026-04-12": {
+        "(unallocated)": 391.36,
+        "Coffee": 1219.47,
+        "Turmeric Curcumin": 2889.81,
+        "Shatavari": 38.83,
+        "Ashwagandha Caps": 174.47,
+        "Moringa": 32.05
+      },
+      "2026-04-13": {
+        "(unallocated)": 392.01,
+        "Coffee": 737.36,
+        "Turmeric Curcumin": 1000.0,
+        "Shatavari": 47.28,
+        "Ashwagandha Caps": 79.01,
+        "Moringa": 38.15
+      },
+      "2026-04-14": {
+        "(unallocated)": 391.68999999999994,
+        "Coffee": 755.47,
+        "Turmeric Curcumin": 866.97,
+        "Shatavari": 53.77,
+        "Ashwagandha Caps": 124.67,
+        "Moringa": 101.55
+      },
+      "2026-04-15": {
+        "(unallocated)": 393.71,
+        "Coffee": 868.73,
+        "Turmeric Curcumin": 200.0,
+        "Shatavari": 40.03,
+        "Ashwagandha Caps": 143.69,
+        "Moringa": 68.48
+      },
+      "2026-04-16": {
+        "(unallocated)": 391.12,
+        "Coffee": 912.59,
+        "Turmeric Curcumin": 50.0,
+        "Shatavari": 39.96,
+        "Ashwagandha Caps": 172.18,
+        "Moringa": 41.27
+      },
+      "2026-04-17": {
+        "(unallocated)": 388.92,
+        "Coffee": 1398.33,
+        "Turmeric Curcumin": 50.0,
+        "Shatavari": 36.97,
+        "Ashwagandha Caps": 98.4,
+        "Moringa": 40.35
+      },
+      "2026-04-18": {
+        "(unallocated)": 388.88,
+        "Coffee": 1657.58,
+        "Turmeric Curcumin": 50.0,
+        "Shatavari": 39.91,
+        "Ashwagandha Caps": 91.24,
+        "Moringa": 40.95
+      },
+      "2026-04-19": {
+        "(unallocated)": 390.29999999999995,
+        "Coffee": 1309.5,
+        "Turmeric Curcumin": 50.0,
+        "Shatavari": 39.42,
+        "Ashwagandha Caps": 53.51,
+        "Moringa": 56.98
+      },
+      "2026-04-20": {
+        "(unallocated)": 389.59,
+        "Coffee": 993.66,
+        "Turmeric Curcumin": 50.0,
+        "Shatavari": 37.63,
+        "Ashwagandha Caps": 85.51,
+        "Moringa": 39.86
+      },
+      "2026-04-21": {
+        "(unallocated)": 412.03,
+        "Coffee": 1511.22,
+        "Turmeric Curcumin": 50.0,
+        "Shatavari": 43.79,
+        "Ashwagandha Caps": 228.8,
+        "Moringa": 53.28
+      },
+      "2026-04-22": {
+        "(unallocated)": 389.8,
+        "Coffee": 1619.28,
+        "Turmeric Curcumin": 50.0,
+        "Shatavari": 57.61,
+        "Ashwagandha Caps": 86.21,
+        "Moringa": 72.59
+      },
+      "2026-04-23": {
+        "(unallocated)": 390.15000000000003,
+        "Coffee": 1362.6,
+        "Turmeric Curcumin": 1357.05,
+        "Shatavari": 66.29,
+        "Ashwagandha Caps": 93.2,
+        "Moringa": 38.86
+      },
+      "2026-04-24": {
+        "(unallocated)": 389.65999999999997,
+        "Coffee": 1600.24,
+        "Turmeric Curcumin": 911.92,
+        "Shatavari": 92.69,
+        "Ashwagandha Caps": 134.67,
+        "Moringa": 427.64
+      },
+      "2026-04-25": {
+        "(unallocated)": 388.79,
+        "Coffee": 1318.02,
+        "Turmeric Curcumin": 959.63,
+        "Shatavari": 71.27,
+        "Ashwagandha Caps": 123.74,
+        "Moringa": 340.65
+      },
+      "2026-04-26": {
+        "(unallocated)": 390.34000000000003,
+        "Coffee": 982.88,
+        "Turmeric Curcumin": 1704.6,
+        "Shatavari": 45.49,
+        "Ashwagandha Caps": 95.06,
+        "Moringa": 46.82
+      },
+      "2026-04-27": {
+        "(unallocated)": 386.97999999999996,
+        "Coffee": 1029.24,
+        "Turmeric Curcumin": 1399.27,
+        "Shatavari": 46.52,
+        "Ashwagandha Caps": 142.0,
+        "Moringa": 173.05
+      },
+      "2026-04-28": {
+        "(unallocated)": 378.65000000000003,
+        "Coffee": 1051.76,
+        "Turmeric Curcumin": 898.39,
+        "Shatavari": 27.35,
+        "Ashwagandha Caps": 199.07,
+        "Moringa": 72.2
+      },
+      "2026-04-29": {
+        "(unallocated)": 380.82000000000005,
+        "Coffee": 1106.32,
+        "Turmeric Curcumin": 1822.96,
+        "Shatavari": 29.14,
+        "Ashwagandha Caps": 125.66,
+        "Moringa": 98.13
+      },
+      "2026-04-30": {
+        "(unallocated)": 386.65000000000003,
+        "Coffee": 1002.81,
+        "Turmeric Curcumin": 2998.03,
+        "Shatavari": 44.92,
+        "Ashwagandha Caps": 104.03,
+        "Moringa": 51.47
+      },
+      "2026-05-01": {
+        "(unallocated)": 390.86,
+        "Coffee": 1253.13,
+        "Turmeric Curcumin": 2776.68,
+        "Shatavari": 47.38,
+        "Ashwagandha Caps": 90.09,
+        "Moringa": 227.37
+      },
+      "2026-05-02": {
+        "(unallocated)": 390.13,
+        "Coffee": 914.94,
+        "Turmeric Curcumin": 1992.5,
+        "Shatavari": 48.57,
+        "Ashwagandha Caps": 309.89,
+        "Moringa": 101.08
+      },
+      "2026-05-03": {
+        "(unallocated)": 387.44000000000005,
+        "Coffee": 957.04,
+        "Turmeric Curcumin": 1897.74,
+        "Shatavari": 39.67,
+        "Ashwagandha Caps": 186.48,
+        "Moringa": 50.11
+      },
+      "2026-05-04": {
+        "(unallocated)": 391.21999999999997,
+        "Coffee": 595.91,
+        "Turmeric Curcumin": 689.36,
+        "Shatavari": 31.84,
+        "Ashwagandha Caps": 93.17,
+        "Moringa": 46.43
+      },
+      "2026-05-05": {
+        "(unallocated)": 382.25,
+        "Coffee": 835.28,
+        "Turmeric Curcumin": 1503.61,
+        "Shatavari": 67.34,
+        "Ashwagandha Caps": 89.16,
+        "Moringa": 36.78
+      },
+      "2026-05-06": {
+        "(unallocated)": 388.19,
+        "Coffee": 662.99,
+        "Turmeric Curcumin": 2489.46,
+        "Shatavari": 39.88,
+        "Ashwagandha Caps": 63.66,
+        "Moringa": 90.08
+      },
+      "2026-05-07": {
+        "(unallocated)": 389.38,
+        "Coffee": 1220.51,
+        "Turmeric Curcumin": 1639.21,
+        "Shatavari": 46.08,
+        "Ashwagandha Caps": 86.97,
+        "Moringa": 63.98
+      },
+      "2026-05-08": {
+        "(unallocated)": 392.98,
+        "Coffee": 1567.01,
+        "Turmeric Curcumin": 2213.07,
+        "Shatavari": 59.74,
+        "Ashwagandha Caps": 164.45,
+        "Moringa": 106.48
+      },
+      "2026-05-09": {
+        "(unallocated)": 413.44,
+        "Coffee": 1231.53,
+        "Turmeric Curcumin": 2877.26,
+        "Shatavari": 38.92,
+        "Ashwagandha Caps": 134.93,
+        "Moringa": 72.96
+      },
+      "2026-05-10": {
+        "(unallocated)": 401.57,
+        "Coffee": 559.23,
+        "Turmeric Curcumin": 3068.34,
+        "Shatavari": 41.62,
+        "Ashwagandha Caps": 90.4,
+        "Moringa": 94.6
+      },
+      "2026-05-11": {
+        "(unallocated)": 385.36,
+        "Coffee": 822.56,
+        "Turmeric Curcumin": 1804.59,
+        "Shatavari": 28.61,
+        "Ashwagandha Caps": 75.42,
+        "Moringa": 101.29
+      },
+      "2026-05-12": {
+        "(unallocated)": 360.02,
+        "Coffee": 678.19,
+        "Turmeric Curcumin": 1322.05,
+        "Shatavari": 51.02,
+        "Ashwagandha Caps": 92.3,
+        "Moringa": 43.76
+      },
+      "2026-05-13": {
+        "(unallocated)": 370.71999999999997,
+        "Coffee": 614.29,
+        "Turmeric Curcumin": 2402.22,
+        "Shatavari": 37.89,
+        "Ashwagandha Caps": 77.38,
+        "Moringa": 66.91
+      },
+      "2026-05-14": {
+        "(unallocated)": 373.93,
+        "Coffee": 713.65,
+        "Turmeric Curcumin": 1490.73,
+        "Shatavari": 39.85,
+        "Ashwagandha Caps": 99.15,
+        "Moringa": 49.71
+      },
+      "2026-05-15": {
+        "(unallocated)": 375.78999999999996,
+        "Coffee": 278.28,
+        "Turmeric Curcumin": 1336.43,
+        "Shatavari": 30.93,
+        "Ashwagandha Caps": 95.58,
+        "Moringa": 120.94
+      },
+      "2026-05-16": {
+        "(unallocated)": 375.74,
+        "Coffee": 278.67,
+        "Turmeric Curcumin": 1409.97,
+        "Shatavari": 36.57,
+        "Ashwagandha Caps": 77.97,
+        "Moringa": 173.39
+      },
+      "2026-05-17": {
+        "(unallocated)": 362.75,
+        "Coffee": 605.95,
+        "Turmeric Curcumin": 1329.16,
+        "Shatavari": 39.97,
+        "Ashwagandha Caps": 93.16,
+        "Moringa": 39.99
+      }
+    }
+  }
+}
