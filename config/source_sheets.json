@@ -1,0 +1,55 @@
+{
+  "uk": {
+    "path": "C:\\Users\\Aviral Garg\\Downloads\\Vahdam _ Inventory Planning Tiktok.xlsx",
+    "tab": "Overall",
+    "available": true,
+    "period_start": "2026-02-08",
+    "period_end": "2026-02-08",
+    "sku_columns": [
+      "Total",
+      "Coffee",
+      "Turmeric ginger",
+      "Green burner",
+      "Ashwagandha",
+      "Curcumin"
+    ],
+    "metric_rows": {
+      "net_revenue": 6,
+      "net_units": 7,
+      "net_orders": 9,
+      "cancelled": 10,
+      "abs_cm1": 13,
+      "cm1_pct": 14,
+      "spend_incl_vat": 17,
+      "spend_excl_vat": 18,
+      "vat": 19,
+      "aff_comm": 20,
+      "abs_cm2_incvat": 22,
+      "cm2_pct_incvat": 23,
+      "abs_cm2_excvat": 24,
+      "cm2_pct_excvat": 25
+    },
+    "value_columns": {
+      "total": 2,
+      "coffee": 3,
+      "ginger_tea": 4,
+      "green_burner": 5,
+      "ashwagandha": 6,
+      "curcumin": 7
+    }
+  },
+  "us": {
+    "path": "C:\\Users\\Aviral Garg\\Downloads\\Overall Analysis USA.xlsx",
+    "available": false,
+    "reason": "no CM1/CM2 cells found anywhere in workbook",
+    "sheets_present": [
+      "Sample Order",
+      "Sample Affiliate",
+      "Analysis Tab",
+      "SampleCreator_GMVSlabs",
+      "Cohort Analysis"
+    ]
+  },
+  "last_run": "2026-05-18-1724",
+  "convention_note": "Convention differences vs dashboard (informational, suppressed in future runs):\n  - UK sheet uses two CM2 lines: 'Abs CM2 (Inc VAT)' and 'Abs CM2 (Exc VAT)'.\n    Dashboard's CM2 corresponds to the EX-VAT methodology (applies 20/120 VAT\n    recovery on ad spend + smart promo). Compare against sheet's 'Exc VAT' row.\n  - UK sheet 'Spend (Excl VAT)' is stored ex-VAT; dashboard grosses \u00d71.20 at\n    render time for the P&L Statement display.\n  - Sheet may pre-date the 2026-02-14 free-sample \u00a32 shipping deduction and the\n    2026-04-01 Coffee VAT cutoff. Older periods may legitimately diverge."
+}

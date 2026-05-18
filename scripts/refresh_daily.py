@@ -76,6 +76,15 @@ def main():
 
     run_step("Build dashboard HTML", do_build)
 
+    # Step 5: Reconcile CM1/CM2 against user's source-of-truth spreadsheets
+    def do_verify():
+        import importlib
+        import verify_against_sheets
+        importlib.reload(verify_against_sheets)
+        return verify_against_sheets.reconcile()
+
+    run_step("Verify against source sheets", do_verify)
+
     print("\n" + "=" * 60)
     print("Refresh complete. Dashboard: public/index.html")
     print("Server: http://localhost:8000/")
