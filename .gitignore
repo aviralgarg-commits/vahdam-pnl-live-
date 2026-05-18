@@ -1,0 +1,35 @@
+# Secrets / credentials
+.env
+*.env.local
+
+# Runtime artefacts (auto-generated, don't commit)
+logs/
+public_url.txt
+data/windsor_cache/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Virtual envs (never commit — huge + machine-specific)
+venv/
+venv_claude/
+.venv/
+
+# Tunnels / binaries (download fresh on each machine)
+cloudflared.exe
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Vercel local cache
+.vercel/
