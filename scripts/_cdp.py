@@ -2,34 +2,30 @@
 _cdp.py — shared helper for attaching Playwright to the user's REAL Chrome
 via Chrome DevTools Protocol on localhost:9222.
 
-Why this exists:
-  - Playwright's launch_persistent_context spawns its own Chromium under
-    a separate profile. TikTok Seller Center's Google SSO doesn't survive
-    cleanly there (service-worker tokens get lost), and the headless
-    fingerprint trips anti-bot detection.
-  - Claude-in-Chrome MCP can't help — TikTok domains are on its denylist.
-  - The fix: launch the user's real Chrome with --remote-debugging-port=9222
-    (see scripts/launch_chrome_debug.bat), then attach Playwright to it.
-    All cookies/SSO/service-workers are intact because we never created a
-    fresh context.
+Why CDP attach (NOT launch_persistent_context):
+  - Playwright's launch_persistent_context with a tmp dir or storage_state
+    LOSES TikTok's service-worker auth and loops on login forever (we tried).
+  - connect_over_cdp attaches to the user's real, already-logged-in Chrome.
+    Cookies + service workers + Google SSO are all intact.
+  - The user runs scripts/launch_chrome_debug.bat once per boot (or pins to
+    shell:startup) to keep Chrome listening on :9222.
 
-Usage (sync Playwright):
+Usage (sync):
 
-    from _cdp import attach, CdpUnavailable
+    from _cdp import attach, detach, CdpUnavailable
     try:
         pw, browser, context = attach()
     except CdpUnavailable as e:
         log(f"CDP_UNAVAILABLE -- {e}")
-        return ...
+        return
 
     page = context.new_page()
     try:
-        page.goto(...)
-        ...
+        page.goto("https://seller-uk.tiktok.com/homepage")
+        # … scrape …
     finally:
         page.close()
-        browser.close()  # disconnects CDP, does NOT close the real Chrome
-        pw.stop()
+        detach(pw, browser)   # disconnects; does NOT close real Chrome
 """
 from __future__ import annotations
 
@@ -41,7 +37,6 @@ CDP_URL = "http://localhost:9222"
 
 
 class CdpUnavailable(RuntimeError):
-    """Raised when the real Chrome isn't running with --remote-debugging-port=9222."""
     pass
 
 
@@ -55,13 +50,6 @@ def is_chrome_running() -> bool:
 
 
 def attach():
-    """Attach Playwright (sync) to the user's running Chrome.
-
-    Returns (playwright, browser, context). The first context in browser.contexts
-    is the user's real profile context — that's where the auth lives.
-
-    Raises CdpUnavailable if Chrome isn't listening on port 9222.
-    """
     if not is_chrome_running():
         raise CdpUnavailable(
             f"No Chrome listening at {CDP_URL}. "
@@ -80,8 +68,6 @@ def attach():
         raise CdpUnavailable(f"connect_over_cdp failed: {e}")
 
     if not browser.contexts:
-        # Shouldn't happen — Chrome always has at least one context. Guard
-        # anyway.
         browser.close()
         pw.stop()
         raise CdpUnavailable("Chrome reported zero contexts via CDP")
@@ -91,7 +77,7 @@ def attach():
 
 
 def detach(pw, browser) -> None:
-    """Clean teardown — disconnects CDP without closing the real Chrome."""
+    """Disconnects from CDP without closing the user's real Chrome."""
     try:
         browser.close()
     except Exception:
@@ -100,3 +86,62 @@ def detach(pw, browser) -> None:
         pw.stop()
     except Exception:
         pass
+
+
+# Defensive recursive text walker (used by scrapers when innerText misses
+# shadow DOM / extension-injected content). Pass as JS to page.evaluate().
+SHADOW_TEXT_JS = r"""
+() => {
+  let txt = '';
+  function walk(el){
+    if(!el) return;
+    if(el.nodeType === 3){ txt += el.textContent + ' '; }
+    if(el.shadowRoot){ walk(el.shadowRoot); }
+    for(const c of (el.childNodes || [])){ walk(c); }
+  }
+  walk(document.body);
+  return txt;
+}
+"""
+
+
+def shared_scrape_setup(region: str, url: str, log_fn):
+    """Boilerplate for a scrape:
+      1. Attach via CDP
+      2. Open new page
+      3. Pre-flight auth check on /homepage (VAHDAM marker within 10s)
+      4. Return (pw, browser, ctx, page) — caller navigates to its target URL
+
+    Returns None on failure (caller should `return` without continuing).
+    """
+    try:
+        pw, browser, ctx = attach()
+    except CdpUnavailable as e:
+        log_fn(f"CDP_UNAVAILABLE -- {region} skipped: {e}")
+        return None
+    page = ctx.new_page()
+    homepage = f"https://seller-{region.lower()}.tiktok.com/homepage"
+    try:
+        page.goto(homepage, wait_until="domcontentloaded", timeout=30_000)
+    except Exception as e:
+        log_fn(f"AUTH_LOST_{region}_homepage_nav_failed: {e}")
+        try: page.close()
+        except Exception: pass
+        detach(pw, browser)
+        return None
+
+    import time
+    deadline = time.time() + 10
+    while time.time() < deadline:
+        try:
+            body = page.inner_text("body", timeout=2000)
+            if "VAHDAM" in body or "Vahdam" in body:
+                return (pw, browser, ctx, page)
+        except Exception:
+            pass
+        time.sleep(1)
+    log_fn(f"AUTH_LOST_{region}_at_{page.url}_no_VAHDAM_marker")
+    try: page.close()
+    except Exception: pass
+    detach(pw, browser)
+    return None

@@ -1,23 +1,12 @@
 """
-scrape_affiliate.py — Playwright-driven affiliate-order CSV downloader.
+scrape_affiliate.py — Download affiliate-orders CSVs from Seller Center
+(UK + US) via CDP attach to user's real Chrome. Paginated: TikTok exports
+per page, not as one file.
 
-Pre-flight auth check: navigates to {region}/homepage and confirms 'VAHDAM'
-(or the seller name) appears in DOM within 10 seconds. If not, logs
-"AUTH REQUIRED" and SKIPS that region (never attempts to log in on the user's
-behalf). UK auth failure does not block US, and vice versa.
-
-Pagination: TikTok Seller Center exports CSV per page, not as one big file.
-The scraper iterates through pages and downloads each.
-
-One-time setup:
-  pip install playwright && playwright install chromium
-  python scripts/scrape_affiliate.py --setup-uk    # opens browser, log in once
-  python scripts/scrape_affiliate.py --setup-us
+Pre-flight: /homepage must show VAHDAM marker within 10s (shared_scrape_setup).
 """
 from __future__ import annotations
 
-import argparse
-import json
 import pathlib
 import shutil
 import sys
@@ -25,23 +14,17 @@ import time
 from datetime import datetime as _dt, date as _date, timedelta
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CONFIG_DIR = ROOT / "config"
-CONFIG_DIR.mkdir(exist_ok=True)
-RAW_CSVS = ROOT / "raw_csvs"
-DOWNLOADS = pathlib.Path.home() / "Downloads"
+sys.path.insert(0, str(ROOT / "scripts"))
+
 LOG = ROOT / "logs" / "scrape_affiliate.log"
 LOG.parent.mkdir(exist_ok=True)
+RAW = ROOT / "raw_csvs"
+DOWNLOADS = pathlib.Path.home() / "Downloads"
 
-HOMEPAGE = {
-    "UK": "https://seller-uk.tiktok.com/homepage",
-    "US": "https://seller-us.tiktok.com/homepage",
-}
 ORDERS_URL = {
     "UK": "https://seller-uk.tiktok.com/affiliate/orders",
     "US": "https://seller-us.tiktok.com/affiliate/orders",
 }
-AUTH_TIMEOUT_SEC = 30
-AUTH_MARKERS = ["VAHDAM", "Vahdam", "vahdam"]
 
 
 def log(msg: str) -> None:
@@ -51,26 +34,12 @@ def log(msg: str) -> None:
         fh.write(line + "\n")
 
 
-def storage_state_path(region: str) -> pathlib.Path:
-    """Legacy single-file storage_state (kept for back-compat reads)."""
-    return CONFIG_DIR / f"playwright_storage_{region.lower()}.json"
-
-
-def profile_dir(region: str) -> pathlib.Path:
-    """Persistent Chromium user-data dir — survives between runs, holds the
-    full browser profile (cookies, localStorage, IndexedDB, service workers).
-    This is what makes SSO logins persist across scrape runs."""
-    p = CONFIG_DIR / f"chrome_profile_{region.lower()}"
-    p.mkdir(parents=True, exist_ok=True)
-    return p
-
-
 def latest_csv_dates() -> tuple[str | None, str | None]:
     """Latest 'Time Created' (DD/MM/YYYY) per region across raw_csvs/."""
     import csv as _csv
     import re as _re
     uk_max = us_max = None
-    for fp in sorted(RAW_CSVS.glob("affiliate_orders_*.csv")):
+    for fp in sorted(RAW.glob("affiliate_orders_*.csv")):
         try:
             with fp.open(encoding="utf-8-sig", errors="replace", newline="") as fh:
                 reader = _csv.reader(fh)
@@ -97,238 +66,112 @@ def latest_csv_dates() -> tuple[str | None, str | None]:
     return uk_max, us_max
 
 
-def setup_auth(region: str) -> int:
-    """Open Chromium → wait for user to log in → auto-detect VAHDAM marker → save + close."""
-    try:
-        from playwright.sync_api import sync_playwright
-    except ImportError:
-        log("ERROR: playwright not installed. Run: pip install playwright && playwright install chromium")
-        return 1
-    pd = profile_dir(region)
-    log(f"Setup {region}: opening Chromium with PERSISTENT profile at {pd.name}")
-    log(f"  -> Log in at seller-{region.lower()}.tiktok.com (Google SSO is fine — profile persists everything).")
-    log(f"  -> Auto-saves + closes when VAHDAM dashboard is detected. Max wait: 5 minutes.")
-    with sync_playwright() as p:
-        # Persistent context = full Chrome profile on disk, survives between runs.
-        # This is what makes SSO + service-worker auth tokens persist.
-        ctx = p.chromium.launch_persistent_context(
-            user_data_dir=str(pd),
-            headless=False,
-            args=[
-                # Mask "automation" so TikTok doesn't serve a blank/anti-bot page.
-                "--disable-blink-features=AutomationControlled",
-                "--no-default-browser-check",
-                "--no-first-run",
-            ],
-        )
-        page = ctx.pages[0] if ctx.pages else ctx.new_page()
-        try:
-            page.goto(HOMEPAGE[region], wait_until="domcontentloaded", timeout=120_000)
-        except Exception as e:
-            log(f"  navigation hiccup (ok, continuing): {e}")
-
-        deadline = time.time() + 300  # 5 minutes
-        logged_in = False
-        while time.time() < deadline:
-            if page.is_closed():
-                log("  user closed the browser — saving whatever state exists")
-                break
-            try:
-                body = page.inner_text("body", timeout=2000)
-                if any(m in body for m in AUTH_MARKERS):
-                    logged_in = True
-                    log(f"  detected '{[m for m in AUTH_MARKERS if m in body][0]}' marker — login looks good")
-                    break
-            except Exception:
-                pass
-            time.sleep(3)
-
-        if logged_in:
-            time.sleep(3)  # let any post-login cookies/storage settle
-        try:
-            # Also save a storage_state.json for backward-compat readers
-            ctx.storage_state(path=str(storage_state_path(region)))
-            ctx.close()  # writes the persistent profile to disk
-            log(f"Saved persistent profile -> {pd} (plus legacy storage state JSON)")
-        except Exception as e:
-            log(f"ERROR closing context: {e}")
-            try: ctx.close()
-            except Exception: pass
-            return 3
-    return 0 if logged_in else 2
-
-
-def preflight_auth(page, region: str) -> bool:
-    """Navigate to homepage, look for AUTH_MARKERS or absence of login form."""
-    try:
-        page.goto(HOMEPAGE[region], wait_until="domcontentloaded", timeout=30_000)
-    except Exception as e:
-        log(f"{region}: homepage navigation failed — {e}")
-        return False
-    deadline = time.time() + AUTH_TIMEOUT_SEC
-    last_url = ""
-    while time.time() < deadline:
-        try:
-            url = page.url or ""
-            body = page.inner_text("body", timeout=2000)
-            # Positive signal: VAHDAM marker present
-            if any(m in body for m in AUTH_MARKERS):
-                return True
-            # Positive signal: we're on seller subdomain AND no obvious login UI
-            on_seller = ("seller-" in url) and ("login" not in url.lower())
-            has_login_ui = ("Sign in" in body or "Log in" in body or "Password" in body)
-            if on_seller and not has_login_ui and len(body) > 500:
-                log(f"{region}: on seller domain ({url[:80]}), no login UI — treating as authenticated")
-                return True
-            last_url = url
-        except Exception:
-            pass
-        time.sleep(2)
-    # Last-ditch debug: dump where we ended up
-    try:
-        log(f"{region}: auth check ended at URL={last_url} (no VAHDAM marker found in {AUTH_TIMEOUT_SEC}s)")
-    except Exception:
-        pass
-    return False
-
-
 def scrape_region(region: str, gap_from: str, gap_to: str) -> int:
-    try:
-        from playwright.sync_api import TimeoutError as PWTimeout
-    except ImportError:
-        log("ERROR: playwright not installed.")
-        return 1
-    from _cdp import attach, detach, CdpUnavailable  # type: ignore
+    from _cdp import shared_scrape_setup, detach  # type: ignore
 
-    log(f"{region}: starting scrape for {gap_from} -> {gap_to}")
+    setup = shared_scrape_setup(region, ORDERS_URL[region], log)
+    if setup is None:
+        return 2
+    pw, browser, ctx, page = setup
+
     downloaded: list[pathlib.Path] = []
-    pw = browser = ctx = page = None
     try:
-        try:
-            pw, browser, ctx = attach()
-        except CdpUnavailable as e:
-            log(f"CDP_UNAVAILABLE -- scraper {region} skipped this cycle: {e}")
-            return 5
-        # Enable downloads on the existing CDP context (Chrome already allows
-        # downloads; this just makes Playwright's expect_download fire).
-        try:
-            ctx.set_default_timeout(60_000)
-        except Exception:
-            pass
-        page = ctx.new_page()
-        log(f"{region}: attached to real Chrome via CDP (port 9222)")
-
-        # Pre-flight auth check
-        if not preflight_auth(page, region):
-            log(f"AUTH REQUIRED -- {region} Chrome not logged in (no VAHDAM marker in DOM within "
-                f"{AUTH_TIMEOUT_SEC}s). Skipping. Make sure you're logged into seller-{region.lower()}.tiktok.com in your real Chrome.")
-            return 2
-        log(f"{region}: auth OK")
-
-        # Navigate to affiliate orders + wait for SPA to actually render content
-        page.goto(ORDERS_URL[region], wait_until="domcontentloaded", timeout=60_000)
-        try:
-            page.wait_for_load_state("networkidle", timeout=30_000)
-        except Exception:
-            pass
-        page.wait_for_timeout(8000)
-        try:
-            page.screenshot(path=str(ROOT / "logs" / f"debug_affiliate_{region.lower()}_after_load.png"))
-        except Exception:
-            pass
-
-        # Set custom date range
-        try:
-            start_input = page.query_selector('input[placeholder*="Start" i]')
-            if start_input:
-                start_input.click()
-                page.wait_for_timeout(800)
-                yday_btn = page.query_selector('button:text-is("Yesterday")')
-                today_iso = _date.today().isoformat()
-                yday_iso = (_date.today() - timedelta(days=1)).isoformat()
-                if gap_from == yday_iso and gap_to == today_iso and yday_btn:
-                    yday_btn.click()
-                    log(f"{region}: clicked Yesterday preset")
-                else:
-                    date_inputs = page.query_selector_all('input[placeholder*="date" i]')
-                    if len(date_inputs) >= 2:
-                        date_inputs[0].fill("")
-                        date_inputs[0].type(gap_from)
-                        date_inputs[1].fill("")
-                        date_inputs[1].type(gap_to)
-                        page.keyboard.press("Enter")
-                        log(f"{region}: set custom range {gap_from} -> {gap_to}")
-        except Exception as e:
-            log(f"{region}: date picker error -- {e}")
-        page.wait_for_timeout(3000)
-
-        try:
-            html = page.content()
-            dbg = ROOT / "logs" / f"debug_affiliate_{region.lower()}_{int(time.time())}.html"
-            dbg.write_text(html, encoding="utf-8")
-            log(f"{region}: dumped page HTML to {dbg.name}")
-        except Exception:
-            pass
-
-        # PAGINATED export
-        try:
-            page_count_el = page.query_selector('[class*="pagination" i] [class*="total" i]')
-            total_pages = 1
-            if page_count_el:
-                txt = page_count_el.inner_text()
-                import re as _re
-                m = _re.search(r"(\d+)\s*(?:page|of|/)", txt, _re.IGNORECASE)
-                if m:
-                    total_pages = int(m.group(1))
-            log(f"{region}: pagination shows ~{total_pages} page(s)")
-        except Exception:
-            total_pages = 1
-
-        for page_idx in range(1, total_pages + 1):
+        for attempt in range(2):
             try:
-                export_btn = page.query_selector(
-                    'button:has-text("Download"), button:has-text("Export")'
-                )
-                if not export_btn:
-                    log(f"{region}: page {page_idx} -- Download button not found")
-                    break
-                with page.expect_download(timeout=120_000) as dl_info:
-                    export_btn.click()
-                dl = dl_info.value
-                target = DOWNLOADS / dl.suggested_filename
-                dl.save_as(str(target))
-                downloaded.append(target)
-                log(f"{region}: page {page_idx} -> {dl.suggested_filename}")
-            except Exception as e:
-                log(f"{region}: page {page_idx} export failed -- {e}")
-                break
+                page.goto(ORDERS_URL[region], wait_until="domcontentloaded", timeout=60_000)
+                try:
+                    page.wait_for_load_state("networkidle", timeout=25_000)
+                except Exception:
+                    pass
+                page.wait_for_timeout(8000)
 
-            if page_idx < total_pages:
-                next_btn = page.query_selector(
-                    '[class*="pagination" i] button:has-text(">"), '
-                    'button[aria-label*="next" i]'
-                )
-                if next_btn and not next_btn.is_disabled():
-                    next_btn.click()
-                    page.wait_for_timeout(2500)
-                else:
-                    log(f"{region}: next-page button missing/disabled -- stopping pagination")
-                    break
-    except Exception as e:
-        log(f"{region}: scrape exception -- {e}")
-        return 4
+                body = ""
+                try:
+                    body = page.inner_text("body", timeout=2000)
+                except Exception:
+                    pass
+                if len(body) < 500:
+                    log(f"PAGE_NOT_LOADED_{region}_affiliate_orders (DOM<500, attempt {attempt+1})")
+                    time.sleep(15)
+                    continue
+
+                # Date picker (set Yesterday preset where applicable)
+                try:
+                    start_input = page.query_selector('input[placeholder*="Start" i]')
+                    if start_input:
+                        start_input.click()
+                        page.wait_for_timeout(800)
+                        yday_iso = (_date.today() - timedelta(days=1)).isoformat()
+                        today_iso = _date.today().isoformat()
+                        yday_btn = page.query_selector('button:text-is("Yesterday")')
+                        if gap_from == yday_iso and gap_to == today_iso and yday_btn:
+                            yday_btn.click()
+                            log(f"{region}: clicked Yesterday preset")
+                        else:
+                            date_inputs = page.query_selector_all('input[placeholder*="date" i]')
+                            if len(date_inputs) >= 2:
+                                date_inputs[0].fill(""); date_inputs[0].type(gap_from)
+                                date_inputs[1].fill(""); date_inputs[1].type(gap_to)
+                                page.keyboard.press("Enter")
+                                log(f"{region}: set custom range {gap_from} -> {gap_to}")
+                except Exception as e:
+                    log(f"{region}: date picker error -- {e}")
+                page.wait_for_timeout(3000)
+
+                # Pagination — TikTok exports per page
+                try:
+                    pc_el = page.query_selector('[class*="pagination" i] [class*="total" i]')
+                    total_pages = 1
+                    if pc_el:
+                        import re as _re
+                        m = _re.search(r"(\d+)", pc_el.inner_text())
+                        if m:
+                            total_pages = int(m.group(1))
+                    log(f"{region}: pagination ~{total_pages} page(s)")
+                except Exception:
+                    total_pages = 1
+
+                for idx in range(1, total_pages + 1):
+                    try:
+                        export_btn = page.query_selector(
+                            'button:has-text("Download"), button:has-text("Export")'
+                        )
+                        if not export_btn:
+                            log(f"{region}: page {idx} -- Download button not found")
+                            break
+                        with page.expect_download(timeout=120_000) as dl_info:
+                            export_btn.click()
+                        dl = dl_info.value
+                        target = DOWNLOADS / dl.suggested_filename
+                        dl.save_as(str(target))
+                        downloaded.append(target)
+                        log(f"{region}: page {idx} -> {dl.suggested_filename}")
+                    except Exception as e:
+                        log(f"{region}: page {idx} export failed -- {e}")
+                        break
+                    if idx < total_pages:
+                        next_btn = page.query_selector(
+                            '[class*="pagination" i] button:has-text(">"), button[aria-label*="next" i]'
+                        )
+                        if next_btn and not next_btn.is_disabled():
+                            next_btn.click()
+                            page.wait_for_timeout(2500)
+                        else:
+                            break
+                break  # success path — exit retry loop
+            except Exception as e:
+                log(f"{region}: affiliate scrape attempt {attempt+1} failed -- {e}")
+                time.sleep(15)
     finally:
-        # Critical: close only OUR page; never close the real Chrome.
         try:
-            if page is not None and not page.is_closed():
+            if not page.is_closed():
                 page.close()
         except Exception:
             pass
-        if pw is not None:
-            detach(pw, browser)
+        detach(pw, browser)
 
     # Move downloads into raw_csvs/, skip dups
-    existing = {p.name for p in RAW_CSVS.glob("affiliate_orders_*.csv")}
+    existing = {p.name for p in RAW.glob("affiliate_orders_*.csv")}
     moved = 0
     for src in downloaded:
         if not src.name.startswith("affiliate_orders_") or not src.name.endswith(".csv"):
@@ -336,70 +179,24 @@ def scrape_region(region: str, gap_from: str, gap_to: str) -> int:
         if src.name in existing:
             log(f"{region}: skip dup {src.name}")
             continue
-        shutil.move(str(src), str(RAW_CSVS / src.name))
+        shutil.move(str(src), str(RAW / src.name))
         moved += 1
     log(f"{region}: {moved} new CSV(s) added (of {len(downloaded)} downloaded)")
     return 0
 
 
-def dry_run() -> int:
-    """CDP-attach smoke test. Verifies the wiring without downloading anything."""
-    from _cdp import attach, detach, CdpUnavailable  # type: ignore
-    try:
-        pw, browser, ctx = attach()
-    except CdpUnavailable as e:
-        log(f"DRY-RUN FAIL: {e}")
-        return 1
-    try:
-        log(f"Connected to running Chrome at localhost:9222. "
-            f"Found {len(browser.contexts)} context(s), {len(ctx.pages)} pre-existing tab(s).")
-        page = ctx.new_page()
-        try:
-            page.goto(ORDERS_URL["UK"], wait_until="domcontentloaded", timeout=30_000)
-            page.wait_for_timeout(5000)
-            body = ""
-            try:
-                body = page.inner_text("body", timeout=3000)
-            except Exception:
-                pass
-            has_vahdam = any(m in body for m in AUTH_MARKERS)
-            date_picker = page.query_selector('input[placeholder*="Start" i]') or \
-                          page.query_selector('input[placeholder*="date" i]')
-            log(f"Navigated to seller-uk.tiktok.com/affiliate/orders.")
-            log(f"  DOM body length: {len(body)} chars")
-            log(f"  VAHDAM marker present: {has_vahdam}")
-            log(f"  Date picker visible: {date_picker is not None}")
-            return 0 if (has_vahdam and date_picker is not None) else 2
-        finally:
-            try: page.close()
-            except Exception: pass
-    finally:
-        detach(pw, browser)
-
-
 def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--setup-uk", action="store_true")
-    parser.add_argument("--setup-us", action="store_true")
-    parser.add_argument("--dry-run", action="store_true",
-                        help="Verify CDP attach + UK affiliate page loads. No downloads.")
-    args = parser.parse_args()
-    if args.dry_run: return dry_run()
-    if args.setup_uk: return setup_auth("UK")
-    if args.setup_us: return setup_auth("US")
-
+    log(f"=== scrape_affiliate.py {_date.today().isoformat()} ===")
     today = _date.today().isoformat()
     week_ago = (_date.today() - timedelta(days=7)).isoformat()
     uk_latest, us_latest = latest_csv_dates()
-    log(f"Latest order dates in raw_csvs/: UK={uk_latest}, US={us_latest}")
+    log(f"Latest dates in raw_csvs/: UK={uk_latest}, US={us_latest}")
     uk_from = max(uk_latest, week_ago) if uk_latest else week_ago
     us_from = max(us_latest, week_ago) if us_latest else week_ago
-
-    # Run regions independently — failure in one doesn't abort the other
-    uk_rc = scrape_region("UK", uk_from, today)
-    us_rc = scrape_region("US", us_from, today)
-    log(f"Affiliate scrape complete: UK rc={uk_rc}, US rc={us_rc}")
-    return 0  # always 0 — failures are reports, not pipeline errors
+    rc_uk = scrape_region("UK", uk_from, today)
+    rc_us = scrape_region("US", us_from, today)
+    log(f"Done: UK rc={rc_uk}, US rc={rc_us}")
+    return 0
 
 
 if __name__ == "__main__":

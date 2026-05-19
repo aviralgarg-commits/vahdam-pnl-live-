@@ -1,20 +1,16 @@
 """
-scrape_smart_promo.py -- Playwright-driven Smart Promotion bucket capture.
+scrape_smart_promo.py — Pull Smart Promotion buckets from Seller Center
+(UK + US) via CDP attach. Appends to data/smart_promo_monthly.json AND
+seller_center_snapshots/<region>/smart_promo_<from>_to_<to>.json.
 
-Anchors (validated in prior session):
-  - Smart Promo "View details": <tr> containing text "Smart Promotion Plan",
-    then find <button> inside that row (NOT <a>)
-  - Date picker "Yesterday": <button> with exact text "Yesterday", visible
-    only after focusing the start-date input
-
-Pre-flight auth check: confirm 'VAHDAM' appears on /homepage within 10s.
-If not, log AUTH REQUIRED and SKIP that region. UK failure doesn't block US.
-
-Appends a new bucket to data/smart_promo_monthly.json -- never overwrites
-existing buckets. The dashboard's revenue-share allocator handles adjacent
-buckets correctly.
-
-Setup is shared with scrape_affiliate.py -- same Playwright auth state.
+Per spec:
+  - Use /promotion/program-center/smart-program/register (NOT /manage —
+    register is more reliable; data appears as a single text block:
+    "ROI X.X GMV £X Seller promotion cost £X Orders X New customers X")
+  - Window: latest existing window_end + 1d -> today (so we never overlap)
+  - APPEND-ONLY: never overwrite existing buckets; the dashboard's
+    allocator handles overlapping windows correctly.
+  - Shadow-aware text extraction via SHADOW_TEXT_JS.
 """
 from __future__ import annotations
 
@@ -26,21 +22,17 @@ import time
 from datetime import datetime as _dt, date as _date, timedelta
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CONFIG_DIR = ROOT / "config"
-SMART_PROMO_FILE = ROOT / "data" / "smart_promo_monthly.json"
+sys.path.insert(0, str(ROOT / "scripts"))
+
 LOG = ROOT / "logs" / "scrape_smart_promo.log"
 LOG.parent.mkdir(exist_ok=True)
+SMART_PROMO_FILE = ROOT / "data" / "smart_promo_monthly.json"
+SNAPSHOTS = ROOT / "seller_center_snapshots"
 
-HOMEPAGE = {
-    "UK": "https://seller-uk.tiktok.com/homepage",
-    "US": "https://seller-us.tiktok.com/homepage",
+REGISTER_URL = {
+    "UK": "https://seller-uk.tiktok.com/promotion/program-center/smart-program/register",
+    "US": "https://seller-us.tiktok.com/promotion/program-center/smart-program/register",
 }
-MANAGE_URL = {
-    "UK": "https://seller-uk.tiktok.com/promotion/program-center/smart-program/manage",
-    "US": "https://seller-us.tiktok.com/promotion/program-center/smart-program/manage",
-}
-AUTH_TIMEOUT_SEC = 30
-AUTH_MARKERS = ["VAHDAM", "Vahdam", "vahdam"]
 
 
 def log(msg: str) -> None:
@@ -48,23 +40,6 @@ def log(msg: str) -> None:
     print(line)
     with LOG.open("a", encoding="utf-8") as fh:
         fh.write(line + "\n")
-
-
-def storage_state_path(region: str) -> pathlib.Path:
-    return CONFIG_DIR / f"playwright_storage_{region.lower()}.json"
-
-
-def profile_dir(region: str) -> pathlib.Path:
-    """Same persistent Chromium profile dir as scrape_affiliate.py uses."""
-    return CONFIG_DIR / f"chrome_profile_{region.lower()}"
-
-
-def latest_bucket_end(region: str) -> str | None:
-    if not SMART_PROMO_FILE.exists():
-        return None
-    data = json.loads(SMART_PROMO_FILE.read_text(encoding="utf-8-sig"))
-    ends = [b.get("window_end") for b in data if b.get("region") == region and b.get("window_end")]
-    return max(ends) if ends else None
 
 
 def parse_money(s) -> float:
@@ -82,37 +57,31 @@ def parse_int(s) -> int:
     except Exception: return 0
 
 
-def preflight_auth(page, region: str) -> bool:
-    try:
-        page.goto(HOMEPAGE[region], wait_until="domcontentloaded", timeout=30_000)
-    except Exception as e:
-        log(f"{region}: homepage navigation failed -- {e}")
-        return False
-    deadline = time.time() + AUTH_TIMEOUT_SEC
-    while time.time() < deadline:
-        try:
-            url = page.url or ""
-            body = page.inner_text("body", timeout=2000)
-            if any(m in body for m in AUTH_MARKERS):
-                return True
-            on_seller = ("seller-" in url) and ("login" not in url.lower())
-            has_login_ui = ("Sign in" in body or "Log in" in body or "Password" in body)
-            if on_seller and not has_login_ui and len(body) > 500:
-                log(f"{region}: on seller domain, no login UI -- authenticated")
-                return True
-        except Exception:
-            pass
-        time.sleep(2)
-    return False
+def latest_bucket_end(region: str) -> str | None:
+    """Largest window_end for this region in smart_promo_monthly.json. We
+    start the next scrape from latest_end + 1 day so windows never overlap."""
+    if not SMART_PROMO_FILE.exists():
+        # Also check pnl_daily.json's embedded buckets
+        pnl = ROOT / "data" / "pnl_daily.json"
+        if pnl.exists():
+            try:
+                data = json.loads(pnl.read_text(encoding="utf-8-sig"))
+                ends = [b.get("window_end") for b in data.get("smart_promo_monthly", [])
+                        if b.get("region") == region and b.get("window_end")]
+                return max(ends) if ends else None
+            except Exception:
+                return None
+        return None
+    data = json.loads(SMART_PROMO_FILE.read_text(encoding="utf-8-sig"))
+    if isinstance(data, dict):
+        data = data.get("buckets", [])
+    ends = [b.get("window_end") for b in data
+            if b.get("region") == region and b.get("window_end")]
+    return max(ends) if ends else None
 
 
 def capture(region: str) -> dict | None:
-    try:
-        from playwright.sync_api import TimeoutError as PWTimeout
-    except ImportError:
-        log("ERROR: playwright not installed.")
-        return None
-    from _cdp import attach, detach, CdpUnavailable  # type: ignore
+    from _cdp import shared_scrape_setup, detach, SHADOW_TEXT_JS  # type: ignore
 
     last_end = latest_bucket_end(region)
     today = _date.today()
@@ -122,183 +91,137 @@ def capture(region: str) -> dict | None:
         gap_from = today.replace(day=1).isoformat()
     gap_to = today.isoformat()
     if gap_from > gap_to:
-        log(f"{region}: no gap to capture (last bucket already covers through today)")
+        log(f"{region}: no gap to capture (latest bucket {last_end} already covers today)")
         return None
     log(f"{region}: capturing Smart Promo for {gap_from} -> {gap_to}")
 
-    for attempt in range(2):
-        pw = browser = ctx = page = None
+    setup = shared_scrape_setup(region, REGISTER_URL[region], log)
+    if setup is None:
+        return None
+    pw, browser, ctx, page = setup
+
+    try:
+        for attempt in range(2):
+            try:
+                page.goto(REGISTER_URL[region], wait_until="domcontentloaded", timeout=60_000)
+                try:
+                    page.wait_for_load_state("networkidle", timeout=25_000)
+                except Exception:
+                    pass
+                page.wait_for_timeout(8000)
+
+                # Shadow-aware text extraction
+                txt = page.evaluate(SHADOW_TEXT_JS)
+                if not txt or len(txt) < 500:
+                    log(f"PAGE_NOT_LOADED_{region}_smart_promo_register (text<500, attempt {attempt+1})")
+                    try:
+                        page.screenshot(path=str(ROOT / "logs" / f"debug_smart_promo_{region.lower()}_dim.png"))
+                    except Exception:
+                        pass
+                    time.sleep(15)
+                    continue
+
+                # Pull the metrics block:
+                #   "ROI X.X GMV £X Seller promotion cost £X Orders X New customers X"
+                ccy = "GBP" if region.upper() == "UK" else "USD"
+
+                def grab(pat: str) -> str | None:
+                    m = re.search(pat + r"\s*[^\d£$\-]{0,30}([\-£$\d.,]+%?)", txt, re.IGNORECASE)
+                    return m.group(1) if m else None
+
+                roi = grab(r"\bROI\b")
+                gmv = grab(r"\bGMV\b")
+                cost = grab(r"Seller\s+promotion\s+cost") or grab(r"\bCost\b")
+                orders = grab(r"\bOrders\b")
+                new_cust = grab(r"New\s+customers?")
+                fee_rate = grab(r"Seller\s+fee") if region.upper() == "US" else None
+
+                if not cost or not gmv:
+                    log(f"{region}: failed to extract cost/GMV from register page (attempt {attempt+1})")
+                    time.sleep(15)
+                    continue
+
+                bucket = {
+                    "region": region.upper(),
+                    "month": gap_from[:7],
+                    "window_start": gap_from,
+                    "window_end": gap_to,
+                    "cost": round(parse_money(cost), 2),
+                    "currency": ccy,
+                    "smart_promo_gmv": round(parse_money(gmv), 2),
+                    "orders_via_smart_promo": parse_int(orders) if orders else 0,
+                    "new_customers": parse_int(new_cust) if new_cust else 0,
+                    "roi": parse_money(roi) if roi else 0.0,
+                    "source": f"TikTok {region.upper()} Seller Center > Marketing > Smart Promotion",
+                    "pulled_at": today.isoformat(),
+                }
+                if fee_rate:
+                    bucket["seller_fee_rate"] = parse_money(fee_rate)
+
+                # Append-only: snapshot to per-region file
+                snap_dir = SNAPSHOTS / region.upper()
+                snap_dir.mkdir(parents=True, exist_ok=True)
+                snap = snap_dir / f"smart_promo_{gap_from}_to_{gap_to}.json"
+                snap.write_text(json.dumps({
+                    "region": region.upper(),
+                    "source": bucket["source"],
+                    "pulled_at": bucket["pulled_at"],
+                    "window_start": gap_from,
+                    "window_end": gap_to,
+                    "metrics": {
+                        "roi": bucket["roi"],
+                        "gmv": bucket["smart_promo_gmv"],
+                        "seller_promotion_cost": bucket["cost"],
+                        "orders_via_smart_promo": bucket["orders_via_smart_promo"],
+                        "new_customers": bucket["new_customers"],
+                    },
+                    "currency": ccy,
+                }, indent=2), encoding="utf-8")
+                log(f"{region}: snapshot -> {snap.name}")
+                return bucket
+            except Exception as e:
+                log(f"{region}: smart promo scrape attempt {attempt+1} failed -- {e}")
+                time.sleep(15)
+        return None
+    finally:
         try:
-            try:
-                pw, browser, ctx = attach()
-            except CdpUnavailable as e:
-                log(f"CDP_UNAVAILABLE -- scraper {region} skipped this cycle: {e}")
-                return None
-            page = ctx.new_page()
-            log(f"{region}: attached to real Chrome via CDP (port 9222)")
-
-            if not preflight_auth(page, region):
-                log(f"AUTH REQUIRED -- {region} Chrome not logged in. Skipping.")
-                return None
-            log(f"{region}: auth OK")
-
-            page.goto(MANAGE_URL[region], wait_until="domcontentloaded", timeout=60_000)
-            try:
-                page.wait_for_load_state("networkidle", timeout=30_000)
-            except Exception:
-                pass
-            page.wait_for_timeout(8000)
-            try:
-                page.screenshot(path=str(ROOT / "logs" / f"debug_smart_promo_{region.lower()}_after_load.png"))
-            except Exception:
-                pass
-
-            for txt in ("Got it", "Don't show again", "Close"):
-                try:
-                    btn = page.get_by_role("button", name=txt, exact=False)
-                    if btn.count() > 0:
-                        btn.first.click(timeout=1500)
-                        log(f"{region}: dismissed '{txt}' popup")
-                        page.wait_for_timeout(800)
-                except Exception:
-                    pass
-
-            view_btn = page.locator(
-                'xpath=//tr[.//text()[contains(., "Smart Promotion")]]//button[contains(., "View")]'
-            ).first
-            try:
-                view_btn.wait_for(state="visible", timeout=10000)
-            except PWTimeout:
-                view_btn = page.get_by_role("button", name="View details").first
-                try:
-                    view_btn.wait_for(state="visible", timeout=5000)
-                except PWTimeout:
-                    log(f"{region}: no 'View details' button found (attempt {attempt+1})")
-                try:
-                    html = page.content()
-                    dbg = ROOT / "logs" / f"debug_smart_promo_{region.lower()}_{int(time.time())}.html"
-                    dbg.write_text(html, encoding="utf-8")
-                    log(f"{region}: dumped HTML to {dbg.name}")
-                except Exception:
-                    pass
-                continue
-            view_btn.click()
-            page.wait_for_load_state("domcontentloaded", timeout=30_000)
-            try:
-                page.wait_for_load_state("networkidle", timeout=20_000)
-            except Exception:
-                pass
-            page.wait_for_timeout(8000)
-            try:
-                page.screenshot(path=str(ROOT / "logs" / f"debug_smart_promo_{region.lower()}_detail.png"), full_page=True)
-                log(f"{region}: dumped detail-page screenshot")
-            except Exception:
-                pass
-
-            start_input = page.query_selector(
-                'input[placeholder*="Start" i], input[placeholder*="start date" i]'
-            )
-            if start_input:
-                start_input.click()
-                page.wait_for_timeout(800)
-                yday_btn = page.locator('button:text-is("Yesterday")').first
-                try:
-                    yday_btn.wait_for(state="visible", timeout=4000)
-                    yday_btn.click()
-                    log(f"{region}: clicked Yesterday preset")
-                    page.wait_for_timeout(2500)
-                except PWTimeout:
-                    date_inputs = page.query_selector_all('input[placeholder*="date" i]')
-                    if len(date_inputs) >= 2:
-                        date_inputs[0].fill("")
-                        date_inputs[0].type(gap_from)
-                        date_inputs[1].fill("")
-                        date_inputs[1].type(gap_to)
-                        page.keyboard.press("Enter")
-                        log(f"{region}: typed custom range {gap_from} -> {gap_to}")
-                        page.wait_for_timeout(2500)
-
-            body = page.inner_text("body")
-
-            def grab(label_re: str) -> str | None:
-                m = re.search(label_re + r"\s*[^\d$£%\-]{0,30}([\-£$\d.,]+%?)",
-                              body, re.IGNORECASE)
-                return m.group(1) if m else None
-
-            metrics_idx = body.find("Smart Promotion metrics")
-            metrics_body = body[metrics_idx:] if metrics_idx >= 0 else body
-
-            def grab_in_metrics(label_re: str) -> str | None:
-                m = re.search(label_re + r"\s*[^\d$£%\-]{0,30}([\-£$\d.,]+%?)",
-                              metrics_body, re.IGNORECASE)
-                return m.group(1) if m else None
-
-            cost_str = grab_in_metrics(r"Seller promotion cost") or grab_in_metrics(r"\bCost\b")
-            gmv_str = grab_in_metrics(r"\bGMV\b")
-            roi_str = grab_in_metrics(r"\bROI\b")
-            orders_str = grab_in_metrics(r"\bOrders\b")
-            new_cust_str = grab_in_metrics(r"New customers?")
-            fee_rate_str = grab(r"Seller fee") if region.upper() == "US" else None
-
-            if not cost_str or not gmv_str:
-                log(f"{region}: failed to extract cost/GMV (attempt {attempt+1})")
-                continue
-
-            bucket = {
-                "region": region.upper(),
-                "month": gap_from[:7],
-                "window_start": gap_from,
-                "window_end": gap_to,
-                "cost": parse_money(cost_str),
-                "currency": "GBP" if region.upper() == "UK" else "USD",
-                "smart_promo_gmv": parse_money(gmv_str),
-                "orders_via_smart_promo": parse_int(orders_str) if orders_str else 0,
-                "new_customers": parse_int(new_cust_str) if new_cust_str else 0,
-                "roi": parse_money(roi_str) if roi_str else 0.0,
-                "source": f"TikTok {region.upper()} Seller Center > Marketing > Smart Promotion",
-                "pulled_at": today.isoformat(),
-            }
-            if fee_rate_str:
-                bucket["seller_fee_rate"] = parse_money(fee_rate_str)
-            return bucket
-        except Exception as e:
-            log(f"{region}: scrape error (attempt {attempt+1}) -- {e}")
-        finally:
-            try:
-                if page is not None and not page.is_closed():
-                    page.close()
-            except Exception:
-                pass
-            if pw is not None:
-                detach(pw, browser)
-            if attempt == 0:
-                time.sleep(10)
-    return None
+            if not page.is_closed():
+                page.close()
+        except Exception:
+            pass
+        detach(pw, browser)
 
 
 def append_bucket(bucket: dict) -> None:
+    """APPEND-ONLY merge into smart_promo_monthly.json. Never overwrite an
+    existing (region, window_start, window_end) — log + skip if collision."""
     data: list[dict] = []
     if SMART_PROMO_FILE.exists():
-        data = json.loads(SMART_PROMO_FILE.read_text(encoding="utf-8-sig"))
-    # Dedup by (region, window_start, window_end) -- never overwrite older buckets
+        try:
+            data = json.loads(SMART_PROMO_FILE.read_text(encoding="utf-8-sig"))
+            if isinstance(data, dict):
+                data = data.get("buckets", [])
+        except Exception:
+            data = []
     key = (bucket["region"], bucket["window_start"], bucket["window_end"])
-    data = [b for b in data if (b.get("region"), b.get("window_start"), b.get("window_end")) != key]
+    for b in data:
+        if (b.get("region"), b.get("window_start"), b.get("window_end")) == key:
+            log(f"{bucket['region']}: bucket {key} already exists — APPEND-ONLY, skipping")
+            return
     data.append(bucket)
     SMART_PROMO_FILE.write_text(json.dumps(data, indent=2), encoding="utf-8")
+    log(f"{bucket['region']}: appended bucket {bucket['window_start']} -> {bucket['window_end']} "
+        f"cost={bucket['currency']} {bucket['cost']:.2f}")
 
 
 def main() -> int:
-    captured = 0
+    log(f"=== scrape_smart_promo.py {_date.today().isoformat()} ===")
     for region in ("UK", "US"):
         b = capture(region)
         if b is None:
-            log(f"{region}: Smart Promo bucket not refreshed -- will retry next refresh")
+            log(f"{region}: bucket not refreshed this cycle")
             continue
         append_bucket(b)
-        log(f"{region}: appended bucket {b['window_start']} -> {b['window_end']} "
-            f"cost={b['currency']} {b['cost']}")
-        captured += 1
-    log(f"Smart Promo capture complete: {captured}/2 regions refreshed")
     return 0
 
 
