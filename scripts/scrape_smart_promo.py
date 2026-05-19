@@ -139,17 +139,43 @@ def capture(region: str) -> dict | None:
                 log(f"{region}: auth ✓")
 
                 page.goto(MANAGE_URL[region], wait_until="domcontentloaded", timeout=60_000)
-                page.wait_for_timeout(3500)
+                try:
+                    page.wait_for_load_state("networkidle", timeout=30_000)
+                except Exception:
+                    pass
+                page.wait_for_timeout(8000)  # SPA data render hold
+                try:
+                    page.screenshot(path=str(ROOT / "logs" / f"debug_smart_promo_{region.lower()}_after_load.png"))
+                except Exception:
+                    pass
 
-                # Anchor: <tr> containing "Smart Promotion Plan" → <button> inside (NOT <a>)
+                # Dismiss any "Got it" / promotional popups blocking the row
+                for txt in ("Got it", "Don't show again", "Close"):
+                    try:
+                        btn = page.get_by_role("button", name=txt, exact=False)
+                        if btn.count() > 0:
+                            btn.first.click(timeout=1500)
+                            log(f"{region}: dismissed '{txt}' popup")
+                            page.wait_for_timeout(800)
+                    except Exception:
+                        pass
+
+                # Smart Promo row label differs by region:
+                #   US: "Smart Promotion"        UK: "Smart Promotion Plan"
+                # Anchor on the "View details" button inside any row whose first
+                # cell contains either label.
                 view_btn = page.locator(
-                    'xpath=//tr[.//text()[contains(., "Smart Promotion Plan")]]//button'
+                    'xpath=//tr[.//text()[contains(., "Smart Promotion")]]//button[contains(., "View")]'
                 ).first
                 try:
-                    view_btn.wait_for(state="visible", timeout=8000)
+                    view_btn.wait_for(state="visible", timeout=10000)
                 except PWTimeout:
-                    log(f"{region}: 'Smart Promotion Plan' row's <button> not visible "
-                        f"(attempt {attempt+1})")
+                    # Fallback: any "View details" button on the page
+                    view_btn = page.get_by_role("button", name="View details").first
+                    try:
+                        view_btn.wait_for(state="visible", timeout=5000)
+                    except PWTimeout:
+                        log(f"{region}: no 'View details' button found (attempt {attempt+1})")
                     # Dump page HTML for selector debugging
                     try:
                         html = page.content()
@@ -163,7 +189,17 @@ def capture(region: str) -> dict | None:
                     continue
                 view_btn.click()
                 page.wait_for_load_state("domcontentloaded", timeout=30_000)
-                page.wait_for_timeout(3000)
+                try:
+                    page.wait_for_load_state("networkidle", timeout=20_000)
+                except Exception:
+                    pass
+                page.wait_for_timeout(8000)
+                # Detail-page screenshot for selector debugging
+                try:
+                    page.screenshot(path=str(ROOT / "logs" / f"debug_smart_promo_{region.lower()}_detail.png"), full_page=True)
+                    log(f"{region}: dumped detail-page screenshot")
+                except Exception:
+                    pass
 
                 # Date picker: focus start-date input, click "Yesterday" preset
                 start_input = page.query_selector(
@@ -190,18 +226,31 @@ def capture(region: str) -> dict | None:
                             log(f"{region}: typed custom range {gap_from} → {gap_to}")
                             page.wait_for_timeout(2500)
 
-                # Read metrics from page body text
+                # Read metrics from page body text. Labels and values are on
+                # separate lines (ROI\n8.02), so the gap regex must allow \n.
                 body = page.inner_text("body")
 
                 def grab(label_re: str) -> str | None:
-                    m = re.search(label_re + r"[^\n0-9$£%-]*([\-£$\d.,%]+)", body, re.IGNORECASE)
+                    # Allow up to 30 non-digit chars (incl whitespace/newlines) between label and value
+                    m = re.search(label_re + r"\s*[^\d$£%\-]{0,30}([\-£$\d.,]+%?)",
+                                  body, re.IGNORECASE)
                     return m.group(1) if m else None
 
-                cost_str = grab(r"Seller (?:promotion )?cost") or grab(r"Cost\b")
-                gmv_str = grab(r"Smart Promotion GMV") or grab(r"\bGMV\b")
-                roi_str = grab(r"\bROI\b")
-                orders_str = grab(r"Orders via") or grab(r"Orders\b")
-                new_cust_str = grab(r"New customers?")
+                # Anchor metric extraction on the "Smart Promotion metrics" section
+                # (avoids picking up the 3.5% rate near "Manage your marketing plan").
+                metrics_idx = body.find("Smart Promotion metrics")
+                metrics_body = body[metrics_idx:] if metrics_idx >= 0 else body
+
+                def grab_in_metrics(label_re: str) -> str | None:
+                    m = re.search(label_re + r"\s*[^\d$£%\-]{0,30}([\-£$\d.,]+%?)",
+                                  metrics_body, re.IGNORECASE)
+                    return m.group(1) if m else None
+
+                cost_str = grab_in_metrics(r"Seller promotion cost") or grab_in_metrics(r"\bCost\b")
+                gmv_str = grab_in_metrics(r"\bGMV\b")
+                roi_str = grab_in_metrics(r"\bROI\b")
+                orders_str = grab_in_metrics(r"\bOrders\b")
+                new_cust_str = grab_in_metrics(r"New customers?")
                 fee_rate_str = grab(r"Seller fee") if region.upper() == "US" else None
 
                 if not cost_str or not gmv_str:

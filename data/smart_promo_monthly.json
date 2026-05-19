@@ -1,33 +1,48 @@
-﻿[
-    {
-        "region":  "UK",
-        "month":  "2026-05",
-        "window_start":  "2026-05-01",
-        "window_end":  "2026-05-13",
-        "cost":  4417.93,
-        "currency":  "GBP",
-        "smart_promo_gmv":  38190.23,
-        "orders_via_smart_promo":  1103,
-        "new_customers":  744,
-        "roi":  8.6,
-        "source":  "TikTok UK Seller Center \u003e Marketing \u003e Smart Promotion (May 1-13, 2026 MTD)",
-        "pulled_at":  "2026-05-14",
-        "note":  "Smart Promotion Plan, Up to 3% per order + 1% during campaigns. Includes campaign add-ons."
-    },
-    {
-        "region":  "US",
-        "month":  "2026-05",
-        "window_start":  "2026-05-01",
-        "window_end":  "2026-05-11",
-        "cost":  1642.36,
-        "currency":  "USD",
-        "smart_promo_gmv":  10421.1,
-        "orders_via_smart_promo":  429,
-        "new_customers":  422,
-        "roi":  6.79,
-        "seller_fee_rate":  0.0349,
-        "source":  "TikTok US Seller Center \u003e Marketing \u003e Smart Promotion (data updated May 11, 2026 17:00 PDT)",
-        "pulled_at":  "2026-05-14",
-        "note":  "Seller fee 3.49% of GMV."
-    }
+[
+  {
+    "region": "UK",
+    "month": "2026-05",
+    "window_start": "2026-05-01",
+    "window_end": "2026-05-13",
+    "cost": 4417.93,
+    "currency": "GBP",
+    "smart_promo_gmv": 38190.23,
+    "orders_via_smart_promo": 1103,
+    "new_customers": 744,
+    "roi": 8.6,
+    "source": "TikTok UK Seller Center > Marketing > Smart Promotion (May 1-13, 2026 MTD)",
+    "pulled_at": "2026-05-14",
+    "note": "Smart Promotion Plan, Up to 3% per order + 1% during campaigns. Includes campaign add-ons."
+  },
+  {
+    "region": "US",
+    "month": "2026-05",
+    "window_start": "2026-05-01",
+    "window_end": "2026-05-11",
+    "cost": 1642.36,
+    "currency": "USD",
+    "smart_promo_gmv": 10421.1,
+    "orders_via_smart_promo": 429,
+    "new_customers": 422,
+    "roi": 6.79,
+    "seller_fee_rate": 0.0349,
+    "source": "TikTok US Seller Center > Marketing > Smart Promotion (data updated May 11, 2026 17:00 PDT)",
+    "pulled_at": "2026-05-14",
+    "note": "Seller fee 3.49% of GMV."
+  },
+  {
+    "region": "US",
+    "month": "2026-05",
+    "window_start": "2026-05-12",
+    "window_end": "2026-05-19",
+    "cost": 2099.36,
+    "currency": "USD",
+    "smart_promo_gmv": 15437.71,
+    "orders_via_smart_promo": 664,
+    "new_customers": 652,
+    "roi": 8.02,
+    "source": "TikTok US Seller Center > Marketing > Smart Promotion",
+    "pulled_at": "2026-05-19",
+    "seller_fee_rate": 0.0349
+  }
 ]
