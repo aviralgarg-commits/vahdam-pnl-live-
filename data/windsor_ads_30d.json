@@ -1,43 +1,43 @@
 {
-  "pulled_at": "2026-05-18",
-  "window_start": "2026-04-19",
-  "window_end": "2026-05-18",
+  "pulled_at": "2026-05-19",
+  "window_start": "2026-04-20",
+  "window_end": "2026-05-19",
   "source": "Windsor.ai tiktok gmv_max_ads_spend (Shop Ads only, L30)",
   "UK": {
     "currency": "GBP",
-    "total_cost": 136385.46,
+    "total_cost": 134184.14,
     "product_gmv_max": [
       {
         "campaign": "Coffee GMV Max_Gross revenue_3rdNOV",
-        "cost": 108549.94,
+        "cost": 106572.88,
         "sku": "Coffee"
       },
       {
         "campaign": "AshwagandhaCapsules_GMV MAX_3rdFeb",
-        "cost": 6123.2,
+        "cost": 5924.65,
         "sku": "Ashwagandha Caps"
       },
       {
         "campaign": "Turmeric_Capsules GMV Max_Gross revenue_26thDec",
-        "cost": 5257.16,
+        "cost": 4916.39,
         "sku": "Turmeric Curcumin"
       },
       {
         "campaign": "Handle GMV Max_Gross revenue_27thMar",
-        "cost": 3964.51
+        "cost": 3962.45
       },
       {
         "campaign": "Kristina GMV Max_Gross revenue_21stApril",
-        "cost": 1929.6
+        "cost": 1957.08
       },
       {
         "campaign": "Green_Burner_GMV Max_Gross revenue_24thDec",
-        "cost": 822.13,
+        "cost": 1159.46,
         "sku": "Green Burner"
       },
       {
         "campaign": "[Auto-created] Feb UK Promotion_20260330024032",
-        "cost": 517.94
+        "cost": 508.1
       },
       {
         "campaign": "Anna_GMV Max_23rdFeb",
@@ -47,23 +47,23 @@
     "live_gmv_max": [
       {
         "campaign": "Jack_LIVE GMV Max_11thFeb",
-        "cost": 4230.09
+        "cost": 4253.45
       },
       {
         "campaign": "Chance_LIVE GMV Max_11thFeb",
-        "cost": 1661.09
+        "cost": 1620.96
       },
       {
         "campaign": "Sandra_LIVE GMV Max_11thFeb",
-        "cost": 1568.19
+        "cost": 1574.41
       },
       {
         "campaign": "Jewitt_LIVE GMV Max_16thFeb",
-        "cost": 805.66
+        "cost": 787.6
       },
       {
         "campaign": "Oksana_LIVE GMV Max_17thFeb",
-        "cost": 557.96
+        "cost": 548.72
       },
       {
         "campaign": "James_LIVE GMV Max_11thFeb",
@@ -73,36 +73,36 @@
   },
   "US": {
     "currency": "USD",
-    "total_cost": 82134.32,
+    "total_cost": 81675.65,
     "product_gmv_max": [
       {
         "campaign": "Tumeric_Capsules_GMV Max_Gross revenue_4thNov",
-        "cost": 44639.41,
+        "cost": 45282.18,
         "sku": "Turmeric Curcumin"
       },
       {
         "campaign": "Coffee_TTS campaign_30thSep",
-        "cost": 28720.1,
+        "cost": 27683.84,
         "sku": "Coffee"
       },
       {
         "campaign": "AshwagandhaCapsules_GMV Max_3rdFeb",
-        "cost": 3405.66,
+        "cost": 3399.83,
         "sku": "Ashwagandha Caps"
       },
       {
         "campaign": "MoringaCapsules_GMV Max_Gross revenue_9thMar",
-        "cost": 2961.03,
+        "cost": 2932.69,
         "sku": "Moringa"
       },
       {
         "campaign": "Shatavari_GMV Max_Gross revenue_3rd_Dec",
-        "cost": 1332.61,
+        "cost": 1322.97,
         "sku": "Shatavari"
       },
       {
         "campaign": "[Auto-created] US Spring Sale Promotion_20260312000631",
-        "cost": 1075.51
+        "cost": 1054.14
       }
     ],
     "live_gmv_max": []
