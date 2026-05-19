@@ -333,10 +333,10 @@ def reconcile():
         if us.get("sheets"):
             lines.append(f"Sheets present: `{', '.join(us['sheets'])}`")
 
-    # Summary to refresh.log
+    # Summary to refresh.log (ASCII-safe for Windows console)
     sumline = [
         f"=== CM check (openpyxl) {timestamp} ===",
-        f"UK: {summary['uk']['checked']} checked, {summary['uk']['OK']} ✓, {summary['uk']['warn']} ⚠, {summary['uk']['FAIL']} ✗",
+        f"UK: {summary['uk']['checked']} checked, {summary['uk']['OK']} OK, {summary['uk']['warn']} warn, {summary['uk']['FAIL']} FAIL",
         f"US: {summary['us']['checked']} checked (sheet: {us.get('reason','n/a')})",
     ]
     top_gaps.sort(key=lambda x: -abs(x[5]))
