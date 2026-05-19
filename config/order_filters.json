@@ -15,7 +15,7 @@
   "_notes": [
     "Five separately-tracked buckets: net | cancelled | returned | refunded | sample. Inflight (AWAITING_SHIPMENT etc.) is excluded from all.",
     "Net = customer-facing fulfilled orders (Option A). Returns + Refunds = customer paid then got money back. Cancelled = order killed before fulfilment. Sample = order_amount == 0 (free creator sample).",
-    "For Windsor tiktok_shop: RETURNED/REFUNDED statuses are NOT exposed as top-level order_status — refunds show up as a separate refund amount on otherwise-completed orders. Track via order_payment_refund_amount when pulled (TODO).",
+    "(Historical note, Windsor era 2026-04 - 2026-05) RETURNED/REFUNDED statuses were not exposed as top-level order_status in the Windsor tiktok_shop connector; refunds came as a separate refund amount on otherwise-completed orders. With Seller Center scraping the All-orders CSV carries Cancelation/Return Type directly — filter on that column.",
     "For All-Orders CSV path: filter on 'Cancelation/Return Type' column. Rows where this contains 'Cancel', 'Return', or 'Refund' are excluded from net.",
     "Sample = total_paid below sample_total_paid_threshold AND status in net_order_statuses. Pre-ship samples (AWAITING_SHIPMENT with total_paid=0) stay in inflight until they ship."
   ]
