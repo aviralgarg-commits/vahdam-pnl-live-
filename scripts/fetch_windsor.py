@@ -164,16 +164,19 @@ def windsor_fetch(data_source: str, fields: list[str], account_id: str | None,
 
 
 # ── TikTok Shop ORDER-table fields (one row per order) ────────────────────────
+# Note: Windsor's tiktok_shop Order table does NOT expose per-order refund
+# amount. Refunds live in the Statement table — pulled separately in
+# fetch_shop_statement and merged into orders_daily per (date, region).
 SHOP_ORDER_FIELDS = [
     "account_id",
     "order_id",
     "order_create_time",           # unix timestamp (string)
     "order_status",                # AWAITING_SHIPMENT / IN_TRANSIT / DELIVERED / COMPLETED / CANCELLED
     "order_payment_currency",      # GBP / USD
-    "order_payment_sub_total",     # SKU subtotal AFTER seller discount, BEFORE platform discount
-    "order_payment_platform_discount",
+    "order_payment_sub_total",     # Subtotal AFTER all discounts (used in Net Sales formula B)
+    "order_payment_platform_discount",  # TikTok-funded discount (added back per formula B)
     "order_payment_seller_discount",
-    "order_payment_total_amount",  # what the buyer paid (post all discounts)
+    "order_payment_total_amount",  # what the buyer paid (sub_total + shipping + tax)
     "order_payment_original_total_product_price",  # gross before any discount
 ]
 
@@ -201,12 +204,13 @@ def fetch_shop_orders(date_from: str, date_to: str) -> list[dict]:
     return all_rows
 
 
-# ── tiktok_shop STATEMENT-table fields — SKU-level affiliate commission ─────────
+# ── tiktok_shop STATEMENT-table fields — affiliate commission + customer refunds ─
 SHOP_STATEMENT_FIELDS = [
     "date",
     "account_id",
     "statement_transaction_fee_affiliate_ads_commission_amount",
     "statement_transaction_fee_tap_shop_ads_commission",
+    "statement_transaction_supplementary_customer_refund_amount",
 ]
 
 
@@ -240,6 +244,25 @@ def aggregate_statement_aff(rows: list[dict]) -> dict:
         tap_ads = abs(float(r.get("statement_transaction_fee_tap_shop_ads_commission") or 0))
         out.setdefault(d, {})
         out[d][region] = out[d].get(region, 0.0) + aff_ads + tap_ads
+    return out
+
+
+def aggregate_statement_refunds(rows: list[dict]) -> dict:
+    """Per (date, region) -> total customer refund amount (settlement date)."""
+    acct = _shop_region_map()
+    out: dict[str, dict[str, float]] = {}
+    for r in rows:
+        region = acct.get(str(r.get("account_id", "") or ""))
+        if not region:
+            continue
+        d = str(r.get("date", "") or "")[:10]
+        if not d:
+            continue
+        refund = abs(float(r.get("statement_transaction_supplementary_customer_refund_amount") or 0))
+        if refund <= 0:
+            continue
+        out.setdefault(d, {})
+        out[d][region] = out[d].get(region, 0.0) + refund
     return out
 
 
@@ -357,9 +380,12 @@ def aggregate_shop_orders(rows: list[dict]) -> dict:
                 b["sample_orders"] += 1
                 b["sample_amt"] += total_paid
             else:
-                # Real net order — counts toward customer-facing fulfilled
+                # Real net order — counts toward customer-facing fulfilled.
+                # Net Sales = Subtotal After Discount + Platform Discount  (formula B)
+                # i.e. revenue the seller recognises, with TT-funded discount added back.
+                # Note: NOT total_paid (which includes shipping + tax).
                 b["net_orders"] += 1
-                b["net_sales"] += total_paid + plat_disc
+                b["net_sales"] += sub_total + plat_disc
                 b["gross"] += gross
                 b["plat_disc"] += plat_disc
                 b["seller_disc"] += seller_disc
@@ -624,10 +650,10 @@ def aggregate_ads(all_rows: list[dict],
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────
-def run(lookback_days: int = LOOKBACK, shop_topup_days: int = 14) -> tuple[dict, dict, dict, dict]:
+def run(lookback_days: int = LOOKBACK, shop_topup_days: int = 14) -> tuple[dict, dict, dict, dict, dict]:
     """
-    Pull TikTok Ads spend + TikTok Shop orders + Statement affiliate fees from Windsor.
-    Returns (ad_spend_daily, ad_spend_30d, shop_orders_daily, shop_aff_daily).
+    Pull TikTok Ads spend + TikTok Shop orders + Statement aff fees + refunds.
+    Returns (ad_spend_daily, ad_spend_30d, shop_orders_daily, shop_aff_daily, shop_refunds_daily).
 
     shop_orders_daily is the per-(date, region) daily totals from tiktok_shop
     Order-table. The merge step uses it to top-up orders_daily for days not
@@ -700,18 +726,25 @@ def run(lookback_days: int = LOOKBACK, shop_topup_days: int = 14) -> tuple[dict,
         except Exception:
             pass
 
-    # Statement-table affiliate commission (settled transactions only)
-    print(f"\n=== Windsor TikTok Shop statement (affiliate fees) {shop_from} -> {shop_to} ===")
+    # Statement-table affiliate commission + customer refunds (settled txns only)
+    print(f"\n=== Windsor TikTok Shop statement (aff fees + refunds) {shop_from} -> {shop_to} ===")
     stmt_rows = fetch_shop_statement(shop_from, shop_to)
     shop_aff_daily = aggregate_statement_aff(stmt_rows)
+    shop_refunds_daily = aggregate_statement_refunds(stmt_rows)
     (ROOT / "data" / "windsor_shop_aff_daily.json").write_text(
         json.dumps(shop_aff_daily, indent=2), encoding="utf-8"
     )
+    (ROOT / "data" / "windsor_shop_refunds_daily.json").write_text(
+        json.dumps(shop_refunds_daily, indent=2), encoding="utf-8"
+    )
     aff_uk = sum(d.get("UK", 0) for d in shop_aff_daily.values())
     aff_us = sum(d.get("US", 0) for d in shop_aff_daily.values())
+    ref_uk = sum(d.get("UK", 0) for d in shop_refunds_daily.values())
+    ref_us = sum(d.get("US", 0) for d in shop_refunds_daily.values())
     print(f"  Statement affiliate fees (top-up window): UK £{aff_uk:,.0f} | US ${aff_us:,.0f}")
+    print(f"  Statement customer refunds: UK £{ref_uk:,.0f} | US ${ref_us:,.0f}")
 
-    return ad_spend_daily, ad_spend_30d, shop_orders_daily, shop_aff_daily
+    return ad_spend_daily, ad_spend_30d, shop_orders_daily, shop_aff_daily, shop_refunds_daily
 
 
 if __name__ == "__main__":

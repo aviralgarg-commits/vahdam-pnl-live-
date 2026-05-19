@@ -67,8 +67,9 @@ def main():
         ad_30d = load_json(ROOT / "data" / "windsor_ads_30d.json", {})
         shop_orders_daily = load_json(ROOT / "data" / "windsor_shop_orders_daily.json", {})
         shop_aff_daily = load_json(ROOT / "data" / "windsor_shop_aff_daily.json", {})
+        shop_refunds_daily = load_json(ROOT / "data" / "windsor_shop_refunds_daily.json", {})
     else:
-        ad_daily, ad_30d, shop_orders_daily, shop_aff_daily = windsor_result
+        ad_daily, ad_30d, shop_orders_daily, shop_aff_daily, shop_refunds_daily = windsor_result
 
     # Step 2: Affiliate ingestion (also derives orders_daily from GMV)
     aff_result = run_step("Affiliate ingestion", ingest_seller.run)
