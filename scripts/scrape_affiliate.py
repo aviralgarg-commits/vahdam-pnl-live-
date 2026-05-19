@@ -40,8 +40,8 @@ ORDERS_URL = {
     "UK": "https://seller-uk.tiktok.com/affiliate/orders",
     "US": "https://seller-us.tiktok.com/affiliate/orders",
 }
-AUTH_TIMEOUT_SEC = 10
-AUTH_MARKERS = ["VAHDAM", "Vahdam"]
+AUTH_TIMEOUT_SEC = 30
+AUTH_MARKERS = ["VAHDAM", "Vahdam", "vahdam"]
 
 
 def log(msg: str) -> None:
@@ -88,44 +88,89 @@ def latest_csv_dates() -> tuple[str | None, str | None]:
 
 
 def setup_auth(region: str) -> int:
+    """Open Chromium → wait for user to log in → auto-detect VAHDAM marker → save + close."""
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
         log("ERROR: playwright not installed. Run: pip install playwright && playwright install chromium")
         return 1
-    log(f"Setup {region}: opening Chromium. Log in to TikTok Seller Center, then close window.")
+    log(f"Setup {region}: opening Chromium.")
+    log(f"  -> Log in at seller-{region.lower()}.tiktok.com in the window that opens.")
+    log(f"  -> Once you see VAHDAM's dashboard, this script auto-saves and closes the browser.")
+    log(f"  -> Max wait: 5 minutes. Press Ctrl+C in this terminal to abort.")
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
         ctx = browser.new_context()
         page = ctx.new_page()
-        page.goto(HOMEPAGE[region], wait_until="domcontentloaded", timeout=120_000)
         try:
-            while not page.is_closed():
-                time.sleep(2)
-        except Exception:
-            pass
-        ctx.storage_state(path=str(storage_state_path(region)))
-        browser.close()
-    log(f"Saved auth state -> {storage_state_path(region)}")
-    return 0
+            page.goto(HOMEPAGE[region], wait_until="domcontentloaded", timeout=120_000)
+        except Exception as e:
+            log(f"  navigation hiccup (ok, continuing): {e}")
+
+        # Poll for login: page body contains "VAHDAM" / seller name
+        deadline = time.time() + 300  # 5 minutes
+        logged_in = False
+        while time.time() < deadline:
+            if page.is_closed():
+                log("  user closed the browser — saving whatever state exists")
+                break
+            try:
+                body = page.inner_text("body", timeout=2000)
+                if any(m in body for m in AUTH_MARKERS):
+                    logged_in = True
+                    log(f"  detected '{[m for m in AUTH_MARKERS if m in body][0]}' marker — login looks good")
+                    break
+            except Exception:
+                pass
+            time.sleep(3)
+
+        if logged_in:
+            # Give the page 2 more seconds for any post-login cookies to settle
+            time.sleep(2)
+        try:
+            ctx.storage_state(path=str(storage_state_path(region)))
+            log(f"Saved auth state -> {storage_state_path(region)}")
+        except Exception as e:
+            log(f"ERROR saving storage state: {e}")
+            try: browser.close()
+            except Exception: pass
+            return 3
+        try: browser.close()
+        except Exception: pass
+    return 0 if logged_in else 2
 
 
 def preflight_auth(page, region: str) -> bool:
-    """Navigate to homepage, look for AUTH_MARKERS within 10s."""
+    """Navigate to homepage, look for AUTH_MARKERS or absence of login form."""
     try:
         page.goto(HOMEPAGE[region], wait_until="domcontentloaded", timeout=30_000)
     except Exception as e:
         log(f"{region}: homepage navigation failed — {e}")
         return False
     deadline = time.time() + AUTH_TIMEOUT_SEC
+    last_url = ""
     while time.time() < deadline:
         try:
-            body = page.inner_text("body")
+            url = page.url or ""
+            body = page.inner_text("body", timeout=2000)
+            # Positive signal: VAHDAM marker present
             if any(m in body for m in AUTH_MARKERS):
                 return True
+            # Positive signal: we're on seller subdomain AND no obvious login UI
+            on_seller = ("seller-" in url) and ("login" not in url.lower())
+            has_login_ui = ("Sign in" in body or "Log in" in body or "Password" in body)
+            if on_seller and not has_login_ui and len(body) > 500:
+                log(f"{region}: on seller domain ({url[:80]}), no login UI — treating as authenticated")
+                return True
+            last_url = url
         except Exception:
             pass
-        time.sleep(1)
+        time.sleep(2)
+    # Last-ditch debug: dump where we ended up
+    try:
+        log(f"{region}: auth check ended at URL={last_url} (no VAHDAM marker found in {AUTH_TIMEOUT_SEC}s)")
+    except Exception:
+        pass
     return False
 
 
@@ -187,6 +232,15 @@ def scrape_region(region: str, gap_from: str, gap_to: str) -> int:
             except Exception as e:
                 log(f"{region}: date picker error — {e}")
             page.wait_for_timeout(3000)
+
+            # Debug: dump page HTML so we can iterate on selectors
+            try:
+                html = page.content()
+                dbg = ROOT / "logs" / f"debug_affiliate_{region.lower()}_{int(time.time())}.html"
+                dbg.write_text(html, encoding="utf-8")
+                log(f"{region}: dumped page HTML to {dbg.name}")
+            except Exception:
+                pass
 
             # PAGINATED export: TikTok exports per page, not in one file.
             # Find pagination control to know how many pages exist.

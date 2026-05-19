@@ -39,8 +39,8 @@ MANAGE_URL = {
     "UK": "https://seller-uk.tiktok.com/promotion/program-center/smart-program/manage",
     "US": "https://seller-us.tiktok.com/promotion/program-center/smart-program/manage",
 }
-AUTH_TIMEOUT_SEC = 10
-AUTH_MARKERS = ["VAHDAM", "Vahdam"]
+AUTH_TIMEOUT_SEC = 30
+AUTH_MARKERS = ["VAHDAM", "Vahdam", "vahdam"]
 
 
 def log(msg: str) -> None:
@@ -86,12 +86,18 @@ def preflight_auth(page, region: str) -> bool:
     deadline = time.time() + AUTH_TIMEOUT_SEC
     while time.time() < deadline:
         try:
-            body = page.inner_text("body")
+            url = page.url or ""
+            body = page.inner_text("body", timeout=2000)
             if any(m in body for m in AUTH_MARKERS):
+                return True
+            on_seller = ("seller-" in url) and ("login" not in url.lower())
+            has_login_ui = ("Sign in" in body or "Log in" in body or "Password" in body)
+            if on_seller and not has_login_ui and len(body) > 500:
+                log(f"{region}: on seller domain, no login UI — authenticated")
                 return True
         except Exception:
             pass
-        time.sleep(1)
+        time.sleep(2)
     return False
 
 
@@ -136,8 +142,6 @@ def capture(region: str) -> dict | None:
                 page.wait_for_timeout(3500)
 
                 # Anchor: <tr> containing "Smart Promotion Plan" → <button> inside (NOT <a>)
-                # XPath captures any tr whose descendant text contains the plan name,
-                # then finds a button within that row.
                 view_btn = page.locator(
                     'xpath=//tr[.//text()[contains(., "Smart Promotion Plan")]]//button'
                 ).first
@@ -146,6 +150,14 @@ def capture(region: str) -> dict | None:
                 except PWTimeout:
                     log(f"{region}: 'Smart Promotion Plan' row's <button> not visible "
                         f"(attempt {attempt+1})")
+                    # Dump page HTML for selector debugging
+                    try:
+                        html = page.content()
+                        dbg = ROOT / "logs" / f"debug_smart_promo_{region.lower()}_{int(time.time())}.html"
+                        dbg.write_text(html, encoding="utf-8")
+                        log(f"{region}: dumped HTML to {dbg.name}")
+                    except Exception:
+                        pass
                     browser.close()
                     time.sleep(15)
                     continue
