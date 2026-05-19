@@ -179,13 +179,26 @@ SHOP_ORDER_FIELDS = [
 
 
 def fetch_shop_orders(date_from: str, date_to: str) -> list[dict]:
-    """Pull tiktok_shop Order-table for both UK + US (Windsor returns all connected accounts)."""
+    """Pull tiktok_shop Order-table for UK + US separately.
+
+    Windsor caps responses at ~2000 rows per query. A single multi-account call
+    over a wider window silently truncates one region's data. Fetching per-
+    account avoids the cap (each region's daily volume stays under 2000/day).
+    """
     print(f"  Fetching TikTok Shop orders {date_from} -> {date_to}...")
-    rows = windsor_fetch("tiktok_shop", SHOP_ORDER_FIELDS, None, date_from, date_to)
+    all_rows: list[dict] = []
+    for region, acct in (("UK", SHOP_UK), ("US", SHOP_US)):
+        rows = windsor_fetch("tiktok_shop", SHOP_ORDER_FIELDS, acct, date_from, date_to)
+        # Some Windsor endpoints ignore account_id when querying tiktok_shop —
+        # if the response contains both accounts, filter to just the target so
+        # we don't double-count.
+        rows = [r for r in rows if str(r.get("account_id", "")) == str(acct)]
+        print(f"    {region}: {len(rows)} rows (account {acct})")
+        all_rows.extend(rows)
     cache_file = CACHE_DIR / f"shop_orders_{date_to}.json"
-    cache_file.write_text(json.dumps(rows, indent=2), encoding="utf-8")
-    print(f"  -> {len(rows)} shop orders (cached {cache_file.name})")
-    return rows
+    cache_file.write_text(json.dumps(all_rows, indent=2), encoding="utf-8")
+    print(f"  -> {len(all_rows)} shop orders total (cached {cache_file.name})")
+    return all_rows
 
 
 # ── tiktok_shop STATEMENT-table fields — SKU-level affiliate commission ─────────
@@ -230,19 +243,31 @@ def aggregate_statement_aff(rows: list[dict]) -> dict:
     return out
 
 
-def _load_status_filter() -> tuple[set, set]:
-    """Load the order-status filter from config/order_filters.json.
-    Returns (net_statuses, cancelled_statuses). Falls back to safe defaults."""
+def _load_status_filter() -> dict:
+    """Load the full order-status filter config. Returns a dict with all bucket sets."""
     cfg_path = ROOT / "config" / "order_filters.json"
-    default_net = {"COMPLETED", "DELIVERED", "AWAITING_COLLECTION", "IN_TRANSIT", "SHIPPED"}
-    default_cancel = {"CANCELLED"}
+    defaults = {
+        "net":      {"COMPLETED", "DELIVERED", "AWAITING_COLLECTION", "IN_TRANSIT", "SHIPPED"},
+        "cancel":   {"CANCELLED"},
+        "return":   {"RETURNED"},
+        "refund":   {"REFUNDED"},
+        "inflight": {"AWAITING_SHIPMENT", "PENDING", "ON_HOLD"},
+        "sample_threshold": 0.01,
+        "sample_requires_net": True,
+    }
     try:
         cfg = json.loads(cfg_path.read_text(encoding="utf-8-sig"))
-        net = {s.upper() for s in (cfg.get("net_order_statuses") or default_net)}
-        cancel = {s.upper() for s in (cfg.get("cancelled_statuses") or default_cancel)}
-        return net, cancel
+        return {
+            "net":      {s.upper() for s in (cfg.get("net_order_statuses")        or defaults["net"])},
+            "cancel":   {s.upper() for s in (cfg.get("cancelled_statuses")        or defaults["cancel"])},
+            "return":   {s.upper() for s in (cfg.get("returned_statuses")         or defaults["return"])},
+            "refund":   {s.upper() for s in (cfg.get("refunded_statuses")         or defaults["refund"])},
+            "inflight": {s.upper() for s in (cfg.get("inflight_excluded_statuses") or defaults["inflight"])},
+            "sample_threshold": float(cfg.get("sample_total_paid_threshold", defaults["sample_threshold"])),
+            "sample_requires_net": bool(cfg.get("sample_requires_status_in_net_set", defaults["sample_requires_net"])),
+        }
     except Exception:
-        return default_net, default_cancel
+        return defaults
 
 
 def aggregate_shop_orders(rows: list[dict]) -> dict:
@@ -271,7 +296,7 @@ def aggregate_shop_orders(rows: list[dict]) -> dict:
     except Exception:
         UK_TZ = US_TZ = _tz.utc
 
-    net_statuses, cancelled_statuses = _load_status_filter()
+    flt = _load_status_filter()
     acct = _shop_region_map()
     out: dict[str, dict] = {}
     for r in rows:
@@ -287,8 +312,6 @@ def aggregate_shop_orders(rows: list[dict]) -> dict:
         except (ValueError, TypeError):
             continue
         status = str(r.get("order_status", "") or "").upper()
-        is_cancelled = status in cancelled_statuses
-        is_net = status in net_statuses  # customer-facing, count toward net_orders
 
         sub_total = float(r.get("order_payment_sub_total") or 0)
         plat_disc = float(r.get("order_payment_platform_discount") or 0)
@@ -299,26 +322,51 @@ def aggregate_shop_orders(rows: list[dict]) -> dict:
         day_map = out.setdefault(day, {})
         b = day_map.setdefault(region, {
             "currency": "GBP" if region == "UK" else "USD",
-            "orders": 0, "net_orders": 0, "cancelled_orders": 0, "inflight_orders": 0,
+            # All five buckets tracked separately
+            "orders": 0,
+            "net_orders": 0, "net_sales": 0.0,
+            "cancelled_orders": 0, "cancelled_amt": 0.0,
+            "returned_orders": 0,  "returned_amt": 0.0,
+            "refunded_orders": 0,  "refunded_amt": 0.0,
+            "sample_orders": 0,    "sample_amt": 0.0,
+            "inflight_orders": 0,
             "gross": 0.0, "plat_disc": 0.0, "seller_disc": 0.0,
-            "sub_total": 0.0, "net_sales": 0.0, "total_paid": 0.0,
-            "cancelled_amt": 0.0,
+            "sub_total": 0.0, "total_paid": 0.0,
         })
         b["orders"] += 1
-        if is_cancelled:
+
+        # 5-way categorisation (in priority order):
+        #   1. Cancelled (status = CANCELLED)         -> cancelled bucket
+        #   2. Returned  (status = RETURNED)          -> returned  bucket
+        #   3. Refunded  (status = REFUNDED)          -> refunded  bucket
+        #   4. Sample    (total_paid ≈ 0 AND status in net set) -> sample bucket
+        #   5. Net       (status in net set)          -> net bucket
+        #   6. Inflight  (everything else, e.g. AWAITING_SHIPMENT, ON_HOLD) -> excluded
+        if status in flt["cancel"]:
             b["cancelled_orders"] += 1
             b["cancelled_amt"] += total_paid
-        elif is_net:
-            # Customer-facing — counts toward net totals.
-            b["net_orders"] += 1
-            b["net_sales"] += total_paid + plat_disc  # Subtotal-after-discount + plat_disc (TT-funded)
-            b["gross"] += gross
-            b["plat_disc"] += plat_disc
-            b["seller_disc"] += seller_disc
-            b["sub_total"] += sub_total
-            b["total_paid"] += total_paid
+        elif status in flt["return"]:
+            b["returned_orders"] += 1
+            b["returned_amt"] += total_paid
+        elif status in flt["refund"]:
+            b["refunded_orders"] += 1
+            b["refunded_amt"] += total_paid
+        elif status in flt["net"]:
+            # Could be a sample (free product to creator): order_amount near zero
+            if total_paid <= flt["sample_threshold"]:
+                b["sample_orders"] += 1
+                b["sample_amt"] += total_paid
+            else:
+                # Real net order — counts toward customer-facing fulfilled
+                b["net_orders"] += 1
+                b["net_sales"] += total_paid + plat_disc
+                b["gross"] += gross
+                b["plat_disc"] += plat_disc
+                b["seller_disc"] += seller_disc
+                b["sub_total"] += sub_total
+                b["total_paid"] += total_paid
         else:
-            # In-flight (AWAITING_SHIPMENT, PENDING, etc.) — excluded from net.
+            # Inflight (AWAITING_SHIPMENT, ON_HOLD, PENDING, etc.) — excluded from all buckets
             b["inflight_orders"] += 1
     return out
 
