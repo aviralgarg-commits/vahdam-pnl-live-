@@ -1,0 +1,19 @@
+{
+  "_comment": "Order status filtering for net_orders / net_qty / net_sales aggregation. Edit and re-run refresh_daily.py — no code changes needed.",
+  "net_order_statuses": [
+    "COMPLETED",
+    "DELIVERED",
+    "AWAITING_COLLECTION",
+    "IN_TRANSIT",
+    "SHIPPED"
+  ],
+  "cancelled_statuses": ["CANCELLED"],
+  "exclude_from_all": [],
+  "sample_requires_status_in_net_set": true,
+  "_notes": [
+    "AWAITING_SHIPMENT excluded (sitting in warehouse, not yet customer-facing).",
+    "IN_TRANSIT included on the assumption TikTok uses it for 'with carrier, en route' (not inter-warehouse transfer). Move to excluded if a sample order audit shows otherwise.",
+    "REFUNDED rows still count as net; refund value is tracked separately in the refund line item.",
+    "Sample orders (order_amount=0): only counted as a sample if the order has also reached a status in net_order_statuses — otherwise it's still pending and shouldn't be in either bucket yet."
+  ]
+}

@@ -230,6 +230,21 @@ def aggregate_statement_aff(rows: list[dict]) -> dict:
     return out
 
 
+def _load_status_filter() -> tuple[set, set]:
+    """Load the order-status filter from config/order_filters.json.
+    Returns (net_statuses, cancelled_statuses). Falls back to safe defaults."""
+    cfg_path = ROOT / "config" / "order_filters.json"
+    default_net = {"COMPLETED", "DELIVERED", "AWAITING_COLLECTION", "IN_TRANSIT", "SHIPPED"}
+    default_cancel = {"CANCELLED"}
+    try:
+        cfg = json.loads(cfg_path.read_text(encoding="utf-8-sig"))
+        net = {s.upper() for s in (cfg.get("net_order_statuses") or default_net)}
+        cancel = {s.upper() for s in (cfg.get("cancelled_statuses") or default_cancel)}
+        return net, cancel
+    except Exception:
+        return default_net, default_cancel
+
+
 def aggregate_shop_orders(rows: list[dict]) -> dict:
     """
     Aggregate tiktok_shop Order rows into per-(date, region) daily totals.
@@ -239,7 +254,14 @@ def aggregate_shop_orders(rows: list[dict]) -> dict:
       UK shop  -> Europe/London  (BST = UTC+1 May..Oct, GMT = UTC+0 Nov..Mar)
       US shop  -> America/Los_Angeles  (PDT = UTC-7 May..Oct, PST = UTC-8 Nov..Mar)
 
-    Falls back to UTC if zoneinfo lookup fails (e.g. tzdata missing).
+    Status filter is configurable via config/order_filters.json. Default counts
+    only orders that have reached a customer-facing state:
+      net = COMPLETED + DELIVERED + AWAITING_COLLECTION + IN_TRANSIT + SHIPPED
+      AWAITING_SHIPMENT, PENDING, etc. are tracked as "in-flight" and excluded
+      from net_orders/net_qty/net_sales.
+      CANCELLED tracked in a separate cancelled bucket.
+
+    Falls back to UTC + safe defaults if zoneinfo or config lookup fails.
     """
     from datetime import datetime as _dt, timezone as _tz
     try:
@@ -249,6 +271,7 @@ def aggregate_shop_orders(rows: list[dict]) -> dict:
     except Exception:
         UK_TZ = US_TZ = _tz.utc
 
+    net_statuses, cancelled_statuses = _load_status_filter()
     acct = _shop_region_map()
     out: dict[str, dict] = {}
     for r in rows:
@@ -264,7 +287,8 @@ def aggregate_shop_orders(rows: list[dict]) -> dict:
         except (ValueError, TypeError):
             continue
         status = str(r.get("order_status", "") or "").upper()
-        is_cancelled = status == "CANCELLED"
+        is_cancelled = status in cancelled_statuses
+        is_net = status in net_statuses  # customer-facing, count toward net_orders
 
         sub_total = float(r.get("order_payment_sub_total") or 0)
         plat_disc = float(r.get("order_payment_platform_discount") or 0)
@@ -275,25 +299,27 @@ def aggregate_shop_orders(rows: list[dict]) -> dict:
         day_map = out.setdefault(day, {})
         b = day_map.setdefault(region, {
             "currency": "GBP" if region == "UK" else "USD",
-            "orders": 0, "net_orders": 0, "cancelled_orders": 0,
+            "orders": 0, "net_orders": 0, "cancelled_orders": 0, "inflight_orders": 0,
             "gross": 0.0, "plat_disc": 0.0, "seller_disc": 0.0,
             "sub_total": 0.0, "net_sales": 0.0, "total_paid": 0.0,
             "cancelled_amt": 0.0,
         })
         b["orders"] += 1
-        b["gross"] += gross
-        b["plat_disc"] += plat_disc
-        b["seller_disc"] += seller_disc
-        b["sub_total"] += sub_total
-        b["total_paid"] += total_paid
         if is_cancelled:
             b["cancelled_orders"] += 1
             b["cancelled_amt"] += total_paid
-        else:
+        elif is_net:
+            # Customer-facing — counts toward net totals.
             b["net_orders"] += 1
-            # net_sales = what buyer paid + platform discount (since plat_disc is funded by TT not by seller)
-            # This matches the reference: Net Sales (top line) excludes cancelled, refunds.
-            b["net_sales"] += total_paid + plat_disc
+            b["net_sales"] += total_paid + plat_disc  # Subtotal-after-discount + plat_disc (TT-funded)
+            b["gross"] += gross
+            b["plat_disc"] += plat_disc
+            b["seller_disc"] += seller_disc
+            b["sub_total"] += sub_total
+            b["total_paid"] += total_paid
+        else:
+            # In-flight (AWAITING_SHIPMENT, PENDING, etc.) — excluded from net.
+            b["inflight_orders"] += 1
     return out
 
 
@@ -604,6 +630,27 @@ def run(lookback_days: int = LOOKBACK, shop_topup_days: int = 14) -> tuple[dict,
         us = regions.get("US", {})
         print(f"  {d}: UK net_orders={uk.get('net_orders',0)} net_sales=£{uk.get('net_sales',0):,.0f}"
               f" | US net_orders={us.get('net_orders',0)} net_sales=${us.get('net_sales',0):,.0f}")
+
+    # Health check: detect Windsor UK outage and log it explicitly so downstream
+    # knows to use the manual CSV fallback (raw_csvs/All order-UK-*.csv) instead
+    # of treating 0 as actual data.
+    uk_total = sum((rs.get("UK", {}).get("orders", 0) or 0) for rs in shop_orders_daily.values())
+    us_total = sum((rs.get("US", {}).get("orders", 0) or 0) for rs in shop_orders_daily.values())
+    if uk_total == 0 and us_total > 0:
+        outage_msg = (
+            f"WINDSOR_UK_DISCONNECTED — 0 UK rows returned for window {shop_from} -> {shop_to}, "
+            f"but {us_total} US rows received. Reconnect tiktok_shop UK account "
+            f"({SHOP_UK}) at windsor.ai/connectors. Pipeline will look for manual CSV "
+            f"fallback in raw_csvs/All\\ order-UK-*.csv."
+        )
+        print(outage_msg)
+        try:
+            (ROOT / "logs").mkdir(exist_ok=True)
+            with (ROOT / "logs" / "windsor_health.log").open("a", encoding="utf-8") as fh:
+                from datetime import datetime as _dtnow
+                fh.write(f"[{_dtnow.now().isoformat()}] {outage_msg}\n")
+        except Exception:
+            pass
 
     # Statement-table affiliate commission (settled transactions only)
     print(f"\n=== Windsor TikTok Shop statement (affiliate fees) {shop_from} -> {shop_to} ===")
