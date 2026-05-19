@@ -1,0 +1,18 @@
+{
+  "region": "UK",
+  "source": "TikTok UK Seller Center > Marketing > Smart Promotion",
+  "pulled_at": "2026-05-19",
+  "window_start": "2026-05-01",
+  "window_end": "2026-05-18",
+  "metrics": {
+    "roi": 9.6,
+    "gmv": 56415.64,
+    "seller_promotion_cost": 5853.64,
+    "orders_via_smart_promo": 1578,
+    "new_customers": 1023,
+    "gmv_contribution_pct": 36.55,
+    "new_customer_contribution_pct": 33.03
+  },
+  "currency": "GBP",
+  "notes": "Smart Promotion Plan, Up to 3% per order + 1% during campaigns. Captured from /promotion/program-center/smart-program/register page."
+}

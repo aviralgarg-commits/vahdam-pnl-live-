@@ -7,7 +7,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA_PATH = ROOT / 'data' / 'pnl_daily.json'
 OUTPUT_PATH = ROOT / 'public' / 'index.html'
 
-PNL = json.loads(DATA_PATH.read_text(encoding="utf-8-sig"))
+PNL = json.load(open(DATA_PATH))
 
 
 CSS = """
@@ -110,19 +110,9 @@ function combine(ukVal, usVal){
 }
 function effectiveWindow(){
   const end = PNL.window_end;
-  if(state.period==='YDAY'){
-    // "Yesterday" = the most recent COMPLETE day = window_end_<region> − 1.
-    // window_end is today's date (refresh runs daily and includes partial-day
-    // orders), so subtracting 1 gives the last fully-closed day per region.
-    const refEnd = state.region==='US' ? (PNL.window_end_us||end) : (PNL.window_end_uk||end);
-    const yday = isoAdd(refEnd, -1);
-    return {from:yday, to:yday};
-  }
-  // Last-7 / Last-30 also end on yesterday (window_end − 1) so they're
-  // "the last N COMPLETE days", not "N−1 complete days + today's partial".
-  const lastComplete = isoAdd(end, -1);
-  if(state.period==='L7')  return {from: isoAdd(lastComplete, -6),  to: lastComplete};
-  if(state.period==='L30') return {from: isoAdd(lastComplete, -29), to: lastComplete};
+  if(state.period==='YDAY') return {from:end, to:end};
+  if(state.period==='L7') return {from: isoAdd(end, -6), to: end};
+  if(state.period==='L30') return {from: PNL.window_start, to: end};
   return {from: state.customFrom, to: state.customTo};
 }
 function inWindow(date, win){ return date>=win.from && date<=win.to; }
@@ -137,20 +127,11 @@ function aggregate(){
     if(state.region!=='both' && r.region!==state.region) return false;
     if(state.sku && r.sku!==state.sku) return false;
     if(state.variation && r.variation!==state.variation) return false;
-    if(state.period==='YDAY' && state.region==='both'){
-      // "Yesterday" per region — most recent complete day for each
-      const regionEnd = r.region==='UK' ? (PNL.window_end_uk||PNL.window_end) : (PNL.window_end_us||PNL.window_end);
-      return r.date === isoAdd(regionEnd, -1);
-    }
     return inWindow(r.date, win);
   });
   const aff = PNL.aff_daily.filter(r => {
     if(state.region!=='both' && r.region!==state.region) return false;
     if(state.sku && r.sku!==state.sku) return false;
-    if(state.period==='YDAY' && state.region==='both'){
-      const regionEnd = r.region==='UK' ? (PNL.window_end_uk||PNL.window_end) : (PNL.window_end_us||PNL.window_end);
-      return r.date === isoAdd(regionEnd, -1);
-    }
     return inWindow(r.date, win);
   });
   const ad = PNL.ad_spend_daily;
@@ -336,7 +317,7 @@ function aggregatePrior(){
     if(state.region!=='both' && r.region!==state.region) return false;
     if(state.sku && r.sku!==state.sku) return false;
     if(state.variation && r.variation!==state.variation) return false;
-    return r.date >= prevFrom && r.date <= prevTo;
+    return r.date>=prevFrom && r.date<=prevTo;
   });
   let sales_uk=0, sales_us=0, ord=0;
   for(const r of orders){
@@ -351,11 +332,7 @@ function renderKPIs(){
   const prior = aggregatePrior();
   const fx = state.fxRate || 1.27;
   const sym = ccySym();
-  // Headline NET SALES matches sheet's "Net Revenue" — i.e. ex-VAT for UK
-  // zero-rated supplements (Coffee Apr+, Green Burner, Ashwagandha, Curcumin).
-  // a.ukVatInSales is already the 20/120 portion for those SKUs.
-  const ukNetSalesHeadline = a.ukOrd.net_sales - (a.ukVatInSales || 0);
-  const netSales = combine(ukNetSalesHeadline, a.usOrd.net_sales);
+  const netSales = combine(a.ukOrd.net_sales, a.usOrd.net_sales);
   const netOrders = a.ukOrd.net_orders + a.usOrd.net_orders;
   const netUnits = a.ukOrd.net_qty + a.usOrd.net_qty;
   const cancelOrders = a.ukOrd.cancelled_orders + a.usOrd.cancelled_orders;
@@ -831,41 +808,9 @@ function renderMonthlyHistory(){
   host.innerHTML = h;
 }
 
-function renderFreshnessBanner(win){
-  // Detect stale data for the active window — affiliate CSVs + smart promo
-  // both have non-Windsor sources that may lag the dashboard's order data.
-  const banner = document.getElementById('freshnessBanner');
-  if(!banner) return;
-  const gaps = [];
-  for(const region of (state.region==='both' ? ['UK','US'] : [state.region])){
-    // Affiliate freshness — find last aff_daily date in this region <= win.to
-    const affDates = PNL.aff_daily.filter(r => r.region===region && r.date<=win.to).map(r=>r.date);
-    const affLast  = affDates.length ? affDates.reduce((a,b)=>a>b?a:b) : null;
-    if(!affLast || affLast < win.to){
-      const lastShown = affLast || '(none)';
-      gaps.push(`<b>${region} Affiliate Commission</b>: latest data is <b>${lastShown}</b> — gap to ${win.to}. Drop fresh affiliate CSVs into <code>raw_csvs/</code> or fix the Seller Center scraper auth.`);
-    }
-    // Smart Promo freshness — find max bucket window_end for this region
-    const spEnds = (PNL.smart_promo_monthly||[]).filter(b=>b.region===region).map(b=>b.window_end);
-    const spLast = spEnds.length ? spEnds.reduce((a,b)=>a>b?a:b) : null;
-    if(!spLast || spLast < win.to){
-      const lastShown = spLast || '(none)';
-      gaps.push(`<b>${region} Smart Promotion</b>: latest bucket ends <b>${lastShown}</b> — gap to ${win.to}. Add a bucket to <code>data/smart_promo_monthly.json</code> or fix the Seller Center scraper.`);
-    }
-  }
-  if(gaps.length){
-    banner.innerHTML = '<b>Data freshness gap in this window</b><ul style="margin:6px 0 0 18px;padding:0;">'
-      + gaps.map(g=>`<li>${g}</li>`).join('') + '</ul>';
-    banner.style.display='block';
-  } else {
-    banner.style.display='none';
-  }
-}
-
 function refresh(){
   const win = effectiveWindow();
   document.getElementById('rangePill').textContent = win.from+' → '+win.to+' · '+dayDiff(win)+'d';
-  renderFreshnessBanner(win);
   renderKPIs(); renderPnLTable(); renderSkuTable(); renderAdCharts(); renderCampaignTable(); renderCreatives(); renderMonthlyHistory();
 }
 
@@ -931,8 +876,7 @@ HTML_BODY = """<!DOCTYPE html>
 <label class="gift-toggle"><input type="checkbox" id="giftToggle"> Include free gifts</label>
 <label style="margin-left:14px;">GBP&rarr;USD</label><input type="number" id="fxInput" value="1.27" step="0.01" min="0.5" max="3" style="width:70px;">
 </div>
-<div class="warn-strip"><b>Display currency follows region</b>: UK&rarr;GBP; US&rarr;USD; Both&rarr;USD (UK&times;FX). <b>Net Sales = Net Revenue</b> (ex-VAT for UK zero-rated supplements — matches your sheet). <b>UK VAT treatment in PnL:</b> 20% VAT subtracted from Net Sales for zero-rated supplements (Coffee Apr 2026+, Green Burner, Ashwagandha Caps, Turmeric Curcumin) before building CM. Ginger Tea keeps VAT in sales (non-supplement). <b>Other UK rules:</b> &pound;1.99/order shipping from Mar 2026; Ad spend + Smart Promo grossed up &times;1.20 (Seller Center shows VAT-EXCL); VAT recovery = (Ad+SP)<sub>incl</sub> &times; 20/120 added back to CM2. <b>US</b>: no VAT/shipping rules.</div>
-<div id="freshnessBanner" style="display:none;background:#FCEEDC;border-left:3px solid var(--neg);color:#5C2A28;border-radius:6px;padding:10px 14px;margin-bottom:14px;font-size:12px;line-height:1.5;"></div>
+<div class="warn-strip"><b>Display currency follows region</b>: UK&rarr;GBP; US&rarr;USD; Both&rarr;USD (UK&times;FX). <b>Net Sales (top line)</b> excludes cancelled, samples, refunds, returns. <b>UK VAT treatment in PnL:</b> 20% VAT subtracted from Net Sales for zero-rated supplements (Coffee Apr 2026+, Green Burner, Ashwagandha Caps, Turmeric Curcumin) before building CM. Ginger Tea keeps VAT in sales (non-supplement). <b>Other UK rules:</b> &pound;1.99/order shipping from Mar 2026; Ad spend + Smart Promo grossed up &times;1.20 (Seller Center shows VAT-EXCL); VAT recovery = (Ad+SP)<sub>incl</sub> &times; 20/120 added back to CM2. <b>US</b>: no VAT/shipping rules.</div>
 <div class="kpis" id="kpis"></div>
 <h2>P&amp;L Statement <span class="badge">CM1 / CM2</span></h2>
 <div class="card"><table class="pnl" id="pnlTable"></table></div>
@@ -962,7 +906,7 @@ HTML_BODY = """<!DOCTYPE html>
 <div class="h-sub">UK monthly computed from order CSVs + UK Inventory Planning costs + Seller Center monthly ad spend. UK tax rules applied. US monthly from your USA workbook. Filters above (SKU + variation) apply here too.</div>
 <div id="monthlyHistory" style="overflow-x:auto;"></div>
 </div>
-<div class="foot">Live: Windsor.ai tiktok (Shop Ads + GMV Max) + manual affiliate CSVs + manual smart promo. UK COGs/CM2 from Vahdam Inventory Planning sheet. &middot; Crafted for VAHDAM India</div>
+<div class="foot">Live: TikTok Seller Center scrape (Chrome via CDP) + manual affiliate CSVs + manual smart promo. UK COGs/CM2 from Vahdam Inventory Planning sheet. &middot; Crafted for VAHDAM India</div>
 </div>
 <script>
 const PNL = __DATA__;

@@ -1,0 +1,15 @@
+{
+  "_comment": "Maps region -> the user's REAL Chrome profile directory. We point Playwright directly at the live profile (not a clone) because Chrome 127+ App-Bound Encryption ties the cookie key to the user_data_dir PATH -- any clone to a new path silently fails to decrypt cookies, breaking auth. The cost: the user's real Chrome must be CLOSED for this profile when scrapers run. Scrapers check for the lockfile and skip with a clear message if Chrome is open.",
+  "uk": {
+    "user_data_dir": "C:\\Users\\Aviral Garg\\AppData\\Local\\Google\\Chrome\\User Data",
+    "profile_directory": "Profile 1",
+    "source_profile": "Profile 1 (vahdam.com / aviralgarg@vahdam.com)",
+    "cookies_at_clone": "seller-uk.tiktok.com x18, seller-us.tiktok.com x6"
+  },
+  "us": {
+    "user_data_dir": "C:\\Users\\Aviral Garg\\AppData\\Local\\Google\\Chrome\\User Data",
+    "profile_directory": "Profile 3",
+    "source_profile": "Profile 3 (VAHDAMUSA)",
+    "cookies_at_clone": "seller-us.tiktok.com x14, seller-uk.tiktok.com x2"
+  }
+}

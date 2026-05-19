@@ -1,0 +1,21 @@
+{
+  "region": "US",
+  "source": "TikTok US Seller Center > Marketing > Smart Promotion",
+  "pulled_at": "2026-05-19",
+  "data_freshness": "Data updated at May 16, 2026 17:00 PDT (US smart promo lags ~2 days)",
+  "window_start": "2026-05-01",
+  "window_end": "2026-05-18",
+  "metrics": {
+    "roi": 8.02,
+    "gmv": 15437.71,
+    "seller_promotion_cost": 2099.36,
+    "orders_via_smart_promo": 664,
+    "new_customers": 652,
+    "seller_fee_rate_pct": 3.49,
+    "avg_daily_customers_with_points": 71.941,
+    "earned_points": 347.43,
+    "redeemed_points": 178.67
+  },
+  "currency": "USD",
+  "notes": "US smart promo includes Mega/Weekly/Flash sale/Premium offers/Bonus campaign metrics. Captured from /promotion/program-center/smart-program/register page."
+}

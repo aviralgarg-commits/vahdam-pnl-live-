@@ -108,17 +108,11 @@ def preflight_auth(page, region: str) -> bool:
 
 def capture(region: str) -> dict | None:
     try:
-        from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
+        from playwright.sync_api import TimeoutError as PWTimeout
     except ImportError:
         log("ERROR: playwright not installed.")
         return None
-    sp = storage_state_path(region)
-    pd_ = profile_dir(region)
-    has_persistent = pd_.exists() and any(pd_.iterdir())
-    if not has_persistent and not sp.exists():
-        log(f"AUTH REQUIRED -- {region} no Playwright profile or storage state. "
-            f"Run: python scripts/scrape_affiliate.py --setup-{region.lower()}")
-        return None
+    from _cdp import attach, detach, CdpUnavailable  # type: ignore
 
     last_end = latest_bucket_end(region)
     today = _date.today()
@@ -133,173 +127,152 @@ def capture(region: str) -> dict | None:
     log(f"{region}: capturing Smart Promo for {gap_from} -> {gap_to}")
 
     for attempt in range(2):
+        pw = browser = ctx = page = None
         try:
-            with sync_playwright() as p:
-                pd = profile_dir(region)
-                if pd.exists() and any(pd.iterdir()):
-                    # Persistent profile path (SSO survives)
-                    ctx = p.chromium.launch_persistent_context(
-                        user_data_dir=str(pd),
-                        headless=True,
-                        args=["--disable-blink-features=AutomationControlled",
-                              "--no-default-browser-check", "--no-first-run"],
-                    )
-                    browser = None
-                else:
-                    # Legacy fallback
-                    browser = p.chromium.launch(headless=True,
-                        args=["--disable-blink-features=AutomationControlled"])
-                    ctx = browser.new_context(storage_state=str(sp))
-                page = ctx.new_page()
+            try:
+                pw, browser, ctx = attach()
+            except CdpUnavailable as e:
+                log(f"CDP_UNAVAILABLE -- scraper {region} skipped this cycle: {e}")
+                return None
+            page = ctx.new_page()
+            log(f"{region}: attached to real Chrome via CDP (port 9222)")
 
-                if not preflight_auth(page, region):
-                    log(f"AUTH REQUIRED -- {region} Chrome not logged in. Skipping.")
-                    _ = (browser.close() if browser else ctx.close())
-                    return None
-                log(f"{region}: auth OK")
+            if not preflight_auth(page, region):
+                log(f"AUTH REQUIRED -- {region} Chrome not logged in. Skipping.")
+                return None
+            log(f"{region}: auth OK")
 
-                page.goto(MANAGE_URL[region], wait_until="domcontentloaded", timeout=60_000)
+            page.goto(MANAGE_URL[region], wait_until="domcontentloaded", timeout=60_000)
+            try:
+                page.wait_for_load_state("networkidle", timeout=30_000)
+            except Exception:
+                pass
+            page.wait_for_timeout(8000)
+            try:
+                page.screenshot(path=str(ROOT / "logs" / f"debug_smart_promo_{region.lower()}_after_load.png"))
+            except Exception:
+                pass
+
+            for txt in ("Got it", "Don't show again", "Close"):
                 try:
-                    page.wait_for_load_state("networkidle", timeout=30_000)
+                    btn = page.get_by_role("button", name=txt, exact=False)
+                    if btn.count() > 0:
+                        btn.first.click(timeout=1500)
+                        log(f"{region}: dismissed '{txt}' popup")
+                        page.wait_for_timeout(800)
                 except Exception:
                     pass
-                page.wait_for_timeout(8000)  # SPA data render hold
-                try:
-                    page.screenshot(path=str(ROOT / "logs" / f"debug_smart_promo_{region.lower()}_after_load.png"))
-                except Exception:
-                    pass
 
-                # Dismiss any "Got it" / promotional popups blocking the row
-                for txt in ("Got it", "Don't show again", "Close"):
-                    try:
-                        btn = page.get_by_role("button", name=txt, exact=False)
-                        if btn.count() > 0:
-                            btn.first.click(timeout=1500)
-                            log(f"{region}: dismissed '{txt}' popup")
-                            page.wait_for_timeout(800)
-                    except Exception:
-                        pass
-
-                # Smart Promo row label differs by region:
-                #   US: "Smart Promotion"        UK: "Smart Promotion Plan"
-                # Anchor on the "View details" button inside any row whose first
-                # cell contains either label.
-                view_btn = page.locator(
-                    'xpath=//tr[.//text()[contains(., "Smart Promotion")]]//button[contains(., "View")]'
-                ).first
+            view_btn = page.locator(
+                'xpath=//tr[.//text()[contains(., "Smart Promotion")]]//button[contains(., "View")]'
+            ).first
+            try:
+                view_btn.wait_for(state="visible", timeout=10000)
+            except PWTimeout:
+                view_btn = page.get_by_role("button", name="View details").first
                 try:
-                    view_btn.wait_for(state="visible", timeout=10000)
+                    view_btn.wait_for(state="visible", timeout=5000)
                 except PWTimeout:
-                    # Fallback: any "View details" button on the page
-                    view_btn = page.get_by_role("button", name="View details").first
-                    try:
-                        view_btn.wait_for(state="visible", timeout=5000)
-                    except PWTimeout:
-                        log(f"{region}: no 'View details' button found (attempt {attempt+1})")
-                    # Dump page HTML for selector debugging
-                    try:
-                        html = page.content()
-                        dbg = ROOT / "logs" / f"debug_smart_promo_{region.lower()}_{int(time.time())}.html"
-                        dbg.write_text(html, encoding="utf-8")
-                        log(f"{region}: dumped HTML to {dbg.name}")
-                    except Exception:
-                        pass
-                    _ = (browser.close() if browser else ctx.close())
-                    time.sleep(15)
-                    continue
-                view_btn.click()
-                page.wait_for_load_state("domcontentloaded", timeout=30_000)
+                    log(f"{region}: no 'View details' button found (attempt {attempt+1})")
                 try:
-                    page.wait_for_load_state("networkidle", timeout=20_000)
+                    html = page.content()
+                    dbg = ROOT / "logs" / f"debug_smart_promo_{region.lower()}_{int(time.time())}.html"
+                    dbg.write_text(html, encoding="utf-8")
+                    log(f"{region}: dumped HTML to {dbg.name}")
                 except Exception:
                     pass
-                page.wait_for_timeout(8000)
-                # Detail-page screenshot for selector debugging
-                try:
-                    page.screenshot(path=str(ROOT / "logs" / f"debug_smart_promo_{region.lower()}_detail.png"), full_page=True)
-                    log(f"{region}: dumped detail-page screenshot")
-                except Exception:
-                    pass
+                continue
+            view_btn.click()
+            page.wait_for_load_state("domcontentloaded", timeout=30_000)
+            try:
+                page.wait_for_load_state("networkidle", timeout=20_000)
+            except Exception:
+                pass
+            page.wait_for_timeout(8000)
+            try:
+                page.screenshot(path=str(ROOT / "logs" / f"debug_smart_promo_{region.lower()}_detail.png"), full_page=True)
+                log(f"{region}: dumped detail-page screenshot")
+            except Exception:
+                pass
 
-                # Date picker: focus start-date input, click "Yesterday" preset
-                start_input = page.query_selector(
-                    'input[placeholder*="Start" i], input[placeholder*="start date" i]'
-                )
-                if start_input:
-                    start_input.click()
-                    page.wait_for_timeout(800)
-                    yday_btn = page.locator('button:text-is("Yesterday")').first
-                    try:
-                        yday_btn.wait_for(state="visible", timeout=4000)
-                        yday_btn.click()
-                        log(f"{region}: clicked Yesterday preset")
+            start_input = page.query_selector(
+                'input[placeholder*="Start" i], input[placeholder*="start date" i]'
+            )
+            if start_input:
+                start_input.click()
+                page.wait_for_timeout(800)
+                yday_btn = page.locator('button:text-is("Yesterday")').first
+                try:
+                    yday_btn.wait_for(state="visible", timeout=4000)
+                    yday_btn.click()
+                    log(f"{region}: clicked Yesterday preset")
+                    page.wait_for_timeout(2500)
+                except PWTimeout:
+                    date_inputs = page.query_selector_all('input[placeholder*="date" i]')
+                    if len(date_inputs) >= 2:
+                        date_inputs[0].fill("")
+                        date_inputs[0].type(gap_from)
+                        date_inputs[1].fill("")
+                        date_inputs[1].type(gap_to)
+                        page.keyboard.press("Enter")
+                        log(f"{region}: typed custom range {gap_from} -> {gap_to}")
                         page.wait_for_timeout(2500)
-                    except PWTimeout:
-                        # Fallback: type custom range
-                        date_inputs = page.query_selector_all('input[placeholder*="date" i]')
-                        if len(date_inputs) >= 2:
-                            date_inputs[0].fill("")
-                            date_inputs[0].type(gap_from)
-                            date_inputs[1].fill("")
-                            date_inputs[1].type(gap_to)
-                            page.keyboard.press("Enter")
-                            log(f"{region}: typed custom range {gap_from} -> {gap_to}")
-                            page.wait_for_timeout(2500)
 
-                # Read metrics from page body text. Labels and values are on
-                # separate lines (ROI\n8.02), so the gap regex must allow \n.
-                body = page.inner_text("body")
+            body = page.inner_text("body")
 
-                def grab(label_re: str) -> str | None:
-                    # Allow up to 30 non-digit chars (incl whitespace/newlines) between label and value
-                    m = re.search(label_re + r"\s*[^\d$£%\-]{0,30}([\-£$\d.,]+%?)",
-                                  body, re.IGNORECASE)
-                    return m.group(1) if m else None
+            def grab(label_re: str) -> str | None:
+                m = re.search(label_re + r"\s*[^\d$£%\-]{0,30}([\-£$\d.,]+%?)",
+                              body, re.IGNORECASE)
+                return m.group(1) if m else None
 
-                # Anchor metric extraction on the "Smart Promotion metrics" section
-                # (avoids picking up the 3.5% rate near "Manage your marketing plan").
-                metrics_idx = body.find("Smart Promotion metrics")
-                metrics_body = body[metrics_idx:] if metrics_idx >= 0 else body
+            metrics_idx = body.find("Smart Promotion metrics")
+            metrics_body = body[metrics_idx:] if metrics_idx >= 0 else body
 
-                def grab_in_metrics(label_re: str) -> str | None:
-                    m = re.search(label_re + r"\s*[^\d$£%\-]{0,30}([\-£$\d.,]+%?)",
-                                  metrics_body, re.IGNORECASE)
-                    return m.group(1) if m else None
+            def grab_in_metrics(label_re: str) -> str | None:
+                m = re.search(label_re + r"\s*[^\d$£%\-]{0,30}([\-£$\d.,]+%?)",
+                              metrics_body, re.IGNORECASE)
+                return m.group(1) if m else None
 
-                cost_str = grab_in_metrics(r"Seller promotion cost") or grab_in_metrics(r"\bCost\b")
-                gmv_str = grab_in_metrics(r"\bGMV\b")
-                roi_str = grab_in_metrics(r"\bROI\b")
-                orders_str = grab_in_metrics(r"\bOrders\b")
-                new_cust_str = grab_in_metrics(r"New customers?")
-                fee_rate_str = grab(r"Seller fee") if region.upper() == "US" else None
+            cost_str = grab_in_metrics(r"Seller promotion cost") or grab_in_metrics(r"\bCost\b")
+            gmv_str = grab_in_metrics(r"\bGMV\b")
+            roi_str = grab_in_metrics(r"\bROI\b")
+            orders_str = grab_in_metrics(r"\bOrders\b")
+            new_cust_str = grab_in_metrics(r"New customers?")
+            fee_rate_str = grab(r"Seller fee") if region.upper() == "US" else None
 
-                if not cost_str or not gmv_str:
-                    log(f"{region}: failed to extract cost/GMV (attempt {attempt+1})")
-                    _ = (browser.close() if browser else ctx.close())
-                    time.sleep(15)
-                    continue
+            if not cost_str or not gmv_str:
+                log(f"{region}: failed to extract cost/GMV (attempt {attempt+1})")
+                continue
 
-                bucket = {
-                    "region": region.upper(),
-                    "month": gap_from[:7],
-                    "window_start": gap_from,
-                    "window_end": gap_to,
-                    "cost": parse_money(cost_str),
-                    "currency": "GBP" if region.upper() == "UK" else "USD",
-                    "smart_promo_gmv": parse_money(gmv_str),
-                    "orders_via_smart_promo": parse_int(orders_str) if orders_str else 0,
-                    "new_customers": parse_int(new_cust_str) if new_cust_str else 0,
-                    "roi": parse_money(roi_str) if roi_str else 0.0,
-                    "source": f"TikTok {region.upper()} Seller Center > Marketing > Smart Promotion",
-                    "pulled_at": today.isoformat(),
-                }
-                if fee_rate_str:
-                    bucket["seller_fee_rate"] = parse_money(fee_rate_str)
-                _ = (browser.close() if browser else ctx.close())
-                return bucket
+            bucket = {
+                "region": region.upper(),
+                "month": gap_from[:7],
+                "window_start": gap_from,
+                "window_end": gap_to,
+                "cost": parse_money(cost_str),
+                "currency": "GBP" if region.upper() == "UK" else "USD",
+                "smart_promo_gmv": parse_money(gmv_str),
+                "orders_via_smart_promo": parse_int(orders_str) if orders_str else 0,
+                "new_customers": parse_int(new_cust_str) if new_cust_str else 0,
+                "roi": parse_money(roi_str) if roi_str else 0.0,
+                "source": f"TikTok {region.upper()} Seller Center > Marketing > Smart Promotion",
+                "pulled_at": today.isoformat(),
+            }
+            if fee_rate_str:
+                bucket["seller_fee_rate"] = parse_money(fee_rate_str)
+            return bucket
         except Exception as e:
             log(f"{region}: scrape error (attempt {attempt+1}) -- {e}")
-            time.sleep(15)
+        finally:
+            try:
+                if page is not None and not page.is_closed():
+                    page.close()
+            except Exception:
+                pass
+            if pw is not None:
+                detach(pw, browser)
+            if attempt == 0:
+                time.sleep(10)
     return None
 
 

@@ -180,7 +180,7 @@ def _build_data_context() -> str:
         f"UK: GBP {aff_uk:,.0f}",
         f"US: USD {aff_us:,.0f}",
         "",
-        "=== AD SPEND L30 (Shop Ads, Windsor gmv_max_ads_spend) ===",
+        "=== AD SPEND L30 (Shop Ads, scraped from Seller Center) ===",
         f"UK total: GBP {ad30.get('UK', {}).get('total_cost', 0):,.0f}",
         f"US total: USD {ad30.get('US', {}).get('total_cost', 0):,.0f}",
         f"UK window: {ad30.get('window_start')} -> {ad30.get('window_end')}",

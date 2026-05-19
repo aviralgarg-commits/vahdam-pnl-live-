@@ -194,162 +194,138 @@ def preflight_auth(page, region: str) -> bool:
 
 def scrape_region(region: str, gap_from: str, gap_to: str) -> int:
     try:
-        from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
+        from playwright.sync_api import TimeoutError as PWTimeout
     except ImportError:
         log("ERROR: playwright not installed.")
         return 1
-    pd = profile_dir(region)
-    sp = storage_state_path(region)
-    # Persistent profile takes priority (full cookies + storage); legacy
-    # storage_state.json is used as a fallback for older setups.
-    has_persistent = (pd / "Default").exists() or any(pd.iterdir()) if pd.exists() else False
-    if not has_persistent and not sp.exists():
-        log(f"AUTH REQUIRED — {region} no profile/storage. "
-            f"Run: python scripts/scrape_affiliate.py --setup-{region.lower()}")
-        return 1
+    from _cdp import attach, detach, CdpUnavailable  # type: ignore
 
     log(f"{region}: starting scrape for {gap_from} -> {gap_to}")
     downloaded: list[pathlib.Path] = []
+    pw = browser = ctx = page = None
     try:
-        with sync_playwright() as p:
-            if has_persistent:
-                # Use the same persistent profile that was set up — keeps the SSO
-                # session alive. headless=False is more reliable against
-                # TikTok's anti-bot detection; headless mode often serves blank.
-                ctx = p.chromium.launch_persistent_context(
-                    user_data_dir=str(pd),
-                    headless=True,
-                    accept_downloads=True,
-                    args=[
-                        "--disable-blink-features=AutomationControlled",
-                        "--no-default-browser-check",
-                        "--no-first-run",
-                    ],
+        try:
+            pw, browser, ctx = attach()
+        except CdpUnavailable as e:
+            log(f"CDP_UNAVAILABLE -- scraper {region} skipped this cycle: {e}")
+            return 5
+        # Enable downloads on the existing CDP context (Chrome already allows
+        # downloads; this just makes Playwright's expect_download fire).
+        try:
+            ctx.set_default_timeout(60_000)
+        except Exception:
+            pass
+        page = ctx.new_page()
+        log(f"{region}: attached to real Chrome via CDP (port 9222)")
+
+        # Pre-flight auth check
+        if not preflight_auth(page, region):
+            log(f"AUTH REQUIRED -- {region} Chrome not logged in (no VAHDAM marker in DOM within "
+                f"{AUTH_TIMEOUT_SEC}s). Skipping. Make sure you're logged into seller-{region.lower()}.tiktok.com in your real Chrome.")
+            return 2
+        log(f"{region}: auth OK")
+
+        # Navigate to affiliate orders + wait for SPA to actually render content
+        page.goto(ORDERS_URL[region], wait_until="domcontentloaded", timeout=60_000)
+        try:
+            page.wait_for_load_state("networkidle", timeout=30_000)
+        except Exception:
+            pass
+        page.wait_for_timeout(8000)
+        try:
+            page.screenshot(path=str(ROOT / "logs" / f"debug_affiliate_{region.lower()}_after_load.png"))
+        except Exception:
+            pass
+
+        # Set custom date range
+        try:
+            start_input = page.query_selector('input[placeholder*="Start" i]')
+            if start_input:
+                start_input.click()
+                page.wait_for_timeout(800)
+                yday_btn = page.query_selector('button:text-is("Yesterday")')
+                today_iso = _date.today().isoformat()
+                yday_iso = (_date.today() - timedelta(days=1)).isoformat()
+                if gap_from == yday_iso and gap_to == today_iso and yday_btn:
+                    yday_btn.click()
+                    log(f"{region}: clicked Yesterday preset")
+                else:
+                    date_inputs = page.query_selector_all('input[placeholder*="date" i]')
+                    if len(date_inputs) >= 2:
+                        date_inputs[0].fill("")
+                        date_inputs[0].type(gap_from)
+                        date_inputs[1].fill("")
+                        date_inputs[1].type(gap_to)
+                        page.keyboard.press("Enter")
+                        log(f"{region}: set custom range {gap_from} -> {gap_to}")
+        except Exception as e:
+            log(f"{region}: date picker error -- {e}")
+        page.wait_for_timeout(3000)
+
+        try:
+            html = page.content()
+            dbg = ROOT / "logs" / f"debug_affiliate_{region.lower()}_{int(time.time())}.html"
+            dbg.write_text(html, encoding="utf-8")
+            log(f"{region}: dumped page HTML to {dbg.name}")
+        except Exception:
+            pass
+
+        # PAGINATED export
+        try:
+            page_count_el = page.query_selector('[class*="pagination" i] [class*="total" i]')
+            total_pages = 1
+            if page_count_el:
+                txt = page_count_el.inner_text()
+                import re as _re
+                m = _re.search(r"(\d+)\s*(?:page|of|/)", txt, _re.IGNORECASE)
+                if m:
+                    total_pages = int(m.group(1))
+            log(f"{region}: pagination shows ~{total_pages} page(s)")
+        except Exception:
+            total_pages = 1
+
+        for page_idx in range(1, total_pages + 1):
+            try:
+                export_btn = page.query_selector(
+                    'button:has-text("Download"), button:has-text("Export")'
                 )
-                browser = None
-                page = ctx.pages[0] if ctx.pages else ctx.new_page()
-            else:
-                # Legacy path (storage_state.json) — to be removed once everyone
-                # has migrated to persistent profiles.
-                browser = p.chromium.launch(headless=True,
-                    args=["--disable-blink-features=AutomationControlled"])
-                ctx = browser.new_context(storage_state=str(sp), accept_downloads=True)
-                page = ctx.new_page()
-
-            # Pre-flight auth check
-            if not preflight_auth(page, region):
-                log(f"AUTH REQUIRED — {region} Chrome not logged in (no VAHDAM marker in DOM within "
-                    f"{AUTH_TIMEOUT_SEC}s). Skipping. Re-run --setup-{region.lower()}.")
-                try:
-                    if browser: browser.close()
-                    else: ctx.close()
-                except Exception: pass
-                return 2
-            log(f"{region}: auth ✓")
-
-            # Navigate to affiliate orders + wait for SPA to actually render content
-            page.goto(ORDERS_URL[region], wait_until="domcontentloaded", timeout=60_000)
-            try:
-                page.wait_for_load_state("networkidle", timeout=30_000)
-            except Exception:
-                pass
-            page.wait_for_timeout(8000)  # extra hold for React data fetch + table render
-            try:
-                page.screenshot(path=str(ROOT / "logs" / f"debug_affiliate_{region.lower()}_after_load.png"))
-            except Exception:
-                pass
-
-            # Set custom date range: focus start-date input, click "Yesterday" preset
-            # if the gap is exactly yesterday→today; otherwise type in both inputs.
-            try:
-                start_input = page.query_selector('input[placeholder*="Start" i]')
-                if start_input:
-                    start_input.click()
-                    page.wait_for_timeout(800)
-                    yday_btn = page.query_selector('button:text-is("Yesterday")')
-                    today_iso = _date.today().isoformat()
-                    yday_iso = (_date.today() - timedelta(days=1)).isoformat()
-                    if gap_from == yday_iso and gap_to == today_iso and yday_btn:
-                        yday_btn.click()
-                        log(f"{region}: clicked Yesterday preset")
-                    else:
-                        # Type both bounds
-                        date_inputs = page.query_selector_all('input[placeholder*="date" i]')
-                        if len(date_inputs) >= 2:
-                            date_inputs[0].fill("")
-                            date_inputs[0].type(gap_from)
-                            date_inputs[1].fill("")
-                            date_inputs[1].type(gap_to)
-                            page.keyboard.press("Enter")
-                            log(f"{region}: set custom range {gap_from} → {gap_to}")
-            except Exception as e:
-                log(f"{region}: date picker error — {e}")
-            page.wait_for_timeout(3000)
-
-            # Debug: dump page HTML so we can iterate on selectors
-            try:
-                html = page.content()
-                dbg = ROOT / "logs" / f"debug_affiliate_{region.lower()}_{int(time.time())}.html"
-                dbg.write_text(html, encoding="utf-8")
-                log(f"{region}: dumped page HTML to {dbg.name}")
-            except Exception:
-                pass
-
-            # PAGINATED export: TikTok exports per page, not in one file.
-            # Find pagination control to know how many pages exist.
-            try:
-                page_count_el = page.query_selector('[class*="pagination" i] [class*="total" i]')
-                total_pages = 1
-                if page_count_el:
-                    txt = page_count_el.inner_text()
-                    import re as _re
-                    m = _re.search(r"(\d+)\s*(?:page|of|/)", txt, _re.IGNORECASE)
-                    if m:
-                        total_pages = int(m.group(1))
-                log(f"{region}: pagination shows ~{total_pages} page(s)")
-            except Exception:
-                total_pages = 1
-
-            # Iterate pages — click Download/Export on each, advance
-            for page_idx in range(1, total_pages + 1):
-                try:
-                    export_btn = page.query_selector(
-                        'button:has-text("Download"), button:has-text("Export")'
-                    )
-                    if not export_btn:
-                        log(f"{region}: page {page_idx} — Download button not found")
-                        break
-                    with page.expect_download(timeout=120_000) as dl_info:
-                        export_btn.click()
-                    dl = dl_info.value
-                    target = DOWNLOADS / dl.suggested_filename
-                    dl.save_as(str(target))
-                    downloaded.append(target)
-                    log(f"{region}: page {page_idx} -> {dl.suggested_filename}")
-                except Exception as e:
-                    log(f"{region}: page {page_idx} export failed — {e}")
+                if not export_btn:
+                    log(f"{region}: page {page_idx} -- Download button not found")
                     break
+                with page.expect_download(timeout=120_000) as dl_info:
+                    export_btn.click()
+                dl = dl_info.value
+                target = DOWNLOADS / dl.suggested_filename
+                dl.save_as(str(target))
+                downloaded.append(target)
+                log(f"{region}: page {page_idx} -> {dl.suggested_filename}")
+            except Exception as e:
+                log(f"{region}: page {page_idx} export failed -- {e}")
+                break
 
-                # Click "next page" if more pages remain
-                if page_idx < total_pages:
-                    next_btn = page.query_selector(
-                        '[class*="pagination" i] button:has-text(">"), '
-                        'button[aria-label*="next" i]'
-                    )
-                    if next_btn and not next_btn.is_disabled():
-                        next_btn.click()
-                        page.wait_for_timeout(2500)
-                    else:
-                        log(f"{region}: next-page button missing/disabled — stopping pagination")
-                        break
-
-            try:
-                if browser: browser.close()
-                else: ctx.close()
-            except Exception: pass
+            if page_idx < total_pages:
+                next_btn = page.query_selector(
+                    '[class*="pagination" i] button:has-text(">"), '
+                    'button[aria-label*="next" i]'
+                )
+                if next_btn and not next_btn.is_disabled():
+                    next_btn.click()
+                    page.wait_for_timeout(2500)
+                else:
+                    log(f"{region}: next-page button missing/disabled -- stopping pagination")
+                    break
     except Exception as e:
-        log(f"{region}: scrape exception — {e}")
+        log(f"{region}: scrape exception -- {e}")
         return 4
+    finally:
+        # Critical: close only OUR page; never close the real Chrome.
+        try:
+            if page is not None and not page.is_closed():
+                page.close()
+        except Exception:
+            pass
+        if pw is not None:
+            detach(pw, browser)
 
     # Move downloads into raw_csvs/, skip dups
     existing = {p.name for p in RAW_CSVS.glob("affiliate_orders_*.csv")}
@@ -366,11 +342,49 @@ def scrape_region(region: str, gap_from: str, gap_to: str) -> int:
     return 0
 
 
+def dry_run() -> int:
+    """CDP-attach smoke test. Verifies the wiring without downloading anything."""
+    from _cdp import attach, detach, CdpUnavailable  # type: ignore
+    try:
+        pw, browser, ctx = attach()
+    except CdpUnavailable as e:
+        log(f"DRY-RUN FAIL: {e}")
+        return 1
+    try:
+        log(f"Connected to running Chrome at localhost:9222. "
+            f"Found {len(browser.contexts)} context(s), {len(ctx.pages)} pre-existing tab(s).")
+        page = ctx.new_page()
+        try:
+            page.goto(ORDERS_URL["UK"], wait_until="domcontentloaded", timeout=30_000)
+            page.wait_for_timeout(5000)
+            body = ""
+            try:
+                body = page.inner_text("body", timeout=3000)
+            except Exception:
+                pass
+            has_vahdam = any(m in body for m in AUTH_MARKERS)
+            date_picker = page.query_selector('input[placeholder*="Start" i]') or \
+                          page.query_selector('input[placeholder*="date" i]')
+            log(f"Navigated to seller-uk.tiktok.com/affiliate/orders.")
+            log(f"  DOM body length: {len(body)} chars")
+            log(f"  VAHDAM marker present: {has_vahdam}")
+            log(f"  Date picker visible: {date_picker is not None}")
+            return 0 if (has_vahdam and date_picker is not None) else 2
+        finally:
+            try: page.close()
+            except Exception: pass
+    finally:
+        detach(pw, browser)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--setup-uk", action="store_true")
     parser.add_argument("--setup-us", action="store_true")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Verify CDP attach + UK affiliate page loads. No downloads.")
     args = parser.parse_args()
+    if args.dry_run: return dry_run()
     if args.setup_uk: return setup_auth("UK")
     if args.setup_us: return setup_auth("US")
 

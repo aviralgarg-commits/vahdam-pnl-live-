@@ -1,0 +1,866 @@
+﻿Order ID,Order Status,Order Substatus,Cancelation/Return Type,Normal or Pre-order,SKU ID,Seller SKU,Product Name,Variation," Virtual Bundle Seller SKU",Quantity,Sku Quantity of return,SKU Unit Original Price,SKU Subtotal Before Discount,SKU Platform Discount,SKU Seller Discount,SKU Subtotal After Discount,Shipping Fee After Discount,Original Shipping Fee,Shipping Fee Seller Discount,Co-Funded Shipping Fee Discount,Shipping Fee Platform Discount,Payment platform discount,Retail Delivery Fee,Taxes,Order Amount,Order Refund Amount,Created Time,Paid Time,RTS Time,Shipped Time,Delivered Time,Cancelled Time,Cancel By,Cancel Reason,Fulfillment Type,Warehouse Name,Tracking ID,Delivery Option Type,Delivery Option,Shipping Provider Name,Buyer Message,Buyer Nickname,Buyer Username,Recipient,Phone #,Country,State,City,Zipcode,Address Line 1,Address Line 2,Delivery Instruction,Payment Method,Weight(kg),Product Category,Package ID,Seller Note,Shipping Information,Combined Listing
+577389404560789883	,To ship,Awaiting shipment,,Normal,1731877424524398769	,AW-6RME-O0CZ-PACK-2,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 2,,1,0,79.99,79.99,8.68,45,26.31,0,1.55,0,0,1.55,,0,0,26.31,,05/13/2026 11:29:37 PM	,05/13/2026 11:31:12 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC06_HOU2,UUS65E1190180597340,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Terence Mack417,terencemack417,T****** M***,(+1)443*****54,United States,Maryland,Parkville,21234	,****************,,,Affirm,0.128,Herbal Supplements,1156357702338056571	,,"T****** M***
+(+1)443*****54
+Parkville, Maryland
+21234
+United States",
+577389402727551101	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:15:07 PM	,05/13/2026 11:15:07 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,UUS65E1190840154694,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,kandace.kay,k****** s******,(+1)385*****34,United States,Utah,Brigham City,84302	,***********,,,,0.1,Instant Coffee,1156357326975438973	,,"k****** s******
+(+1)385*****34
+Brigham City, Utah
+84302
+United States",
+577389392246248436	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 10:59:12 PM	,05/13/2026 10:59:12 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,UUS65E1190070922934,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,danieladoodnauth16,D****** D********,(+1)385*****79,United States,Utah,Eagle Mtn,84005	,***********************,,,,0.1,Instant Coffee,1156357257229276148	,,"D****** D********
+(+1)385*****79
+Eagle Mtn, Utah
+84005
+United States",
+577389382258365428	,To ship,Awaiting shipment,,,1729488250396120241	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 3,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 10:44:09 PM	,05/13/2026 10:44:09 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,9200190372820126156787,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,danieladoodnauth16,D****** D********,(+1)385*****79,United States,Utah,Eagle Mtn,84005	,***********************,,,,0.128,Herbal Supplements,1156357177429431284	,,"D****** D********
+(+1)385*****79
+Eagle Mtn, Utah
+84005
+United States",
+577389366233829945	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,3,18,18.99,0,5.99,0,0,5.99,,0,0,18.99,,05/13/2026 10:25:15 PM	,05/13/2026 10:25:18 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,GFUS01051067147331,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,mcopeland7272yaho,mcopeland7272yaho,m*** C*******,(+1)313*****74,United States,Michigan,Fraser,48026	,*****************,,,Credit/debit card,0.128,Herbal Supplements,1156357082988319289	,,"m*** C*******
+(+1)313*****74
+Fraser, Michigan
+48026
+United States",
+577389342882894395	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 9:54:08 PM	,05/13/2026 9:54:08 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC11_ONT5,SWX574700000065403572,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,la.mulatica.santi,T* t***** d** p****** B*******,(+1)469*****30,United States,Arizona,Phoenix,85021	,*********************,****,,,0.1,Instant Coffee,1156356929731334715	,,"T* t***** d** p****** B*******
+(+1)469*****30
+Phoenix, Arizona
+85021
+United States",
+577389338580914771	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 9:51:07 PM	,05/13/2026 9:51:07 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,SWX434170000065402091,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,bambam_ivan23,I*** M******,(+1)323*****25,United States,California,South Gate,90280	,********************,,***************,,0.1,Instant Coffee,1156356932080865875	,,"I*** M******
+(+1)323*****25
+South Gate, California
+90280
+United States",
+577389330650796481	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,1.25,18,20.74,0,5.99,0,0,5.99,,0,0,20.74,,05/13/2026 9:49:01 PM	,05/13/2026 9:49:04 PM	,05/14/2026 12:02:10 AM	,"	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,GFUS01051062693889,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,ericaomeally,ericaomeally,E**** O******,(+1)929*****39,United States,New York,Jamaica,11413	,*******************,,**********,Credit/debit card,0.128,Herbal Supplements,1156356914423370177	,,"E**** O******
+(+1)929*****39
+Jamaica, New York
+11413
+United States",
+577389291620634741	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 9:06:10 PM	,05/13/2026 9:06:10 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,9200190393694511614045,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,whimsicallyquirky,J* r*****,(+1)530*****84,United States,California,Boulevard,91905	,********************,,,,0.1,Instant Coffee,1156356685647810677	,,"J* r*****
+(+1)530*****84
+Boulevard, California
+91905
+United States",
+577389202011820038	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 7:58:09 PM	,05/13/2026 7:58:09 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,UUS65E1190514167734,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,treasuredluxe,T****** S***,(+1)470*****40,United States,Georgia,Gainesville,30501	,**********************,,,,0.1,Instant Coffee,1156356231073861638	,,"T****** S***
+(+1)470*****40
+Gainesville, Georgia
+30501
+United States",
+577389190253810020	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,5.48,17.44,17.08,0,5.99,0,0,5.99,,0,1.14,18.22,,05/13/2026 7:54:47 PM	,05/13/2026 7:54:50 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,9200190398448018188111,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,user31708663793072,claudia040,u***************** S******,(+1)706*****54,United States,Georgia,Calhoun,30701	,**************,,,Credit/debit card,0.1,Instant Coffee,1156356198634197348	,,"u***************** S******
+(+1)706*****54
+Calhoun, Georgia
+30701
+United States",
+577389183391076789	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,0,17.01,22.99,0,5.99,0,0,5.99,,0,0,22.99,,05/13/2026 7:49:15 PM	,05/13/2026 7:49:19 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,6156779f7a014e3d9,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Greta,gigidawnrogers,G**** R*****,(+1)740*****42,United States,Florida,Orange City,32763	,********************,,,Credit/debit card + TikTok Shop Balance,0.1,Instant Coffee,1156356171266625973	,,"G**** R*****
+(+1)740*****42
+Orange City, Florida
+32763
+United States",
+577389180459389742	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 7:44:09 PM	,05/13/2026 7:44:09 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,UUS65E1190773115254,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,onmyownwave444,S***** H***,(+1)850*****85,United States,Florida,Ft Walton Bch,32547	,******************,******,,,0.1,Instant Coffee,1156356149557433134	,,"S***** H***
+(+1)850*****85
+Ft Walton Bch, Florida
+32547
+United States",
+577389143143256425	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,0,17.01,22.99,0,5.99,0,0,5.99,,0,0,22.99,,05/13/2026 7:25:04 PM	,05/13/2026 7:25:09 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,9200190402920908162033,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Bella58440,bella58440,B*** V** E****,(+1)507*****11,United States,Minnesota,Mankato,56001	,**************,,,PayPal,0.1,Instant Coffee,1156356014048514409	,,"B*** V** E****
+(+1)507*****11
+Mankato, Minnesota
+56001
+United States",
+577389137468691070	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2.5,18,19.49,0,5.99,0,0,5.99,,0,1.96,21.45,,05/13/2026 7:19:00 PM	,05/13/2026 7:19:03 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,9234690402920902569236,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Lapeal,lapeal82,T******* A*****,(+1)706*****45,United States,Georgia,Rome,30161	,****************,,,Credit/debit card,0.128,Herbal Supplements,1156356374198260350	,,"T******* A*****
+(+1)706*****45
+Rome, Georgia
+30161
+United States",
+577389106050274020	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,4.07,22.3,13.62,0,5.99,0,0,5.99,,0,1.24,14.86,,05/13/2026 7:00:50 PM	,05/13/2026 7:00:55 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC15_SEA1,9200190412764301177952,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,retired114,retired114,B******* D***,(+1)509*****25,United States,Washington,Walla Walla,99362	,*************,,,PayPal,0.128,Herbal Supplements,1156355837700379364	,,"B******* D***
+(+1)509*****25
+Walla Walla, Washington
+99362
+United States",
+577389107161436939	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,5.8,20,14.19,0,5.99,0,0,5.99,,0,0.99,15.18,,05/13/2026 6:59:55 PM	,05/13/2026 6:59:59 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,1ZHE80290311341064,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,kristysmith963,kristysmith963,K***** S****,(+1)864*****11,United States,South Carolina,Moore,29369	,********************,*,,Credit/debit card,0.128,Herbal Supplements,1156355812411282187	,,"K***** S****
+(+1)864*****11
+Moore, South Carolina
+29369
+United States",
+577389077151125939	,To ship,Awaiting shipment,,Normal,1730881470377005233	,ASH-PACK-2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 2,,1,0,80,80,0,41.01,38.99,0,5.99,5.99,0,0,,0,0.78,39.77,,05/13/2026 6:41:20 PM	,05/13/2026 6:42:42 PM	,"	","	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,,Seller Shipping,Standard Shipping,,,HNHarr,hnharr4,HAI NGUYEN,(+1)7149025623,United States,Georgia,Lawrenceville,30044	,1202 DOWRY DR,,,Klarna Pay over time,0.1,Instant Coffee,1156355705760747955	,,"HAI NGUYEN
+(+1)7149025623
+Lawrenceville, Georgia
+30044
+United States",
+577389040467088051	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,3.12,19.01,17.87,0,5.99,0,0,5.99,,0,0,17.87,,05/13/2026 6:14:58 PM	,05/13/2026 6:15:02 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,9200190393694511597256,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,cocinando con la jarocha,cocinandoconlajarocha,c******** c** l* j****** R******,(+1)629*****55,United States,Washington,Tacoma,98496	,************,,,ApplePay,0.1,Instant Coffee,1156355502679823027	,,"c******** c** l* j****** R******
+(+1)629*****55
+Tacoma, Washington
+98496
+United States",
+577389018144150387	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,15,17.01,7.99,0,5.99,0,0,5.99,,0,1.38,9.37,,05/13/2026 5:59:23 PM	,05/13/2026 5:59:27 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,UUS65E1190211793573,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,marivictoria1903,marivictoria1903,M**** T***** V*******,(+1)208*****55,United States,Idaho,Twin Falls,83301	,***************,,,Credit/debit card,0.1,Instant Coffee,1156355404977509235	,,"M**** T***** V*******
+(+1)208*****55
+Twin Falls, Idaho
+83301
+United States",
+577388998149771476	,To ship,To ship,,Normal,1732360993097224369	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of Three,AW-6RME-O0CZ,1,0,119.97,119.97,4,84.18,31.79,0,5.99,0,0,5.99,,0,2.15,33.94,,05/13/2026 5:44:57 PM	,05/13/2026 5:45:01 PM	,05/13/2026 9:03:57 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,UUS65E1190434183497,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,user506499788FreyaJo2,user506499788freyajo2,F****** C*******,(+1)336*****88,United States,North Carolina,Greensboro,27406	,***********,,,Credit/debit card,0.128,Herbal Supplements,1156355719744688340	,,"F****** C*******
+(+1)336*****88
+Greensboro, North Carolina
+27406
+United States","VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules;Pack of 1;3;1731877424524333233;AW-6RME-O0CZ"
+577388956790920159	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,3.15,18,18.84,0,5.99,0,0,5.99,,0,1.36,20.2,,05/13/2026 5:15:31 PM	,05/13/2026 5:15:36 PM	,05/13/2026 10:19:31 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC04_EWR2,1b9ede59f449d59bb,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Jim,jimjanson4,J** J*****,(+1)404*****24,United States,North Carolina,Cary,27519	,******************,,,Credit/debit card,0.128,Herbal Supplements,1156355121833808863	,,"J** J*****
+(+1)404*****24
+Cary, North Carolina
+27519
+United States",
+577388951536570809	,To ship,To ship,,Normal,1732360993097224369	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of Three,AW-6RME-O0CZ,1,0,119.97,119.97,15,79.98,24.99,0,5.99,0,0,5.99,,0,0,24.99,,05/13/2026 5:12:53 PM	,05/13/2026 5:12:58 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX072570000065245001,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Johnstritzsr39,johnstritz39,J*** S**********,(+1)610*****26,United States,Pennsylvania,Aston,19014	,**************,,,ApplePay,0.128,Herbal Supplements,1156355107282129337	,,"J*** S**********
+(+1)610*****26
+Aston, Pennsylvania
+19014
+United States","VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules;Pack of 1;3;1731877424524333233;AW-6RME-O0CZ"
+577388942872055993	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,18,19.99,0,5.99,0,0,5.99,,0,0,19.99,,05/13/2026 5:05:40 PM	,05/13/2026 5:05:44 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC15_SEA1,UUS65E1190395331386,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,patricioheriberta,patricioheriberta,p**************** H********,(+1)503*****58,United States,Oregon,Portland,97233	,************************************,*******,,Credit/debit card,0.128,Herbal Supplements,1156355078735237305	,,"p**************** H********
+(+1)503*****58
+Portland, Oregon
+97233
+United States",
+577388937368998326	,To ship,To ship,,Normal,1732360993097224369	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of Three,AW-6RME-O0CZ,1,0,119.97,119.97,11.08,82.18,26.71,0,5.99,0,0,5.99,,0,2.07,28.78,,05/13/2026 5:00:47 PM	,05/13/2026 5:00:51 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,SWX349840000065239853,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Eddie,user5561283363453,E**** R********,(+1)714*****76,United States,California,Anaheim,92804	,*********************,,,ApplePay,0.128,Herbal Supplements,1156355041355862454	,,"E**** R********
+(+1)714*****76
+Anaheim, California
+92804
+United States","VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules;Pack of 1;3;1731877424524333233;AW-6RME-O0CZ"
+577388941511398273	,To ship,Awaiting collection,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 5:00:08 PM	,05/13/2026 5:00:07 PM	,05/13/2026 10:46:49 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC12_HOU3,SPXCLL110401030283,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,lucynjitor,p***** l*** F*****,(+1)936*****20,United States,Texas,Huntsville,77340	,********************,,,,0.1,Instant Coffee,1156355039536124801	,,"p***** l*** F*****
+(+1)936*****20
+Huntsville, Texas
+77340
+United States",
+577388925964488750	,To ship,Awaiting shipment,,Normal,1732109959987564721	,7N-3DAO-6PWB,"VAHDAM Shatavari Capsules 1000mg, Supports Healthy Hormonal Balance in Women, Herbal Supplement for Women, Vegan, Gluten-Free, 90 Capsules",Pack of 1,,1,0,39.99,39.99,2,18,19.99,0,5.99,0,0,5.99,,0,2,21.99,,05/13/2026 4:54:00 PM	,05/13/2026 4:54:04 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC12_HOU3,SPXLIT110401030198,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,shesthelizness,shesthelizness,E******** T*****,(+1)909*****53,United States,Arkansas,Cabot,72023	,**************,,,Credit/debit card,0.15,Herbal Supplements,1156355002988859438	,,"E******** T*****
+(+1)909*****53
+Cabot, Arkansas
+72023
+United States",
+577388920995287467	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,20,17.99,0,5.99,0,0,5.99,,0,0,17.99,,05/13/2026 4:50:17 PM	,05/13/2026 4:50:20 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC06_HOU2,GFUS01051025986626,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,jobrien294ever,jobrien294ever,J**** O*****,(+1)305*****63,United States,Texas,San Antonio,78233	,*****************,,,Credit/debit card,0.128,Herbal Supplements,1156354978044809643	,,"J**** O*****
+(+1)305*****63
+San Antonio, Texas
+78233
+United States",
+577388920012641269	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,18,19.99,0,5.99,0,0,5.99,,0,1.85,21.84,,05/13/2026 4:48:54 PM	,05/13/2026 4:48:58 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,1ZHE80290337273367,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Angela Buckner,angelabuckner5,D***** B******,(+1)931*****84,United States,Tennessee,Pelham,37366	,********************,,,Credit/debit card,0.128,Herbal Supplements,1156354975199564789	,,"D***** B******
+(+1)931*****84
+Pelham, Tennessee
+37366
+United States",
+577388879312883869	,To ship,Awaiting shipment,,Normal,1730881470377005233	,ASH-PACK-2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 2,,1,0,80,80,3.36,45.74,30.9,0,5.99,5.99,0,0,,0,0,30.9,,05/13/2026 4:19:10 PM	,05/13/2026 4:20:14 PM	,"	","	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,,Seller Shipping,Standard Shipping,,,anauvallejo,auvallejo,Ana María Vallejo ,(+1)8316822247,United States,California,Salinas,93905	,1237 Circle Dr,,,Klarna Pay over time,0.1,Instant Coffee,1156354806638809245	,,"Ana María Vallejo 
+(+1)8316822247
+Salinas, California
+93905
+United States",
+577388881574204339	,To ship,Awaiting shipment,,Normal,1729488250396120241	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 3,,1,0,119.99,119.99,4,73,42.99,0,5.99,0,0,5.99,,0,0,42.99,,05/13/2026 4:14:36 PM	,05/13/2026 4:14:39 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX979940000065226837,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Littler,vspecial1314,V****** D***,(+1)848*****46,United States,New Jersey,Brick,08724	,***************,,,Credit/debit card,0.128,Herbal Supplements,1156354771241833395	,,"V****** D***
+(+1)848*****46
+Brick, New Jersey
+08724
+United States",
+577388873571472181	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,4.76,19.6,15.63,0,5.99,0,0,5.99,,0,1.37,17,,05/13/2026 4:09:44 PM	,05/13/2026 4:09:48 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,GFUS01051020999361,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,A-Rod,a_rod559,A***** R********,(+1)559*****39,United States,California,Sanger,93657	,***************,,,PayPal,0.128,Herbal Supplements,1156354746370724661	,,"A***** R********
+(+1)559*****39
+Sanger, California
+93657
+United States",
+577388845493686505	,To ship,To ship,,Normal,1732320403761172657	,59-RQ3P-GVT2,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of Two,AW-6RME-O0CZ,1,0,79.98,79.98,2,44.99,32.99,0,5.99,0,0,5.99,,0,2.87,35.86,,05/13/2026 3:48:02 PM	,05/13/2026 3:48:05 PM	,05/13/2026 7:36:32 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,c7a310638b9f71de9,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Kerrystusak,kerrystusak,K**** S*****,(+1)770*****68,United States,Georgia,Griffin,30224	,****************,,,ApplePay,0.128,Herbal Supplements,1156354601031340265	,,"K**** S*****
+(+1)770*****68
+Griffin, Georgia
+30224
+United States","VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules;Pack of 1;2;1731877424524333233;AW-6RME-O0CZ"
+577388838734893927	,To ship,Awaiting shipment,,Normal,1730881470377005233	,ASH-PACK-2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 2,,1,0,80,80,0,43.01,36.99,0,5.99,5.99,0,0,,0,0,36.99,,05/13/2026 3:43:45 PM	,05/13/2026 3:43:49 PM	,"	","	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,,Seller Shipping,Standard Shipping,,,Ferdinand Cajayon,ferdinandcajayon1978,Ferdinand Cajayon,(+1)5625699572,United States,California,Artesia,90701	,11901 176th St Apt 243,,,PayPal,0.1,Instant Coffee,1156354570036351847	,,"Ferdinand Cajayon
+(+1)5625699572
+Artesia, California
+90701
+United States",
+577388845100863840	,To ship,Awaiting collection,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 3:42:08 PM	,05/13/2026 3:42:07 PM	,05/13/2026 6:27:58 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC12_HOU3,SPXSAT110401029228,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,lizabell75,E******** B***,(+1)541*****69,United States,Texas,San Antonio,78242	,*****************,,,,0.1,Instant Coffee,1156354566774231392	,,"E******** B***
+(+1)541*****69
+San Antonio, Texas
+78242
+United States",
+577388821883556435	,To ship,To ship,,Normal,1732393394286661809	,New_Turmeric_Coffee_Pack_2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of Two,New_Turmeric_Coffee,1,0,80,80,2.1,38.01,39.89,0,5.99,0,0,5.99,,0,0,39.89,,05/13/2026 3:26:27 PM	,05/13/2026 3:26:30 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,1Z035B7V0325114818,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Anjana Tamang,atamang430,A***** T***** T*****,(+1)712*****83,United States,Nebraska,Omaha,68111	,*************,,,Credit/debit card,0.1,Instant Coffee,1156354475924951635	,,"A***** T***** T*****
+(+1)712*****83
+Omaha, Nebraska
+68111
+United States","VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage;Pack of 1;2;1730881470376939697;New_Turmeric_Coffee"
+577388820209176915	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,2.08,19.01,18.91,0,5.99,0,0,5.99,,0,0,18.91,,05/13/2026 3:25:40 PM	,05/13/2026 3:25:44 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,UUS65D1190529935871,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Lyvonne Copeland,lyvonnecopeland,L****** C*******,(+1)864*****95,United States,South Carolina,Spartanburg,29301	,******************,,,TikTok PayLater Powered by Klarna,0.1,Instant Coffee,1156354484099846483	,,"L****** C*******
+(+1)864*****95
+Spartanburg, South Carolina
+29301
+United States",
+577388813224088507	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,20,19.99,0,5.99,0,0,5.99,,0,2.05,22.04,,05/13/2026 3:23:39 PM	,05/13/2026 3:23:43 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,SWX697980000065217824,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Pete Alonzo,petealonzo,P**** A*****,(+1)424*****75,United States,California,Torrance,90501	,*****************,,,PayPal,0.128,Herbal Supplements,1156354456184591291	,,"P**** A*****
+(+1)424*****75
+Torrance, California
+90501
+United States",
+577388816015921842	,To ship,Awaiting collection,,Normal,1732110006948630705	,X2-LPA3-MJGQ,VAHDAM Moringa Capsules 1100mg | Supports Wellness and Vitality | Source of Plant Based Nutrients and Antioxidants | High Strength 90 Veg Capsules,Pack of 1,,1,0,39.99,39.99,2,18,19.99,0,5.99,5.99,0,0,,0,0,19.99,,05/13/2026 3:20:52 PM	,05/13/2026 3:20:56 PM	,05/13/2026 4:32:47 PM	,"	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,AFTN2476965491,Seller Shipping,Standard Shipping,,,user108098248101,user108098248101,Balwinder Singh,(+1)3474406718,United States,New York,S Richmond Hl,11419	,10564 135th St,,,ApplePay,0.15,Herbal Supplements,1156354449734079154	,,"Balwinder Singh
+(+1)3474406718
+S Richmond Hl, New York
+11419
+United States",
+577388788887097560	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,20,17.99,0,5.99,0,0,5.99,,0,0,17.99,,05/13/2026 3:02:36 PM	,05/13/2026 3:02:40 PM	,05/13/2026 11:29:27 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC06_HOU2,GFUS01051012749824,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Damon,504damon,D**** C******,(+1)504*****46,United States,Texas,Coppell,75019	,************************,,,Credit/debit card,0.128,Herbal Supplements,1156354347823435992	,,"D**** C******
+(+1)504*****46
+Coppell, Texas
+75019
+United States",
+577388781630362485	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,22.3,15.69,0,5.99,0,0,5.99,,0,0,15.69,,05/13/2026 2:53:16 PM	,05/13/2026 2:53:20 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,d59aea7e269615a29,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Alexander G,alexander.g.artez,A******** G A*****,(+1)305*****89,United States,Florida,Miami,33183	,*****************,,,Credit/debit card,0.128,Herbal Supplements,1156354280647660405	,,"A******** G A*****
+(+1)305*****89
+Miami, Florida
+33183
+United States",
+577388788084936889	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 2:53:09 PM	,05/13/2026 2:53:09 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,00101fd5292f4fc06,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,anita.tiwari902,A**** T*****,(+1)614*****73,United States,Ohio,Blacklick,43004	,************************,,,,0.1,Instant Coffee,1156354286882951353	,,"A**** T*****
+(+1)614*****73
+Blacklick, Ohio
+43004
+United States",
+577388774830150063	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,14.04,19.01,6.95,0,5.99,0,0,5.99,,0,0.07,7.02,,05/13/2026 2:47:25 PM	,05/13/2026 2:47:28 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,UUS65D1190663885410,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Candy Gevalia,candygevalia,F****** L****,(+1)703*****06,United States,Virginia,Alexandria,22312	,********************,,**********,ApplePay,0.1,Instant Coffee,1156354246129717679	,,"F****** L****
+(+1)703*****06
+Alexandria, Virginia
+22312
+United States",
+577388779559686154	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 2:46:08 PM	,05/13/2026 2:46:08 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,9200190398448018129640,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,haleyphipps14,H**** P*****,(+1)253*****15,United States,South Carolina,Darlington,29540	,**********************,,,,0.1,Instant Coffee,1156354214117543946	,,"H**** P*****
+(+1)253*****15
+Darlington, South Carolina
+29540
+United States",
+577388768159961288	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,19.6,18.39,0,5.99,0,0,5.99,,0,1.42,19.81,,05/13/2026 2:39:58 PM	,05/13/2026 2:40:03 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,GFUS01051009976768,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,user7979053744554,user7979053744554,D***** L****,(+1)323*****88,United States,California,Hesperia,92345	,*****************************,,,PayPal,0.128,Herbal Supplements,1156354200765239496	,,"D***** L****
+(+1)323*****88
+Hesperia, California
+92345
+United States",
+577388762628460802	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,18,21.99,0,5.99,0,0,5.99,,0,1.32,23.31,,05/13/2026 2:36:52 PM	,05/13/2026 2:36:56 PM	,05/13/2026 6:15:45 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC04_EWR2,DD8V0KS5NIFUXT4KM,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Lee Joyner,leejoyner0,L******* J*****,(+1)757*****71,United States,Virginia,Virginia Beach,23457	,*********************,,,Credit/debit card,0.128,Herbal Supplements,1156354194867196162	,,"L******* J*****
+(+1)757*****71
+Virginia Beach, Virginia
+23457
+United States",
+577388752616395256	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 2:23:08 PM	,05/13/2026 2:23:08 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX733000000065207315,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,abygaldamez1,A****** G*******,(+1)714*****87,United States,New York,Westbury,11590	,****************,,,,0.1,Instant Coffee,1156354092495049208	,,"A****** G*******
+(+1)714*****87
+Westbury, New York
+11590
+United States",
+577388748049911854	,To ship,Awaiting collection,,Normal,1729488250396120241	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 3,,1,0,119.99,119.99,6,83,30.99,0,5.99,0,0,5.99,,0,3.76,34.75,,05/13/2026 2:23:03 PM	,05/13/2026 2:23:06 PM	,05/13/2026 11:01:54 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,9200190372820126122201,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Garrison smith,garrisonsmith00,G******* s**** S**** l,(+1)404*****88,United States,Georgia,Atlanta,30344	,**************************,,,Credit/debit card,0.128,Herbal Supplements,1156354099040063534	,,"G******* s**** S**** l
+(+1)404*****88
+Atlanta, Georgia
+30344
+United States",
+577388744118407970	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,22.3,15.69,0,5.99,0,0,5.99,,0,1.54,17.23,,05/13/2026 2:21:09 PM	,05/13/2026 2:21:13 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,SWX119120000065206997,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Marbely Vega De Gámez,mgame03,C******  G****,(+1)650*****08,United States,California,Antioch,94509	,*********************,,,ApplePay,0.128,Herbal Supplements,1156354088353239842	,,"C******  G****
+(+1)650*****08
+Antioch, California
+94509
+United States",
+577388743342657614	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,20,19.99,0,5.99,0,0,5.99,,0,1.95,21.94,,05/13/2026 2:17:13 PM	,05/13/2026 2:17:17 PM	,05/13/2026 11:28:49 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,1ZHE80290311429041,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Ben-,ben77328,B*** L*,(+1)504*****11,United States,Louisiana,Belle Chasse,70037	,***********************,,,ApplePay,0.128,Herbal Supplements,1156354040248176718	,,"B*** L*
+(+1)504*****11
+Belle Chasse, Louisiana
+70037
+United States",
+577388733186413483	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,24.6,13.39,0,0.77,0,0,0.77,,0,1.29,14.68,,05/13/2026 2:10:57 PM	,05/13/2026 2:11:02 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,GFUS01051006403649,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,sylvialeon55,sylvialeon55,S***** L***,(+1)747*****12,United States,California,Rnch Cascades,91342	,*****************,,,ApplePay,0.128,Herbal Supplements,1156354389630292907	,,"S***** L***
+(+1)747*****12
+Rnch Cascades, California
+91342
+United States",
+577388726611383112	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 1:59:11 PM	,05/13/2026 1:59:10 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,GFUS01051052569729,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,indra.adhikari14,I**** A******* A*******,(+1)380*****07,United States,Ohio,Blacklick,43004	,******************,,,,0.1,Instant Coffee,1156353951664870216	,,"I**** A******* A*******
+(+1)380*****07
+Blacklick, Ohio
+43004
+United States",
+577388726607647021	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 1:59:09 PM	,05/13/2026 1:59:09 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,5bc841e5448bb5d51,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,bishnuadhikari002,B***** A*******,(+1)817*****83,United States,Ohio,Blacklick,43004	,************************,,,,0.1,Instant Coffee,1156353951707664685	,,"B***** A*******
+(+1)817*****83
+Blacklick, Ohio
+43004
+United States",
+577388708660679286	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,20,17.99,0,2.36,0,0,2.36,,0,0,17.99,,05/13/2026 1:43:48 PM	,05/13/2026 1:43:52 PM	,05/13/2026 7:00:15 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,GFUS01051003069696,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,wen,user090560309,W**** B******,(+1)203*****60,United States,Connecticut,Ansonia,06401	,******************,,,Credit/debit card,0.128,Herbal Supplements,1156354239320527478	,,"W**** B******
+(+1)203*****60
+Ansonia, Connecticut
+06401
+United States",
+577388700924941116	,To ship,Awaiting collection,,Normal,1732069589544964273	,X9-ODE3-VQOY,"VAHDAM Ashwagandha Supplement 1800mg with Ashwagandha Root Extract and L-Theanine | Support Stress Relief, Mood and Sleep | 90 Capsules",Pack of 1,,1,0,39.99,39.99,4.1,20,15.89,0,5.99,5.99,0,0,,0,1.39,17.28,,05/13/2026 1:41:49 PM	,05/13/2026 1:41:52 PM	,05/13/2026 2:52:15 PM	,"	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,AFTN2476229661,Seller Shipping,Standard Shipping,,,Mookie,mookie7746,Mookie Minjares,(+1)8054158839,United States,California,Port Hueneme,93041	,1134 N 7TH ST,,,Credit/debit card,0.15,Herbal Supplements,1156353840551465788	,,"Mookie Minjares
+(+1)8054158839
+Port Hueneme, California
+93041
+United States",
+577388695038824823	,To ship,Awaiting collection,,Normal,1731877424524398769	,AW-6RME-O0CZ-PACK-2,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 2,,1,0,79.99,79.99,3.2,45,31.79,0,5.99,0,0,5.99,4.76,0,2.54,29.57,,05/13/2026 1:36:21 PM	,05/13/2026 1:36:26 PM	,05/13/2026 9:57:50 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,9200190372820126119874,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,toddstephenson868,toddstephenson868,R***** S*********,(+1)256*****55,United States,Alabama,Elkmont,35620	,*********************,,,PayPal,0.128,Herbal Supplements,1156353804123804023	,,"R***** S*********
+(+1)256*****55
+Elkmont, Alabama
+35620
+United States",
+577388673516278597	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,13.5,18,8.49,0,5.99,0,0,5.99,,0,0,8.49,,05/13/2026 1:18:08 PM	,05/13/2026 1:18:11 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,6fe04bbd2139aafe6,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Brian Conklin,brianconklin7,B**** C******,(+1)813*****89,United States,Florida,Ruskin,33570	,**************,,,Credit/debit card,0.128,Herbal Supplements,1156353670710203205	,,"B**** C******
+(+1)813*****89
+Ruskin, Florida
+33570
+United States",
+577388668088586460	,To ship,To ship,,Normal,1732320403761172657	,59-RQ3P-GVT2,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of Two,AW-6RME-O0CZ,1,0,79.98,79.98,0,44.99,34.99,5.99,5.99,0,0,0,,0,3.28,44.26,,05/13/2026 1:12:32 PM	,05/13/2026 1:13:50 PM	,05/13/2026 7:36:49 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,1ZHE80290305025042,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Woodyk,woodyk72,K** W***,(+1)843*****55,United States,South Carolina,Conway,29526	,*************,,,PayPal,0.128,Herbal Supplements,1156353643883827420	,,"K** W***
+(+1)843*****55
+Conway, South Carolina
+29526
+United States","VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules;Pack of 1;2;1731877424524333233;AW-6RME-O0CZ"
+577388672245665817	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 1:12:09 PM	,05/13/2026 1:12:09 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,9200190398448018119764,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,ramirezg46,G******* P******,(+1)772*****76,United States,Florida,Stuart,34997	,**************************,******,****************,,0.1,Instant Coffee,1156353630307717145	,,"G******* P******
+(+1)772*****76
+Stuart, Florida
+34997
+United States",
+577388671316103218	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 1:09:09 PM	,05/13/2026 1:09:09 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,8eb8af2524182842a,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,yanetcabreracue,y**** C****** C**,(+1)786*****37,United States,Florida,Hialeah,33016	,**************,,,,0.1,Instant Coffee,1156353617112830002	,,"y**** C****** C**
+(+1)786*****37
+Hialeah, Florida
+33016
+United States",
+577388667842629740	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 1:06:07 PM	,05/13/2026 1:06:07 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX826090000065191193,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,kcdeepu,D****** K* S****,(+1)702*****70,United States,New Jersey,Florham Park,07932	,*******************,,,,0.1,Instant Coffee,1156353593209819244	,,"D****** K* S****
+(+1)702*****70
+Florham Park, New Jersey
+07932
+United States",
+577388653839094722	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,19.6,18.39,0,5.99,0,0,5.99,,0,0,18.39,,05/13/2026 12:59:19 PM	,05/13/2026 12:59:23 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,5706b437ebb11ac67,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,bubba,user7465869031459,J** L*********,(+1)305*****31,United States,Florida,Homestead,33033	,***************,,,Credit/debit card,0.128,Herbal Supplements,1156353530784355266	,,"J** L*********
+(+1)305*****31
+Homestead, Florida
+33033
+United States",
+577388649523744972	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,5.45,18,16.54,0,5.99,0,0,5.99,,0,0,16.54,,05/13/2026 12:54:40 PM	,05/13/2026 12:54:45 PM	,05/13/2026 6:15:52 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC04_EWR2,DDHTQB6XH17H0P725,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Michael Mather707,michaelmather55,M****** M******** M*****,(+1)443*****92,United States,Pennsylvania,Stewartstown,17363	,****************,,,Venmo,0.128,Herbal Supplements,1156353517198545100	,,"M****** M******** M*****
+(+1)443*****92
+Stewartstown, Pennsylvania
+17363
+United States",
+577388633332093379	,To ship,To ship,,,1732360993097224369	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of Three,AW-6RME-O0CZ,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 12:36:10 PM	,05/13/2026 12:36:10 PM	,05/13/2026 4:28:11 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC04_EWR2,UUS65D1190298282896,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,momburgh,D**** S*****,(+1)724*****09,United States,Pennsylvania,New Kensingtn,15068	,**************,,,,0.128,Herbal Supplements,1156353391475265987	,,"D**** S*****
+(+1)724*****09
+New Kensingtn, Pennsylvania
+15068
+United States","VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules;Pack of 1;3;1731877424524333233;AW-6RME-O0CZ"
+577388623787102900	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,2,0,39.99,79.98,4,44.2,31.78,0,5.99,0,0,5.99,,0,0,31.78,,05/13/2026 12:31:37 PM	,05/13/2026 12:31:40 PM	,05/13/2026 4:24:56 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC04_EWR2,DDD7V9RBDN7GGO1NB,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,DMack,dmack529,D****** M***,(+1)240*****92,United States,Maryland,White Plains,20695	,********************,,**********,Credit/debit card,0.256,Herbal Supplements,1156353348375581364	,,"D****** M***
+(+1)240*****92
+White Plains, Maryland
+20695
+United States",
+577388611247378453	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 12:16:08 PM	,05/13/2026 12:16:08 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,9200190402920908105580,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,bidhyabastola215,B***** A******* B******,(+1)716*****32,United States,New York,Cheektowaga,14225	,************,,,,0.1,Instant Coffee,1156353258994438165	,,"B***** A******* B******
+(+1)716*****32
+Cheektowaga, New York
+14225
+United States",
+577388603223806050	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,3.1,20.6,16.3,0,5.99,0,0,5.99,,0,0,16.3,,05/13/2026 12:14:33 PM	,05/13/2026 12:14:36 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,af6e5c0470a485eb5,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,qaaliCabdi,rayaanamal,S****** S****,(+1)612*****32,United States,Minnesota,Savage,55378	,***************,,,Credit/debit card,0.1,Instant Coffee,1156353223900762210	,,"S****** S****
+(+1)612*****32
+Savage, Minnesota
+55378
+United States",
+577388590321603112	,To ship,Awaiting shipment,,Normal,1732109959987564721	,7N-3DAO-6PWB,"VAHDAM Shatavari Capsules 1000mg, Supports Healthy Hormonal Balance in Women, Herbal Supplement for Women, Vegan, Gluten-Free, 90 Capsules",Pack of 1,,1,0,39.99,39.99,3.15,20,16.84,0,5.99,0,0,5.99,,0,1.4,18.24,,05/13/2026 12:00:59 PM	,05/13/2026 12:01:03 PM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC11_ONT5,SWX488100000065179317,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Paramdeep Singh,paramdeepsingh3432,P******** S****,(+1)559*****44,United States,California,Fresno,93722	,****************,,,ApplePay,0.15,Herbal Supplements,1156353546523611688	,,"P******** S****
+(+1)559*****44
+Fresno, California
+93722
+United States",
+577388590880494120	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,3.28,19.01,17.71,0,5.99,0,0,5.99,,0,0,17.71,,05/13/2026 11:59:51 AM	,05/13/2026 11:59:55 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,SWX488100000065179317,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Paramdeep Singh,paramdeepsingh3432,P******** S****,(+1)559*****44,United States,California,Fresno,93722	,****************,,,ApplePay,0.1,Instant Coffee,1156353546523611688	,,"P******** S****
+(+1)559*****44
+Fresno, California
+93722
+United States",
+577388585775240098	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,19.6,18.39,0,5.99,0,0,5.99,,0,0,18.39,,05/13/2026 11:55:22 AM	,05/13/2026 11:55:25 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,GFUS01050989747456,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Gregory Smith,gregorysmith046,g****** s****,(+1)313*****96,United States,Michigan,Detroit,48213	,***************,,,Credit/debit card,0.128,Herbal Supplements,1156353087230350242	,,"g****** s****
+(+1)313*****96
+Detroit, Michigan
+48213
+United States",
+577388580789326473	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,19.6,18.39,0,5.99,0,0,5.99,,0,1.14,19.53,,05/13/2026 11:48:42 AM	,05/13/2026 11:48:57 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,UUS65D1190894502472,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,BigMac Mora,user8098295521288,B***** M*** M***,(+1)505*****07,United States,New Mexico,Albuquerque,87105	,**********************,****,,Credit/debit card,0.128,Herbal Supplements,1156353030123524745	,,"B***** M*** M***
+(+1)505*****07
+Albuquerque, New Mexico
+87105
+United States",
+577388558147948554	,To ship,To ship,,Normal,1732360993097224369	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of Three,AW-6RME-O0CZ,1,0,119.97,119.97,4,74.98,40.99,0,5.99,0,0,5.99,,0,3.99,44.98,,05/13/2026 11:28:55 AM	,05/13/2026 11:29:00 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,SWX986990000065172116,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,joelbarrientos595,joelbarrientos595,J*** B*********,(+1)424*****56,United States,California,Los Angeles,90059	,*********************,,,Credit/debit card,0.128,Herbal Supplements,1156352892141277194	,,"J*** B*********
+(+1)424*****56
+Los Angeles, California
+90059
+United States","VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules;Pack of 1;3;1731877424524333233;AW-6RME-O0CZ"
+577388562145644882	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:28:10 AM	,05/13/2026 11:28:10 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,9200190402920908102008,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,shivashows,s************ M***,(+1)646*****52,United States,Massachusetts,Westport,02790	,**************,,,,0.1,Instant Coffee,1156352881889939794	,,"s************ M***
+(+1)646*****52
+Westport, Massachusetts
+02790
+United States",
+577388564259442896	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:28:09 AM	,05/13/2026 11:28:09 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,UUS65D1190832026095,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,christina.morena1,C******** G*******,(+1)720*****21,United States,New Mexico,Albuquerque,87123	,***************************,,,,0.1,Instant Coffee,1156352881880699088	,,"C******** G*******
+(+1)720*****21
+Albuquerque, New Mexico
+87123
+United States",
+577388562145447965	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:28:09 AM	,05/13/2026 11:28:09 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,f2ab3a26ed2874a2d,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,ani.laescaneadora,A**** F*****,(+1)407*****03,United States,Florida,Mascotte,34753	,*****************,,,,0.1,Instant Coffee,1156352903175704605	,,"A**** F*****
+(+1)407*****03
+Mascotte, Florida
+34753
+United States",
+577388562145054806	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:28:09 AM	,05/13/2026 11:28:09 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,1524ecae258368db7,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,ruthnorha1105,B******* S* J***,(+1)813*****16,United States,Florida,Plant City,33563	,***********************,,,,0.1,Instant Coffee,1156352903131730006	,,"B******* S* J***
+(+1)813*****16
+Plant City, Florida
+33563
+United States",
+577388562144661831	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:28:09 AM	,05/13/2026 11:28:08 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC11_ONT5,UUS65D1190423040368,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,85ashley85,A***** M********,(+1)559*****79,United States,California,Lindsay,93247	,***************,,,,0.1,Instant Coffee,1156352902902812999	,,"A***** M********
+(+1)559*****79
+Lindsay, California
+93247
+United States",
+577388564255118091	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:28:08 AM	,05/13/2026 11:28:08 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,ff5891bb0d71e8b99,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,lemagne12,D**** L*******,(+1)786*****36,United States,Florida,Miami,33165	,****************,,,,0.1,Instant Coffee,1156352890122769163	,,"D**** L*******
+(+1)786*****36
+Miami, Florida
+33165
+United States",
+577388564254397083	,To ship,Awaiting collection,,,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:28:08 AM	,05/13/2026 11:28:08 AM	,05/13/2026 6:16:02 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,1LSD098000W8EAN,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,wvsmile1,C**** S*****,(+1)304*****59,United States,West Virginia,Saint Albans,25177	,*******************,,,,0.128,Herbal Supplements,1156352903110890139	,,"C**** S*****
+(+1)304*****59
+Saint Albans, West Virginia
+25177
+United States",
+577388562887905946	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:28:08 AM	,05/13/2026 11:28:08 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,9200190402920908140772,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,bestdealsever247,A**** U*****,(+1)213*****77,United States,New York,Mooers,12958	,**************************,,,,0.1,Instant Coffee,1156352889929568922	,,"A**** U*****
+(+1)213*****77
+Mooers, New York
+12958
+United States",
+577388562887577894	,To ship,To ship,,,1732393394286661809	,New_Turmeric_Coffee_Pack_2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of Two,New_Turmeric_Coffee,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:28:08 AM	,05/13/2026 11:28:08 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,6bd00e5e0e60412ee,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,breecuffie21,B******* C*****,(+1)954*****88,United States,Florida,Lauderhill,33313	,***************,,,,0.1,Instant Coffee,1156352882019438886	,,"B******* C*****
+(+1)954*****88
+Lauderhill, Florida
+33313
+United States","VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage;Pack of 1;2;1730881470376939697;New_Turmeric_Coffee"
+577388562886398642	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:28:08 AM	,05/13/2026 11:28:07 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,UUS65D1190998307102,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,mrsfafa26_creator,F****** c*****,(+1)774*****49,United States,Massachusetts,Fall River,02720	,**************,******,**********,,0.1,Instant Coffee,1156352890060575410	,,"F****** c*****
+(+1)774*****49
+Fall River, Massachusetts
+02720
+United States",
+577388562886005758	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 11:28:07 AM	,05/13/2026 11:28:07 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,GFUS01050986386112,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,arodji2,D*** B*******,(+1)317*****29,United States,Indiana,Indianapolis,46235	,*************,,,,0.1,Instant Coffee,1156352890209145854	,,"D*** B*******
+(+1)317*****29
+Indianapolis, Indiana
+46235
+United States",
+577388540110934322	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,20,17.99,0,5.99,0,0,5.99,,0,1.39,19.38,,05/13/2026 11:08:53 AM	,05/13/2026 11:08:57 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,SWX101090000065167506,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Sylvia West,emsraekiera_,S***** W***,(+1)909*****52,United States,California,Corona,92880	,**********************,,,Credit/debit card,0.128,Herbal Supplements,1156352739362050354	,,"S***** W***
+(+1)909*****52
+Corona, California
+92880
+United States",
+577388529218589573	,To ship,Awaiting collection,,,1731877424524398769	,AW-6RME-O0CZ-PACK-2,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 2,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 10:55:08 AM	,05/13/2026 10:55:08 AM	,05/13/2026 5:35:57 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,1ZHE80290322427102,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,dezzy2324,D****** J****,(+1)724*****61,United States,Pennsylvania,Indiana,15701	,********************,,,,0.128,Herbal Supplements,1156352642706674565	,,"D****** J****
+(+1)724*****61
+Indiana, Pennsylvania
+15701
+United States",
+577388517416407460	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,2.08,19.01,18.91,0,5.99,0,0,5.99,,0,0,18.91,,05/13/2026 10:49:53 AM	,05/13/2026 10:49:57 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX533900000065163651,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Nancy593🇪🇨🦀,nancyalb0,N**** A*****,(+1)908*****69,United States,New Jersey,Plainfield,07063	,*************,,,Credit/debit card,0.1,Instant Coffee,1156352598034649508	,,"N**** A*****
+(+1)908*****69
+Plainfield, New Jersey
+07063
+United States",
+577388521113621365	,To ship,Awaiting collection,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 10:48:08 AM	,05/13/2026 10:48:08 AM	,05/13/2026 7:17:15 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC12_HOU3,SPXTUL110401026826,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,1sik___,C***** V******,(+1)918*****64,United States,Oklahoma,Skiatook,74070	,**************,,,,0.1,Instant Coffee,1156352588108960629	,,"C***** V******
+(+1)918*****64
+Skiatook, Oklahoma
+74070
+United States",
+577388511567581635	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 10:40:08 AM	,05/13/2026 10:40:08 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,UUS65D1190911341176,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,momburgh,D**** S*****,(+1)724*****09,United States,Pennsylvania,New Kensingtn,15068	,**************,,,,0.1,Instant Coffee,1156352536813998531	,,"D**** S*****
+(+1)724*****09
+New Kensingtn, Pennsylvania
+15068
+United States",
+577388501326664337	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,5.64,19.4,14.95,0,5.99,0,0,5.99,,0,1.05,16,,05/13/2026 10:34:27 AM	,05/13/2026 10:34:31 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,GFUS01050979798336,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,tonywideman652,tonywideman652,t************* W******,(+1)317*****09,United States,Indiana,Mooresville,46158	,***********************,,,Credit/debit card,0.128,Herbal Supplements,1156352476096402065	,,"t************* W******
+(+1)317*****09
+Mooresville, Indiana
+46158
+United States",
+577388492346856275	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,4.11,17.6,18.29,0,5.99,0,0,5.99,,0,0.54,18.83,,05/13/2026 10:26:43 AM	,05/13/2026 10:26:47 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,9200190402920908162040,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Vero Garcia Garcia0,realgarciagarcia,v******* T*****,(+1)620*****59,United States,Kansas,Garden City,67846	,***********,,,Credit/debit card,0.1,Instant Coffee,1156352416918639443	,,"v******* T*****
+(+1)620*****59
+Garden City, Kansas
+67846
+United States",
+577388490543305262	,To ship,Awaiting collection,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,2.08,20.6,17.32,0,5.99,0,0,5.99,,0,0,17.32,,05/13/2026 10:23:58 AM	,05/13/2026 10:24:02 AM	,05/13/2026 1:24:04 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC11_ONT5,9200190398452607069125,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,itzel🪷,itz3l08,i**** h********,(+1)442*****39,United States,California,Fallbrook,92028	,**********************,,,Credit/debit card,0.1,Instant Coffee,1156352392707281454	,,"i**** h********
+(+1)442*****39
+Fallbrook, California
+92028
+United States",
+577388465090892273	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,3.12,17.44,19.44,0,5.99,0,0,5.99,,0,0,19.44,,05/13/2026 9:59:14 AM	,05/13/2026 9:59:17 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX563840000065151611,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,MrGatti,bookvipcarlimorid,M****** M***,(+1)203*****46,United States,Connecticut,Stratford,06615	,****************,,,Credit/debit card,0.1,Instant Coffee,1156352199472615921	,,"M****** M***
+(+1)203*****46
+Stratford, Connecticut
+06615
+United States",
+577388462220153753	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,18,19.99,0,5.99,0,0,5.99,,0,1.9,21.89,,05/13/2026 9:57:31 AM	,05/13/2026 9:57:35 AM	,05/13/2026 2:08:59 PM	,05/13/2026 4:32:56 PM	,"	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,SWX515190000065151142,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,celensky,concepciongudino3,C********* G*****,(+1)831*****08,United States,California,Watsonville,95076	,***********,****,****************,Credit/debit card,0.128,Herbal Supplements,1156352177661842329	,,"C********* G*****
+(+1)831*****08
+Watsonville, California
+95076
+United States",
+577388463276921367	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 9:54:10 AM	,05/13/2026 9:54:10 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,9200190402920908094747,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,dawson_cupons,D***** R*****,(+1)484*****63,United States,Pennsylvania,Spring City,19475	,*********************************,,,,0.1,Instant Coffee,1156352150736114199	,,"D***** R*****
+(+1)484*****63
+Spring City, Pennsylvania
+19475
+United States",
+577388450685882486	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,18,19.99,0,5.99,0,0,5.99,,0,0,19.99,,05/13/2026 9:47:12 AM	,05/13/2026 9:47:15 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX250610000065147985,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,florenciarenoj0,florenciarenoj0,f************** r****,(+1)609*****67,United States,New Jersey,Trenton,08611	,**************,,,Credit/debit card,0.128,Herbal Supplements,1156352102655365238	,,"f************** r****
+(+1)609*****67
+Trenton, New Jersey
+08611
+United States",
+577388453526082462	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,0,22.49,,05/13/2026 9:43:03 AM	,05/13/2026 9:43:07 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,1ZH938860308793933,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Jim Knecht,1970jimbo,J** K*****,(+1)309*****01,United States,Illinois,Washburn,61570	,****************,,**********,Credit/debit card,0.128,Herbal Supplements,1156352057066820510	,,"J** K*****
+(+1)309*****01
+Washburn, Illinois
+61570
+United States",
+577388449466454089	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,2.07,24.56,,05/13/2026 9:41:51 AM	,05/13/2026 9:41:55 AM	,05/13/2026 2:35:23 PM	,05/13/2026 4:25:14 PM	,"	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,GFUS01050980513986,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Michelle Hernandez,michellehernancbd,M******* H********,(+1)831*****91,United States,California,Hollister,95023	,**********,,,Credit/debit card,0.128,Herbal Supplements,1156352033628786761	,,"M******* H********
+(+1)831*****91
+Hollister, California
+95023
+United States",
+577388448436949402	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,2.3,24.79,,05/13/2026 9:38:49 AM	,05/13/2026 9:38:52 AM	,05/13/2026 1:46:44 PM	,05/13/2026 4:53:33 PM	,"	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,SWX813540000065145182,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Sylvia Martinez,sylviam78,S***** M*******,(+1)562*****15,United States,California,La Puente,91744	,*****************,,,Credit/debit card,0.128,Herbal Supplements,1156352024140485018	,,"S***** M*******
+(+1)562*****15
+La Puente, California
+91744
+United States",
+577388438499004616	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,9.17,18,12.82,0,5.99,0,0,5.99,,0,1.35,14.17,,05/13/2026 9:34:31 AM	,05/13/2026 9:34:34 AM	,05/13/2026 2:15:46 PM	,05/13/2026 5:42:04 PM	,"	","	",,,Fulfillment by TikTok Shop,FC15_SEA1,UUS65D1190265110790,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Berniekay206,berniekay206,B****** B*****,(+1)206*****89,United States,Washington,Seattle,98118	,*************************,,,PayPal,0.128,Herbal Supplements,1156351978153545928	,,"B****** B*****
+(+1)206*****89
+Seattle, Washington
+98118
+United States",
+577388435402167190	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2.5,18,19.49,0,5.99,0,0,5.99,,0,2.05,21.54,,05/13/2026 9:34:13 AM	,05/13/2026 9:34:27 AM	,05/13/2026 1:46:30 PM	,05/13/2026 5:18:30 PM	,"	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,SWX016520000065143360,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Izzy_21,izzybellasdecor,I***** M******,(+1)818*****00,United States,California,Burbank,91504	,***************,,,PayPal,0.128,Herbal Supplements,1156351994100814742	,,"I***** M******
+(+1)818*****00
+Burbank, California
+91504
+United States",
+577388439557738793	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,0,22.49,,05/13/2026 9:33:10 AM	,05/13/2026 9:33:13 AM	,05/13/2026 2:57:45 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC06_HOU2,UUS65D1190462695790,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Patrick Arnett,patrickarnett2,P****** A*****,(+1)281*****01,United States,Texas,Houston,77070	,**********************,,,Credit/debit card,0.128,Herbal Supplements,1156351974710677801	,,"P****** A*****
+(+1)281*****01
+Houston, Texas
+77070
+United States",
+577388438815543898	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 9:31:07 AM	,05/13/2026 9:31:07 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,9200190402920908140796,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,wena.baby,N**** W******* ,(+1)951*****22,United States,Pennsylvania,Greensburg,15601	,******************,,,,0.1,Instant Coffee,1156351939983217242	,,"N**** W******* 
+(+1)951*****22
+Greensburg, Pennsylvania
+15601
+United States",
+577388437904134157	,To ship,Awaiting collection,,Normal,1732110006948696241	,X2-LPA3-MJGQ-PACK-2,VAHDAM Moringa Capsules 1100mg | Supports Wellness and Vitality | Source of Plant Based Nutrients and Antioxidants | High Strength 90 Veg Capsules,Pack of 2,,1,0,79.99,79.99,0,44,35.99,0,5.99,5.99,0,0,,0,0,35.99,,05/13/2026 9:30:58 AM	,05/13/2026 9:31:01 AM	,05/13/2026 9:28:32 PM	,"	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,TBA331033666997,Seller Shipping,Standard Shipping,,,pkg2930,pkg2990,Parveen Gupta,(+1)4072303449,United States,Florida,Windermere,34786	,1306 Lake Whitney Dr,,,Credit/debit card,0.15,Herbal Supplements,1156351958760198157	,,"Parveen Gupta
+(+1)4072303449
+Windermere, Florida
+34786
+United States",
+577388424178602199	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,24.6,13.39,0,0.78,0,0,0.78,,0,1.16,14.55,,05/13/2026 9:24:56 AM	,05/13/2026 9:25:03 AM	,05/13/2026 1:48:36 PM	,05/14/2026 12:27:17 AM	,"	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,SWX102720000065140366,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,gojo.,gojo.1.7,G****** W*******,(+1)916*****48,United States,California,Sacramento,95835	,*****************,,,Credit/debit card,0.128,Herbal Supplements,1156351891575771351	,,"G****** W*******
+(+1)916*****48
+Sacramento, California
+95835
+United States",
+577388430823952834	,To ship,Awaiting shipment,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 9:24:10 AM	,05/13/2026 9:24:10 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,9200190398448018094221,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,lindsey.stone7,L****** S****,(+1)478*****30,United States,Georgia,Milledgeville,31061	,*******************,,,,0.1,Instant Coffee,1156351889330508226	,,"L****** S****
+(+1)478*****30
+Milledgeville, Georgia
+31061
+United States",
+577388415924277729	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,20,19.99,0,5.99,0,0,5.99,,0,1.35,21.34,,05/13/2026 9:18:43 AM	,05/13/2026 9:18:46 AM	,05/13/2026 12:07:33 PM	,05/13/2026 5:54:19 PM	,"	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,1ZH938860339360744,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,user4284694875745,charlenejr1,C******* S****,(+1)336*****42,United States,North Carolina,Danbury,27016	,********************,,,Credit/debit card,0.128,Herbal Supplements,1156351861303448033	,,"C******* S****
+(+1)336*****42
+Danbury, North Carolina
+27016
+United States",
+577388402688037410	,Shipped,In transit,,Normal,1732351510015479985	,New_Turmeric_Coffee_Pack_3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of Three,New_Turmeric_Coffee,1,0,120,120,4,73.01,42.99,0,5.99,0,0,5.99,,0,0,42.99,,05/13/2026 9:13:03 AM	,05/13/2026 9:13:06 AM	,05/13/2026 1:59:30 PM	,05/13/2026 6:34:44 PM	,"	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,UUS65D1190637846206,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Pilo astorga.,duranguito63,P**** A******,(+1)323*****95,United States,California,Inglewood,90304	,*****************,,,Google Pay,0.1,Instant Coffee,1156351805582774818	,,"P**** A******
+(+1)323*****95
+Inglewood, California
+90304
+United States","VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage;Pack of 1;3;1730881470376939697;New_Turmeric_Coffee"
+577388406738161880	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,18,19.99,0,5.99,0,0,5.99,,0,0,19.99,,05/13/2026 9:10:26 AM	,05/13/2026 9:10:29 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,e26f302f32c19d4b8,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Ian Cardozo,iancardozo0,I** C******,(+1)941*****24,United States,Florida,Lithia,33547	,***************************,,,ApplePay,0.128,Herbal Supplements,1156351781567434968	,,"I** C******
+(+1)941*****24
+Lithia, Florida
+33547
+United States",
+577388414858334326	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,18.62,21.37,0,5.99,0,0,5.99,,0,0,21.37,,05/13/2026 9:10:25 AM	,05/13/2026 9:10:29 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX425380000065133331,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Rajan Chokshi,rajan.chokshi,R**** C****** C******,(+1)630*****14,United States,New Jersey,Clifton,07011	,****************,,,Credit/debit card,0.128,Herbal Supplements,1156351797905231990	,,"R**** C****** C******
+(+1)630*****14
+Clifton, New Jersey
+07011
+United States",
+577388411982484282	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0.28,1.79,24.56,,05/13/2026 9:09:20 AM	,05/13/2026 9:09:23 AM	,05/13/2026 2:09:23 PM	,05/13/2026 4:44:20 PM	,"	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,GFUS01050969337088,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Aline’s dad,sefuku.ngaruye,N****** S*****,(+1)720*****50,United States,Colorado,Aurora,80011	,****************,,,ApplePay,0.128,Herbal Supplements,1156351778752992058	,,"N****** S*****
+(+1)720*****50
+Aurora, Colorado
+80011
+United States",
+577388405795164994	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,3.95,18.46,17.59,0,5.99,0,0,5.99,,0,0,17.59,,05/13/2026 9:09:15 AM	,05/13/2026 9:09:19 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,30e4a464925c7b9f7,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Maria  Ramos,loveablemariaramos,H******** R****,(+1)305*****00,United States,Florida,Miami,33156	,*****************,,,PayPal,0.1,Instant Coffee,1156351787821994818	,,"H******** R****
+(+1)305*****00
+Miami, Florida
+33156
+United States",
+577388411337085399	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,0,21.29,18.71,0,5.99,0,0,5.99,,0,0,18.71,,05/13/2026 9:08:01 AM	,05/13/2026 9:08:05 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,679b089652d210d66,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Radjinder Shankar,radjinder.shankar,R******** S******,(+1)718*****35,United States,Florida,Deltona,32725	,***************,,,Credit/debit card,0.1,Instant Coffee,1156351773173649879	,,"R******** S******
+(+1)718*****35
+Deltona, Florida
+32725
+United States",
+577388409427039145	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,1.79,24.28,,05/13/2026 9:07:33 AM	,05/13/2026 9:07:36 AM	,05/13/2026 12:05:24 PM	,05/13/2026 6:20:56 PM	,"	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,1ZH938860328196514,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Maria Mercedes Guardino,maria.mercedes.gu46,M**** M******* G******* G*******,(+1)843*****87,United States,South Carolina,Conway,29526	,**************,,,ApplePay,0.128,Herbal Supplements,1156351757003297705	,,"M**** M******* G******* G*******
+(+1)843*****87
+Conway, South Carolina
+29526
+United States",
+577388409426776119	,Shipped,In transit,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,0,16.61,23.39,0,5.99,0,0,5.99,,0,0,23.39,,05/13/2026 9:07:33 AM	,05/13/2026 9:07:36 AM	,05/13/2026 12:53:38 PM	,05/13/2026 6:22:45 PM	,"	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,UUS65D1190353940616,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Paola romero,paolaromero1629,P**** R****,(+1)951*****91,United States,California,Victorville,92395	,*****************,,,ApplePay,0.1,Instant Coffee,1156351771861028919	,,"P**** R****
+(+1)951*****91
+Victorville, California
+92395
+United States",
+577388410285822353	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,1.58,24.07,,05/13/2026 9:06:59 AM	,05/13/2026 9:07:02 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,524a7c2591dcbea8c,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,user6738396701307,user67383967013071,E****** A*****,(+1)336*****30,United States,North Carolina,Winston Salem,27106	,*****************,*****,,Credit/debit card,0.128,Herbal Supplements,1156351746305003921	,,"E****** A*****
+(+1)336*****30
+Winston Salem, North Carolina
+27106
+United States",
+577388409105715590	,Shipped,In transit,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,0,16.61,23.39,0,5.99,0,0,5.99,,0,0,23.39,,05/13/2026 9:06:13 AM	,05/13/2026 9:06:17 AM	,05/13/2026 12:53:15 PM	,05/14/2026 2:10:21 AM	,"	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,SWX388620000065132138,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,ELIDIA ORTIZ,yayita1964,E***** O****,(+1)323*****10,United States,California,Fontana,92335	,***************,,,Credit/debit card,0.1,Instant Coffee,1156351752499532166	,,"E***** O****
+(+1)323*****10
+Fontana, California
+92335
+United States",
+577388409766580882	,To ship,Awaiting shipment,,Normal,1730881470377005233	,ASH-PACK-2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 2,,1,0,80,80,0,42.21,37.79,0,5.99,5.99,0,0,,0,0,37.79,,05/13/2026 9:06:08 AM	,05/13/2026 9:06:11 AM	,"	","	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,,Seller Shipping,Standard Shipping,,,lupitastyles,lupitadoeshair,Guadalupe Garcia,(+1)6263226452,United States,California,West Covina,91792	,3233 Lanesboro Dr,,,Credit/debit card,0.1,Instant Coffee,1156351752252461714	,,"Guadalupe Garcia
+(+1)6263226452
+West Covina, California
+91792
+United States",
+577388405479018832	,Shipped,In transit,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,0,16.61,23.39,0,5.99,0,0,5.99,,0,0,23.39,,05/13/2026 9:03:42 AM	,05/13/2026 9:03:45 AM	,05/13/2026 11:38:40 AM	,05/13/2026 7:59:37 PM	,"	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,SPXCMH110300320816,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Ilovemygrandpa,aichadia42,A****** d**,(+1)614*****93,United States,Ohio,Canal Winchester,43110	,***************,**************,**********,Credit/debit card,0.1,Instant Coffee,1156351720677871952	,,"A****** d**
+(+1)614*****93
+Canal Winchester, Ohio
+43110
+United States",
+577388404602016584	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,0,22.49,,05/13/2026 9:01:38 AM	,05/13/2026 9:01:42 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX700640000065127252,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,mohamedalharazim,mohamedalharazim,m****** A********,(+1)640*****65,United States,New Jersey,East Windsor,08512	,**********************,,**********,Google Pay,0.128,Herbal Supplements,1156351711347905352	,,"m****** A********
+(+1)640*****65
+East Windsor, New Jersey
+08512
+United States",
+577388400620507435	,To ship,Awaiting shipment,,Normal,1730881470377005233	,ASH-PACK-2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 2,,2,0,80,160,0,85.02,74.98,0,5.99,5.99,0,0,,0,1.5,76.48,,05/13/2026 9:01:03 AM	,05/13/2026 9:01:08 AM	,"	","	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,,Seller Shipping,Standard Shipping,,,J J. Meléndez,jaimemill2023,Jaime Melendez,(+1)7049375267,United States,North Carolina,Charlotte,28269	,9515 Banwell Lane,,,Credit/debit card,0.2,Instant Coffee,1156351709870133547	,,"Jaime Melendez
+(+1)7049375267
+Charlotte, North Carolina
+28269
+United States",
+577388402451255373	,To ship,Awaiting collection,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 9:00:08 AM	,05/13/2026 9:00:08 AM	,05/13/2026 12:54:14 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,9200190398452607063284,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,crazzygirlmom,L*** M******,(+1)520*****43,United States,Arizona,Vail,85641	,**********************,,,,0.1,Instant Coffee,1156351702263959629	,,"L*** M******
+(+1)520*****43
+Vail, Arizona
+85641
+United States",
+577388400546386029	,Shipped,In transit,,Normal,1731877424524398769	,AW-6RME-O0CZ-PACK-2,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 2,,1,0,79.99,79.99,0,44,35.99,0,5.99,0,0,5.99,,0,3.15,39.14,,05/13/2026 8:57:56 AM	,05/13/2026 8:57:59 AM	,05/13/2026 12:23:39 PM	,05/13/2026 5:22:29 PM	,"	","	",,,Fulfillment by TikTok Shop,FC07_ONT3,SWX647410000065075781,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Feini Sio,feinisio,F**** S**,(+1)760*****24,United States,California,San Marcos,92069	,********************,,,ApplePay,0.128,Herbal Supplements,1156351858600874093	,,"F**** S**
+(+1)760*****24
+San Marcos, California
+92069
+United States",
+577388398486262061	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,0,22.49,,05/13/2026 8:57:28 AM	,05/13/2026 8:57:32 AM	,05/13/2026 12:02:58 PM	,05/13/2026 6:28:44 PM	,"	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,1ZH938860312852736,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,honeybun,honeybun6404,M***** R****,(+1)903*****28,United States,Texas,Tyler,75703	,***********,,,Credit/debit card,0.128,Herbal Supplements,1156351672129917229	,,"M***** R****
+(+1)903*****28
+Tyler, Texas
+75703
+United States",
+577388386816200882	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,8.06,19.01,12.93,0,5.99,0,0,5.99,,0,0.76,13.69,,05/13/2026 8:56:30 AM	,05/13/2026 8:56:34 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,9200190398448018089425,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Lucas,kensh1n.himura,L*** h******,(+1)443*****76,United States,Missouri,Washington,63090	,*****************,,,PayPal,0.1,Instant Coffee,1156351653534404786	,,"L*** h******
+(+1)443*****76
+Washington, Missouri
+63090
+United States",
+577388390413079498	,Shipped,In transit,,Normal,1732320403761172657	,59-RQ3P-GVT2,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of Two,AW-6RME-O0CZ,1,0,79.98,79.98,3.2,42.99,33.79,0,2.47,0,0,2.47,,0,0,33.79,,05/13/2026 8:56:15 AM	,05/13/2026 8:56:19 AM	,05/13/2026 12:34:40 PM	,05/14/2026 1:18:10 AM	,"	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,9200190398448018089371,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,bear249,bear249e1,m****** v******,(+1)915*****57,United States,Texas,El Paso,79907	,******************,,**********,Credit/debit card,0.128,Herbal Supplements,1156352174968968138	,,"m****** v******
+(+1)915*****57
+El Paso, Texas
+79907
+United States","VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules;Pack of 1;2;1731877424524333233;AW-6RME-O0CZ"
+577388396073947963	,Shipped,In transit,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,0,21.29,18.71,0,5.99,0,0,5.99,,0,0,18.71,,05/13/2026 8:54:21 AM	,05/13/2026 8:54:24 AM	,05/13/2026 12:07:57 PM	,05/13/2026 6:10:05 PM	,"	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,9200190398452413341682,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Saharo,umusiradm1,S***** A***,(+1)308*****65,United States,Nebraska,Omaha,68131	,************,*****,,Credit/debit card,0.1,Instant Coffee,1156351647483859771	,,"S***** A***
+(+1)308*****65
+Omaha, Nebraska
+68131
+United States",
+577388381398208745	,Shipped,In transit,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,4.8,19.01,16.19,0,5.99,0,0,5.99,,0,0,16.19,,05/13/2026 8:46:26 AM	,05/13/2026 8:46:30 AM	,05/13/2026 12:52:38 PM	,05/13/2026 6:50:57 PM	,"	","	",,,Fulfillment by TikTok Shop,FC11_ONT5,SWX566760000065115869,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,user8162612905825,user8162612905825,V******* K***,(+1)510*****21,United States,California,Manteca,95337	,******************,,,TikTok PayLater Powered by Klarna,0.1,Instant Coffee,1156351595276767465	,,"V******* K***
+(+1)510*****21
+Manteca, California
+95337
+United States",
+577388385987039262	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,0,16.61,23.39,0,5.99,0,0,5.99,,0,0,23.39,,05/13/2026 8:45:59 AM	,05/13/2026 8:46:02 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX056460000065097116,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,IsLandman,islandlovera44,E***** H***,(+1)609*****04,United States,New Jersey,Dayton,08810	,************,,,Credit/debit card,0.1,Instant Coffee,1156351915542482974	,,"E***** H***
+(+1)609*****04
+Dayton, New Jersey
+08810
+United States",
+577388381887959102	,Shipped,In transit,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 8:43:11 AM	,05/13/2026 8:43:10 AM	,05/13/2026 12:07:57 PM	,05/13/2026 6:41:03 PM	,"	","	",,,Fulfillment by TikTok Shop,FC12_HOU3,9200190398452413340647,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,mb_reviews0,L**** B****,(+1)903*****93,United States,Texas,Euless,76040	,*******************,,**********,,0.1,Instant Coffee,1156351596227825726	,,"L**** B****
+(+1)903*****93
+Euless, Texas
+76040
+United States",
+577388383497196416	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,1.89,24.38,,05/13/2026 8:43:01 AM	,05/13/2026 8:43:05 AM	,05/13/2026 2:57:14 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC06_HOU2,UUS65D1190766526743,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Johnny❌️ McCants,lancer3389,J***** M******,(+1)575*****33,United States,New Mexico,Las Cruces,88012	,*****************,,,PayPal,0.128,Herbal Supplements,1156351574652982144	,,"J***** M******
+(+1)575*****33
+Las Cruces, New Mexico
+88012
+United States",
+577388383158636940	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,0,22.49,,05/13/2026 8:42:22 AM	,05/13/2026 8:42:25 AM	,05/13/2026 6:16:15 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,GFUS01050966020611,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,bones,user70309245139450,A***** K***,(+1)347*****21,United States,Florida,Port St Lucie,34986	,**************************,,**********,Credit/debit card,0.128,Herbal Supplements,1156351585706873228	,,"A***** K***
+(+1)347*****21
+Port St Lucie, Florida
+34986
+United States",
+577388381524562914	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,1.82,24.31,,05/13/2026 8:41:57 AM	,05/13/2026 8:42:02 AM	,05/13/2026 1:17:38 PM	,05/13/2026 5:10:06 PM	,"	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,SWX252420000065114537,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,yvonaskibinski,yvona.skibinski.s,Y**** S********,(+1)619*****16,United States,Arizona,Peoria,85345	,*****************,,,ApplePay,0.128,Herbal Supplements,1156351584775541730	,,"Y**** S********
+(+1)619*****16
+Peoria, Arizona
+85345
+United States",
+577388382715613247	,Canceled,Canceled,Cancel,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,1,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,1.98,24.47,24.47,05/13/2026 8:41:36 AM	,05/13/2026 8:41:39 AM	,"	","	","	",05/13/2026 8:47:57 AM	,User,Bought by mistake,Fulfillment by TikTok Shop,FC15_SEA1,9200190412764301168745,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Lucky Bao food truck,kevinmeng0130,K**** M***,(+1)509*****35,United States,Washington,********,*****	,***************,,,ApplePay,0.128,Herbal Supplements,1156351556461695039	,,"K**** M***
+(+1)509*****35
+********, Washington
+*****
+United States",
+577388382710895610	,To ship,Awaiting collection,,Normal,1731877424524398769	,AW-6RME-O0CZ-PACK-2,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 2,,1,0,79.99,79.99,0,44,35.99,0,5.99,0,0,5.99,,0,3.67,39.66,,05/13/2026 8:41:31 AM	,05/13/2026 8:41:35 AM	,05/13/2026 5:37:15 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,9200190372820126101510,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,PalmerTak,palmertak,P******** P*****,(+1)404*****25,United States,Georgia,Atlanta,30364	,************,*******,,PayPal,0.128,Herbal Supplements,1156351571620303866	,,"P******** P*****
+(+1)404*****25
+Atlanta, Georgia
+30364
+United States",
+577388381331297258	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,1.88,24.37,,05/13/2026 8:41:27 AM	,05/13/2026 8:41:31 AM	,05/13/2026 1:18:13 PM	,05/13/2026 4:52:29 PM	,"	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,GFUS01050965917312,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,user8844355382937,user8844355382937,S**** P*****,(+1)702*****14,United States,Nevada,Las Vegas,89134	,*********************,,,PayPal,0.128,Herbal Supplements,1156351542525268970	,,"S**** P*****
+(+1)702*****14
+Las Vegas, Nevada
+89134
+United States",
+577388380424081777	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,0,22.49,,05/13/2026 8:41:12 AM	,05/13/2026 8:41:17 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,1418b33dba54c76dd,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,kudzaidance,kudzaidance,B****** A***,(+1)786*****64,United States,Florida,Miami Gardens,33169	,***************,,******************,PayPal,0.128,Herbal Supplements,1156351541942391153	,,"B****** A***
+(+1)786*****64
+Miami Gardens, Florida
+33169
+United States",
+577388380985987823	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,2,0,39.99,79.98,0,35,44.98,0,5.99,0,0,5.99,,0,2.7,47.68,,05/13/2026 8:40:54 AM	,05/13/2026 8:40:57 AM	,05/13/2026 2:15:47 PM	,05/14/2026 1:10:43 AM	,"	","	",,,Fulfillment by TikTok Shop,FC15_SEA1,9200190412764301168707,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,randykreft,randykreft,r********* K****,(+1)208*****44,United States,Idaho,Twin Falls,83301	,*************,,,Credit/debit card,0.256,Herbal Supplements,1156351541032620783	,,"r********* K****
+(+1)208*****44
+Twin Falls, Idaho
+83301
+United States",
+577388381018166040	,To ship,Awaiting collection,,Normal,1729488250396120241	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 3,,1,0,119.99,119.99,0,75,44.99,0,5.99,0,0,5.99,,0,3.94,48.93,,05/13/2026 8:40:53 AM	,05/13/2026 8:40:56 AM	,05/13/2026 5:32:14 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,4106c54daa354144f,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Lizziie12,lizziie12,E******** A****,(+1)405*****66,United States,Oklahoma,Norman,73071	,***************************,,,ApplePay,0.128,Herbal Supplements,1156351570091414296	,,"E******** A****
+(+1)405*****66
+Norman, Oklahoma
+73071
+United States",
+577388380959117738	,To ship,Awaiting shipment,,Normal,1729488250396120241	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 3,,1,0,119.99,119.99,0,75,44.99,0,5.99,0,0,5.99,,0,0,44.99,,05/13/2026 8:40:48 AM	,05/13/2026 8:40:51 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX842540000065114258,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Gene Christensen,gene.christensen,G*** C**********,(+1)203*****52,United States,Connecticut,Hamden,06514	,***************,,,ApplePay,0.128,Herbal Supplements,1156351540888048042	,,"G*** C**********
+(+1)203*****52
+Hamden, Connecticut
+06514
+United States",
+577388380880802559	,To ship,Awaiting collection,,Normal,1729488250396120241	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 3,,1,0,119.99,119.99,0,75,44.99,0,5.99,0,0,5.99,,0,3.57,48.56,,05/13/2026 8:40:39 AM	,05/13/2026 8:40:45 AM	,05/13/2026 5:32:00 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,9200190372820126101411,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,albert66810,albert66810,a********** C******,(+1)678*****79,United States,Georgia,Cumming,30028	,***********,,,Credit/debit card,0.128,Herbal Supplements,1156351540847153919	,,"a********** C******
+(+1)678*****79
+Cumming, Georgia
+30028
+United States",
+577388379038716496	,To ship,Awaiting collection,,Normal,1731877424524398769	,AW-6RME-O0CZ-PACK-2,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 2,,1,0,79.99,79.99,0,44,35.99,0,5.99,0,0,5.99,,0,0,35.99,,05/13/2026 8:40:10 AM	,05/13/2026 8:40:14 AM	,05/13/2026 5:36:09 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC12_HOU3,1ZHE80290303247851,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Alejandro,alejandromoreno296,A******** M*****,(+1)956*****60,United States,Texas,Abilene,79601	,************,*****,**********,PayPal,0.128,Herbal Supplements,1156351568195654224	,,"A******** M*****
+(+1)956*****60
+Abilene, Texas
+79601
+United States",
+577388378932351824	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,1.52,24.01,,05/13/2026 8:39:54 AM	,05/13/2026 8:39:58 AM	,05/13/2026 12:14:08 PM	,05/13/2026 6:14:13 PM	,"	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,1ZH938860331781090,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Tj 1979,bigcountry996,T**** J****,(+1)828*****20,United States,North Carolina,Lake Toxaway,28747	,*****************,,**********,ApplePay,0.128,Herbal Supplements,1156351567537476432	,,"T**** J****
+(+1)828*****20
+Lake Toxaway, North Carolina
+28747
+United States",
+577388379790414535	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,0,22.49,,05/13/2026 8:39:48 AM	,05/13/2026 8:39:52 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,87369b4b8b3a54ee5,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,MIKESTER1,mikester1235,J**** m s*******,(+1)813*****47,United States,Florida,Plant City,33567	,***************,,,Credit/debit card,0.128,Herbal Supplements,1156351551174185671	,,"J**** m s*******
+(+1)813*****47
+Plant City, Florida
+33567
+United States",
+577388378827166634	,Canceled,Canceled,Cancel,Normal,1731877424524398769	,AW-6RME-O0CZ-PACK-2,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 2,,1,0,79.99,79.99,0,44,35.99,0,5.99,0,0,5.99,,0,2.25,38.24,,05/13/2026 8:39:25 AM	,05/13/2026 8:39:28 AM	,"	","	","	",05/13/2026 2:12:11 PM	,User,Bought by mistake,Fulfillment by TikTok Shop,FC03_ATL1,1LSD098000W8N5U,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Ballgame,billyball33,B*** H***** J*,(+1)413*****43,United States,Massachusetts,**********,*****	,********************,,,Credit/debit card,0.128,Herbal Supplements,1156354017200673706	,,"B*** H***** J*
+(+1)413*****43
+**********, Massachusetts
+*****
+United States",
+577388379536331313	,To ship,Awaiting collection,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,0,22.49,,05/13/2026 8:39:21 AM	,05/13/2026 8:39:25 AM	,05/13/2026 12:26:02 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,9200190372820225539795,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,VICENTAMARTINEZ🙏🏽🧡🌈🏳️‍🌈,soy_vicenta_martinez,v****** m*******,(+1)806*****48,United States,Texas,Littlefield,79339	,************,*****,,Credit/debit card,0.128,Herbal Supplements,1156351536995340849	,,"v****** m*******
+(+1)806*****48
+Littlefield, Texas
+79339
+United States",
+577388378242519623	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,1.8,24.29,,05/13/2026 8:38:05 AM	,05/13/2026 8:38:08 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,UUS65D1190609242517,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Mae,sheritagray4,C***** G***,(+1)205*****03,United States,Alabama,Birmingham,35208	,***********************,,,Credit/debit card,0.128,Herbal Supplements,1156352003026358855	,,"C***** G***
+(+1)205*****03
+Birmingham, Alabama
+35208
+United States",
+577388373735674204	,To ship,Awaiting shipment,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,0,16.61,23.39,0,5.99,0,0,5.99,,0,0,23.39,,05/13/2026 8:35:25 AM	,05/13/2026 8:35:28 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,9200190398448018084963,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Helen Bell-Griffen,helenbellgriffen,H**** B***********,(+1)989*****00,United States,Michigan,Saginaw,48601	,**************,,,Credit/debit card,0.1,Instant Coffee,1156351527731040604	,,"H**** B***********
+(+1)989*****00
+Saginaw, Michigan
+48601
+United States",
+577388361465893183	,To ship,Awaiting shipment,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,17.5,22.49,0,5.99,0,0,5.99,,0,1.41,23.9,,05/13/2026 8:24:36 AM	,05/13/2026 8:24:40 AM	,"	","	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX803110000065096909,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Dunny,user8838587454933,T***** D******,(+1)617*****45,United States,Massachusetts,Braintree,02184	,***************,,,Credit/debit card,0.128,Herbal Supplements,1156351441649045823	,,"T***** D******
+(+1)617*****45
+Braintree, Massachusetts
+02184
+United States",
+577388350033269100	,To ship,Awaiting shipment,,Normal,1730881470377005233	,ASH-PACK-2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 2,,1,0,80,80,7.22,43.01,29.77,0,5.99,5.99,0,0,,0,0,29.77,,05/13/2026 8:17:56 AM	,05/13/2026 8:18:00 AM	,"	","	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,,Seller Shipping,Standard Shipping,,,leonildaferrer6,leonildaferrer6,Leonilda Ferrer,(+1)9083569160,United States,New Jersey,Bound Brook,08805	,332 Saint Johns Pl,B1,,ApplePay,0.1,Instant Coffee,1156351401926365548	,,"Leonilda Ferrer
+(+1)9083569160
+Bound Brook, New Jersey
+08805
+United States",
+577388341707772211	,To ship,Awaiting shipment,,Normal,1730881470377005233	,ASH-PACK-2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 2,,1,0,80,80,0,42.21,37.79,0,5.99,5.99,0,0,,0,0,37.79,,05/13/2026 8:06:03 AM	,05/13/2026 8:06:07 AM	,"	","	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,,Seller Shipping,Standard Shipping,,,tater,kennethadams47,Kenneth adams,(+1)8066812089,United States,Texas,Canyon,79015	,7951 w cemetery rd,,,Credit/debit card,0.1,Instant Coffee,1156351311221854515	,,"Kenneth adams
+(+1)8066812089
+Canyon, Texas
+79015
+United States",
+577388314192614125	,Shipped,In transit,,Normal,1732320403761172657	,59-RQ3P-GVT2,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of Two,AW-6RME-O0CZ,1,0,79.98,79.98,8.3,50.91,20.77,0,5.99,0,0,5.99,,0,1.41,22.18,,05/13/2026 7:42:05 AM	,05/13/2026 7:42:08 AM	,05/13/2026 12:02:16 PM	,05/13/2026 4:49:07 PM	,"	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,9200190372820126096762,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,rlyeaton,rlyeaton,R***** Y*****,(+1)910*****46,United States,North Carolina,New Bern,28562	,************,,,Credit/debit card,0.128,Herbal Supplements,1156351148152165101	,,"R***** Y*****
+(+1)910*****46
+New Bern, North Carolina
+28562
+United States","VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules;Pack of 1;2;1731877424524333233;AW-6RME-O0CZ"
+577388308656722800	,To ship,Awaiting collection,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 7:30:09 AM	,05/13/2026 7:30:09 AM	,05/13/2026 12:08:02 PM	,"	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,c2ccf22ecee9c2fca,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,acharyatika123,T*** M*** A******,(+1)614*****96,United States,Ohio,Canal Winchester,43110	,*******************,,,,0.1,Instant Coffee,1156351053351785328	,,"T*** M*** A******
+(+1)614*****96
+Canal Winchester, Ohio
+43110
+United States",
+577388303846249158	,Shipped,In transit,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 7:25:09 AM	,05/13/2026 7:25:09 AM	,05/13/2026 10:17:49 AM	,05/13/2026 7:56:11 PM	,"	","	",,,Fulfillment by TikTok Shop,FC12_HOU3,9200190398452413330228,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,kskhan737,S*** K***,(+1)913*****59,United States,Missouri,Kansas City,64123	,*****************,,,,0.1,Instant Coffee,1156351034466996934	,,"S*** K***
+(+1)913*****59
+Kansas City, Missouri
+64123
+United States",
+577388289843827688	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,3,22.2,14.79,0,3.16,0,0,3.16,,0,0.79,15.58,,05/13/2026 7:15:19 AM	,05/13/2026 7:15:24 AM	,05/13/2026 11:40:56 AM	,05/13/2026 6:50:25 PM	,"	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,1LSD098000W7MQ3,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Debbie AndCraig Alti,daltizer95,D****** A******,(+1)540*****70,United States,Virginia,Blacksburg,24060	,**************,,,Credit/debit card,0.128,Herbal Supplements,1156351392917918696	,,"D****** A******
+(+1)540*****70
+Blacksburg, Virginia
+24060
+United States",
+577388268751459292	,To ship,Awaiting collection,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 6:46:11 AM	,05/13/2026 6:46:11 AM	,05/13/2026 9:00:56 AM	,"	","	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,60e27c854bbe7dadf,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,survie_j,S***** J*** K****,(+1)571*****56,United States,Virginia,Fairfax,22032	,*******************,,,,0.1,Instant Coffee,1156350813134427100	,,"S***** J*** K****
+(+1)571*****56
+Fairfax, Virginia
+22032
+United States",
+577388258974142800	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,12.89,18,9.1,0,5.99,0,0,5.99,,0,0.54,9.64,,05/13/2026 6:43:15 AM	,05/13/2026 6:43:20 AM	,05/13/2026 9:20:42 AM	,05/13/2026 8:07:29 PM	,"	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,UUS65D1190889225032,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Solangenana7,solangenana7,S****** N***,(+1)703*****64,United States,Virginia,Dumfries,22026	,***************,,**********,Venmo,0.128,Herbal Supplements,1156350785653870928	,,"S****** N***
+(+1)703*****64
+Dumfries, Virginia
+22026
+United States",
+577388218512675498	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,0,25,14.99,0,5.99,0,0,5.99,,0,0,14.99,,05/13/2026 5:55:13 AM	,05/13/2026 5:55:16 AM	,05/13/2026 9:20:47 AM	,05/13/2026 5:58:37 PM	,"	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,GFUS01050945488515,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Adriana,annitasmith955,A**** s****,(+1)929*****82,United States,New York,South Ozone Park,11420	,********************,****,,Credit/debit card,0.128,Herbal Supplements,1156350556984742570	,,"A**** s****
+(+1)929*****82
+South Ozone Park, New York
+11420
+United States",
+577388199387239306	,To ship,Awaiting collection,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,3.12,17.01,19.87,0,5.99,0,0,5.99,,0,0,19.87,,05/13/2026 5:37:14 AM	,05/13/2026 5:37:18 AM	,05/13/2026 9:01:26 AM	,"	","	","	",,,Fulfillment by TikTok Shop,FC10_ORD2,bba5d0072ca06c34f,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Bella Bella,bellawabari,B**** B**** M*******,(+1)614*****82,United States,Ohio,Columbus,43230	,*************************,***,,ApplePay,0.1,Instant Coffee,1156350481691874186	,,"B**** B**** M*******
+(+1)614*****82
+Columbus, Ohio
+43230
+United States",
+577388199274910399	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,4.76,19.6,15.63,0,5.99,0,0,5.99,,0,1.44,17.07,,05/13/2026 5:31:56 AM	,05/13/2026 5:32:00 AM	,05/13/2026 9:45:20 AM	,05/13/2026 5:25:03 PM	,"	","	",,,Fulfillment by TikTok Shop,FC02_ORD1,1LSD098000W7AVE,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Celia._.Wow123,celia._.romero,C**** R*****,(+1)901*****27,United States,Tennessee,Millington,38053	,************,,,Venmo,0.128,Herbal Supplements,1156350441795982015	,,"C**** R*****
+(+1)901*****27
+Millington, Tennessee
+38053
+United States",
+577388189793947896	,To ship,Awaiting collection,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,12.84,17.48,9.68,0,5.99,0,0,5.99,,0,0,9.68,,05/13/2026 5:20:42 AM	,05/13/2026 5:20:45 AM	,05/13/2026 8:54:03 AM	,"	","	","	",,,Fulfillment by TikTok Shop,FC12_HOU3,9200190398452413312002,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Juanny Martinez,juannybarronmarti,J**** M*******,(+1)956*****31,United States,Texas,San Benito,78586	,***********************,,,Credit/debit card,0.1,Instant Coffee,1156350409338622200	,,"J**** M*******
+(+1)956*****31
+San Benito, Texas
+78586
+United States",
+577388195091812955	,Shipped,In transit,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 5:20:08 AM	,05/13/2026 5:20:08 AM	,05/13/2026 8:53:11 AM	,05/14/2026 2:01:45 AM	,"	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,e68f5f3d588da1b31,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,pittsburgh_ed,E***** R****,(+1)412*****33,United States,Pennsylvania,Glassport,15045	,************,,,,0.1,Instant Coffee,1156350399296213595	,,"E***** R****
+(+1)412*****33
+Glassport, Pennsylvania
+15045
+United States",
+577388178402414682	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,2,0,39.99,79.98,2,43,34.98,0,5.99,0,0,5.99,,0,3.24,38.22,,05/13/2026 5:03:19 AM	,05/13/2026 5:03:22 AM	,05/13/2026 10:08:30 AM	,05/13/2026 4:41:20 PM	,"	","	",,,Fulfillment by TikTok Shop,FC08_ONT4,GFUS01050939105728,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,user883654150704,jtipsatm,J*** T*****,(+1)707*****53,United States,California,Novato,94945	,****************,,,Credit/debit card,0.256,Herbal Supplements,1156350331689078874	,,"J*** T*****
+(+1)707*****53
+Novato, California
+94945
+United States",
+577388175750566734	,Shipped,In transit,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,0,22.91,17.09,0,5.99,0,0,5.99,,0,0,17.09,,05/13/2026 5:02:58 AM	,05/13/2026 5:03:01 AM	,05/13/2026 8:39:04 AM	,05/13/2026 5:07:09 PM	,"	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,UUS65D1190286768446,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,दल घर्ती मगर🇺🇸🇺🇸🇳🇵🇳🇵,dalmagar052,D** M****,(+1)646*****76,United States,New York,Middle Village,11379	,**********************,,,ApplePay,0.1,Instant Coffee,1156350337523684174	,,"D** M****
+(+1)646*****76
+Middle Village, New York
+11379
+United States",
+577388175684440377	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,5.45,18,16.54,0,5.99,0,0,5.99,,0,0,16.54,,05/13/2026 4:55:28 AM	,05/13/2026 4:55:32 AM	,05/13/2026 6:58:59 AM	,05/13/2026 9:18:41 PM	,"	","	",,,Fulfillment by TikTok Shop,FC04_EWR2,UUS65D1190594327173,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Jc,jcmo640,J*** M****,(+1)814*****95,United States,Pennsylvania,New Cumberland,17070	,***********,,,Credit/debit card,0.128,Herbal Supplements,1156350298404065593	,,"J*** M****
+(+1)814*****95
+New Cumberland, Pennsylvania
+17070
+United States",
+577388162048495871	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,15.79,18,6.2,0,5.99,0,0,5.99,,0,0,6.2,,05/13/2026 4:31:19 AM	,05/13/2026 4:31:24 AM	,05/13/2026 7:00:17 AM	,05/13/2026 9:55:08 AM	,"	","	",,,Fulfillment by TikTok Shop,FC04_EWR2,UUS65D1190988979214,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,beanie beautiful,beaniebeautiful1,D***** m*******,(+1)518*****27,United States,New York,Albany,12205	,*****************,,,Credit/debit card,0.128,Herbal Supplements,1156350230688534783	,,"D***** m*******
+(+1)518*****27
+Albany, New York
+12205
+United States",
+577388155031884658	,Shipped,In transit,,Normal,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,40,40,4.69,22.91,12.4,0,5.99,0,0,5.99,,0,0,12.4,,05/13/2026 4:21:42 AM	,05/13/2026 4:21:48 AM	,05/13/2026 12:46:17 PM	,05/13/2026 4:51:19 PM	,"	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,SWX721870000064953177,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,somagowkatan,somagowkatan,g******* g********,(+1)347*****73,United States,New York,Jamaica,11420	,*******************,,,Credit/debit card,0.1,Instant Coffee,1156350184723747698	,,"g******* g********
+(+1)347*****73
+Jamaica, New York
+11420
+United States",
+577388147960615339	,Shipped,In transit,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 4:02:07 AM	,05/13/2026 4:02:07 AM	,05/13/2026 6:38:08 AM	,05/13/2026 11:09:27 AM	,"	","	",,,Fulfillment by TikTok Shop,FC14_EWR4,9200190398452413306476,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,cledis_cardona1234,C***** C******,(+1)703*****63,United States,Virginia,Manassas,20109	,**************************,,,,0.1,Instant Coffee,1156350121377501611	,,"C***** C******
+(+1)703*****63
+Manassas, Virginia
+20109
+United States",
+577388140966089531	,Shipped,In transit,,Normal,1729488250396120241	,04-DHHQ-BMXQ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 3,,1,0,119.99,119.99,6.3,75,38.69,0,5.99,0,0,5.99,,0,0,38.69,,05/13/2026 3:51:54 AM	,05/13/2026 3:51:57 AM	,05/13/2026 10:50:42 AM	,05/13/2026 4:59:12 PM	,"	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,9200190409055701304953,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,Monte Phillips,monte.phillips,M**** P*******,(+1)702*****04,United States,Michigan,Clio,48420	,*****************,,**********,Credit/debit card,0.128,Herbal Supplements,1156350293715555131	,,"M**** P*******
+(+1)702*****04
+Clio, Michigan
+48420
+United States",
+577388142763676534	,Shipped,In transit,,,1730881470376939697	,New_Turmeric_Coffee,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 1,,1,0,0,0,0,0,0,0,0,0,0,0,,0,0,0,,05/13/2026 3:47:08 AM	,05/13/2026 3:47:08 AM	,05/13/2026 6:37:26 AM	,05/13/2026 10:52:33 AM	,"	","	",,,Fulfillment by TikTok Shop,FC09_ATL2,9200190398452413305714,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,,angiedobson1974,A***** D*****,(+1)912*****60,United States,Georgia,Swainsboro,30401	,*******************,,,,0.1,Instant Coffee,1156350081028166518	,,"A***** D*****
+(+1)912*****60
+Swainsboro, Georgia
+30401
+United States",
+577388126799630927	,To ship,Awaiting shipment,,Normal,1730881470377005233	,ASH-PACK-2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings Beverage",Pack of 2,,1,0,80,80,3.36,38.01,38.63,0,5.99,5.99,0,0,,0,1.68,40.31,,05/13/2026 3:10:16 AM	,05/13/2026 3:10:20 AM	,"	","	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,,Seller Shipping,Standard Shipping,,,✌🏿Be Still,imthattsu,Kimberly Barrett,(+1)7852213332,United States,Georgia,Macon,31210	,1665 Wesleyan Dr Apt 718,,,Credit/debit card + TikTok Shop Balance,0.1,Instant Coffee,1156349972451136079	,,"Kimberly Barrett
+(+1)7852213332
+Macon, Georgia
+31210
+United States",
+577388115124916334	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,3,19.4,17.59,0,5.99,0,0,5.99,,0,0.94,18.53,,05/13/2026 2:53:37 AM	,05/13/2026 2:53:41 AM	,05/13/2026 8:46:17 AM	,05/13/2026 7:13:08 PM	,"	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,1LSD098000W6XF0,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,maryalley48,mary.alley41,M*** A****,(+1)540*****47,United States,Virginia,Salem,24153	,***************,,,Credit/debit card,0.128,Herbal Supplements,1156349913882071150	,,"M*** A****
+(+1)540*****47
+Salem, Virginia
+24153
+United States",
+577388118079869315	,To ship,Awaiting collection,,Normal,1731358854031839409	,SH-9XEJ-BGZH,"VAHDAM Authentic Curry Powder, 1.76 oz Tin | Gourmet Blend Curated by Michelin-Starred Chef Vikas Khanna | With the Goodness of Himalayan Pink Salt | Gourmet 11 Spice blend #notjustforcurry",Pack of 1,,1,0,14.99,14.99,1.5,0.75,12.74,0,5.99,5.99,0,0,,0,0,12.74,,05/13/2026 2:52:04 AM	,05/13/2026 2:52:07 AM	,05/13/2026 4:14:17 AM	,"	","	","	",,,Fulfillment by seller,U.S Pickup Warehouse,AFTN2474845551,Seller Shipping,Standard Shipping,,,bernie50plotczyk@gmail.com,bernardplotczyk2,Bernard Plotczyk,(+1)6674955649,United States,Maryland,Essex,21221	,1746 HILLTOP AVE,house,,Credit/debit card,0.118,Spice and Seasoning Blends,1156349901351522691	,,"Bernard Plotczyk
+(+1)6674955649
+Essex, Maryland
+21221
+United States",
+577388104873317133	,Shipped,In transit,,Normal,1731877424524333233	,AW-6RME-O0CZ,"VAHDAM Turmeric Curcumin 2000mg | 95% Curcuminoids with Black Pepper & MCT Oil for Maximum Absorption | Supports Joint Health, Inflammation Relief & Mobility | 90 Veg Capsules",Pack of 1,,1,0,39.99,39.99,2,24.6,13.39,0,5.99,0,0,5.99,,0,0,13.39,,05/13/2026 2:16:16 AM	,05/13/2026 2:16:20 AM	,05/13/2026 8:46:14 AM	,05/13/2026 6:19:14 PM	,"	","	",,,Fulfillment by TikTok Shop,FC03_ATL1,GFUS01050918578560,TikTok Shipping,Fulfilled by TikTok Shop-Standard,,,junpre8,junpre8,j****** p******,(+1)954*****21,United States,Florida,Miami,33150	,**************,,,Credit/debit card,0.128,Herbal Supplements,1156349779666047757	,,"j****** p******
+(+1)954*****21
+Miami, Florida
+33150
+United States",

@@ -5,7 +5,10 @@
 # Runtime artefacts (auto-generated, don't commit)
 logs/
 public_url.txt
-data/windsor_cache/
+# Retired Windsor artefacts (kept as *.deprecated locally, never committed)
+data/windsor_cache*
+data/windsor_*.json*
+scripts/*.deprecated
 
 # Python
 __pycache__/
@@ -37,3 +40,7 @@ desktop.ini
 # Playwright auth (sensitive — never commit)
 config/playwright_storage_*.json
 config/chrome_profile_*/
+
+# Cloned Chrome profiles (large, contain session tokens — never commit)
+chrome_profiles/
+config/chrome_debug_profile/

@@ -1,1 +1,328 @@
-﻿{"currency":"GBP","source":"UK Coffee tab (screenshot provided 2026-05-14) for Coffee + original Coffee tab for others","as_of":"2026-05-14","components":["cogs","commission","digital_service_fee","storage","vat","logistics_duty","logistics_cost","fulfillment","shipping"],"costs_per_pack":{"Coffee":{"Pack of 1":{"msrp":24.99,"final_price":20.83,"cogs":2.68,"commission":2.25,"digital_service_fee":0.0,"storage":0.02,"vat":0.51,"logistics_duty":0.32,"logistics_cost":0.2,"fulfillment":0.78,"shipping":0.0,"cm1":15.07,"cm1_pct":72.38},"Pack of 2":{"msrp":39.99,"final_price":33.33,"cogs":5.79,"commission":3.6,"digital_service_fee":0.0,"storage":0.04,"vat":0.79,"logistics_duty":0.52,"logistics_cost":0.4,"fulfillment":1.08,"shipping":0.0,"cm1":22.68,"cm1_pct":68.05},"Pack of 3":{"msrp":59.99,"final_price":49.99,"cogs":8.71,"commission":5.4,"digital_service_fee":0.0,"storage":0.06,"vat":1.09,"logistics_duty":0.78,"logistics_cost":0.61,"fulfillment":1.08,"shipping":0.0,"cm1":34.44,"cm1_pct":68.9},"Pack of 5":{"msrp":79.99,"final_price":66.66,"cogs":14.56,"commission":7.2,"digital_service_fee":0.0,"storage":0.1,"vat":1.85,"logistics_duty":1.04,"logistics_cost":1.01,"fulfillment":1.8,"shipping":0.0,"cm1":42.8,"cm1_pct":64.21,"_note":"Sourced from UK Coffee tab screenshot — authoritative"},"1 + Fr + Kit":{"msrp":35.99,"final_price":29.99,"cogs":5.33,"commission":3.54,"digital_service_fee":0.0,"storage":0.04,"vat":1.15,"logistics_duty":0.59,"logistics_cost":1.21,"fulfillment":0.0,"shipping":3.3,"cm1":16.91,"cm1_pct":56.38,"_note":"Bundle SKU — Pack of 1 + Frother + Kit"}},"Turmeric Curcumin":{"Pack of 1":{"msrp":24.99,"final_price":20.825,"cogs":2.571,"commission":2.346,"digital_service_fee":0.0,"storage":0.007,"vat":0.904,"logistics_duty":0.371,"logistics_cost":0.52,"fulfillment":1.08,"shipping":1.99,"cm1":17.008},"Pack of 2":{"msrp":34.99,"final_price":29.158,"cogs":5.563,"commission":3.328,"digital_service_fee":0.0,"storage":0.014,"vat":1.069,"logistics_duty":0.792,"logistics_cost":1.04,"fulfillment":1.08,"shipping":1.99,"cm1":22.251},"Pack of 3":{"msrp":49.99,"final_price":41.658,"cogs":8.134,"commission":4.678,"digital_service_fee":0.0,"storage":0.022,"vat":1.295,"logistics_duty":1.207,"logistics_cost":1.927,"fulfillment":1.08,"shipping":1.99,"cm1":32.246}},"Green Burner":{"Pack of 1":{"msrp":24.99,"final_price":20.825,"cogs":2.05,"commission":2.428,"digital_service_fee":0.0,"storage":0.004,"vat":0.917,"logistics_duty":0.308,"logistics_cost":0.52,"fulfillment":1.08,"shipping":1.99,"cm1":17.526},"Pack of 2":{"msrp":34.99,"final_price":29.158,"cogs":4.521,"commission":3.328,"digital_service_fee":0.0,"storage":0.008,"vat":1.068,"logistics_duty":0.667,"logistics_cost":1.04,"fulfillment":1.08,"shipping":1.99,"cm1":23.423},"Pack of 3":{"msrp":49.99,"final_price":41.658,"cogs":6.571,"commission":4.678,"digital_service_fee":0.0,"storage":0.012,"vat":1.293,"logistics_duty":1.8,"logistics_cost":1.927,"fulfillment":1.08,"shipping":1.99,"cm1":33.225}},"Ashwagandha Caps":{"Pack of 1":{"msrp":22.99,"final_price":19.158,"cogs":1.835,"commission":2.248,"digital_service_fee":0.0,"storage":0.007,"vat":0.888,"logistics_duty":0.283,"logistics_cost":0.52,"fulfillment":1.08,"shipping":1.99,"cm1":15.915},"Pack of 2":{"msrp":34.99,"final_price":29.158,"cogs":4.089,"commission":3.328,"digital_service_fee":0.0,"storage":0.014,"vat":1.069,"logistics_duty":0.616,"logistics_cost":1.04,"fulfillment":1.08,"shipping":1.99,"cm1":23.901},"Pack of 3":{"msrp":60.0,"final_price":50.0,"cogs":5.924,"commission":5.579,"digital_service_fee":0.0,"storage":0.022,"vat":1.445,"logistics_duty":0.942,"logistics_cost":1.927,"fulfillment":1.08,"shipping":1.99,"cm1":43.981}},"Turmeric Ginger Tea":{"Pack of 1":{"msrp":15.99,"final_price":13.325,"cogs":2.34,"commission":1.798,"digital_service_fee":0.0,"storage":0.195,"vat":0.3,"logistics_duty":0.0,"logistics_cost":1.059,"fulfillment":1.08,"shipping":0.0,"cm1":9.818},"Pack of 2":{"msrp":29.99,"final_price":24.992,"cogs":4.68,"commission":2.878,"digital_service_fee":0.0,"storage":0.39,"vat":0.811,"logistics_duty":0.0,"logistics_cost":2.118,"fulfillment":2.22,"shipping":1.99,"cm1":16.526}}},"notes":["Coffee values replaced with UK Coffee tab values incl. Pack of 5 and 1+Fr+Kit bundle."],"uk_tax_rules":{"vat_kept_skus":["Turmeric Ginger Tea","Berberine","Psyllium Husk","Curry Powder","Frother (free gift)","Butterfly Pea Tea (free gift)","Herbal Sampler"],"vat_removed_from_date":{"Coffee":"2026-04-01"},"vat_removed_always":["Green Burner","Ashwagandha Caps","Turmeric Curcumin"],"shipping_per_order_from_date":"2026-03-01","shipping_per_order_amount":1.99,"ad_vat_recovery_rate":0.1667,"ad_vat_recovery_formula":"ad_spend * 20/120","notes":["VAT excluded from CM ONLY for: Coffee (Apr 2026 onwards), Green Burner, Ashwagandha Caps, Turmeric Curcumin.","VAT KEPT for: Turmeric Ginger Tea, Berberine, Psyllium Husk, Curry Powder, all minor SKUs.","Per-order shipping £1.99 from March 2026 onwards on UK orders.","VAT paid on ad spend recovered back to CM2 at 20/120 rate."]},"uk_free_sample_costs":{"currency":"GBP","source":"UK inventory sheet — TikTok Free Sample Fixed Charges/Unit (screenshot 2026-05-14)","shipping_deduction_from_date":"2026-02-14","shipping_deduction_amount":2.0,"per_pack":{"Coffee":{"Pack of 1":7.4,"Pack of 2":11.2,"Pack of 3":14.8},"Turmeric Curcumin":{"Pack of 1":7.4,"Pack of 2":11.4,"Pack of 3":15.1},"Green Burner":{"Pack of 1":6.9,"Pack of 2":10.2},"Turmeric Ginger Tea":{"Pack of 1":7.6,"Pack of 2":11.6},"Ashwagandha Caps":{"Pack of 1":6.7,"Pack of 2":9.8,"Pack of 3":12.7}},"notes":["Charges in GBP per pack sent as free sample (order_amount = 0).","From 2026-02-14, £2 shipping is deducted per pack (sample shipping cost no longer recovered).","Effective cost = listed cost - £2 shipping (post Feb 14).","Coffee Pack of 5 has no sample column — samples not sent in Pack of 5."]}}
+{
+  "currency": "GBP",
+  "source": "UK Coffee tab (screenshot provided 2026-05-14) for Coffee + original Coffee tab for others",
+  "as_of": "2026-05-14",
+  "components": [
+    "cogs",
+    "commission",
+    "digital_service_fee",
+    "storage",
+    "vat",
+    "logistics_duty",
+    "logistics_cost",
+    "fulfillment",
+    "shipping"
+  ],
+  "costs_per_pack": {
+    "Coffee": {
+      "Pack of 1": {
+        "msrp": 24.99,
+        "final_price": 20.83,
+        "cogs": 2.68,
+        "commission": 2.25,
+        "digital_service_fee": 0.0,
+        "storage": 0.02,
+        "vat": 0.51,
+        "logistics_duty": 0.32,
+        "logistics_cost": 0.2,
+        "fulfillment": 0.78,
+        "shipping": 0.0,
+        "cm1": 15.07,
+        "cm1_pct": 72.38
+      },
+      "Pack of 2": {
+        "msrp": 39.99,
+        "final_price": 33.33,
+        "cogs": 5.79,
+        "commission": 3.6,
+        "digital_service_fee": 0.0,
+        "storage": 0.04,
+        "vat": 0.79,
+        "logistics_duty": 0.52,
+        "logistics_cost": 0.4,
+        "fulfillment": 1.08,
+        "shipping": 0.0,
+        "cm1": 22.68,
+        "cm1_pct": 68.05
+      },
+      "Pack of 3": {
+        "msrp": 59.99,
+        "final_price": 49.99,
+        "cogs": 8.71,
+        "commission": 5.4,
+        "digital_service_fee": 0.0,
+        "storage": 0.06,
+        "vat": 1.09,
+        "logistics_duty": 0.78,
+        "logistics_cost": 0.61,
+        "fulfillment": 1.08,
+        "shipping": 0.0,
+        "cm1": 34.44,
+        "cm1_pct": 68.9
+      },
+      "Pack of 5": {
+        "msrp": 79.99,
+        "final_price": 66.66,
+        "cogs": 14.56,
+        "commission": 7.2,
+        "digital_service_fee": 0.0,
+        "storage": 0.1,
+        "vat": 1.85,
+        "logistics_duty": 1.04,
+        "logistics_cost": 1.01,
+        "fulfillment": 1.8,
+        "shipping": 0.0,
+        "cm1": 42.8,
+        "cm1_pct": 64.21,
+        "_note": "Sourced from UK Coffee tab screenshot \u2014 authoritative"
+      },
+      "1 + Fr + Kit": {
+        "msrp": 35.99,
+        "final_price": 29.99,
+        "cogs": 5.33,
+        "commission": 3.54,
+        "digital_service_fee": 0.0,
+        "storage": 0.04,
+        "vat": 1.15,
+        "logistics_duty": 0.59,
+        "logistics_cost": 1.21,
+        "fulfillment": 0.0,
+        "shipping": 3.3,
+        "cm1": 16.91,
+        "cm1_pct": 56.38,
+        "_note": "Bundle SKU \u2014 Pack of 1 + Frother + Kit"
+      }
+    },
+    "Turmeric Curcumin": {
+      "Pack of 1": {
+        "msrp": 24.99,
+        "final_price": 20.825,
+        "cogs": 2.571,
+        "commission": 2.346,
+        "digital_service_fee": 0.0,
+        "storage": 0.007,
+        "vat": 0.904,
+        "logistics_duty": 0.371,
+        "logistics_cost": 0.52,
+        "fulfillment": 1.08,
+        "shipping": 1.99,
+        "cm1": 17.008
+      },
+      "Pack of 2": {
+        "msrp": 34.99,
+        "final_price": 29.158,
+        "cogs": 5.563,
+        "commission": 3.328,
+        "digital_service_fee": 0.0,
+        "storage": 0.014,
+        "vat": 1.069,
+        "logistics_duty": 0.792,
+        "logistics_cost": 1.04,
+        "fulfillment": 1.08,
+        "shipping": 1.99,
+        "cm1": 22.251
+      },
+      "Pack of 3": {
+        "msrp": 49.99,
+        "final_price": 41.658,
+        "cogs": 8.134,
+        "commission": 4.678,
+        "digital_service_fee": 0.0,
+        "storage": 0.022,
+        "vat": 1.295,
+        "logistics_duty": 1.207,
+        "logistics_cost": 1.927,
+        "fulfillment": 1.08,
+        "shipping": 1.99,
+        "cm1": 32.246
+      }
+    },
+    "Green Burner": {
+      "Pack of 1": {
+        "msrp": 24.99,
+        "final_price": 20.825,
+        "cogs": 2.05,
+        "commission": 2.428,
+        "digital_service_fee": 0.0,
+        "storage": 0.004,
+        "vat": 0.917,
+        "logistics_duty": 0.308,
+        "logistics_cost": 0.52,
+        "fulfillment": 1.08,
+        "shipping": 1.99,
+        "cm1": 17.526
+      },
+      "Pack of 2": {
+        "msrp": 34.99,
+        "final_price": 29.158,
+        "cogs": 4.521,
+        "commission": 3.328,
+        "digital_service_fee": 0.0,
+        "storage": 0.008,
+        "vat": 1.068,
+        "logistics_duty": 0.667,
+        "logistics_cost": 1.04,
+        "fulfillment": 1.08,
+        "shipping": 1.99,
+        "cm1": 23.423
+      },
+      "Pack of 3": {
+        "msrp": 49.99,
+        "final_price": 41.658,
+        "cogs": 6.571,
+        "commission": 4.678,
+        "digital_service_fee": 0.0,
+        "storage": 0.012,
+        "vat": 1.293,
+        "logistics_duty": 1.8,
+        "logistics_cost": 1.927,
+        "fulfillment": 1.08,
+        "shipping": 1.99,
+        "cm1": 33.225
+      }
+    },
+    "Ashwagandha Caps": {
+      "Pack of 1": {
+        "msrp": 22.99,
+        "final_price": 19.158,
+        "cogs": 1.835,
+        "commission": 2.248,
+        "digital_service_fee": 0.0,
+        "storage": 0.007,
+        "vat": 0.888,
+        "logistics_duty": 0.283,
+        "logistics_cost": 0.52,
+        "fulfillment": 1.08,
+        "shipping": 1.99,
+        "cm1": 15.915
+      },
+      "Pack of 2": {
+        "msrp": 34.99,
+        "final_price": 29.158,
+        "cogs": 4.089,
+        "commission": 3.328,
+        "digital_service_fee": 0.0,
+        "storage": 0.014,
+        "vat": 1.069,
+        "logistics_duty": 0.616,
+        "logistics_cost": 1.04,
+        "fulfillment": 1.08,
+        "shipping": 1.99,
+        "cm1": 23.901
+      },
+      "Pack of 3": {
+        "msrp": 60.0,
+        "final_price": 50.0,
+        "cogs": 5.924,
+        "commission": 5.579,
+        "digital_service_fee": 0.0,
+        "storage": 0.022,
+        "vat": 1.445,
+        "logistics_duty": 0.942,
+        "logistics_cost": 1.927,
+        "fulfillment": 1.08,
+        "shipping": 1.99,
+        "cm1": 43.981
+      }
+    },
+    "Turmeric Ginger Tea": {
+      "Pack of 1": {
+        "msrp": 15.99,
+        "final_price": 13.325,
+        "cogs": 2.34,
+        "commission": 1.798,
+        "digital_service_fee": 0.0,
+        "storage": 0.195,
+        "vat": 0.3,
+        "logistics_duty": 0.0,
+        "logistics_cost": 1.059,
+        "fulfillment": 1.08,
+        "shipping": 0.0,
+        "cm1": 9.818
+      },
+      "Pack of 2": {
+        "msrp": 29.99,
+        "final_price": 24.992,
+        "cogs": 4.68,
+        "commission": 2.878,
+        "digital_service_fee": 0.0,
+        "storage": 0.39,
+        "vat": 0.811,
+        "logistics_duty": 0.0,
+        "logistics_cost": 2.118,
+        "fulfillment": 2.22,
+        "shipping": 1.99,
+        "cm1": 16.526
+      }
+    }
+  },
+  "notes": [
+    "Coffee values replaced with UK Coffee tab values incl. Pack of 5 and 1+Fr+Kit bundle."
+  ],
+  "uk_tax_rules": {
+    "vat_kept_skus": [
+      "Turmeric Ginger Tea",
+      "Berberine",
+      "Psyllium Husk",
+      "Curry Powder",
+      "Frother (free gift)",
+      "Butterfly Pea Tea (free gift)",
+      "Herbal Sampler"
+    ],
+    "vat_removed_from_date": {
+      "Coffee": "2026-04-01"
+    },
+    "vat_removed_always": [
+      "Green Burner",
+      "Ashwagandha Caps",
+      "Turmeric Curcumin"
+    ],
+    "shipping_per_order_from_date": "2026-03-01",
+    "shipping_per_order_amount": 1.99,
+    "ad_vat_recovery_rate": 0.1667,
+    "ad_vat_recovery_formula": "ad_spend * 20/120",
+    "notes": [
+      "VAT excluded from CM ONLY for: Coffee (Apr 2026 onwards), Green Burner, Ashwagandha Caps, Turmeric Curcumin.",
+      "VAT KEPT for: Turmeric Ginger Tea, Berberine, Psyllium Husk, Curry Powder, all minor SKUs.",
+      "Per-order shipping \u00a31.99 from March 2026 onwards on UK orders.",
+      "VAT paid on ad spend recovered back to CM2 at 20/120 rate."
+    ]
+  },
+  "uk_free_sample_costs": {
+    "currency": "GBP",
+    "source": "UK inventory sheet \u2014 TikTok Free Sample Fixed Charges/Unit (screenshot 2026-05-14)",
+    "shipping_deduction_from_date": "2026-02-14",
+    "shipping_deduction_amount": 2.0,
+    "per_pack": {
+      "Coffee": {
+        "Pack of 1": 7.4,
+        "Pack of 2": 11.2,
+        "Pack of 3": 14.8
+      },
+      "Turmeric Curcumin": {
+        "Pack of 1": 7.4,
+        "Pack of 2": 11.4,
+        "Pack of 3": 15.1
+      },
+      "Green Burner": {
+        "Pack of 1": 6.9,
+        "Pack of 2": 10.2
+      },
+      "Turmeric Ginger Tea": {
+        "Pack of 1": 7.6,
+        "Pack of 2": 11.6
+      },
+      "Ashwagandha Caps": {
+        "Pack of 1": 6.7,
+        "Pack of 2": 9.8,
+        "Pack of 3": 12.7
+      }
+    },
+    "notes": [
+      "Charges in GBP per pack sent as free sample (order_amount = 0).",
+      "From 2026-02-14, \u00a32 shipping is deducted per pack (sample shipping cost no longer recovered).",
+      "Effective cost = listed cost - \u00a32 shipping (post Feb 14).",
+      "Coffee Pack of 5 has no sample column \u2014 samples not sent in Pack of 5."
+    ]
+  }
+}

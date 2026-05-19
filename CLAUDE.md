@@ -16,13 +16,44 @@ Seller Center exports                               │                       �
   - raw_csvs/All order-UK-*.csv (fallback) ──> aggregate_orders.py           │
                                                     │                       ▼
 Seller Center Chrome scrape                         │                build_dashboard.py
-  - scrape_affiliate.py (Playwright)                │                       │
-  - scrape_smart_promo.py (Playwright) ─> data/smart_promo_monthly.json    │
+  - scrape_affiliate.py    (Playwright CDP attach)  │                       │
+  - scrape_smart_promo.py  (Playwright CDP attach) ─> data/smart_promo_monthly.json
                                                                             ▼
                                                public/index.html ──> Vercel auto-deploy
 
 verify_against_sheets.py reads C:\Users\...\Downloads\*.xlsx via openpyxl, runs after every refresh.
 ```
+
+## Chrome / Playwright scraper auth (CRITICAL — read before touching scrapers)
+
+**Chrome must be launched via `scripts/launch_chrome_debug.bat` (port 9222) before
+scraping.** The scrapers attach to the user's real Chrome session via Chrome
+DevTools Protocol (`playwright.chromium.connect_over_cdp("http://localhost:9222")`)
+— *not* a sandboxed Playwright Chromium. This is intentional:
+
+- Sandboxed Playwright contexts lose Google SSO (service-worker tokens don't
+  survive `new_context()` / fresh persistent profiles cleanly).
+- Headless Chromium triggers TikTok's anti-bot fingerprint detection (US
+  affiliate page renders blank).
+- Claude-in-Chrome MCP can't help — TikTok domains are on its denylist.
+
+CDP attach bypasses all three: we drive the actual browser the user uses daily,
+which is already logged in. Auth is permanent until the user logs out.
+
+**Do NOT migrate back** to `launch_persistent_context`, `new_context(storage_state=…)`,
+or Claude-in-Chrome MCP. All three were tried and failed. CDP attach is the
+working solution.
+
+Workflow:
+1. User (or `refresh_daily.py`) runs `scripts/launch_chrome_debug.bat` once per
+   reboot. Add to `shell:startup` to auto-launch at login.
+2. `refresh_daily.py` calls `_ensure_chrome_running()` which probes
+   `http://localhost:9222/json/version` and re-launches the bat if needed.
+3. Each scraper calls `attach()` from `scripts/_cdp.py`, opens a new page in
+   the existing context, scrapes, then closes only its own page (never the
+   browser). `detach()` disconnects CDP cleanly.
+4. If Chrome isn't reachable, scrapers log `CDP_UNAVAILABLE` and skip — they
+   never crash the pipeline.
 
 ## Order status filter (NET_ORDER_STATUSES)
 
