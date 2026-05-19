@@ -1,11 +1,11 @@
 {
   "_comment": "Order categorisation for tiktok_shop + All-Orders CSV ingestion. Edit + re-run refresh_daily.py — no code change needed.",
 
-  "net_order_statuses": ["COMPLETED", "DELIVERED", "AWAITING_COLLECTION", "IN_TRANSIT", "SHIPPED"],
+  "net_order_statuses": ["COMPLETED", "DELIVERED", "AWAITING_COLLECTION", "AWAITING_SHIPMENT", "IN_TRANSIT", "SHIPPED"],
   "cancelled_statuses": ["CANCELLED"],
   "returned_statuses":  ["RETURNED"],
   "refunded_statuses":  ["REFUNDED"],
-  "inflight_excluded_statuses": ["AWAITING_SHIPMENT", "PENDING", "ON_HOLD"],
+  "inflight_excluded_statuses": ["PENDING", "ON_HOLD"],
 
   "sample_requires_status_in_net_set": true,
   "sample_total_paid_threshold": 0.01,

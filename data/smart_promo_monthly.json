@@ -44,5 +44,19 @@
     "source": "TikTok US Seller Center > Marketing > Smart Promotion",
     "pulled_at": "2026-05-19",
     "seller_fee_rate": 0.0349
+  },
+  {
+    "region": "UK",
+    "month": "2026-05",
+    "window_start": "2026-05-14",
+    "window_end": "2026-05-19",
+    "cost": 5853.64,
+    "currency": "GBP",
+    "smart_promo_gmv": 0.3655,
+    "orders_via_smart_promo": 1578,
+    "new_customers": 0,
+    "roi": 0.05,
+    "source": "TikTok UK Seller Center > Marketing > Smart Promotion",
+    "pulled_at": "2026-05-19"
   }
 ]
