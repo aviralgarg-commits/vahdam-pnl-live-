@@ -154,12 +154,18 @@ function combine(ukVal, usVal){
 function effectiveWindow(){
   const end = PNL.window_end;
   if(state.period==='YDAY'){
-    // Use per-region last date; for 'both' use UK end (the later one) for ad spend window
-    const yadayEnd = state.region==='US' ? (PNL.window_end_us||end) : (PNL.window_end_uk||end);
-    return {from:yadayEnd, to:yadayEnd};
+    // "Yesterday" = the most recent COMPLETE day = window_end_<region> − 1.
+    // window_end is today's date (refresh runs daily and includes partial-day
+    // orders), so subtracting 1 gives the last fully-closed day per region.
+    const refEnd = state.region==='US' ? (PNL.window_end_us||end) : (PNL.window_end_uk||end);
+    const yday = isoAdd(refEnd, -1);
+    return {from:yday, to:yday};
   }
-  if(state.period==='L7') return {from: isoAdd(end, -6), to: end};
-  if(state.period==='L30') return {from: isoAdd(end,-29), to: end};
+  // Last-7 / Last-30 also end on yesterday (window_end − 1) so they're
+  // "the last N COMPLETE days", not "N−1 complete days + today's partial".
+  const lastComplete = isoAdd(end, -1);
+  if(state.period==='L7')  return {from: isoAdd(lastComplete, -6),  to: lastComplete};
+  if(state.period==='L30') return {from: isoAdd(lastComplete, -29), to: lastComplete};
   return {from: state.customFrom, to: state.customTo};
 }
 function inWindow(date, win){ return date>=win.from && date<=win.to; }
@@ -175,8 +181,9 @@ function aggregate(){
     if(state.sku && r.sku!==state.sku) return false;
     if(state.variation && r.variation!==state.variation) return false;
     if(state.period==='YDAY' && state.region==='both'){
+      // "Yesterday" per region — most recent complete day for each
       const regionEnd = r.region==='UK' ? (PNL.window_end_uk||PNL.window_end) : (PNL.window_end_us||PNL.window_end);
-      return r.date===regionEnd;
+      return r.date === isoAdd(regionEnd, -1);
     }
     return inWindow(r.date, win);
   });
@@ -185,7 +192,7 @@ function aggregate(){
     if(state.sku && r.sku!==state.sku) return false;
     if(state.period==='YDAY' && state.region==='both'){
       const regionEnd = r.region==='UK' ? (PNL.window_end_uk||PNL.window_end) : (PNL.window_end_us||PNL.window_end);
-      return r.date===regionEnd;
+      return r.date === isoAdd(regionEnd, -1);
     }
     return inWindow(r.date, win);
   });
