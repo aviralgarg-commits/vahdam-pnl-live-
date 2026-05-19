@@ -52,7 +52,17 @@ def log(msg: str) -> None:
 
 
 def storage_state_path(region: str) -> pathlib.Path:
+    """Legacy single-file storage_state (kept for back-compat reads)."""
     return CONFIG_DIR / f"playwright_storage_{region.lower()}.json"
+
+
+def profile_dir(region: str) -> pathlib.Path:
+    """Persistent Chromium user-data dir — survives between runs, holds the
+    full browser profile (cookies, localStorage, IndexedDB, service workers).
+    This is what makes SSO logins persist across scrape runs."""
+    p = CONFIG_DIR / f"chrome_profile_{region.lower()}"
+    p.mkdir(parents=True, exist_ok=True)
+    return p
 
 
 def latest_csv_dates() -> tuple[str | None, str | None]:
@@ -94,20 +104,29 @@ def setup_auth(region: str) -> int:
     except ImportError:
         log("ERROR: playwright not installed. Run: pip install playwright && playwright install chromium")
         return 1
-    log(f"Setup {region}: opening Chromium.")
-    log(f"  -> Log in at seller-{region.lower()}.tiktok.com in the window that opens.")
-    log(f"  -> Once you see VAHDAM's dashboard, this script auto-saves and closes the browser.")
-    log(f"  -> Max wait: 5 minutes. Press Ctrl+C in this terminal to abort.")
+    pd = profile_dir(region)
+    log(f"Setup {region}: opening Chromium with PERSISTENT profile at {pd.name}")
+    log(f"  -> Log in at seller-{region.lower()}.tiktok.com (Google SSO is fine — profile persists everything).")
+    log(f"  -> Auto-saves + closes when VAHDAM dashboard is detected. Max wait: 5 minutes.")
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
-        ctx = browser.new_context()
-        page = ctx.new_page()
+        # Persistent context = full Chrome profile on disk, survives between runs.
+        # This is what makes SSO + service-worker auth tokens persist.
+        ctx = p.chromium.launch_persistent_context(
+            user_data_dir=str(pd),
+            headless=False,
+            args=[
+                # Mask "automation" so TikTok doesn't serve a blank/anti-bot page.
+                "--disable-blink-features=AutomationControlled",
+                "--no-default-browser-check",
+                "--no-first-run",
+            ],
+        )
+        page = ctx.pages[0] if ctx.pages else ctx.new_page()
         try:
             page.goto(HOMEPAGE[region], wait_until="domcontentloaded", timeout=120_000)
         except Exception as e:
             log(f"  navigation hiccup (ok, continuing): {e}")
 
-        # Poll for login: page body contains "VAHDAM" / seller name
         deadline = time.time() + 300  # 5 minutes
         logged_in = False
         while time.time() < deadline:
@@ -125,18 +144,17 @@ def setup_auth(region: str) -> int:
             time.sleep(3)
 
         if logged_in:
-            # Give the page 2 more seconds for any post-login cookies to settle
-            time.sleep(2)
+            time.sleep(3)  # let any post-login cookies/storage settle
         try:
+            # Also save a storage_state.json for backward-compat readers
             ctx.storage_state(path=str(storage_state_path(region)))
-            log(f"Saved auth state -> {storage_state_path(region)}")
+            ctx.close()  # writes the persistent profile to disk
+            log(f"Saved persistent profile -> {pd} (plus legacy storage state JSON)")
         except Exception as e:
-            log(f"ERROR saving storage state: {e}")
-            try: browser.close()
+            log(f"ERROR closing context: {e}")
+            try: ctx.close()
             except Exception: pass
             return 3
-        try: browser.close()
-        except Exception: pass
     return 0 if logged_in else 2
 
 
@@ -180,9 +198,13 @@ def scrape_region(region: str, gap_from: str, gap_to: str) -> int:
     except ImportError:
         log("ERROR: playwright not installed.")
         return 1
+    pd = profile_dir(region)
     sp = storage_state_path(region)
-    if not sp.exists():
-        log(f"AUTH REQUIRED — {region} no Playwright storage state at {sp}. "
+    # Persistent profile takes priority (full cookies + storage); legacy
+    # storage_state.json is used as a fallback for older setups.
+    has_persistent = (pd / "Default").exists() or any(pd.iterdir()) if pd.exists() else False
+    if not has_persistent and not sp.exists():
+        log(f"AUTH REQUIRED — {region} no profile/storage. "
             f"Run: python scripts/scrape_affiliate.py --setup-{region.lower()}")
         return 1
 
@@ -190,21 +212,52 @@ def scrape_region(region: str, gap_from: str, gap_to: str) -> int:
     downloaded: list[pathlib.Path] = []
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            ctx = browser.new_context(storage_state=str(sp), accept_downloads=True)
-            page = ctx.new_page()
+            if has_persistent:
+                # Use the same persistent profile that was set up — keeps the SSO
+                # session alive. headless=False is more reliable against
+                # TikTok's anti-bot detection; headless mode often serves blank.
+                ctx = p.chromium.launch_persistent_context(
+                    user_data_dir=str(pd),
+                    headless=True,
+                    accept_downloads=True,
+                    args=[
+                        "--disable-blink-features=AutomationControlled",
+                        "--no-default-browser-check",
+                        "--no-first-run",
+                    ],
+                )
+                browser = None
+                page = ctx.pages[0] if ctx.pages else ctx.new_page()
+            else:
+                # Legacy path (storage_state.json) — to be removed once everyone
+                # has migrated to persistent profiles.
+                browser = p.chromium.launch(headless=True,
+                    args=["--disable-blink-features=AutomationControlled"])
+                ctx = browser.new_context(storage_state=str(sp), accept_downloads=True)
+                page = ctx.new_page()
 
             # Pre-flight auth check
             if not preflight_auth(page, region):
                 log(f"AUTH REQUIRED — {region} Chrome not logged in (no VAHDAM marker in DOM within "
                     f"{AUTH_TIMEOUT_SEC}s). Skipping. Re-run --setup-{region.lower()}.")
-                browser.close()
+                try:
+                    if browser: browser.close()
+                    else: ctx.close()
+                except Exception: pass
                 return 2
             log(f"{region}: auth ✓")
 
-            # Navigate to affiliate orders
+            # Navigate to affiliate orders + wait for SPA to actually render content
             page.goto(ORDERS_URL[region], wait_until="domcontentloaded", timeout=60_000)
-            page.wait_for_timeout(3000)
+            try:
+                page.wait_for_load_state("networkidle", timeout=30_000)
+            except Exception:
+                pass
+            page.wait_for_timeout(8000)  # extra hold for React data fetch + table render
+            try:
+                page.screenshot(path=str(ROOT / "logs" / f"debug_affiliate_{region.lower()}_after_load.png"))
+            except Exception:
+                pass
 
             # Set custom date range: focus start-date input, click "Yesterday" preset
             # if the gap is exactly yesterday→today; otherwise type in both inputs.
@@ -290,7 +343,10 @@ def scrape_region(region: str, gap_from: str, gap_to: str) -> int:
                         log(f"{region}: next-page button missing/disabled — stopping pagination")
                         break
 
-            browser.close()
+            try:
+                if browser: browser.close()
+                else: ctx.close()
+            except Exception: pass
     except Exception as e:
         log(f"{region}: scrape exception — {e}")
         return 4

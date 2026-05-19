@@ -33,3 +33,7 @@ desktop.ini
 
 # Vercel local cache
 .vercel/
+
+# Playwright auth (sensitive — never commit)
+config/playwright_storage_*.json
+config/chrome_profile_*/

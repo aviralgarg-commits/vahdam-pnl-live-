@@ -54,6 +54,11 @@ def storage_state_path(region: str) -> pathlib.Path:
     return CONFIG_DIR / f"playwright_storage_{region.lower()}.json"
 
 
+def profile_dir(region: str) -> pathlib.Path:
+    """Same persistent Chromium profile dir as scrape_affiliate.py uses."""
+    return CONFIG_DIR / f"chrome_profile_{region.lower()}"
+
+
 def latest_bucket_end(region: str) -> str | None:
     if not SMART_PROMO_FILE.exists():
         return None
@@ -108,8 +113,10 @@ def capture(region: str) -> dict | None:
         log("ERROR: playwright not installed.")
         return None
     sp = storage_state_path(region)
-    if not sp.exists():
-        log(f"AUTH REQUIRED -- {region} no Playwright storage state at {sp}. "
+    pd_ = profile_dir(region)
+    has_persistent = pd_.exists() and any(pd_.iterdir())
+    if not has_persistent and not sp.exists():
+        log(f"AUTH REQUIRED -- {region} no Playwright profile or storage state. "
             f"Run: python scripts/scrape_affiliate.py --setup-{region.lower()}")
         return None
 
@@ -128,13 +135,26 @@ def capture(region: str) -> dict | None:
     for attempt in range(2):
         try:
             with sync_playwright() as p:
-                browser = p.chromium.launch(headless=True)
-                ctx = browser.new_context(storage_state=str(sp))
+                pd = profile_dir(region)
+                if pd.exists() and any(pd.iterdir()):
+                    # Persistent profile path (SSO survives)
+                    ctx = p.chromium.launch_persistent_context(
+                        user_data_dir=str(pd),
+                        headless=True,
+                        args=["--disable-blink-features=AutomationControlled",
+                              "--no-default-browser-check", "--no-first-run"],
+                    )
+                    browser = None
+                else:
+                    # Legacy fallback
+                    browser = p.chromium.launch(headless=True,
+                        args=["--disable-blink-features=AutomationControlled"])
+                    ctx = browser.new_context(storage_state=str(sp))
                 page = ctx.new_page()
 
                 if not preflight_auth(page, region):
                     log(f"AUTH REQUIRED -- {region} Chrome not logged in. Skipping.")
-                    browser.close()
+                    _ = (browser.close() if browser else ctx.close())
                     return None
                 log(f"{region}: auth OK")
 
@@ -184,7 +204,7 @@ def capture(region: str) -> dict | None:
                         log(f"{region}: dumped HTML to {dbg.name}")
                     except Exception:
                         pass
-                    browser.close()
+                    _ = (browser.close() if browser else ctx.close())
                     time.sleep(15)
                     continue
                 view_btn.click()
@@ -255,7 +275,7 @@ def capture(region: str) -> dict | None:
 
                 if not cost_str or not gmv_str:
                     log(f"{region}: failed to extract cost/GMV (attempt {attempt+1})")
-                    browser.close()
+                    _ = (browser.close() if browser else ctx.close())
                     time.sleep(15)
                     continue
 
@@ -275,7 +295,7 @@ def capture(region: str) -> dict | None:
                 }
                 if fee_rate_str:
                     bucket["seller_fee_rate"] = parse_money(fee_rate_str)
-                browser.close()
+                _ = (browser.close() if browser else ctx.close())
                 return bucket
         except Exception as e:
             log(f"{region}: scrape error (attempt {attempt+1}) -- {e}")
