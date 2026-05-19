@@ -1,182 +1,170 @@
 # Vahdam P&L Live — operational notes
 
-These are the conventions and gotchas you (or future-me) need to know to keep
-the dashboard accurate. Skim before editing any data pipeline code.
+These are the conventions and gotchas you need to keep the dashboard accurate. Skim before editing any data pipeline code.
 
-## Architecture
+## Architecture (no Windsor)
 
 ```
-Windsor.ai API           ┐
-  - tiktok          (ads)│
-  - tiktok_shop  (orders)│ ──> fetch_windsor.py    ┐
-  - tiktok_shop  (stmt)  ┘                          │
-                                                    ├──> merge_pnl.py ──> pnl_daily.json
-Seller Center exports                               │                       │
-  - raw_csvs/affiliate_orders_*.csv ──> ingest_seller.py                     │
-  - raw_csvs/All order-UK-*.csv (fallback) ──> aggregate_orders.py           │
-                                                    │                       ▼
-Seller Center Chrome scrape                         │                build_dashboard.py
-  - scrape_affiliate.py    (Playwright CDP attach)  │                       │
-  - scrape_smart_promo.py  (Playwright CDP attach) ─> data/smart_promo_monthly.json
-                                                                            ▼
-                                               public/index.html ──> Vercel auto-deploy
+TikTok Seller Center (UK + US)
+  ├─ Orders        ── scrape_orders.py        ─┐
+  ├─ Affiliate     ── scrape_affiliate.py     ─┤
+  ├─ Marketing/Ads ── scrape_ads.py           ─┤
+  └─ Smart Promo   ── scrape_smart_promo.py   ─┤
+                                              ├──> aggregate_affiliate.py
+                                              │    (re-aggregates affiliate
+                                              │     CSVs into pnl_daily.json
+                                              │     aff_daily section)
+                                              │
+                                              └──> build_dashboard.py
+                                                   │
+                                                   ▼
+                                              public/index.html ──> Vercel auto-deploy
 
-verify_against_sheets.py reads C:\Users\...\Downloads\*.xlsx via openpyxl, runs after every refresh.
+verify_against_sheets.py reads ~/Downloads/Vahdam _ Inventory Planning Tiktok.xlsx
+and ~/Downloads/Overall Analysis USA.xlsx (NOT the "(1)" duplicates) via
+openpyxl(data_only=True) AFTER every refresh. Output: logs/cm_check_*.md.
 ```
 
-## Chrome / Playwright scraper auth (CRITICAL — read before touching scrapers)
+All four scrapers attach to the user's real Chrome via Playwright `connect_over_cdp` on `http://localhost:9222`. The user runs `scripts/launch_chrome_debug.bat` once per boot (or pins it to `shell:startup`). Auth, cookies, and service workers are all maintained by Chrome itself — no `launch_persistent_context`, no `storage_state.json`.
 
-**Chrome must be launched via `scripts/launch_chrome_debug.bat` (port 9222) before
-scraping.** The scrapers attach to the user's real Chrome session via Chrome
-DevTools Protocol (`playwright.chromium.connect_over_cdp("http://localhost:9222")`)
-— *not* a sandboxed Playwright Chromium. This is intentional:
+## Critical business rules (NON-NEGOTIABLE)
 
-- Sandboxed Playwright contexts lose Google SSO (service-worker tokens don't
-  survive `new_context()` / fresh persistent profiles cleanly).
-- Headless Chromium triggers TikTok's anti-bot fingerprint detection (US
-  affiliate page renders blank).
-- Claude-in-Chrome MCP can't help — TikTok domains are on its denylist.
+### UK VAT (20% removed from Net Sales for zero-rated supplements)
 
-CDP attach bypasses all three: we drive the actual browser the user uses daily,
-which is already logged in. Auth is permanent until the user logs out.
+- `Coffee` — from **2026-04-01** onwards
+- `Green Burner`, `Ashwagandha Caps`, `Turmeric Curcumin` — always
+- `Turmeric Ginger Tea` — KEEPS VAT (non-supplement)
+- Formula: `vat_in_sales = net_sales × (20/120)`; `net_sales_ex_vat = net_sales − vat_in_sales`
 
-**Do NOT migrate back** to `launch_persistent_context`, `new_context(storage_state=…)`,
-or Claude-in-Chrome MCP. All three were tried and failed. CDP attach is the
-working solution.
+### UK per-order shipping
+£1.99/order added to COGs from **2026-03-01** onwards.
 
-Workflow:
-1. User (or `refresh_daily.py`) runs `scripts/launch_chrome_debug.bat` once per
-   reboot. Add to `shell:startup` to auto-launch at login.
-2. `refresh_daily.py` calls `_ensure_chrome_running()` which probes
-   `http://localhost:9222/json/version` and re-launches the bat if needed.
-3. Each scraper calls `attach()` from `scripts/_cdp.py`, opens a new page in
-   the existing context, scrapes, then closes only its own page (never the
-   browser). `detach()` disconnects CDP cleanly.
-4. If Chrome isn't reachable, scrapers log `CDP_UNAVAILABLE` and skip — they
-   never crash the pipeline.
+### UK VAT recovery on TikTok fees
+- Seller Center shows VAT-EXCL for Ad Spend and Smart Promo
+- Gross up ×1.20 → VAT-inclusive cash outflow
+- VAT recovery = `(ad_spend_inc + smart_promo_inc) × (20/120)`
 
-## Order status filter (NET_ORDER_STATUSES)
+### Affiliate commission
+- Total = `Standard + Shop Ads + Co-funded creator bonus`; for each, use **Actual** if > 0 else **Estimated**
+- Exclude rows where `Order Status = Ineligible`; keep `Settled` + `Pending`
+- Date parsing: **DD/MM/YYYY** from `Time Created`
+- CSV layout: UK 31 cols (with "Creator Region"), US 30 cols — `aggregate_affiliate.py` auto-detects via header
 
-`config/order_filters.json` defines which tiktok_shop statuses count toward `net_orders / net_qty / net_sales`.
+### Order status filter (net_orders)
+Include `COMPLETED + DELIVERED + SHIPPED + AWAITING_COLLECTION + IN_TRANSIT`. Exclude `CANCELLED + AWAITING_SHIPMENT`. (See `config/order_filters.json`.)
 
-Default = **Option A** (matches the user's working sheets):
-```json
-"net_order_statuses": ["COMPLETED", "DELIVERED", "AWAITING_COLLECTION", "IN_TRANSIT", "SHIPPED"]
+### Order CSV date formats
+UK uses **DD/MM/YYYY**, US uses **MM/DD/YYYY**. Currency-prefixed strings ("GBP 22.32") need regex-strip before float parse.
+
+### SKU nickname priority (when deriving from product name)
+1. `frother` → Frother (free gift)
+2. `mushroom coffee` → Coffee
+3. `ashwagandha coffee` → Coffee
+4. `ksm-66 coffee` (or `ksm-66` + `coffee`) → Coffee
+5. `instant coffee` → Coffee
+6. `curcumin` OR `curcuminoids` → Turmeric Curcumin (**only after coffee checks** — Coffee SKUs containing "Curcuminoids" otherwise misclassify)
+7. `ashwagandha` + capsule → Ashwagandha Caps
+8. `green burner` → Green Burner
+9. `shatavari` → Shatavari (US only)
+10. `turmeric ginger tea` → Turmeric Ginger Tea
+11. `moringa` → Moringa (excluded from UK)
+12. `butterfly pea` → Butterfly Pea (free gift)
+
+### Region rules
+- UK sells: Coffee, Turmeric Curcumin, Ashwagandha Caps, Green Burner, Turmeric Ginger Tea
+- US sells: Coffee, Turmeric Curcumin, Ashwagandha Caps, Shatavari (**no Pack of 5, no Ginger Tea**)
+- US has NO VAT, NO per-order shipping surcharge (shipping is included in Fulfillment)
+
+### TT commission
+9% UK, 6% US.
+
+### Free sample cost
+- UK: per-pack rates from `data/uk_costs.json` → `uk_free_sample_costs`; **subtract £2 shipping** for samples from **2026-02-14** onwards.
+- US: sum of `COGS + DSF + Storage + LogDuty + LogCost + Fulfillment + Shipping` (excludes Commission + VAT).
+
+### Display currency
+- Region = UK → GBP
+- Region = US → USD
+- Region = Both → USD (UK × FX rate, default 1.27)
+
+## CDP scraper architecture (DO NOT regress)
+
+Why `connect_over_cdp` and NOT `launch_persistent_context`:
+
+- `launch_persistent_context` with `storage_state.json` LOSES TikTok service-worker auth (we tried; it loops on login forever).
+- A cloned profile path (`chrome_profiles/uk/`) fails to decrypt cookies — Chrome 127+ App-Bound Encryption ties cookie keys to the source `user_data_dir` path.
+- Pointing Playwright at the REAL `User Data\Profile N` in place fails Chrome 136+'s "non-default data directory" check for `--remote-debugging-port` (and `--remote-debugging-pipe`).
+- Claude-in-Chrome MCP cannot help — TikTok domains are on its extension denylist.
+
+What works: launch a single Chrome with `--remote-debugging-port=9222` against the user's normal `User Data\Default` (no sync issue since `Default` is the local-only Chrome profile). Playwright attaches via CDP to that running browser. Auth survives forever as long as the user doesn't sign out of TikTok Seller Center.
+
+See `scripts/_cdp.py` for the shared `attach()` / `detach()` / `shared_scrape_setup()` helpers.
+
+## Defensive patterns (Seller Center is flaky)
+
+Verified failure mode 2026-05-19: `/ads-creation/dashboard`, `/order/list`, `/affiliate/orders` all returned sidebar-only pages on UK. Each scraper handles this:
+
+- **Pre-flight**: navigate to `{region}/homepage`, confirm DOM contains `VAHDAM` within 10s. If not → `AUTH_LOST_{region}` + skip.
+- **Per scrape**: 2 retries with 15s backoff.
+- **DOM<500 chars after retries** → `PAGE_NOT_LOADED_{region}_{page}` + skip + screenshot to `logs/debug_*_dim.png`.
+- **Shadow DOM**: the Marketing dashboard renders inside a shadow tree; `innerText` misses it. Scrapers use the `SHADOW_TEXT_JS` walker from `_cdp.py` via `page.evaluate()`.
+- **Smart Promo URL**: use `/promotion/program-center/smart-program/register`, NOT `/manage`. The register page is more reliable and exposes metrics as `"ROI X.X GMV £X Seller promotion cost £X Orders X New customers X"` in a single text block.
+
+## Smart Promo bucket is APPEND-ONLY
+
+Each scrape adds a new bucket to `data/smart_promo_monthly.json` with non-overlapping `window_start..window_end`. **Never overwrite existing buckets** — the dashboard's allocator handles multiple windows correctly (allocates by daily revenue share within each bucket window). `scrape_smart_promo.py` starts the new window at `latest_existing_window_end + 1 day`.
+
+## Verifier (`verify_against_sheets.py`)
+
+Reads via `openpyxl(data_only=True)`:
+
+- **UK**: `~/Downloads/Vahdam _ Inventory Planning Tiktok.xlsx` (NOT the `(1)` duplicate). Tab auto-detected by searching for `CM1` + `CM2` headers.
+- **US**: `~/Downloads/Overall Analysis USA.xlsx`. If no CM1/CM2 columns, logs `US sheet missing CM tab` and skips US verification.
+
+For each common date: Δ% < 1% → ✓, 1–5% → ⚠, ≥ 5% → ✗.
+
+**Never silently force dashboard to match sheet.** If sheet is wrong, write report. If dashboard is wrong, patch + push. If ambiguous, write specific question (with date + values + driving line item + 2–3 plausible causes) to `logs/cm_check_questions.md`.
+
+Output: `logs/cm_check_{YYYY-MM-DD-HHmm}.md` + one-line summary in `logs/refresh.log`.
+
+## Daily refresh order (refresh_daily.py)
+
+```
+0. ensure_chrome_running       (launches launch_chrome_debug.bat if :9222 dead)
+1. scrape_orders.py            UK + US
+2. scrape_ads.py               UK + US
+3. scrape_affiliate.py         UK + US
+4. scrape_smart_promo.py       UK + US
+5. aggregate_affiliate.py      Rebuild aff_daily from raw_csvs/
+6. build_dashboard.py
+7. git add data/ public/ raw_csvs/ seller_center_snapshots/ ; commit ; push
+8. verify_against_sheets.py
 ```
 
-Rationale:
-- Sheet counts "actually fulfilled" orders — anything that has shipped or is at/with the customer.
-- `AWAITING_SHIPMENT` and other pre-ship states are tracked as `inflight_orders` and **excluded** from net.
-- `CANCELLED` is tracked separately in the cancelled bucket.
-- `REFUNDED` keeps counting as net; the refund value is subtracted via the refund line item.
+Task Scheduler (Windows): `VahdamPnL_MorningUK` @ 15:30 IST (= 11:00 Europe/London), `VahdamPnL_EveningUS` @ 03:30 IST (= 15:00 America/Los_Angeles previous day). Both `WakeToRun=true`.
 
-To change the filter, edit `config/order_filters.json` and re-run `scripts/refresh_daily.py`. No code change needed.
+## Common bugs & their fixes
 
-**Expected residual drift vs the sheet:** snapshots taken at different points in time will diverge because the *same* order can flip from `AWAITING_SHIPMENT` to `SHIPPED` between captures. Older dates in the sheet (when many orders were still in flight at capture) will show fewer net orders than the dashboard does today. This is correct behaviour, not a bug.
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| All UK SKU rows in zero state | Chrome not on :9222 OR TikTok session expired | Run `launch_chrome_debug.bat`; verify by hitting <http://localhost:9222/json/version> |
+| Affiliate commission < expected | Forgot to exclude "Ineligible" status, OR using MM/DD instead of DD/MM | Inspect raw CSV header; `aggregate_affiliate.py` should auto-detect |
+| Smart Promo doubled | Buckets overlap | Buckets must be append-only with non-overlapping windows — check `data/smart_promo_monthly.json` |
+| Coffee with "Curcuminoids" routed to Turmeric Curcumin | SKU priority order broken | Coffee checks MUST run before curcumin in `nick_from_name` |
+| Net Sales matches but CM2 doesn't | UK VAT not subtracted for new SKU, OR shipping surcharge missing | Check `data/uk_costs.json` rules table |
+| `CDP_UNAVAILABLE` in scrape logs | Chrome not running | Re-run `scripts/launch_chrome_debug.bat` |
+| `AUTH_LOST_{region}` | TikTok session expired | Open Chrome (already on 9222), log into seller-uk + seller-us tabs |
+| `PAGE_NOT_LOADED_{region}_{page}` | TikTok sidebar-only render (flaky) | Already retried 2× with 15s backoff; last-known values are kept |
+| Verifier reports "missing CM tab" | xlsx uses row-oriented CM layout | Acceptable per spec — verifier skips that region gracefully |
 
-## Date timezone bucketing
+## Deprecated (Windsor era)
 
-`fetch_windsor.aggregate_shop_orders` groups orders by **shop-local** timezone:
-- UK shop (`GBLC43Q29H`) → `Europe/London` (GMT/BST)
-- US shop (`USLCEGEVCN`) → `America/Los_Angeles` (PST/PDT)
+Files renamed to `*.deprecated` (kept locally, gitignored):
 
-This matches how TikTok Seller Center's Order Report groups orders for daily totals. Using UTC drifts ~1-2 hours of orders into the wrong day near midnight.
+- `scripts/fetch_windsor.py.deprecated`
+- `scripts/merge_pnl.py.deprecated`
+- `scripts/ingest_seller.py.deprecated`
+- `data/windsor_*.json.deprecated`
+- `data/windsor_cache.deprecated/`
 
-Windsor's `date_from`/`date_to` filter is UTC. We pull `date_to + 1 day` to catch US orders placed late evening PDT that Windsor stamps to the next UTC calendar day.
-
-## Windsor UK outage handling
-
-The UK `tiktok_shop` account (`GBLC43Q29H`) periodically drops from Windsor's connector list (OAuth token expiry, manual disconnect, etc.). `fetch_windsor.run()` detects this and logs `WINDSOR_UK_DISCONNECTED` to `logs/windsor_health.log` when:
-- 0 UK rows are returned for a window, AND
-- US returned > 0 rows in the same window
-
-When this happens:
-1. Do NOT treat the 0 as actual data ("UK net sales = £0").
-2. Fall back to manual `All order-UK-*.csv` exports from Seller Center, dropped into `raw_csvs/`.
-3. `aggregate_orders.py` (TBD — see TODO list) ingests these and produces UK orders_daily entries with the same schema as the Windsor path.
-4. Reconnect tiktok_shop UK at https://windsor.ai/connectors when you're able.
-5. Once reconnected, the next refresh picks UK back up automatically and CSV fallback becomes redundant.
-
-Verify reconnect with:
-```powershell
-.\venv\Scripts\python.exe -c "from scripts.fetch_windsor import fetch_shop_orders; rows = fetch_shop_orders('2026-05-12', '2026-05-19'); print('UK rows:', sum(1 for r in rows if r.get('account_id') == 'GBLC43Q29H'))"
-```
-
-## Affiliate CSV scraper (Playwright)
-
-`scripts/scrape_affiliate.py` drives Chromium via Playwright to download fresh affiliate CSVs from `seller-{uk,us}.tiktok.com/affiliate/orders`. State stored in `config/playwright_storage_{uk,us}.json`.
-
-Setup (one-time per region, requires interactive login):
-```
-.\venv\Scripts\python.exe .\scripts\scrape_affiliate.py --setup-uk
-.\venv\Scripts\python.exe .\scripts\scrape_affiliate.py --setup-us
-```
-
-**Known UK setup gotcha**: logging in via Google SSO doesn't persist usable cookies — Playwright redirects back to login on the next run. Use direct email/password login during setup.
-
-**Known US gotcha**: `/affiliate/orders` page renders blank when navigated via deep URL in Playwright. Either click through from the sidebar menu or it's a permissions issue on the account. Re-investigate selectors after auth state is renewed.
-
-## Smart Promotion scraper (Playwright)
-
-`scripts/scrape_smart_promo.py` captures Smart Promo metrics from
-`seller-{uk,us}.tiktok.com/promotion/program-center/smart-program/manage`.
-
-Anchors:
-- Row label: `"Smart Promotion"` (US) or `"Smart Promotion Plan"` (UK)
-- `View details` button inside that `<tr>`
-- Date picker: focus start-date input → click `<button>Yesterday</button>` preset
-- Metrics on detail page: ROI, GMV, Seller promotion cost, Orders, New customers — all extracted from `Smart Promotion metrics` section by label-to-value regex (allows newlines between label and value)
-
-Appends a new bucket to `data/smart_promo_monthly.json` — **never overwrites** existing buckets. Multiple adjacent buckets (e.g. May 1-13 + May 14-19) are valid; the dashboard's revenue-share allocator handles them correctly.
-
-## Verifier (openpyxl)
-
-`scripts/verify_against_sheets.py` reads the user's working spreadsheets directly via `openpyxl` with `data_only=True` (cached formula values). Sources:
-- UK: `C:\Users\Aviral Garg\Downloads\Vahdam _ Inventory Planning Tiktok.xlsx`
-- US: `C:\Users\Aviral Garg\Downloads\Overall Analysis USA.xlsx`
-
-**Never use the `(1)` duplicate files** — those are stale browser-downloaded copies.
-
-If a sheet's last populated date is > 1 day older than `pnl_daily.json`'s `window_end`, dates beyond the sheet's coverage are skipped (with a log line) — staleness doesn't block the run, and UK staleness doesn't affect US (and vice versa).
-
-If a cached formula cell is empty (formula not yet evaluated by Excel), it's skipped with a log line. The user needs to open + save the workbook for the cache to populate.
-
-## Verifier output is the source of truth for "where are the gaps"
-
-`logs/cm_check_<timestamp>.md` after every refresh contains the per-day reconciliation table. `logs/cm_check_questions.md` collects any drift ≥ 5%.
-
-**Never patch the dashboard to match the sheet**. The sheet is the verification source, not the data source. If the verifier flags a drift, debug the data pipeline (Windsor / scrape / merge) — not the dashboard's numbers.
-
-## Schedules
-
-Two Windows scheduled tasks fire `refresh_daily.bat`:
-- `VahdamDashboard_MorningRefresh_UK` — 15:30 IST daily (= 11:00 Europe/London)
-- `VahdamDashboard_EveningRefresh_US` — 03:30 IST daily (= 15:00 America/Los_Angeles next-day-pacific)
-
-Each task runs:
-1. `fetch_google_sheets.py` (no-op without service-account JSON)
-2. `fetch_windsor.py` — ads + tiktok_shop orders + statement aff fees
-3. `scrape_affiliate.py` — Playwright Seller Center CSV download
-4. `scrape_smart_promo.py` — Playwright Smart Promo bucket capture
-5. `ingest_seller.py` — re-aggregate raw_csvs/ from scratch
-6. `merge_pnl.py` — combine into pnl_daily.json (overlay + Windsor top-up + statement aff top-up)
-7. `build_dashboard.py` — rebuild public/index.html
-8. `verify_against_sheets.py` — reconcile vs xlsx, write report + questions
-
-After successful refresh, `refresh_daily.bat` auto-commits + pushes to GitHub `main`, which triggers Vercel auto-deploy.
-
-## Live URLs
-
-- Vercel: https://vahdam-pnl-live.vercel.app/
-- Cloudflare quick tunnel (rotates per reboot): see `public_url.txt`
-
-## Quick troubleshooting
-
-| Symptom | Likely cause |
-|---|---|
-| UK numbers all zero | Windsor UK disconnected. Check `logs/windsor_health.log` for `WINDSOR_UK_DISCONNECTED`. |
-| Dashboard data stale by 1 day for a region | Schedule didn't run (laptop sleeping?). Check `logs/refresh.log` for last successful entry. |
-| Day-by-day drift > 5% on net_orders | Status filter or capture-time mismatch. Read "Order status filter" above. |
-| Affiliate scrape says AUTH REQUIRED | Cookies expired. Re-run `--setup-uk` or `--setup-us`. |
-| Verifier crashes with `charmap codec` | Windows console can't print unicode. Logs use ASCII-only summary — should be fixed. |
-| Vercel deploy didn't trigger | `refresh_daily.bat` git step failed. Check end of `logs/refresh.log` for git errors. |
+Do not bring these back. Windsor.ai is no longer a dependency.
