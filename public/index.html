@@ -92,7 +92,8 @@ canvas{width:100%!important;height:260px!important}
 <label class="gift-toggle"><input type="checkbox" id="giftToggle"> Include free gifts</label>
 <label style="margin-left:14px;">GBP&rarr;USD</label><input type="number" id="fxInput" value="1.27" step="0.01" min="0.5" max="3" style="width:70px;">
 </div>
-<div class="warn-strip"><b>Display currency follows region</b>: UK&rarr;GBP; US&rarr;USD; Both&rarr;USD (UK&times;FX). <b>Net Sales (top line)</b> excludes cancelled, samples, refunds, returns. <b>UK VAT treatment in PnL:</b> 20% VAT subtracted from Net Sales for zero-rated supplements (Coffee Apr 2026+, Green Burner, Ashwagandha Caps, Turmeric Curcumin) before building CM. Ginger Tea keeps VAT in sales (non-supplement). <b>Other UK rules:</b> &pound;1.99/order shipping from Mar 2026; Ad spend + Smart Promo grossed up &times;1.20 (Seller Center shows VAT-EXCL); VAT recovery = (Ad+SP)<sub>incl</sub> &times; 20/120 added back to CM2. <b>US</b>: no VAT/shipping rules.</div>
+<div class="warn-strip"><b>Display currency follows region</b>: UK&rarr;GBP; US&rarr;USD; Both&rarr;USD (UK&times;FX). <b>Net Sales = Net Revenue</b> (ex-VAT for UK zero-rated supplements — matches your sheet). <b>UK VAT treatment in PnL:</b> 20% VAT subtracted from Net Sales for zero-rated supplements (Coffee Apr 2026+, Green Burner, Ashwagandha Caps, Turmeric Curcumin) before building CM. Ginger Tea keeps VAT in sales (non-supplement). <b>Other UK rules:</b> &pound;1.99/order shipping from Mar 2026; Ad spend + Smart Promo grossed up &times;1.20 (Seller Center shows VAT-EXCL); VAT recovery = (Ad+SP)<sub>incl</sub> &times; 20/120 added back to CM2. <b>US</b>: no VAT/shipping rules.</div>
+<div id="freshnessBanner" style="display:none;background:#FCEEDC;border-left:3px solid var(--neg);color:#5C2A28;border-radius:6px;padding:10px 14px;margin-bottom:14px;font-size:12px;line-height:1.5;"></div>
 <div class="kpis" id="kpis"></div>
 <h2>P&amp;L Statement <span class="badge">CM1 / CM2</span></h2>
 <div class="card"><table class="pnl" id="pnlTable"></table></div>
@@ -394,7 +395,11 @@ function renderKPIs(){
   const prior = aggregatePrior();
   const fx = state.fxRate || 1.27;
   const sym = ccySym();
-  const netSales = combine(a.ukOrd.net_sales, a.usOrd.net_sales);
+  // Headline NET SALES matches sheet's "Net Revenue" — i.e. ex-VAT for UK
+  // zero-rated supplements (Coffee Apr+, Green Burner, Ashwagandha, Curcumin).
+  // a.ukVatInSales is already the 20/120 portion for those SKUs.
+  const ukNetSalesHeadline = a.ukOrd.net_sales - (a.ukVatInSales || 0);
+  const netSales = combine(ukNetSalesHeadline, a.usOrd.net_sales);
   const netOrders = a.ukOrd.net_orders + a.usOrd.net_orders;
   const netUnits = a.ukOrd.net_qty + a.usOrd.net_qty;
   const cancelOrders = a.ukOrd.cancelled_orders + a.usOrd.cancelled_orders;
@@ -870,9 +875,41 @@ function renderMonthlyHistory(){
   host.innerHTML = h;
 }
 
+function renderFreshnessBanner(win){
+  // Detect stale data for the active window — affiliate CSVs + smart promo
+  // both have non-Windsor sources that may lag the dashboard's order data.
+  const banner = document.getElementById('freshnessBanner');
+  if(!banner) return;
+  const gaps = [];
+  for(const region of (state.region==='both' ? ['UK','US'] : [state.region])){
+    // Affiliate freshness — find last aff_daily date in this region <= win.to
+    const affDates = PNL.aff_daily.filter(r => r.region===region && r.date<=win.to).map(r=>r.date);
+    const affLast  = affDates.length ? affDates.reduce((a,b)=>a>b?a:b) : null;
+    if(!affLast || affLast < win.to){
+      const lastShown = affLast || '(none)';
+      gaps.push(`<b>${region} Affiliate Commission</b>: latest data is <b>${lastShown}</b> — gap to ${win.to}. Drop fresh affiliate CSVs into <code>raw_csvs/</code> or fix the Seller Center scraper auth.`);
+    }
+    // Smart Promo freshness — find max bucket window_end for this region
+    const spEnds = (PNL.smart_promo_monthly||[]).filter(b=>b.region===region).map(b=>b.window_end);
+    const spLast = spEnds.length ? spEnds.reduce((a,b)=>a>b?a:b) : null;
+    if(!spLast || spLast < win.to){
+      const lastShown = spLast || '(none)';
+      gaps.push(`<b>${region} Smart Promotion</b>: latest bucket ends <b>${lastShown}</b> — gap to ${win.to}. Add a bucket to <code>data/smart_promo_monthly.json</code> or fix the Seller Center scraper.`);
+    }
+  }
+  if(gaps.length){
+    banner.innerHTML = '<b>Data freshness gap in this window</b><ul style="margin:6px 0 0 18px;padding:0;">'
+      + gaps.map(g=>`<li>${g}</li>`).join('') + '</ul>';
+    banner.style.display='block';
+  } else {
+    banner.style.display='none';
+  }
+}
+
 function refresh(){
   const win = effectiveWindow();
   document.getElementById('rangePill').textContent = win.from+' → '+win.to+' · '+dayDiff(win)+'d';
+  renderFreshnessBanner(win);
   renderKPIs(); renderPnLTable(); renderSkuTable(); renderAdCharts(); renderCampaignTable(); renderCreatives(); renderMonthlyHistory();
 }
 
