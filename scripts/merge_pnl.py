@@ -47,8 +47,31 @@ def run(
         b_end = baseline["window_end"]
         overlay_end = b_end
         orders_daily = [r for r in orders_daily if not (b_start <= r.get("date", "") <= b_end)]
-        orders_daily.extend(baseline["orders_daily"])
-        print(f"  Overlay: replaced {b_start}->{b_end} with reference baseline ({len(baseline['orders_daily'])} records)")
+        # Normalisation pass on overlay rows before extending:
+        #  - "Coffee" + "Starter Kit" variation -> SKU "Coffee Starter Kit", variation "Default"
+        #    (Starter Kit is a separate SKU listing on TikTok, not a Coffee variation)
+        #  - Frother (free gift) rows before 2026-05-13 are dropped (Frother promo
+        #    launched 2026-05-13 on min spend £68.99; earlier rows are UTC/BST
+        #    boundary artefacts in the upstream CSV)
+        FROTHER_LAUNCH = "2026-05-13"
+        cleaned = []
+        normalised_sk = dropped_frother = 0
+        for row in baseline["orders_daily"]:
+            r = dict(row)
+            if r.get("sku") == "Coffee" and r.get("variation") == "Starter Kit":
+                r["sku"] = "Coffee Starter Kit"
+                r["variation"] = "Default"
+                normalised_sk += 1
+            sku = r.get("sku", "")
+            if ("Frother" in sku) and (r.get("date", "") < FROTHER_LAUNCH):
+                dropped_frother += 1
+                continue
+            cleaned.append(r)
+        orders_daily.extend(cleaned)
+        msg = f"  Overlay: replaced {b_start}->{b_end} with reference baseline ({len(cleaned)} records)"
+        if normalised_sk: msg += f", normalised {normalised_sk} 'Coffee/Starter Kit' rows -> 'Coffee Starter Kit' SKU"
+        if dropped_frother: msg += f", dropped {dropped_frother} Frother rows pre-{FROTHER_LAUNCH}"
+        print(msg)
 
     # 2) Top-up: for ANY (date, region) where the overlay+CSVs have no rows,
     #    inject Windsor tiktok_shop daily totals — allocated across SKU/variation
@@ -73,10 +96,24 @@ def run(
             region = r.get("region")
             if region not in mix_totals:
                 continue
-            key = (r.get("sku", ""), r.get("variation", ""))
+            sku = r.get("sku", "")
+            var = r.get("variation", "")
+            # Don't allocate Windsor totals to SKUs that historically had near-zero
+            # revenue (e.g. Starter Kit was rare — allocator was creating £0 phantom
+            # rows). Exclude any (sku, variation) that contributed less than £100
+            # historically OR has 0 net_orders.
+            if (r.get("net_orders", 0) or 0) == 0:
+                continue
+            key = (sku, var)
             mix_totals[region][key] = mix_totals[region].get(key, 0.0) + (r.get("net_sales", 0) or 0)
             upo_orders[region][key] = upo_orders[region].get(key, 0) + (r.get("net_orders", 0) or 0)
             upo_qty[region][key] = upo_qty[region].get(key, 0.0) + (r.get("net_qty", 0) or 0)
+        # Drop any (sku, variation) keys with negligible historical revenue (< £100)
+        # so the allocator doesn't create phantom £0 rows on new dates.
+        for region in mix_totals:
+            mix_totals[region] = {k: v for k, v in mix_totals[region].items() if v >= 100}
+            upo_orders[region] = {k: v for k, v in upo_orders[region].items() if k in mix_totals[region]}
+            upo_qty[region] = {k: v for k, v in upo_qty[region].items() if k in mix_totals[region]}
 
         mix_share: dict[str, list[tuple]] = {}
         for region, sk_map in mix_totals.items():

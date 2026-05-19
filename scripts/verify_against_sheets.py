@@ -1,13 +1,13 @@
 """
-verify_against_sheets.py — reconcile dashboard CM1/CM2 against the user's
+verify_against_sheets.py -- reconcile dashboard CM1/CM2 against the user's
 source-of-truth working spreadsheets (LOCAL .xlsx via openpyxl, data_only=True).
 
-Sources (the (1) duplicates are stale — always use the canonical paths):
+Sources (the (1) duplicates are stale -- always use the canonical paths):
   UK: C:\\Users\\Aviral Garg\\Downloads\\Vahdam _ Inventory Planning Tiktok.xlsx
   US: C:\\Users\\Aviral Garg\\Downloads\\Overall Analysis USA.xlsx
 
 Reads cached cell values (data_only=True). If Excel has the file open, copies
-to a temp dir first. Empty/unevaluated cells are logged and skipped — the user
+to a temp dir first. Empty/unevaluated cells are logged and skipped -- the user
 needs to open + save the file in Excel for formula cache to populate.
 
 Auto-detects the daily-CM tab. Falls back to the period-rollup 'Overall' tab
@@ -15,10 +15,10 @@ when no DoD tab is present. Persists the auto-detection to config/source_sheets.
 so subsequent runs skip discovery.
 
 If the sheet's last populated date is > 1 day older than the dashboard's
-window_end, dates beyond the sheet's coverage are skipped (logged) — the sheet
+window_end, dates beyond the sheet's coverage are skipped (logged) -- the sheet
 being stale shouldn't block the run. UK staleness doesn't block US, and vice versa.
 
-Exits 0 even with major discrepancies — reporting is the outcome, not pipeline
+Exits 0 even with major discrepancies -- reporting is the outcome, not pipeline
 failure.
 """
 from __future__ import annotations
@@ -157,7 +157,7 @@ def extract_us(path: pathlib.Path) -> dict:
         }
     return {
         "available": False,
-        "reason": f"CM strings present in tab {cm_tab!r} but no DoD layout detected — manual mapping needed",
+        "reason": f"CM strings present in tab {cm_tab!r} but no DoD layout detected -- manual mapping needed",
         "sheets": wb.sheetnames,
         "cm_tab": cm_tab,
     }
@@ -275,8 +275,8 @@ def reconcile():
         "last_run": timestamp,
     }, indent=2), encoding="utf-8")
 
-    lines = [f"# CM reconciliation — {timestamp}", "",
-             f"Dashboard window: **{pnl.get('window_start')}** → **{pnl.get('window_end')}**",
+    lines = [f"# CM reconciliation -- {timestamp}", "",
+             f"Dashboard window: **{pnl.get('window_start')}** -> **{pnl.get('window_end')}**",
              f"UK source: `{UK_XLSX.name}` (modified {_dt.fromtimestamp(UK_XLSX.stat().st_mtime).strftime('%Y-%m-%d') if UK_XLSX.exists() else 'n/a'})",
              f"US source: `{US_XLSX.name}` (modified {_dt.fromtimestamp(US_XLSX.stat().st_mtime).strftime('%Y-%m-%d') if US_XLSX.exists() else 'n/a'})",
              ""]
@@ -288,16 +288,16 @@ def reconcile():
     # UK section
     lines.append("## UK")
     if not uk.get("available"):
-        lines.append(f"❌ UK check skipped — {uk.get('reason')}")
+        lines.append(f"❌ UK check skipped -- {uk.get('reason')}")
     else:
         ps, pe = uk["period_start"], uk["period_end"]
         win_end = pnl.get("window_end", "")
         # Staleness check
         if pe and win_end and (_date.fromisoformat(win_end) - _date.fromisoformat(pe)).days > 1:
-            lines.append(f"⚠ UK sheet last updated **{pe}**; dashboard data through **{win_end}**. "
-                         f"CM check applied only to the sheet's window ({ps} → {pe}).")
+            lines.append(f"WARN UK sheet last updated **{pe}**; dashboard data through **{win_end}**. "
+                         f"CM check applied only to the sheet's window ({ps} -> {pe}).")
         else:
-            lines.append(f"UK sheet period: **{ps}** → **{pe}**")
+            lines.append(f"UK sheet period: **{ps}** -> **{pe}**")
         if ps and pe and ps >= pnl.get("window_start", "") and pe <= pnl.get("window_end", ""):
             d = compute_dashboard_metrics(pnl, "UK", ps, pe)
             m = uk["metrics"]; total = uk["sku_columns"][0]
@@ -321,15 +321,15 @@ def reconcile():
                 summary["uk"]["checked"] += 1
                 summary["uk"][status] += 1
                 if status != "OK":
-                    top_gaps.append(("UK", f"{ps}→{pe}", label, sv, dv, pct, ccy))
+                    top_gaps.append(("UK", f"{ps}->{pe}", label, sv, dv, pct, ccy))
                 lines.append(f"| {label} | {ccy} {sv:,.0f} | {ccy} {dv:,.0f} | {delta:+,.0f} | {pct:+.1f}% | {status} |")
         else:
-            lines.append(f"⚠ Sheet period {ps}→{pe} outside dashboard window — skipped.")
+            lines.append(f"WARN Sheet period {ps}->{pe} outside dashboard window -- skipped.")
 
     # US section
     lines.append("\n## US")
     if not us.get("available"):
-        lines.append(f"❌ US check skipped — {us.get('reason')}")
+        lines.append(f"❌ US check skipped -- {us.get('reason')}")
         if us.get("sheets"):
             lines.append(f"Sheets present: `{', '.join(us['sheets'])}`")
 
@@ -341,7 +341,7 @@ def reconcile():
     ]
     top_gaps.sort(key=lambda x: -abs(x[5]))
     for region, win, label, sv, dv, pct, ccy in top_gaps[:3]:
-        sumline.append(f"  Top: {region} {win} {label} | sheet {ccy}{sv:,.0f} → dash {ccy}{dv:,.0f} | {pct:+.1f}%")
+        sumline.append(f"  Top: {region} {win} {label} | sheet {ccy}{sv:,.0f} -> dash {ccy}{dv:,.0f} | {pct:+.1f}%")
     with (LOGS_DIR / "refresh.log").open("a", encoding="utf-8") as fh:
         fh.write("\n" + "\n".join(sumline) + "\n")
 
@@ -349,10 +349,10 @@ def reconcile():
     qs = []
     for region, win, label, sv, dv, pct, ccy in top_gaps:
         if abs(pct) >= 5.0:
-            qs.append(f"- **{region} {win} {label}** drifts {pct:+.1f}% — sheet {ccy}{sv:,.0f} → dash {ccy}{dv:,.0f}.")
+            qs.append(f"- **{region} {win} {label}** drifts {pct:+.1f}% -- sheet {ccy}{sv:,.0f} -> dash {ccy}{dv:,.0f}.")
     if qs:
         (LOGS_DIR / "cm_check_questions.md").write_text(
-            f"# CM reconciliation questions — {timestamp}\n\n" + "\n".join(qs), encoding="utf-8")
+            f"# CM reconciliation questions -- {timestamp}\n\n" + "\n".join(qs), encoding="utf-8")
 
     (LOGS_DIR / f"cm_check_{timestamp}.md").write_text("\n".join(lines), encoding="utf-8")
     print("\n".join(sumline))

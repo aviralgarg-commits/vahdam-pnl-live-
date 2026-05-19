@@ -1,5 +1,5 @@
 """
-scrape_smart_promo.py — Playwright-driven Smart Promotion bucket capture.
+scrape_smart_promo.py -- Playwright-driven Smart Promotion bucket capture.
 
 Anchors (validated in prior session):
   - Smart Promo "View details": <tr> containing text "Smart Promotion Plan",
@@ -10,11 +10,11 @@ Anchors (validated in prior session):
 Pre-flight auth check: confirm 'VAHDAM' appears on /homepage within 10s.
 If not, log AUTH REQUIRED and SKIP that region. UK failure doesn't block US.
 
-Appends a new bucket to data/smart_promo_monthly.json — never overwrites
+Appends a new bucket to data/smart_promo_monthly.json -- never overwrites
 existing buckets. The dashboard's revenue-share allocator handles adjacent
 buckets correctly.
 
-Setup is shared with scrape_affiliate.py — same Playwright auth state.
+Setup is shared with scrape_affiliate.py -- same Playwright auth state.
 """
 from __future__ import annotations
 
@@ -81,7 +81,7 @@ def preflight_auth(page, region: str) -> bool:
     try:
         page.goto(HOMEPAGE[region], wait_until="domcontentloaded", timeout=30_000)
     except Exception as e:
-        log(f"{region}: homepage navigation failed — {e}")
+        log(f"{region}: homepage navigation failed -- {e}")
         return False
     deadline = time.time() + AUTH_TIMEOUT_SEC
     while time.time() < deadline:
@@ -93,7 +93,7 @@ def preflight_auth(page, region: str) -> bool:
             on_seller = ("seller-" in url) and ("login" not in url.lower())
             has_login_ui = ("Sign in" in body or "Log in" in body or "Password" in body)
             if on_seller and not has_login_ui and len(body) > 500:
-                log(f"{region}: on seller domain, no login UI — authenticated")
+                log(f"{region}: on seller domain, no login UI -- authenticated")
                 return True
         except Exception:
             pass
@@ -109,7 +109,7 @@ def capture(region: str) -> dict | None:
         return None
     sp = storage_state_path(region)
     if not sp.exists():
-        log(f"AUTH REQUIRED — {region} no Playwright storage state at {sp}. "
+        log(f"AUTH REQUIRED -- {region} no Playwright storage state at {sp}. "
             f"Run: python scripts/scrape_affiliate.py --setup-{region.lower()}")
         return None
 
@@ -123,7 +123,7 @@ def capture(region: str) -> dict | None:
     if gap_from > gap_to:
         log(f"{region}: no gap to capture (last bucket already covers through today)")
         return None
-    log(f"{region}: capturing Smart Promo for {gap_from} → {gap_to}")
+    log(f"{region}: capturing Smart Promo for {gap_from} -> {gap_to}")
 
     for attempt in range(2):
         try:
@@ -133,10 +133,10 @@ def capture(region: str) -> dict | None:
                 page = ctx.new_page()
 
                 if not preflight_auth(page, region):
-                    log(f"AUTH REQUIRED — {region} Chrome not logged in. Skipping.")
+                    log(f"AUTH REQUIRED -- {region} Chrome not logged in. Skipping.")
                     browser.close()
                     return None
-                log(f"{region}: auth ✓")
+                log(f"{region}: auth OK")
 
                 page.goto(MANAGE_URL[region], wait_until="domcontentloaded", timeout=60_000)
                 try:
@@ -223,7 +223,7 @@ def capture(region: str) -> dict | None:
                             date_inputs[1].fill("")
                             date_inputs[1].type(gap_to)
                             page.keyboard.press("Enter")
-                            log(f"{region}: typed custom range {gap_from} → {gap_to}")
+                            log(f"{region}: typed custom range {gap_from} -> {gap_to}")
                             page.wait_for_timeout(2500)
 
                 # Read metrics from page body text. Labels and values are on
@@ -278,7 +278,7 @@ def capture(region: str) -> dict | None:
                 browser.close()
                 return bucket
         except Exception as e:
-            log(f"{region}: scrape error (attempt {attempt+1}) — {e}")
+            log(f"{region}: scrape error (attempt {attempt+1}) -- {e}")
             time.sleep(15)
     return None
 
@@ -287,7 +287,7 @@ def append_bucket(bucket: dict) -> None:
     data: list[dict] = []
     if SMART_PROMO_FILE.exists():
         data = json.loads(SMART_PROMO_FILE.read_text(encoding="utf-8-sig"))
-    # Dedup by (region, window_start, window_end) — never overwrite older buckets
+    # Dedup by (region, window_start, window_end) -- never overwrite older buckets
     key = (bucket["region"], bucket["window_start"], bucket["window_end"])
     data = [b for b in data if (b.get("region"), b.get("window_start"), b.get("window_end")) != key]
     data.append(bucket)
@@ -299,10 +299,10 @@ def main() -> int:
     for region in ("UK", "US"):
         b = capture(region)
         if b is None:
-            log(f"{region}: Smart Promo bucket not refreshed — will retry next refresh")
+            log(f"{region}: Smart Promo bucket not refreshed -- will retry next refresh")
             continue
         append_bucket(b)
-        log(f"{region}: appended bucket {b['window_start']} → {b['window_end']} "
+        log(f"{region}: appended bucket {b['window_start']} -> {b['window_end']} "
             f"cost={b['currency']} {b['cost']}")
         captured += 1
     log(f"Smart Promo capture complete: {captured}/2 regions refreshed")
