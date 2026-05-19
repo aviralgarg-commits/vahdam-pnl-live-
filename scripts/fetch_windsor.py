@@ -208,7 +208,12 @@ def fetch_shop_statement(date_from: str, date_to: str) -> list[dict]:
 
 
 def aggregate_statement_aff(rows: list[dict]) -> dict:
-    """Per (date, region) -> total affiliate commission fee paid (abs values)."""
+    """Per (date, region) -> total affiliate commission fee paid (abs values).
+
+    Note: Statement rows are date-grouped by Windsor's `date` field (settlement
+    date). This is intentionally NOT shifted by shop timezone — settlement is
+    already a calendar-day concept, not a per-order timestamp.
+    """
     acct = _shop_region_map()
     out: dict[str, dict[str, float]] = {}
     for r in rows:
@@ -228,11 +233,22 @@ def aggregate_statement_aff(rows: list[dict]) -> dict:
 def aggregate_shop_orders(rows: list[dict]) -> dict:
     """
     Aggregate tiktok_shop Order rows into per-(date, region) daily totals.
-    Returns: {date: {region: {net_orders, cancelled_orders, net_sales, gross, plat_disc,
-                              seller_disc, cancelled_amt, currency}}}
-    Uses order_create_time (unix epoch) and converts to UTC date.
+
+    Date bucketing uses SHOP-LOCAL timezone (not UTC), matching how TikTok
+    Seller Center's Order Report groups orders:
+      UK shop  -> Europe/London  (BST = UTC+1 May..Oct, GMT = UTC+0 Nov..Mar)
+      US shop  -> America/Los_Angeles  (PDT = UTC-7 May..Oct, PST = UTC-8 Nov..Mar)
+
+    Falls back to UTC if zoneinfo lookup fails (e.g. tzdata missing).
     """
     from datetime import datetime as _dt, timezone as _tz
+    try:
+        from zoneinfo import ZoneInfo
+        UK_TZ = ZoneInfo("Europe/London")
+        US_TZ = ZoneInfo("America/Los_Angeles")
+    except Exception:
+        UK_TZ = US_TZ = _tz.utc
+
     acct = _shop_region_map()
     out: dict[str, dict] = {}
     for r in rows:
@@ -243,7 +259,8 @@ def aggregate_shop_orders(rows: list[dict]) -> dict:
         if ts is None or str(ts) == "":
             continue
         try:
-            day = _dt.fromtimestamp(int(ts), tz=_tz.utc).strftime("%Y-%m-%d")
+            shop_tz = UK_TZ if region == "UK" else US_TZ
+            day = _dt.fromtimestamp(int(ts), tz=shop_tz).strftime("%Y-%m-%d")
         except (ValueError, TypeError):
             continue
         status = str(r.get("order_status", "") or "").upper()
@@ -566,10 +583,15 @@ def run(lookback_days: int = LOOKBACK, shop_topup_days: int = 14) -> tuple[dict,
     print(f"Windsor: UK ad spend £{ad_spend_30d['UK']['total_cost']:,.0f}, "
           f"US ad spend ${ad_spend_30d['US']['total_cost']:,.0f}")
 
-    # TikTok Shop orders (top-up window — only last N days to keep API calls cheap)
+    # TikTok Shop orders (last N days). We pull date_to + 1 day in UTC because
+    # Windsor's date filter is UTC-based, but we bucket results by SHOP-LOCAL
+    # timezone (Europe/London for UK, America/Los_Angeles for US) — without the
+    # +1 buffer we'd miss US orders placed late-evening PDT that Windsor stamps
+    # to the next UTC calendar day.
     shop_from = (today - timedelta(days=shop_topup_days)).isoformat()
-    print(f"\n=== Windsor TikTok Shop orders: {shop_from} -> {date_to} ===")
-    shop_rows = fetch_shop_orders(shop_from, date_to)
+    shop_to = (today + timedelta(days=1)).isoformat()
+    print(f"\n=== Windsor TikTok Shop orders: {shop_from} -> {shop_to} (shop-local TZ bucketed) ===")
+    shop_rows = fetch_shop_orders(shop_from, shop_to)
     shop_orders_daily = aggregate_shop_orders(shop_rows)
     (ROOT / "data" / "windsor_shop_orders_daily.json").write_text(
         json.dumps(shop_orders_daily, indent=2), encoding="utf-8"
@@ -584,8 +606,8 @@ def run(lookback_days: int = LOOKBACK, shop_topup_days: int = 14) -> tuple[dict,
               f" | US net_orders={us.get('net_orders',0)} net_sales=${us.get('net_sales',0):,.0f}")
 
     # Statement-table affiliate commission (settled transactions only)
-    print(f"\n=== Windsor TikTok Shop statement (affiliate fees) {shop_from} -> {date_to} ===")
-    stmt_rows = fetch_shop_statement(shop_from, date_to)
+    print(f"\n=== Windsor TikTok Shop statement (affiliate fees) {shop_from} -> {shop_to} ===")
+    stmt_rows = fetch_shop_statement(shop_from, shop_to)
     shop_aff_daily = aggregate_statement_aff(stmt_rows)
     (ROOT / "data" / "windsor_shop_aff_daily.json").write_text(
         json.dumps(shop_aff_daily, indent=2), encoding="utf-8"
