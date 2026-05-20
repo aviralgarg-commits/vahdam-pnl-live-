@@ -454,7 +454,7 @@ function renderKPIs(){
   const dash = '<span style="color:var(--mute)">—</span>';
   const m = (val, formatted) => windowEmpty ? dash : formatted;
   // Inject the freshness banner first (will be hidden if data is fresh)
-  renderFreshnessBanner(win);
+  renderFreshnessBanner(effectiveWindow());
   document.getElementById('kpis').innerHTML =
     '<div class="kpi"><div class="label">Net Sales '+regionTag+'</div><div class="value">'+m(netSales, sym+fmtNum(netSales))+'</div><div class="sub2">'+(windowEmpty?'no data in window':netSalesSub)+'</div></div>'+
     '<div class="kpi"><div class="label">Net Orders</div><div class="value">'+m(netOrders, fmtNum(netOrders))+'</div><div class="sub2">'+(windowEmpty?'no data in window':fmtNum(netUnits)+' units · excl. cancelled & samples')+'</div></div>'+
