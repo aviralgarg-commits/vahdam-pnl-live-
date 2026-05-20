@@ -125,13 +125,24 @@ function latestDataDate(){
   _ldCache[k] = latest || PNL.window_end;
   return _ldCache[k];
 }
+// Globally most recent date with ANY orders (region-agnostic) — used as the
+// anchor for L7/L30 so they don't drift when today's clock outruns the data.
+function dataEndDate(){
+  let latest = null;
+  for(const r of PNL.orders_daily){
+    if(((r.net_orders||0) > 0 || (r.net_sales||0) > 0) && (!latest || r.date > latest)){
+      latest = r.date;
+    }
+  }
+  return latest || PNL.window_end;
+}
 function effectiveWindow(){
-  const end = PNL.window_end;
-  // "Yesterday" = latest day that actually has data for the current filter
-  // (not literal today-1, which would be silently zero when data is stale).
+  // Anchor ALL period buttons to dataEndDate(), not today's clock or
+  // PNL.window_end. Eliminates "today's clock drifted past data" bugs.
+  const end = dataEndDate();
   if(state.period==='YDAY'){ const d = latestDataDate(); return {from:d, to:d}; }
   if(state.period==='L7') return {from: isoAdd(end, -6), to: end};
-  if(state.period==='L30') return {from: PNL.window_start, to: end};
+  if(state.period==='L30') return {from: isoAdd(end, -29), to: end};
   return {from: state.customFrom, to: state.customTo};
 }
 function inWindow(date, win){ return date>=win.from && date<=win.to; }
@@ -889,9 +900,16 @@ function init(){
   }));
   document.getElementById('fromDate').min = PNL.window_start; document.getElementById('fromDate').max = PNL.window_end; document.getElementById('fromDate').value = PNL.window_start;
   document.getElementById('toDate').min = PNL.window_start; document.getElementById('toDate').max = PNL.window_end; document.getElementById('toDate').value = PNL.window_end;
-  // Yesterday-button tooltip — reflect the actual latest-with-data date
+  // Yesterday button: show the actual referenced date in the label + tooltip.
+  // Anchors to dataEndDate() (region-agnostic) so the label is stable across
+  // SKU/Region toggles; the per-filter latestDataDate() drives the actual
+  // window when clicked.
   const ydayBtn = document.querySelector('#periodSeg button[data-v="YDAY"]');
-  if(ydayBtn){ ydayBtn.title = 'Yesterday = latest day with data (' + latestDataDate() + ')'; }
+  if(ydayBtn){
+    const anchor = dataEndDate();
+    ydayBtn.textContent = 'Yesterday (' + anchor + ')';
+    ydayBtn.title = 'Yesterday = latest day with data (' + anchor + ')';
+  }
   refresh();
 }
 
