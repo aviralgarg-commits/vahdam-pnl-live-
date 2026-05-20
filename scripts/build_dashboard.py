@@ -108,9 +108,28 @@ function combine(ukVal, usVal){
   if(state.region==='US') return usVal;
   return ukToDisplay(ukVal) + usVal;
 }
+// Latest date that has ANY non-zero orders/aff for the current region+sku+variation
+// filter. Falls back to PNL.window_end when nothing matches. Cached per filter.
+const _ldCache = {};
+function latestDataDate(){
+  const k = state.region+'|'+state.sku+'|'+state.variation;
+  if(k in _ldCache) return _ldCache[k];
+  let latest = null;
+  for(const r of PNL.orders_daily){
+    if(state.region!=='both' && r.region!==state.region) continue;
+    if(state.sku && r.sku!==state.sku) continue;
+    if(state.variation && r.variation!==state.variation) continue;
+    const has = (r.net_orders||0) > 0 || (r.orders||0) > 0 || (r.net_sales||0) > 0;
+    if(has && (!latest || r.date > latest)) latest = r.date;
+  }
+  _ldCache[k] = latest || PNL.window_end;
+  return _ldCache[k];
+}
 function effectiveWindow(){
   const end = PNL.window_end;
-  if(state.period==='YDAY') return {from:end, to:end};
+  // "Yesterday" = latest day that actually has data for the current filter
+  // (not literal today-1, which would be silently zero when data is stale).
+  if(state.period==='YDAY'){ const d = latestDataDate(); return {from:d, to:d}; }
   if(state.period==='L7') return {from: isoAdd(end, -6), to: end};
   if(state.period==='L30') return {from: PNL.window_start, to: end};
   return {from: state.customFrom, to: state.customTo};
@@ -385,17 +404,43 @@ function renderKPIs(){
     'UK £'+fmtNum(a.ukOrd.net_sales)+'×'+fx.toFixed(2)+' + US $'+fmtNum(a.usOrd.net_sales) :
     fmtNum(netOrders)+' net orders · '+fmtNum(netUnits)+' units';
   netSalesSub += deltaTag(netSales, priorSales);
-  document.getElementById('kpis').innerHTML = 
-    '<div class="kpi"><div class="label">Net Sales '+regionTag+'</div><div class="value">'+sym+fmtNum(netSales)+'</div><div class="sub2">'+netSalesSub+'</div></div>'+
-    '<div class="kpi"><div class="label">Net Orders</div><div class="value">'+fmtNum(netOrders)+'</div><div class="sub2">'+fmtNum(netUnits)+' units · excl. cancelled & samples</div></div>'+
-    '<div class="kpi"><div class="label">CM1 (Net Sales − Unit costs)</div><div class="value">'+cm1Shown+'</div><div class="sub2">'+cm1Pct+' of Net Sales</div></div>'+
-    '<div class="kpi"><div class="label">CM2 (Net Margin)</div><div class="value">'+cmShown+'</div><div class="sub2">'+cm2Pct+' · UK tax rules applied</div></div>'+
-    '<div class="kpi"><div class="label">Cancellations</div><div class="value">'+fmtNum(cancelOrders)+'</div><div class="sub2">'+sym+fmtNum(cancelAmt)+'</div></div>'+
-    '<div class="kpi"><div class="label">Samples</div><div class="value">'+fmtNum(sampleOrders)+'</div><div class="sub2">order_amt = 0</div></div>'+
-    '<div class="kpi"><div class="label">Returns (units)</div><div class="value">'+fmtNum(returnQty)+'</div><div class="sub2">'+sym+fmtNum(returnValue)+' value</div></div>'+
-    '<div class="kpi"><div class="label">Refunds</div><div class="value">'+sym+fmtNum(refundAmt)+'</div><div class="sub2">all status</div></div>'+
-    '<div class="kpi"><div class="label">Ad Spend</div><div class="value">'+sym+fmtNum(adSpend)+'</div><div class="sub2">Seller Center L30</div></div>'+
-    '<div class="kpi"><div class="label">Affiliate Comm</div><div class="value">'+sym+fmtNum(affComm)+'</div><div class="sub2">on shipped/delivered</div></div>';
+  // Gap detection: if NO orders, NO ad spend, NO affiliate for current filter+window,
+  // show "—" instead of currency-zero on every cash KPI. The window is "empty" not zero.
+  const windowEmpty = (netOrders===0) && (Math.abs(adSpend)<0.01) && (Math.abs(affComm)<0.01) && (Math.abs(netSales)<0.01);
+  const dash = '<span style="color:var(--mute)">—</span>';
+  const m = (val, formatted) => windowEmpty ? dash : formatted;
+  // Inject the freshness banner first (will be hidden if data is fresh)
+  renderFreshnessBanner(win);
+  document.getElementById('kpis').innerHTML =
+    '<div class="kpi"><div class="label">Net Sales '+regionTag+'</div><div class="value">'+m(netSales, sym+fmtNum(netSales))+'</div><div class="sub2">'+(windowEmpty?'no data in window':netSalesSub)+'</div></div>'+
+    '<div class="kpi"><div class="label">Net Orders</div><div class="value">'+m(netOrders, fmtNum(netOrders))+'</div><div class="sub2">'+(windowEmpty?'no data in window':fmtNum(netUnits)+' units · excl. cancelled & samples')+'</div></div>'+
+    '<div class="kpi"><div class="label">CM1 (Net Sales − Unit costs)</div><div class="value">'+(windowEmpty?dash:cm1Shown)+'</div><div class="sub2">'+(windowEmpty?'no data':cm1Pct+' of Net Sales')+'</div></div>'+
+    '<div class="kpi"><div class="label">CM2 (Net Margin)</div><div class="value">'+(windowEmpty?dash:cmShown)+'</div><div class="sub2">'+(windowEmpty?'no data':cm2Pct+' · UK tax rules applied')+'</div></div>'+
+    '<div class="kpi"><div class="label">Cancellations</div><div class="value">'+m(cancelOrders, fmtNum(cancelOrders))+'</div><div class="sub2">'+(windowEmpty?'':sym+fmtNum(cancelAmt))+'</div></div>'+
+    '<div class="kpi"><div class="label">Samples</div><div class="value">'+m(sampleOrders, fmtNum(sampleOrders))+'</div><div class="sub2">order_amt = 0</div></div>'+
+    '<div class="kpi"><div class="label">Returns (units)</div><div class="value">'+m(returnQty, fmtNum(returnQty))+'</div><div class="sub2">'+(windowEmpty?'':sym+fmtNum(returnValue)+' value')+'</div></div>'+
+    '<div class="kpi"><div class="label">Refunds</div><div class="value">'+m(refundAmt, sym+fmtNum(refundAmt))+'</div><div class="sub2">'+(windowEmpty?'':'all status')+'</div></div>'+
+    '<div class="kpi"><div class="label">Ad Spend</div><div class="value">'+m(adSpend, sym+fmtNum(adSpend))+'</div><div class="sub2">'+(windowEmpty?'':'Seller Center L30')+'</div></div>'+
+    '<div class="kpi"><div class="label">Affiliate Comm</div><div class="value">'+m(affComm, sym+fmtNum(affComm))+'</div><div class="sub2">'+(windowEmpty?'':'on shipped/delivered')+'</div></div>';
+}
+
+// Freshness banner — shows when the active window contains dates AFTER the
+// last day with real data, so users immediately see why KPIs are "—".
+function renderFreshnessBanner(win){
+  const el = document.getElementById('freshnessBanner');
+  if(!el) return;
+  const dataEnd = PNL.window_end;
+  const todayLocal = new Date().toISOString().slice(0,10);
+  const aheadDays = Math.max(0, Math.round((new Date(todayLocal) - new Date(dataEnd))/86400000));
+  // Hide if window is entirely <= dataEnd, OR data is fresh (≤1d behind today)
+  if(win.to <= dataEnd && aheadDays <= 1){ el.style.display = 'none'; return; }
+  const stale = win.to > dataEnd;
+  if(!stale){ el.style.display = 'none'; return; }
+  el.style.display = '';
+  el.innerHTML =
+    '<b>Showing data through '+dataEnd+'.</b> '+
+    '<span style="color:var(--mute)">'+aheadDays+' day'+(aheadDays===1?'':'s')+' ahead of last refresh — '+
+    'run <code>scripts/sync_from_handoff.bat</code> or wait for the daily 3:30 PM IST sync.</span>';
 }
 
 function renderPnLTable(){
@@ -844,6 +889,9 @@ function init(){
   }));
   document.getElementById('fromDate').min = PNL.window_start; document.getElementById('fromDate').max = PNL.window_end; document.getElementById('fromDate').value = PNL.window_start;
   document.getElementById('toDate').min = PNL.window_start; document.getElementById('toDate').max = PNL.window_end; document.getElementById('toDate').value = PNL.window_end;
+  // Yesterday-button tooltip — reflect the actual latest-with-data date
+  const ydayBtn = document.querySelector('#periodSeg button[data-v="YDAY"]');
+  if(ydayBtn){ ydayBtn.title = 'Yesterday = latest day with data (' + latestDataDate() + ')'; }
   refresh();
 }
 
@@ -862,6 +910,7 @@ HTML_BODY = """<!DOCTYPE html>
 <div class="wrap">
 <h1>Vahdam P&amp;L Tracker</h1>
 <div class="sub">TikTok Shop UK + US · Orders, Affiliate, Ad Spend, Creatives · CM1 / CM2 with UK tax rules</div>
+<div id="freshnessBanner" class="warn-strip" style="display:none;border-left-color:var(--neg);background:#FBE9C0"></div>
 <div class="bar">
 <label>Period</label>
 <div class="seg" id="periodSeg"><button data-v="YDAY">Yesterday</button><button data-v="L7">Last 7d</button><button data-v="L30" class="active">Last 30d</button><button data-v="CUSTOM">Custom</button></div>
