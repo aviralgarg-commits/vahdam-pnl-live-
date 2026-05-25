@@ -166,21 +166,22 @@ function aggregate(){
   });
   const ad = PNL.ad_spend_daily;
   let adSpendUK=0, adSpendUS=0, adUnallocUK=0, adUnallocUS=0;
+  // Drive scan from state.region (or both) — never hardcode UK; prevents
+  // cross-region ad-spend leakage on US views.
+  const regionsToScan = state.region === 'both' ? ['UK','US'] : [state.region];
   for(const day of days){
-    if(ad.daily_by_sku.UK[day]){
-      for(const [skuName, val] of Object.entries(ad.daily_by_sku.UK[day])){
-        if(state.region==='US') break;
-        if(skuName === '(unallocated)'){ if(!state.sku) adUnallocUK += val; continue; }
-        if(state.sku && state.sku!==skuName) continue;
-        adSpendUK += val;
-      }
-    }
-    if(ad.daily_by_sku.US[day]){
-      for(const [skuName, val] of Object.entries(ad.daily_by_sku.US[day])){
-        if(state.region==='UK') break;
-        if(skuName === '(unallocated)'){ if(!state.sku) adUnallocUS += val; continue; }
-        if(state.sku && state.sku!==skuName) continue;
-        adSpendUS += val;
+    for(const region of regionsToScan){
+      const dayMap = ad.daily_by_sku[region] && ad.daily_by_sku[region][day];
+      if(!dayMap) continue;
+      for(const [skuName, val] of Object.entries(dayMap)){
+        if(skuName === '(unallocated)' || skuName === 'Other'){
+          if(!state.sku){
+            if(region === 'UK') adUnallocUK += val; else adUnallocUS += val;
+          }
+          continue;
+        }
+        if(state.sku && state.sku !== skuName) continue;
+        if(region === 'UK') adSpendUK += val; else adSpendUS += val;
       }
     }
   }
