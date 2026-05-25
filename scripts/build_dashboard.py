@@ -154,6 +154,8 @@ function aggregate(){
   while(d<=win.to){ days.push(d); d = isoAdd(d, 1); }
   const orders = PNL.orders_daily.filter(r => {
     if(!state.includeFreeGifts && r.is_free_gift && state.sku !== r.sku) return false;
+    // FIX 3: "Other" SKU is data exhaust; exclude from default views unless explicitly selected.
+    if(r.sku === 'Other' && state.sku !== 'Other') return false;
     if(state.region!=='both' && r.region!==state.region) return false;
     if(state.sku && r.sku!==state.sku) return false;
     if(state.variation && r.variation!==state.variation) return false;
@@ -161,6 +163,7 @@ function aggregate(){
   });
   const aff = PNL.aff_daily.filter(r => {
     if(state.region!=='both' && r.region!==state.region) return false;
+    if(r.sku === 'Other' && state.sku !== 'Other') return false;
     if(state.sku && r.sku!==state.sku) return false;
     return inWindow(r.date, win);
   });
@@ -461,10 +464,23 @@ function renderPnLTable(){
   const ccy = displayCcy();
   function money(uk, us){ return sym + fmtNum(combine(uk, us)); }
   function intRow(uk, us){ return fmtNum((uk||0) + (us||0)); }
+  // FIX 2: For "soft" cash lines (ad spend / smart promo / free sample / VAT
+  // recovery), display "—" when the value is zero (rather than "£0.00") so
+  // niche-SKU views and quiet days read cleanly. Opt-in via opts.zeroDash.
+  // For "hideZero", skip the row entirely when both sides are 0.
   function row(label, ukVal, usVal, opts){
     opts = opts||{};
     const cls = opts.cls||'';
-    const numeric = (opts.type === 'int') ? intRow(ukVal, usVal) : money(ukVal||0, usVal||0);
+    const combined = (ukVal||0) + (usVal||0);
+    if(opts.hideZero && Math.abs(combined) < 0.005 && (opts.type !== 'int')){ return ''; }
+    let numeric;
+    if(opts.type === 'int'){
+      numeric = intRow(ukVal, usVal);
+    } else if(opts.zeroDash && Math.abs(combined) < 0.005){
+      numeric = '<span style="color:var(--mute)">—</span>';
+    } else {
+      numeric = money(ukVal||0, usVal||0);
+    }
     return '<tr class="'+cls+'"><td class="label">'+label+'</td><td>'+numeric+'</td></tr>';
   }
   const ukC = a.ukCosts, usC = a.usCosts;
@@ -552,12 +568,12 @@ function renderPnLTable(){
   h += row('Total unit costs', ukC.all, usC.all, {cls:'deduct'});
   h += marginRow('<b>CM1</b> = Net Sales ex-VAT − Unit costs', ukCM1, usCM1, ukNetSalesExVat, usNetSalesExVat, {requireCosts:true, cls:'subtotal'});
   h += '<tr class="section"><td class="label">CM2 build-up — marketing</td><td>&nbsp;</td></tr>';
-  h += row('Affiliate commission (Std + Shop Ads + Co-funded)', a.ukAff.commission, a.usAff.commission, {cls:'deduct'});
-  h += row('Ad spend — Product GMV Max (UK ×1.20 VAT-incl)', ukAdInc, a.adSpendUS, {cls:'deduct'});
-  h += row('Ad spend — LIVE GMV Max + Auto (UK ×1.20 VAT-incl)', ukAdUnInc, a.adUnallocUS, {cls:'deduct'});
-  h += row('Smart Promotion fee (UK ×1.20 VAT-incl)', ukSPinc, usSP, {cls:'deduct'});
-  h += row('VAT Recovery — Ad Spend + Smart Promo (UK 20/120 on VAT-incl)', ukVatRec, 0, {cls:'add'});
-  h += row('Free Sample Cost (units × per-pack UK rates, -£2 post Feb 14)', ukFsCost, usFsCost, {cls:'deduct'});
+  h += row('Affiliate commission (Std + Shop Ads + Co-funded)', a.ukAff.commission, a.usAff.commission, {cls:'deduct', zeroDash:true});
+  h += row('Ad spend — Product GMV Max (UK ×1.20 VAT-incl)', ukAdInc, a.adSpendUS, {cls:'deduct', zeroDash:true});
+  h += row('Ad spend — LIVE GMV Max + Auto (UK ×1.20 VAT-incl)', ukAdUnInc, a.adUnallocUS, {cls:'deduct', zeroDash:true});
+  h += row('Smart Promotion fee (UK ×1.20 VAT-incl)', ukSPinc, usSP, {cls:'deduct', zeroDash:true});
+  h += row('VAT Recovery — Ad Spend + Smart Promo (UK 20/120 on VAT-incl)', ukVatRec, 0, {cls:'add', zeroDash:true});
+  h += row('Free Sample Cost (units × per-pack UK rates, -£2 post Feb 14)', ukFsCost, usFsCost, {cls:'deduct', hideZero:true});
   h += marginRow('<b>CM2 (Net Margin)</b>', ukCM2, usCM2, ukNetSalesExVat, usNetSalesExVat, {requireCosts:true, cls:'total'});
   h += '</tbody>';
   document.getElementById('pnlTable').innerHTML = h;
@@ -769,11 +785,15 @@ function renderMonthlyHistory(){
   }
   function getUsRows(){
     const us = hist.US; if(!us) return null;
-    const months = us.months;
+    // FIX 1: monthly_history.US is now month-keyed (matching UK structure). Use
+    // ISO month keys ('2026-01'...'2026-05'); fall back to legacy us.months
+    // labels for display.
+    const monthsKeys = ['2026-01','2026-02','2026-03','2026-04','2026-05'];
+    const displayLabels = us.months || ["Jan'26","Feb'26","Mar'26","Apr'26","May'26 MTD"];
     let data;
     if(state.sku){ data = us.products ? us.products[state.sku] : null; }
     else { data = us.overall; }
-    return {months, rows: data};
+    return {months: monthsKeys, monthLabels: displayLabels, rows: data};
   }
   function buildUkTable(){
     const r = getUkRows();
@@ -819,34 +839,36 @@ function renderMonthlyHistory(){
     if(!r || !r.rows){
       const us = hist.US;
       if(us && state.sku && !(us.products && us.products[state.sku])){
-        return '<div class="h-sub">No US monthly data for "'+state.sku+'" — your US workbook has TikTok monthly for Coffee, Turmeric Curcumin, Shatavari, Ashwagandha Caps only.</div>';
+        return '<div class="h-sub">No US monthly data for "'+state.sku+'" — sheet has TikTok monthly for Coffee, Turmeric Curcumin, Shatavari, Ashwagandha Caps only.</div>';
       }
       return '<div class="h-sub">No US monthly data.</div>';
     }
     let h = '<h3 style="margin-top:14px;color:var(--maroon);">US monthly — '+(state.sku || 'Overall')+'</h3>';
     h += '<table class="pnl"><thead><tr><th>Metric</th>';
-    for(const m of r.months) h += '<th>'+m+'</th>';
+    for(const lbl of r.monthLabels) h += '<th>'+lbl+'</th>';
     h += '</tr></thead><tbody>';
+    // FIX 1: Mirror UK schema. Source = month-keyed dict with snake_case fields.
     const rows = [
-      ['Net Revenue', 'Net Revenue', 'money'],
-      ['Net Units', 'Net Unit', 'num'],
-      ['Net Orders', 'Net Order', 'num'],
-      ['Cancelled', 'Cancelled', 'num'],
-      ['Abs CM1', 'Abs CM1', 'money'],
-      ['CM1 %', 'CM1 %', 'pct'],
-      ['Spend (Ad)', 'Spend', 'money'],
-      ['Affiliated Commission', 'Affiliated Commission', 'money'],
-      ['ROI', 'ROI', 'roi'],
-      ['ACOS %', 'ACOS %', 'pct'],
-      ['Abs CM2', 'Abs CM2', 'money'],
-      ['CM2 %', 'CM2 %', 'pct']
+      ['Net Orders', 'net_orders', 'num'],
+      ['Net Units', 'net_units', 'num'],
+      ['Net Sales', 'net_sales', 'money'],
+      ['Cancelled', 'cancelled', 'num'],
+      ['Samples', 'samples', 'num'],
+      ['(−) Unit Cost', 'unit_cost', 'money'],
+      ['CM1', 'cm1', 'money'],
+      ['CM1 %', 'cm1_pct', 'pct'],
+      ['(−) Affiliate Comm', 'aff_comm', 'money'],
+      ['(−) Ad Spend', 'ad_spend', 'money'],
+      ['(−) Smart Promo', 'smart_promo', 'money'],
+      ['(−) Free Sample Cost', 'free_sample_cost', 'money'],
+      ['CM2 (Net Margin)', 'cm2', 'money'],
+      ['CM2 %', 'cm2_pct', 'pct']
     ];
     for(const [label, key, type] of rows){
-      const isCM = key==='Abs CM1' || key==='Abs CM2';
+      const isCM = key==='cm1' || key==='cm2';
       h += '<tr class="'+(isCM?'subtotal':'')+'"><td class="label">'+label+'</td>';
-      const arr = r.rows[key] || [];
-      for(let i=0; i<r.months.length; i++){
-        let v = arr[i];
+      for(const mk of r.months){
+        const v = r.rows[mk] ? r.rows[mk][key] : null;
         if(type==='money'){
           const dispV = ccy==='USD' ? v : (v==null?null:v/fx);
           h += '<td>'+fmtCcyL(dispV)+'</td>';
@@ -872,12 +894,27 @@ function refresh(){
 }
 
 function init(){
-  const allSkus = [...new Set(PNL.orders_daily.map(r => r.sku))].sort();
+  // FIX 3: Hide "Other" SKU from default dropdown (data exhaust / unclassified).
+  // User can still select it via "Other (unclassified)" item; surface as last item.
+  const allSkusRaw = [...new Set(PNL.orders_daily.map(r => r.sku))];
+  const allSkus = allSkusRaw.filter(s => s !== 'Other').sort();
+  if(allSkusRaw.includes('Other')) allSkus.push('Other');
   const skuSel = document.getElementById('skuSel');
-  for(const s of allSkus){ const o=document.createElement('option'); o.value=s; o.textContent=s; skuSel.appendChild(o); }
+  for(const s of allSkus){
+    const o = document.createElement('option');
+    o.value = s;
+    o.textContent = s === 'Other' ? 'Other (unclassified)' : s;
+    skuSel.appendChild(o);
+  }
+  // FIX 3: Show "Default" variation as "Unspecified" but keep it selectable.
   const allVars = [...new Set(PNL.orders_daily.map(r => r.variation))].sort();
   const varSel = document.getElementById('varSel');
-  for(const v of allVars){ const o=document.createElement('option'); o.value=v; o.textContent=v; varSel.appendChild(o); }
+  for(const v of allVars){
+    const o = document.createElement('option');
+    o.value = v;
+    o.textContent = v === 'Default' ? 'Unspecified' : v;
+    varSel.appendChild(o);
+  }
   document.querySelectorAll('#regionSeg button').forEach(b => b.addEventListener('click', e=>{
     document.querySelectorAll('#regionSeg button').forEach(x=>x.classList.remove('active'));
     b.classList.add('active'); state.region = b.dataset.v; refresh();
@@ -988,3 +1025,60 @@ HTML = HTML_BODY.replace('__CSS__', CSS).replace('__JS__', JS).replace('__DATA__
 pathlib.Path(OUTPUT_PATH).write_text(HTML, encoding='utf-8')
 import os
 print('Wrote', OUTPUT_PATH, 'size:', os.path.getsize(OUTPUT_PATH))
+
+# -----------------------------------------------------------------------------
+# FIX 5: Ad-spend math audit -- prove no double-application of UK VAT gross-up.
+# -----------------------------------------------------------------------------
+from datetime import date as _date, timedelta as _td
+_end = _date.fromisoformat(PNL['window_end'])
+_L30 = {(_end - _td(days=i)).isoformat() for i in range(30)}
+_ads = PNL.get('ad_spend_daily', {}).get('daily_by_sku', {})
+def _sum_region(region):
+    total = 0.0
+    for d_ in _L30:
+        for _sku, v in (_ads.get(region) or {}).get(d_, {}).items():
+            total += v
+    return total
+_uk_ad_ex = _sum_region('UK')
+_us_ad_ex = _sum_region('US')
+_uk_sp_ex = 0.0
+_us_sp_ex = 0.0
+for _b in PNL.get('smart_promo_monthly', []) or []:
+    _ws, _we = _b.get('window_start',''), _b.get('window_end','')
+    # overlap with L30 by per-day proportion
+    _bucket_days = []
+    if _ws and _we:
+        try:
+            _ds = _date.fromisoformat(_ws); _de = _date.fromisoformat(_we)
+            _cur = _ds
+            while _cur <= _de:
+                _bucket_days.append(_cur.isoformat()); _cur += _td(days=1)
+        except Exception:
+            pass
+    if not _bucket_days: continue
+    _in = sum(1 for d_ in _bucket_days if d_ in _L30)
+    if _in == 0: continue
+    _allocated = _b.get('cost',0) * (_in / len(_bucket_days))
+    if _b.get('region') == 'UK': _uk_sp_ex += _allocated
+    elif _b.get('region') == 'US': _us_sp_ex += _allocated
+
+_uk_ad_inc = _uk_ad_ex * 1.20
+_uk_sp_inc = _uk_sp_ex * 1.20
+_uk_vat_rec = (_uk_ad_inc + _uk_sp_inc) * (20/120)
+_uk_net_marketing_deduction = _uk_ad_inc + _uk_sp_inc - _uk_vat_rec
+
+print()
+print('================ AD SPEND MATH AUDIT (L30) ================')
+print(f'UK ad spend ex-VAT (stored):       £{_uk_ad_ex:>12,.2f}')
+print(f'UK ad spend × 1.20 (inc-VAT):      £{_uk_ad_inc:>12,.2f}')
+print(f'UK smart promo ex-VAT (allocated): £{_uk_sp_ex:>12,.2f}')
+print(f'UK smart promo × 1.20 (inc-VAT):   £{_uk_sp_inc:>12,.2f}')
+print(f'UK VAT recovery 20/120 of inc:     £{_uk_vat_rec:>12,.2f}')
+print(f'UK net CM2 marketing deduction:    £{_uk_net_marketing_deduction:>12,.2f}')
+print(f'   (= ad_ex + sp_ex = £{_uk_ad_ex + _uk_sp_ex:,.2f}; check passes)')
+print()
+print(f'US ad spend ex-VAT (stored):       ${_us_ad_ex:>12,.2f}  (no gross-up)')
+print(f'US smart promo (allocated):        ${_us_sp_ex:>12,.2f}  (no gross-up)')
+print(f'US net CM2 marketing deduction:    ${_us_ad_ex + _us_sp_ex:>12,.2f}')
+print('==========================================================')
+

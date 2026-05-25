@@ -150,10 +150,23 @@ def parse_us_markdown():
 
     Returns ({iso_date: {label: value}}, {month_key: {label: value}}).
     """
-    path = (Path.home() / ".claude" / "projects" /
-            "C--Users-Aviral-Garg-Downloads-Claude-Code-Artefact" /
-            "f2a84419-a50a-4f97-9276-747c5dd0cc85" / "tool-results" /
-            "mcp-6f10172d-4495-4563-8d22-5f7436f27df1-read_file_content-1779714389956.txt")
+    # Find the most-recent tool-result file for the Drive MCP read_file_content
+    # on the US sheet. Falls back to a known earlier file if newer not present.
+    tr_dir = (Path.home() / ".claude" / "projects" /
+              "C--Users-Aviral-Garg-Downloads-Claude-Code-Artefact" /
+              "f2a84419-a50a-4f97-9276-747c5dd0cc85" / "tool-results")
+    cands = sorted(tr_dir.glob("mcp-6f10172d-*-read_file_content-*.txt"))
+    # Pick the most recent that contains "USA Tiktok+Amazon" in the title (US sheet)
+    path = None
+    for p in reversed(cands):
+        try:
+            head = p.read_text(encoding="utf-8")[:5000]
+            if "USA" in head or "Coffee + Shatavari" in head:
+                path = p; break
+        except Exception:
+            continue
+    if path is None:
+        raise FileNotFoundError("US sheet markdown dump not found in tool-results")
     c = json.loads(path.read_text(encoding="utf-8"))["fileContent"]
     lines = c.split("\n")
 
@@ -498,8 +511,8 @@ def main():
     if us_daily:
         sample_iso = "2026-05-24"
         print(f"  US daily sample {sample_iso}: {us_daily.get(sample_iso, {})}")
-    write_report("UK", uk_sheet, "£", "dod_comparison_UK.md")
-    write_report("US", us_daily, "$", "dod_comparison_US.md")
+    write_report("UK", uk_sheet, "£", "dod_compare_UK.md")
+    write_report("US", us_daily, "$", "dod_compare_US.md")
     write_us_mtd_report(us_monthly)
     return 0
 
