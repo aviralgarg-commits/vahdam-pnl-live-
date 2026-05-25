@@ -1,0 +1,865 @@
+﻿Order ID,Order Status,Order Substatus,Cancelation/Return Type,Normal or Pre-order,SKU ID,Seller SKU,Product Name,Variation,Quantity,Sku Quantity of return,SKU Unit Original Price,SKU Subtotal Before Discount,SKU Platform Discount,SKU Seller Discount,SKU Subtotal After Discount,Shipping Fee After Discount,Original Shipping Fee,Shipping Fee Seller Discount,Shipping Fee Platform Discount,Taxes,Order Amount,Order Refund Amount,Created Time,Paid Time,RTH Time,Shipped Time,Delivered Time,Cancelled Time,Cancel By,Cancel Reason,Fulfillment Type,Warehouse Name,Tracking ID,Delivery Option,Shipping Provider Name,Buyer Message,Buyer Username,Recipient,Phone #,Zipcode,State,Country,County,Districts,Street Name,House Name or Number,Delivery Instruction,Payment Method,Weight(kg),Product Category,Package ID,Seller Note,Shipping Information,Checked Status,Checked Marked by,Product Tax Amount,Product Tax Rate,Shipping Tax Amount,Shipping Tax Rate
+576896891278170606	,Shipped,In transit,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 3.90,GBP 15.10,GBP 20.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 20.99,,16/05/2026 19:46:42	,16/05/2026 19:47:35	,,18/05/2026 22:54:39	,"	","	",,,Fulfillment by seller,otto,QM979771422GB,Shipped by seller,Royal Mail,,liee34599,liee,(+44)7477246748,G61 4RJ	,United Kingdom,Scotland,East Dunbartonshire,,"17 Fintry Gardens Bearsden, Glasgow",Glasgow,,Klarna,0.1,Coffee Substitutes,1154083590172809710	,,"liee
+(+44)7477246748
+Glasgow 17 Fintry Gardens Bearsden, Glasgow
+East Dunbartonshire
+G61 4RJ
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896877615093957	,Shipped,In transit,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 14.00,GBP 25.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 25.99,,16/05/2026 19:12:31	,16/05/2026 19:12:34	,,18/05/2026 22:59:30	,"	","	",,,Fulfillment by seller,otto,QM979771382GB,Shipped by seller,Royal Mail,,24zrasclart,Usman Shabbir,(+44)7455429502,B10 9JB	,United Kingdom,England,West Midlands,,"6 Farmer Road,Birmingham","6 Farmer Road,Birmingham",,Credit/debit card,0.1,Coffee Substitutes,1154083572458166469	,,"Usman Shabbir
+(+44)7455429502
+6 Farmer Road,Birmingham
+West Midlands
+B10 9JB
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896714777598342	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 15.30,GBP 24.69,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 24.69,,16/05/2026 11:47:26	,16/05/2026 11:47:30	,,16/05/2026 20:21:22	,18/05/2026 12:16:23	,"	",,,Fulfillment by seller,otto,QM979770912GB,Shipped by seller,Royal Mail,,r586563,Marta Plesca,(+44)7909392630,B11 4HR	,United Kingdom,England,West Midlands,,"17 Rhone Close, Birmingham","17 Rhone Close, Birmingham",,Apple Pay,0.1,Coffee Substitutes,1154082898571008390	,,"Marta Plesca
+(+44)7909392630
+17 Rhone Close, Birmingham
+West Midlands
+B11 4HR
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896644713650663	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 7.00,GBP 60.00,GBP 52.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 52.99,,16/05/2026 08:18:39	,16/05/2026 08:18:43	,,17/05/2026 18:31:51	,18/05/2026 14:31:51	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540059690,Fulfiled by TikTok Shop-Standard,,,larajohn76,O*********** O*****,(+44)074******91,LS12 5BP	,United Kingdom,England,West Yorkshire,,***************************,***************************,,Credit/debit card,0.1,Coffee Substitutes,1154082358530316775	,,"O*********** O*****
+(+44)074******91
+***************************
+West Yorkshire
+LS12 5BP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896644713650663	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 52.99,,16/05/2026 08:18:39	,16/05/2026 08:18:43	,,17/05/2026 18:31:51	,18/05/2026 14:31:51	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540059690,Fulfiled by TikTok Shop-Standard,,,larajohn76,O*********** O*****,(+44)074******91,LS12 5BP	,United Kingdom,England,West Yorkshire,,***************************,***************************,,Credit/debit card,0.2,Tea,1154082358530316775	,,"O*********** O*****
+(+44)074******91
+***************************
+West Yorkshire
+LS12 5BP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896503424587894	,Shipped,In transit,,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 140.98,,15/05/2026 20:51:25	,15/05/2026 20:51:28	,,19/05/2026 08:25:15	,"	","	",,,Fulfillment by seller,otto,FP274308845GB,Shipped by seller,Royal Mail,,egbodokun,Noimot Egbodoku,(+44)7711202829,B34 7NR	,United Kingdom,England,West Midlands,,"14 School Drive Shard End, Birmingham","14 School Drive Shard End, Birmingham",,Credit/debit card,0.25,Coffee-Making Tools,1154081837560535158	,,"Noimot Egbodoku
+(+44)7711202829
+14 School Drive Shard End, Birmingham
+West Midlands
+B34 7NR
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896503424587894	,Shipped,In transit,,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,2,0,GBP 199.99,GBP 399.98,GBP 30.00,GBP 229.00,GBP 140.98,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 140.98,,15/05/2026 20:51:25	,15/05/2026 20:51:28	,,19/05/2026 08:25:15	,"	","	",,,Fulfillment by seller,otto,FP274308845GB,Shipped by seller,Royal Mail,,egbodokun,Noimot Egbodoku,(+44)7711202829,B34 7NR	,United Kingdom,England,West Midlands,,"14 School Drive Shard End, Birmingham","14 School Drive Shard End, Birmingham",,Credit/debit card,0.2,Coffee Substitutes,1154081837560535158	,,"Noimot Egbodoku
+(+44)7711202829
+14 School Drive Shard End, Birmingham
+West Midlands
+B34 7NR
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896473178282619	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 0.00,GBP 60.00,GBP 59.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 59.99,,15/05/2026 19:42:10	,15/05/2026 19:42:13	,,16/05/2026 05:55:55	,17/05/2026 19:55:55	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRRFM53FH4,Fulfiled by TikTok Shop-Standard,,,faezmohd576,f**********,(+44)730*****51,E17 8DD	,United Kingdom,England,Greater London,,***************************,***************************,,PayPal,0.1,Coffee Substitutes,1154081650811574907	,,"f**********
+(+44)730*****51
+***************************
+Greater London
+E17 8DD
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896473178282619	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 59.99,,15/05/2026 19:42:10	,15/05/2026 19:42:13	,,16/05/2026 05:55:55	,17/05/2026 19:55:55	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRRFM53FH4,Fulfiled by TikTok Shop-Standard,,,faezmohd576,f**********,(+44)730*****51,E17 8DD	,United Kingdom,England,Greater London,,***************************,***************************,,PayPal,0.2,Tea,1154081650811574907	,,"f**********
+(+44)730*****51
+***************************
+Greater London
+E17 8DD
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896430243420456	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 15.30,GBP 24.69,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 24.69,,15/05/2026 17:59:25	,15/05/2026 17:59:29	,,16/05/2026 20:26:10	,18/05/2026 09:52:07	,"	",,,Fulfillment by seller,otto,QM979769463GB,Shipped by seller,Royal Mail,,simshine2019,Sim sheri,(+44)7432643395,DA1 1TL	,United Kingdom,England,Kent,,"Flat 1, Victoria Court, 45 Little Queen Street, Dartford","Flat 1, Victoria Court, 45 Little Queen Street, Dartford",,Google Pay,0.1,Coffee Substitutes,1154081585911798056	,,"Sim sheri
+(+44)7432643395
+Flat 1, Victoria Court, 45 Little Queen Street, Dartford
+Kent
+DA1 1TL
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896272210303679	,Shipped,Delivered,,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,1,0,GBP 199.99,GBP 199.99,GBP 18.00,GBP 119.15,GBP 62.84,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 62.84,,15/05/2026 10:59:26	,15/05/2026 10:59:29	,,16/05/2026 01:26:51	,18/05/2026 14:50:46	,"	",,,Fulfillment by seller,otto,FP274308559GB,Shipped by seller,Royal Mail,,rebecca.kitcher,Rebecca Kitcher,(+44)7539322784,SO16 4AS	,United Kingdom,England,Southampton,,"15 Helvellyn Road, Southampton","15 Helvellyn Road, Southampton",,Apple Pay,0.1,Coffee Substitutes,1154080685786372799	,,"Rebecca Kitcher
+(+44)7539322784
+15 Helvellyn Road, Southampton
+Southampton
+SO16 4AS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896272210303679	,Shipped,Completed,,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 62.84,,15/05/2026 10:59:26	,15/05/2026 10:59:29	,,16/05/2026 01:26:51	,18/05/2026 14:50:46	,"	",,,Fulfillment by seller,otto,FP274308559GB,Shipped by seller,Royal Mail,,rebecca.kitcher,Rebecca Kitcher,(+44)7539322784,SO16 4AS	,United Kingdom,England,Southampton,,"15 Helvellyn Road, Southampton","15 Helvellyn Road, Southampton",,Apple Pay,0.25,Coffee-Making Tools,1154080685786372799	,,"Rebecca Kitcher
+(+44)7539322784
+15 Helvellyn Road, Southampton
+Southampton
+SO16 4AS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896268088679312	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 6.48,GBP 66.00,GBP 47.51,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 47.51,,15/05/2026 10:47:20	,15/05/2026 10:47:54	,,15/05/2026 23:01:27	,16/05/2026 13:01:27	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540053163,Fulfiled by TikTok Shop-Standard,,,the.reelchioma,C************,(+44)740*****21,HU3 3QE	,United Kingdom,England,Hull,,**************************,**************************,,ClearPay,0.1,Coffee Substitutes,1154080488694520720	,,"C************
+(+44)740*****21
+**************************
+Hull
+HU3 3QE
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896268088679312	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 47.51,,15/05/2026 10:47:20	,15/05/2026 10:47:54	,,15/05/2026 23:01:27	,16/05/2026 13:01:27	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540053163,Fulfiled by TikTok Shop-Standard,,,the.reelchioma,C************,(+44)740*****21,HU3 3QE	,United Kingdom,England,Hull,,**************************,**************************,,ClearPay,0.2,Tea,1154080488694520720	,,"C************
+(+44)740*****21
+**************************
+Hull
+HU3 3QE
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896266597931541	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 2.00,GBP 17.57,GBP 20.42,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 20.42,,15/05/2026 10:43:43	,15/05/2026 10:44:19	,,16/05/2026 05:20:33	,18/05/2026 09:33:43	,"	",,,Fulfillment by seller,otto,QM979768882GB,Shipped by seller,Royal Mail,,dayoawosika,Dayo Awosika,(+44)7961178007,RM13 8LU	,United Kingdom,England,Essex,,37 Philip Road,Rainham,,PayPal,0.1,Coffee Substitutes,1154080645893626389	,,"Dayo Awosika
+(+44)7961178007
+Rainham 37 Philip Road
+Essex
+RM13 8LU
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896265421495047	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 2.00,GBP 19.61,GBP 18.38,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 18.38,,15/05/2026 10:39:58	,15/05/2026 10:40:54	,,16/05/2026 05:49:36	,18/05/2026 11:00:39	,"	",,,Fulfillment by seller,otto,QM979768879GB,Shipped by seller,Royal Mail,,raviswarna2412,Suwaneswary Raveenthiran,(+44)7850745564,HP20 2HF	,United Kingdom,England,Buckinghamshire,,"91 Hilton Avenue, Aylesbury","91 Hilton Avenue, Aylesbury",,Credit/debit card,0.1,Coffee Substitutes,1154080635576359687	,,"Suwaneswary Raveenthiran
+(+44)7850745564
+91 Hilton Avenue, Aylesbury
+Buckinghamshire
+HP20 2HF
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896263305337477	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 14.00,GBP 25.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 25.99,,15/05/2026 10:35:33	,15/05/2026 10:36:06	,,16/05/2026 01:24:49	,18/05/2026 12:49:27	,"	",,,Fulfillment by seller,otto,QM979768865GB,Shipped by seller,Royal Mail,,scupper64,Kevin scholes,(+44)7918160899,BT66 7LL	,United Kingdom,Northern Ireland,Armagh Banbridge and Craigavon,,8 MOSS VIEW Craigavon,8 MOSS VIEW Craigavon,,ClearPay,0.1,Coffee Substitutes,1154080624618936965	,,"Kevin scholes
+(+44)7918160899
+8 MOSS VIEW Craigavon
+Armagh Banbridge and Craigavon
+BT66 7LL
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896262841408353	,Cancelled,Cancelled,Cancel,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,1,GBP 119.99,GBP 119.99,GBP 4.86,GBP 71.40,GBP 43.73,GBP 0.00,GBP 4.99,GBP 1.00,GBP 3.99,GBP 0.00,GBP 43.73,GBP 43.73,15/05/2026 10:32:17	,"	",,"	","	",15/05/2026 11:32:18	,System,Customer overdue to pay,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfilled by TikTok Shop (Express),,,majedachowdhuryud,M***** C**************,(+44)794*****04,N17 8NG	,United Kingdom,England,Greater London,,************************,******,,Credit/debit card,0.1,Coffee Substitutes,"	",,"M***** C**************
+(+44)794*****04
+****** ************************
+Greater London
+N17 8NG
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576896259989084324	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 6.30,GBP 16.49,GBP 17.20,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 17.20,,15/05/2026 10:27:03	,15/05/2026 10:27:06	,,16/05/2026 10:33:11	,18/05/2026 12:26:28	,"	",,,Fulfillment by seller,otto,QM979768848GB,Shipped by seller,Royal Mail,,asma58x,Asma Bi,(+44)7563027090,B23 7SN	,United Kingdom,England,West Midlands,,"20 Shakespeare Road, Birmingham","20 Shakespeare Road, Birmingham",,Apple Pay,0.1,Coffee Substitutes,1154080594840098980	,,"Asma Bi
+(+44)7563027090
+20 Shakespeare Road, Birmingham
+West Midlands
+B23 7SN
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896259727530720	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 45.75,,15/05/2026 10:24:59	,15/05/2026 10:25:40	,,16/05/2026 02:39:18	,16/05/2026 14:39:20	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR2RLY52M3,Fulfiled by TikTok Shop-Standard,,,ve_ve107,V***  E****,(+44)750*****83,SE15 3LX	,United Kingdom,England,Greater London,,************************,************************,,PayPal,0.2,Tea,1154080423782554336	,,"V***  E****
+(+44)750*****83
+************************
+Greater London
+SE15 3LX
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896259727530720	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 8.24,GBP 66.00,GBP 45.75,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 45.75,,15/05/2026 10:24:59	,15/05/2026 10:25:40	,,16/05/2026 02:39:18	,16/05/2026 14:39:20	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR2RLY52M3,Fulfiled by TikTok Shop-Standard,,,ve_ve107,V***  E****,(+44)750*****83,SE15 3LX	,United Kingdom,England,Greater London,,************************,************************,,PayPal,0.1,Coffee Substitutes,1154080423782554336	,,"V***  E****
+(+44)750*****83
+************************
+Greater London
+SE15 3LX
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896252528138342	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,2,0,GBP 79.99,GBP 159.98,GBP 15.04,GBP 76.00,GBP 68.94,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 68.94,,15/05/2026 10:06:41	,15/05/2026 10:07:41	,,16/05/2026 01:25:35	,18/05/2026 13:11:45	,"	",,,Fulfillment by seller,otto,FP274308125GB,Shipped by seller,Royal Mail,,user9593378192750,Binta sowe,(+44)7309103199,OX13 6FS	,United Kingdom,England,Oxfordshire,,"15 Plantation Avenue Marcham, Abingdon","15 Plantation Avenue Marcham, Abingdon",,PayPal,0.2,Coffee Substitutes,1154080536595503206	,,"Binta sowe
+(+44)7309103199
+15 Plantation Avenue Marcham, Abingdon
+Oxfordshire
+OX13 6FS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896252528138342	,Shipped,Completed,,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 68.94,,15/05/2026 10:06:41	,15/05/2026 10:07:41	,,16/05/2026 01:25:35	,18/05/2026 13:11:45	,"	",,,Fulfillment by seller,otto,FP274308125GB,Shipped by seller,Royal Mail,,user9593378192750,Binta sowe,(+44)7309103199,OX13 6FS	,United Kingdom,England,Oxfordshire,,"15 Plantation Avenue Marcham, Abingdon","15 Plantation Avenue Marcham, Abingdon",,PayPal,0.25,Coffee-Making Tools,1154080536595503206	,,"Binta sowe
+(+44)7309103199
+15 Plantation Avenue Marcham, Abingdon
+Oxfordshire
+OX13 6FS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896247504410982	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 2.00,GBP 16.49,GBP 21.50,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 21.50,,15/05/2026 09:49:04	,15/05/2026 09:49:08	,,16/05/2026 05:49:26	,18/05/2026 14:18:41	,"	",,,Fulfillment by seller,otto,QM979768750GB,Shipped by seller,Royal Mail,,aboagye746,ABAb Apauh,(+44)7340186313,M23 2RG	,United Kingdom,England,Greater Manchester,,"4 Nevendon Drive, Manchester","4 Nevendon Drive, Manchester",,Credit/debit card,0.1,Coffee Substitutes,1154080485349955942	,,"ABAb Apauh
+(+44)7340186313
+4 Nevendon Drive, Manchester
+Greater Manchester
+M23 2RG
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896245985679537	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 6.48,GBP 66.00,GBP 47.51,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 47.51,,15/05/2026 09:45:04	,15/05/2026 09:45:18	,,16/05/2026 01:58:02	,16/05/2026 13:58:03	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR7Y18FY3G,Fulfiled by TikTok Shop-Standard,,,shashasha1620,Y**** S******,(+44)777*****96,LE5 4UG	,United Kingdom,England,Leicester,,********************************,********************************,,Credit/debit card,0.1,Coffee Substitutes,1154080321845106865	,,"Y**** S******
+(+44)777*****96
+********************************
+Leicester
+LE5 4UG
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896245985679537	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 47.51,,15/05/2026 09:45:04	,15/05/2026 09:45:18	,,16/05/2026 01:58:02	,16/05/2026 13:58:03	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR7Y18FY3G,Fulfiled by TikTok Shop-Standard,,,shashasha1620,Y**** S******,(+44)777*****96,LE5 4UG	,United Kingdom,England,Leicester,,********************************,********************************,,Credit/debit card,0.2,Tea,1154080321845106865	,,"Y**** S******
+(+44)777*****96
+********************************
+Leicester
+LE5 4UG
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896243707451542	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 7.05,GBP 16.49,GBP 16.45,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 16.45,,15/05/2026 09:37:47	,15/05/2026 09:37:50	,,16/05/2026 01:24:49	,18/05/2026 11:20:55	,"	",,,Fulfillment by seller,otto,QM979768746GB,Shipped by seller,Royal Mail,,kym5727,kym Allen,(+44)7398231051,NG8 5QJ	,United Kingdom,England,Nottingham,,"18 Wetherby Close,Nottingham","18 Wetherby Close,Nottingham",,Apple Pay,0.1,Coffee Substitutes,1154080459426011286	,,"kym Allen
+(+44)7398231051
+18 Wetherby Close,Nottingham
+Nottingham
+NG8 5QJ
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896241034107180	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 0.00,GBP 71.00,GBP 48.99,GBP 3.99,GBP 3.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 52.98,,15/05/2026 09:32:32	,15/05/2026 09:32:37	,,15/05/2026 23:57:57	,19/05/2026 12:38:39	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,FE794494615GB,Fulfiled by TikTok Shop-Standard,,,jackiestarrs1,J*********  s*****,(+44)772*****33,BT48 8BY	,United Kingdom,Northern Ireland,Derry City and Strabane,,************,*****,,Credit/debit card,0.1,Coffee Substitutes,1154080291373226284	,,"J*********  s*****
+(+44)772*****33
+***** ************
+Derry City and Strabane
+BT48 8BY
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896241034107180	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 3.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 52.98,,15/05/2026 09:32:32	,15/05/2026 09:32:37	,,15/05/2026 23:57:57	,19/05/2026 12:38:39	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,FE794494615GB,Fulfiled by TikTok Shop-Standard,,,jackiestarrs1,J*********  s*****,(+44)772*****33,BT48 8BY	,United Kingdom,Northern Ireland,Derry City and Strabane,,************,*****,,Credit/debit card,0.2,Tea,1154080291373226284	,,"J*********  s*****
+(+44)772*****33
+***** ************
+Derry City and Strabane
+BT48 8BY
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896233479510272	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 6.48,GBP 66.00,GBP 47.51,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 47.51,,15/05/2026 09:06:02	,15/05/2026 09:06:07	,,16/05/2026 01:19:22	,16/05/2026 15:19:22	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR4KV8KVN8,Fulfiled by TikTok Shop-Standard,,,monraelcakes_slough,M***** O********,(+44)747*****61,SL1 5BP	,United Kingdom,England,Slough,,**********************************,**********************************,,Credit/debit card,0.1,Coffee Substitutes,1154080229821159680	,,"M***** O********
+(+44)747*****61
+**********************************
+Slough
+SL1 5BP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896233479510272	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 47.51,,15/05/2026 09:06:02	,15/05/2026 09:06:07	,,16/05/2026 01:19:22	,16/05/2026 15:19:22	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR4KV8KVN8,Fulfiled by TikTok Shop-Standard,,,monraelcakes_slough,M***** O********,(+44)747*****61,SL1 5BP	,United Kingdom,England,Slough,,**********************************,**********************************,,Credit/debit card,0.2,Tea,1154080229821159680	,,"M***** O********
+(+44)747*****61
+**********************************
+Slough
+SL1 5BP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896226447300911	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 4.20,GBP 38.00,GBP 37.79,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 37.79,,15/05/2026 08:42:27	,15/05/2026 08:42:31	,,16/05/2026 01:28:52	,18/05/2026 10:42:04	,"	",,,Fulfillment by seller,otto,QM979768595GB,Shipped by seller,Royal Mail,,user9813841001322,Asad Hussain,(+44)7958334841,NW5 2UD	,United Kingdom,England,Greater London,,"Flat 11, Aborfield Peckwater Street, London","Flat 11, Aborfield Peckwater Street, London",,Apple Pay,0.1,Coffee Substitutes,1154080313398827311	,,"Asad Hussain
+(+44)7958334841
+Flat 11, Aborfield Peckwater Street, London
+Greater London
+NW5 2UD
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576896209548318795	,Shipped,Delivered,,Normal,1729735804972079275	,,"【VAHDAM】Turmeric Curcumin 1800mg High Strength | Lakadong Turmeric | 95% Curcuminoids with Black Pepper, Ginger & Boswellia Extract | Joint & Mobility Support | 90 Veg Capsules | Food Supplement UK Healthcare",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 15.00,GBP 24.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 24.99,,15/05/2026 07:46:37	,15/05/2026 07:46:41	,,16/05/2026 01:59:37	,16/05/2026 09:59:37	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRMXM7TFT9,Fulfiled by TikTok Shop-Standard,,,adeshinaakerele5,a******* A******,(+44)793*****89,E16 1LQ	,United Kingdom,England,Greater London,,***********************,***********************,,PayPal,0.2,Wellness Supplements,1154080076288530507	,,"a******* A******
+(+44)793*****89
+***********************
+Greater London
+E16 1LQ
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895987121756870	,Shipped,Delivered,,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,1,0,GBP 199.99,GBP 199.99,GBP 0.00,GBP 123.50,GBP 76.49,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 76.49,,14/05/2026 18:11:06	,14/05/2026 18:11:16	,,16/05/2026 02:33:04	,18/05/2026 15:24:33	,"	",,,Fulfillment by seller,otto,FP274308001GB,Shipped by seller,Royal Mail,,aanulydia,Aanu Oyedele,(+44)7496540302,M14 7WW	,United Kingdom,England,Greater Manchester,,"14 Wansford Street, Manchester","14 Wansford Street, Manchester",,Credit/debit card,0.1,Coffee Substitutes,1154079216709049030	,,"Aanu Oyedele
+(+44)7496540302
+14 Wansford Street, Manchester
+Greater Manchester
+M14 7WW
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895987121756870	,Shipped,Completed,,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 76.49,,14/05/2026 18:11:06	,14/05/2026 18:11:16	,,16/05/2026 02:33:04	,18/05/2026 15:24:33	,"	",,,Fulfillment by seller,otto,FP274308001GB,Shipped by seller,Royal Mail,,aanulydia,Aanu Oyedele,(+44)7496540302,M14 7WW	,United Kingdom,England,Greater Manchester,,"14 Wansford Street, Manchester","14 Wansford Street, Manchester",,Credit/debit card,0.25,Coffee-Making Tools,1154079216709049030	,,"Aanu Oyedele
+(+44)7496540302
+14 Wansford Street, Manchester
+Greater Manchester
+M14 7WW
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895963311282830	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee Beverage, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 0.00,GBP 38.00,GBP 41.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 41.99,,14/05/2026 17:15:17	,14/05/2026 17:15:19	,,16/05/2026 05:50:11	,18/05/2026 12:31:03	,"	",,,Fulfillment by seller,otto,QM979767785GB,Shipped by seller,Royal Mail,,lisamd1978,Lisa Davies,(+44)7533385696,SA9 2DB	,United Kingdom,Wales,Neath Port Talbot,,"6 New Street Godrergraig, Swansea","6 New Street Godrergraig, Swansea",,Google Pay,0.1,Coffee Substitutes,1154079127790262926	,,"Lisa Davies
+(+44)7533385696
+6 New Street Godrergraig, Swansea
+Neath Port Talbot
+SA9 2DB
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895892422368150	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 41.99,,14/05/2026 14:24:16	,14/05/2026 14:24:20	,,15/05/2026 10:10:25	,16/05/2026 11:21:03	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,FE561235405GB,Fulfiled by TikTok Shop-Standard,,,samiyaakhtar,s***** a*****,(+44)738*****25,OL12 0PS	,United Kingdom,England,Greater Manchester,,*************************,*************************,,Apple Pay,0.2,Tea,1154078725143239574	,,"s***** a*****
+(+44)738*****25
+*************************
+Greater Manchester
+OL12 0PS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895892422368150	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 18.00,GBP 60.00,GBP 41.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 41.99,,14/05/2026 14:24:16	,14/05/2026 14:24:20	,,15/05/2026 10:10:25	,16/05/2026 11:21:03	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,FE561235405GB,Fulfiled by TikTok Shop-Standard,,,samiyaakhtar,s***** a*****,(+44)738*****25,OL12 0PS	,United Kingdom,England,Greater Manchester,,*************************,*************************,,Apple Pay,0.1,Coffee Substitutes,1154078725143239574	,,"s***** a*****
+(+44)738*****25
+*************************
+Greater Manchester
+OL12 0PS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895891598318486	,Cancelled,Cancelled,Cancel,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,1,GBP 119.99,GBP 119.99,GBP 18.00,GBP 60.00,GBP 41.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 41.99,GBP 41.99,14/05/2026 14:22:23	,14/05/2026 14:22:27	,,"	","	",14/05/2026 14:22:50	,User,Need to change payment method,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfiled by TikTok Shop-Standard,,,samiyaakhtar,s***** a*****,(+44)738*****25,OL12 0PS	,United Kingdom,England,Greater Manchester,,*************************,*************************,,Credit/debit card,0.1,Coffee Substitutes,1154078717641792406	,,"s***** a*****
+(+44)738*****25
+*************************
+Greater Manchester
+OL12 0PS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895891598318486	,Cancelled,Cancelled,Cancel,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,1,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 41.99,GBP 0.00,14/05/2026 14:22:23	,14/05/2026 14:22:27	,,"	","	",14/05/2026 14:22:50	,User,Need to change payment method,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfiled by TikTok Shop-Standard,,,samiyaakhtar,s***** a*****,(+44)738*****25,OL12 0PS	,United Kingdom,England,Greater Manchester,,*************************,*************************,,Credit/debit card,0.2,Tea,1154078717641792406	,,"s***** a*****
+(+44)738*****25
+*************************
+Greater Manchester
+OL12 0PS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895870557329649	,Shipped,Delivered,,,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,,14/05/2026 13:30:02	,14/05/2026 13:30:02	,,16/05/2026 02:58:59	,18/05/2026 11:05:17	,"	",,,Fulfillment by seller,otto,QM979766507GB,Shipped by seller,Royal Mail,,jerrishlyrobo,Jeremiah Obibi,(+44)7778707408,SG1 1SB	,United Kingdom,England,Hertfordshire,,"6 Dunn Close, Stevenage","6 Dunn Close, Stevenage",,,0.1,Coffee Substitutes,1154078583232305393	,,"Jeremiah Obibi
+(+44)7778707408
+6 Dunn Close, Stevenage
+Hertfordshire
+SG1 1SB
+United Kingdom",Unchecked,,,,,
+576895813306390793	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 23.50,,14/05/2026 10:59:53	,14/05/2026 10:59:57	,,15/05/2026 05:47:30	,16/05/2026 11:57:25	,"	",,,Fulfillment by seller,otto,QM979765625GB,Shipped by seller,Royal Mail,,funtotubi,funtotubi,(+44)7742517372,DN11 0FF	,United Kingdom,England,South Yorkshire,,"26,castle avenue rossington","26,castle avenue rossington",,Credit/debit card,0.1,Coffee Substitutes,1154078371258800393	,,"funtotubi
+(+44)7742517372
+26,castle avenue rossington
+South Yorkshire
+DN11 0FF
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895810110003306	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 1.18,GBP 16.49,GBP 22.32,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 22.32,,14/05/2026 10:51:34	,14/05/2026 10:51:36	,,15/05/2026 05:46:34	,16/05/2026 13:51:49	,"	",,,Fulfillment by seller,otto,QM979765594GB,Shipped by seller,Royal Mail,,annie.com97,tasllima5 Ali,(+44)7741294793,W10 4QW	,United Kingdom,England,Greater London,,"46 Galton Street, London","46 Galton Street, London",,Apple Pay,0.1,Coffee Substitutes,1154078358050543722	,,"tasllima5 Ali
+(+44)7741294793
+46 Galton Street, London
+Greater London
+W10 4QW
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895808223681348	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 8.96,GBP 60.00,GBP 51.03,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 51.03,,14/05/2026 10:45:32	,14/05/2026 10:45:50	,,15/05/2026 02:51:44	,15/05/2026 20:51:44	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR42R14R97,Fulfiled by TikTok Shop-Standard,,,lunabella587,C***** Y*** ,(+44)790*****06,NG5 5UX	,United Kingdom,England,Nottingham,**********,***************************,***************************,,Klarna,0.1,Coffee Substitutes,1154078191390137156	,,"C***** Y*** 
+(+44)790*****06
+***************************
+**********
+NG5 5UX
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895808223681348	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 51.03,,14/05/2026 10:45:32	,14/05/2026 10:45:50	,,15/05/2026 02:51:44	,15/05/2026 20:51:44	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR42R14R97,Fulfiled by TikTok Shop-Standard,,,lunabella587,C***** Y*** ,(+44)790*****06,NG5 5UX	,United Kingdom,England,Nottingham,**********,***************************,***************************,,Klarna,0.2,Tea,1154078191390137156	,,"C***** Y*** 
+(+44)790*****06
+***************************
+**********
+NG5 5UX
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895808112466162	,Cancelled,Cancelled,Cancel,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,1,1,GBP 199.99,GBP 199.99,GBP 14.00,GBP 115.00,GBP 70.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 70.99,GBP 70.99,14/05/2026 10:44:30	,"	",,"	","	",14/05/2026 10:51:43	,System,Customer hasn't paid,Fulfillment by seller,otto,,Shipped by seller,,,temidiresholagbad,T******* S*********,(+44)796*****02,EN4 9DL	,United Kingdom,England,Greater London,,*************************,*************************,,PayPal,0.1,Coffee Substitutes,"	",,"T******* S*********
+(+44)796*****02
+*************************
+Greater London
+EN4 9DL
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895806489663730	,Cancelled,Cancelled,Cancel,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,1,GBP 119.99,GBP 119.99,GBP 2.00,GBP 66.00,GBP 51.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 51.99,GBP 51.99,14/05/2026 10:42:33	,"	",,"	","	",14/05/2026 11:42:35	,System,Customer overdue to pay,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfiled by TikTok Shop-Standard,,,temidiresholagbad,T******* S*********,(+44)796*****02,EN4 9DL	,United Kingdom,England,Greater London,,*************************,*************************,,PayPal,0.1,Coffee Substitutes,"	",,"T******* S*********
+(+44)796*****02
+*************************
+Greater London
+EN4 9DL
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895805655587058	,Cancelled,Cancelled,Cancel,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,1,GBP 119.99,GBP 119.99,GBP 2.00,GBP 66.00,GBP 51.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 51.99,GBP 51.99,14/05/2026 10:39:18	,"	",,"	","	",14/05/2026 11:39:20	,System,Customer overdue to pay,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfiled by TikTok Shop-Standard,,,temidiresholagbad,T******* S*********,(+44)796*****02,EN4 9DL	,United Kingdom,England,Greater London,,*************************,*************************,,PayPal,0.1,Coffee Substitutes,"	",,"T******* S*********
+(+44)796*****02
+*************************
+Greater London
+EN4 9DL
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895805393049868	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 6.24,GBP 14.00,GBP 19.75,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 19.75,,14/05/2026 10:38:01	,14/05/2026 10:40:02	,,15/05/2026 05:43:53	,16/05/2026 13:03:55	,"	",,,Fulfillment by seller,otto,QM979765206GB,Shipped by seller,Royal Mail,,starboyyy_notime,George Ampadu,(+44)7944476392,SE23 3HB	,United Kingdom,England,Greater London,,"London Overground, Forest Hill Railway Station Devonshire Road, London","London Overground, Forest Hill Railway Station Devonshire Road, London",,ClearPay,0.1,Coffee Substitutes,1154078309488630028	,,"George Ampadu
+(+44)7944476392
+London Overground, Forest Hill Railway Station Devonshire Road, London
+Greater London
+SE23 3HB
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895804517751620	,Cancelled,Cancelled,Cancel,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,1,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,14/05/2026 10:37:17	,14/05/2026 10:37:47	,,"	","	",14/05/2026 10:44:40	,System,The system automatically cancelled the gift-with-purchase order when the original order was cancelled.,Fulfillment by seller,otto,,Shipped by seller,,,lunabella587,C***** Y*** ,(+44)790*****06,NG5 5UX	,United Kingdom,England,Nottingham,**********,***************************,***************************,,Klarna,0.25,Coffee-Making Tools,"	",,"C***** Y*** 
+(+44)790*****06
+***************************
+**********
+NG5 5UX
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895804517686084	,Cancelled,Cancelled,Cancel,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,1,GBP 39.99,GBP 39.99,GBP 2.38,GBP 14.00,GBP 23.61,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 23.61,GBP 23.61,14/05/2026 10:37:17	,14/05/2026 10:37:47	,,"	","	",14/05/2026 10:44:27	,User,No longer needed,Fulfillment by seller,otto,,Shipped by seller,,,lunabella587,C***** Y*** ,(+44)790*****06,NG5 5UX	,United Kingdom,England,Nottingham,**********,***************************,***************************,,Klarna,0.1,Coffee Substitutes,"	",,"C***** Y*** 
+(+44)790*****06
+***************************
+**********
+NG5 5UX
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895804517620548	,Cancelled,Cancelled,Cancel,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,1,GBP 119.99,GBP 119.99,GBP 4.54,GBP 60.00,GBP 55.45,GBP 0.00,GBP 0.66,GBP 0.00,GBP 0.66,GBP 0.00,GBP 55.45,GBP 55.45,14/05/2026 10:37:17	,14/05/2026 10:37:47	,,"	","	",14/05/2026 10:44:58	,User,No longer needed,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfiled by TikTok Shop-Standard,,,lunabella587,C***** Y*** ,(+44)790*****06,NG5 5UX	,United Kingdom,England,Nottingham,**********,***************************,***************************,,Klarna,0.1,Coffee Substitutes,1154078175856532292	,,"C***** Y*** 
+(+44)790*****06
+***************************
+**********
+NG5 5UX
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895802109237490	,Cancelled,Cancelled,Cancel,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,1,GBP 119.99,GBP 119.99,GBP 7.00,GBP 66.00,GBP 46.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 46.99,GBP 46.99,14/05/2026 10:28:48	,"	",,"	","	",14/05/2026 11:28:49	,System,Customer overdue to pay,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfiled by TikTok Shop-Standard,,,temidiresholagbad,T******* S*********,(+44)796*****02,EN4 9DL	,United Kingdom,England,Greater London,,*************************,*************************,,PayPal,0.1,Coffee Substitutes,"	",,"T******* S*********
+(+44)796*****02
+*************************
+Greater London
+EN4 9DL
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895800543582860	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 1.18,GBP 16.49,GBP 22.32,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 22.32,,14/05/2026 10:27:35	,14/05/2026 10:27:39	,,16/05/2026 04:11:22	,18/05/2026 12:24:25	,"	",,,Fulfillment by seller,otto,QM979765170GB,Shipped by seller,Royal Mail,,zeena875,Serene,(+44)7931627888,E11 2BN	,United Kingdom,England,Greater London,Redbridge,"87 Elmcroft Avenue, London","87 Elmcroft Avenue, London",,Credit/debit card,0.1,Coffee Substitutes,1154078296572664460	,,"Serene
+(+44)7931627888
+87 Elmcroft Avenue, London
+Redbridge
+E11 2BN
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895796658870514	,Cancelled,Cancelled,Cancel,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,1,GBP 119.99,GBP 119.99,GBP 6.48,GBP 66.00,GBP 47.51,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 47.51,GBP 47.51,14/05/2026 10:14:58	,"	",,"	","	",14/05/2026 11:14:59	,System,Customer overdue to pay,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfiled by TikTok Shop-Standard,,,temidiresholagbad,T******* S*********,(+44)796*****02,EN4 9DL	,United Kingdom,England,Greater London,,*************************,*************************,,PayPal,0.1,Coffee Substitutes,"	",,"T******* S*********
+(+44)796*****02
+*************************
+Greater London
+EN4 9DL
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895796658870514	,Cancelled,Cancelled,Cancel,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,1,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 47.51,GBP 0.00,14/05/2026 10:14:58	,"	",,"	","	",14/05/2026 11:14:59	,System,Customer overdue to pay,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfiled by TikTok Shop-Standard,,,temidiresholagbad,T******* S*********,(+44)796*****02,EN4 9DL	,United Kingdom,England,Greater London,,*************************,*************************,,PayPal,0.2,Tea,"	",,"T******* S*********
+(+44)796*****02
+*************************
+Greater London
+EN4 9DL
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895795669081084	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 6.00,GBP 40.00,GBP 33.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 33.99,,14/05/2026 10:12:49	,14/05/2026 10:12:52	,,16/05/2026 04:12:12	,18/05/2026 11:33:49	,"	",,,Fulfillment by seller,otto,QM979765550GB,Shipped by seller,Royal Mail,,amani7000_,Amani Imran,(+44)7391744799,G53 7ZG	,United Kingdom,Scotland,Glasgow,,"18 Parkmeadow Avenue, Glasgow","18 Parkmeadow Avenue, Glasgow",Garage,Apple Pay,0.1,Coffee Substitutes,1154078270824356860	,,"Amani Imran
+(+44)7391744799
+18 Parkmeadow Avenue, Glasgow
+Glasgow
+G53 7ZG
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895796091591002	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 6.00,GBP 40.00,GBP 33.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 33.99,,14/05/2026 10:12:30	,14/05/2026 10:12:35	,,16/05/2026 04:11:47	,18/05/2026 11:21:06	,"	",,,Fulfillment by seller,otto,QM979765546GB,Shipped by seller,Royal Mail,,mubpeer,Muhammad Akram,(+44)7402667660,CR4 3RR	,United Kingdom,England,Greater London,,"10 Kennet Square,Mitcham",Mitcham,,Credit/debit card,0.1,Coffee Substitutes,1154078252076341594	,,"Muhammad Akram
+(+44)7402667660
+Mitcham 10 Kennet Square,Mitcham
+Greater London
+CR4 3RR
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895781303458649	,Shipped,Delivered,,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,1,0,GBP 199.99,GBP 199.99,GBP 13.20,GBP 123.30,GBP 63.49,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 63.49,,14/05/2026 09:30:31	,14/05/2026 09:30:46	,,16/05/2026 04:11:57	,18/05/2026 13:36:06	,"	",,,Fulfillment by seller,otto,FP274307261GB,Shipped by seller,Royal Mail,,hinakhalil2016,Hina ijaz ,(+44)07305830660,LU1 5QQ	,United Kingdom,England,Luton,Luton,"1 Cades Close, Luton","1 Cades Close, Luton",,Credit/debit card,0.1,Coffee Substitutes,1154078154386742105	,,"Hina ijaz 
+(+44)07305830660
+1 Cades Close, Luton
+Luton
+LU1 5QQ
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895781303458649	,Shipped,Completed,,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 63.49,,14/05/2026 09:30:31	,14/05/2026 09:30:46	,,16/05/2026 04:11:57	,18/05/2026 13:36:06	,"	",,,Fulfillment by seller,otto,FP274307261GB,Shipped by seller,Royal Mail,,hinakhalil2016,Hina ijaz ,(+44)07305830660,LU1 5QQ	,United Kingdom,England,Luton,Luton,"1 Cades Close, Luton","1 Cades Close, Luton",,Credit/debit card,0.25,Coffee-Making Tools,1154078154386742105	,,"Hina ijaz 
+(+44)07305830660
+1 Cades Close, Luton
+Luton
+LU1 5QQ
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895774904916935	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 46.99,,14/05/2026 09:09:57	,14/05/2026 09:10:25	,,15/05/2026 01:23:04	,15/05/2026 15:23:03	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR2KGJWGNT,Fulfiled by TikTok Shop-Standard,,,rosieyemz,R*** A******,(+44)785*****48,UB4 9EW	,United Kingdom,England,Greater London,,************************,************************,,PayPal,0.2,Tea,1154077997669260231	,,"R*** A******
+(+44)785*****48
+************************
+Greater London
+UB4 9EW
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895774904916935	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 7.00,GBP 66.00,GBP 46.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 46.99,,14/05/2026 09:09:57	,14/05/2026 09:10:25	,,15/05/2026 01:23:04	,15/05/2026 15:23:03	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR2KGJWGNT,Fulfiled by TikTok Shop-Standard,,,rosieyemz,R*** A******,(+44)785*****48,UB4 9EW	,United Kingdom,England,Greater London,,************************,************************,,PayPal,0.1,Coffee Substitutes,1154077997669260231	,,"R*** A******
+(+44)785*****48
+************************
+Greater London
+UB4 9EW
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895773073774721	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,2,0,GBP 39.99,GBP 79.98,GBP 16.90,GBP 37.98,GBP 25.10,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 25.10,,14/05/2026 09:06:36	,14/05/2026 09:07:15	,,16/05/2026 03:07:44	,18/05/2026 11:54:51	,"	",,,Fulfillment by seller,otto,QM979765492GB,Shipped by seller,Royal Mail,,shsz532,Sharon Lawrence,(+44)7908499640,W7 1BJ	,United Kingdom,England,Greater London,,"72 Hillyard Road,London",Hanwell,,ClearPay,0.2,Coffee Substitutes,1154078108744259713	,,"Sharon Lawrence
+(+44)7908499640
+Hanwell 72 Hillyard Road,London
+Greater London
+W7 1BJ
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895715368671776	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 19.40,GBP 60.00,GBP 40.59,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 40.59,,14/05/2026 02:11:50	,14/05/2026 02:11:53	,,14/05/2026 22:26:09	,15/05/2026 14:26:09	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540041546,Fulfiled by TikTok Shop-Standard,,,rooksanaahmed4,R******* A****,(+44)784*****90,KY11 8HG	,United Kingdom,Scotland,Fife,,*****************************,*****************************,,Apple Pay,0.1,Coffee Substitutes,1154077594377755168	,,"R******* A****
+(+44)784*****90
+*****************************
+Fife
+KY11 8HG
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895715368671776	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 40.59,,14/05/2026 02:11:50	,14/05/2026 02:11:53	,,14/05/2026 22:26:09	,15/05/2026 14:26:09	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540041546,Fulfiled by TikTok Shop-Standard,,,rooksanaahmed4,R******* A****,(+44)784*****90,KY11 8HG	,United Kingdom,Scotland,Fife,,*****************************,*****************************,,Apple Pay,0.2,Tea,1154077594377755168	,,"R******* A****
+(+44)784*****90
+*****************************
+Fife
+KY11 8HG
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895708329646567	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 15.30,GBP 24.69,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 24.69,,14/05/2026 01:04:38	,14/05/2026 01:04:41	,,16/05/2026 04:12:52	,18/05/2026 10:22:24	,"	",,,Fulfillment by seller,otto,QM979765064GB,Shipped by seller,Royal Mail,,adja.diarrassooub,Adja Diarrassoouba,(+44)7448969810,G22 7QZ	,United Kingdom,Scotland,Glasgow,,"64 Torogay Street, Glasgow","64 Torogay Street, Glasgow",,Google Pay,0.1,Coffee Substitutes,1154077588145019367	,,"Adja Diarrassoouba
+(+44)7448969810
+64 Torogay Street, Glasgow
+Glasgow
+G22 7QZ
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895665367849858	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 51.99,,13/05/2026 22:34:16	,13/05/2026 22:34:20	,,15/05/2026 02:47:35	,15/05/2026 14:47:35	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRG6PRGPW5,Fulfiled by TikTok Shop-Standard,,,doratheo15,T****** D********,(+44)778*****21,HA9 6PR	,Regatul Unit,Anglia,Greater London,,********************,********************,,Credit/debit card,0.2,Tea,1154077383818517378	,,"T****** D********
+(+44)778*****21
+********************
+Greater London
+HA9 6PR
+Regatul Unit",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895665367849858	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 8.00,GBP 60.00,GBP 51.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 51.99,,13/05/2026 22:34:16	,13/05/2026 22:34:20	,,15/05/2026 02:47:35	,15/05/2026 14:47:35	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRG6PRGPW5,Fulfiled by TikTok Shop-Standard,,,doratheo15,T****** D********,(+44)778*****21,HA9 6PR	,Regatul Unit,Anglia,Greater London,,********************,********************,,Credit/debit card,0.1,Coffee Substitutes,1154077383818517378	,,"T****** D********
+(+44)778*****21
+********************
+Greater London
+HA9 6PR
+Regatul Unit",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895647761078815	,Shipped,Delivered,,Normal,1729827951823329451	,GB = Pack of 3,"VAHDAM Green Burner 500 mg Green Tea Extract with Apple Cider Vinegar, Garcinia Cambogia, L-Carnitine & Bacillus Coagulans Healthcare Supplement Vitamin Natural Dietary Fitness",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 3.00,GBP 70.00,GBP 46.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 46.99,,13/05/2026 21:55:59	,13/05/2026 21:56:04	,,15/05/2026 04:45:26	,16/05/2026 09:42:11	,"	",,,Fulfillment by seller,otto,FP274307394GB,Shipped by seller,Royal Mail,,dbiniguy,Godfrey faluyi,(+44)7581276606,DA1 4FW	,United Kingdom,England,Greater London,,"131 Alcock Crescent Crayford,Dartford","131 Alcock Crescent Crayford,Dartford",,PayPal,0.2,Wellness Supplements,1154077413860350495	,,"Godfrey faluyi
+(+44)7581276606
+131 Alcock Crescent Crayford,Dartford
+Greater London
+DA1 4FW
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895647096675003	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 23.50,,13/05/2026 21:54:58	,13/05/2026 21:55:03	,,15/05/2026 05:48:21	,16/05/2026 12:03:01	,"	",,,Fulfillment by seller,otto,QM979764775GB,Shipped by seller,Royal Mail,,safadani92,Mehwish Iftikhar,(+44)7737194543,SO53 5RB	,United Kingdom,England,Hampshire,,"19 Ashdown Road Chandler's Ford, Eastleigh","19 Ashdown Road Chandler's Ford, Eastleigh",,Credit/debit card,0.1,Coffee Substitutes,1154077411028998843	,,"Mehwish Iftikhar
+(+44)7737194543
+19 Ashdown Road Chandler's Ford, Eastleigh
+Hampshire
+SO53 5RB
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895646291565333	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 23.50,,13/05/2026 21:52:52	,13/05/2026 21:52:56	,,15/05/2026 17:19:03	,16/05/2026 09:58:17	,"	",,,Fulfillment by seller,otto,QM979764761GB,Shipped by seller,Royal Mail,,cuteness3391,marcia worrell,(+44)7767499403,B30 3QS	,United Kingdom,England,West Midlands,,"16 Ashbury Covert, Birmingham","16 Ashbury Covert, Birmingham",,Credit/debit card,0.1,Coffee Substitutes,1154077408812243733	,,"marcia worrell
+(+44)7767499403
+16 Ashbury Covert, Birmingham
+West Midlands
+B30 3QS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895646307752355	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 0.00,GBP 68.70,GBP 51.29,GBP 0.00,GBP 4.99,GBP 1.00,GBP 3.99,GBP 0.00,GBP 51.29,,13/05/2026 21:52:52	,13/05/2026 21:52:56	,,14/05/2026 02:06:59	,14/05/2026 10:07:01	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540041348,Fulfilled by TikTok Shop (Express),,,feranmi_tcash,H***** O*******,(+44)750*****13,PR1 3SE	,United Kingdom,England,Lancashire,,*******************************************,*******************************************,,Credit/debit card,0.1,Coffee Substitutes,1154077317752527267	,,"H***** O*******
+(+44)750*****13
+*******************************************
+Lancashire
+PR1 3SE
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895646307752355	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 4.99,GBP 1.00,GBP 3.99,GBP 0.00,GBP 51.29,,13/05/2026 21:52:52	,13/05/2026 21:52:56	,,14/05/2026 02:06:59	,14/05/2026 10:07:01	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540041348,Fulfilled by TikTok Shop (Express),,,feranmi_tcash,H***** O*******,(+44)750*****13,PR1 3SE	,United Kingdom,England,Lancashire,,*******************************************,*******************************************,,Credit/debit card,0.2,Tea,1154077317752527267	,,"H***** O*******
+(+44)750*****13
+*******************************************
+Lancashire
+PR1 3SE
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895645519092102	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 0.00,GBP 66.00,GBP 53.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 53.99,,13/05/2026 21:52:29	,13/05/2026 21:52:33	,,14/05/2026 06:05:49	,15/05/2026 12:05:50	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR4HGVT2C9,Fulfiled by TikTok Shop-Standard,,,beetrendi,M*** O,(+44)785*****48,W10 6DF	,United Kingdom,England,Greater London,,************************,************************,,Apple Pay,0.1,Coffee Substitutes,1154077317460498822	,,"M*** O
+(+44)785*****48
+************************
+Greater London
+W10 6DF
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895645519092102	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 53.99,,13/05/2026 21:52:29	,13/05/2026 21:52:33	,,14/05/2026 06:05:49	,15/05/2026 12:05:50	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR4HGVT2C9,Fulfiled by TikTok Shop-Standard,,,beetrendi,M*** O,(+44)785*****48,W10 6DF	,United Kingdom,England,Greater London,,************************,************************,,Apple Pay,0.2,Tea,1154077317460498822	,,"M*** O
+(+44)785*****48
+************************
+Greater London
+W10 6DF
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895639790394361	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 23.50,,13/05/2026 21:40:32	,13/05/2026 21:41:45	,,15/05/2026 09:59:09	,16/05/2026 16:50:15	,"	",,,Fulfillment by seller,otto,QM979764744GB,Shipped by seller,Royal Mail,,manilim1,Manila kandangwa,(+44)7376396251,HA1 4EZ	,United Kingdom,England,Greater London,,"28 Bouverie Road,",harrow,,ClearPay,0.1,Coffee Substitutes,1154077392140409849	,,"Manila kandangwa
+(+44)7376396251
+harrow 28 Bouverie Road,
+Greater London
+HA1 4EZ
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895637204474195	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 6.30,GBP 38.00,GBP 35.69,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 35.69,,13/05/2026 21:33:47	,13/05/2026 21:33:51	,,16/05/2026 03:01:25	,18/05/2026 10:39:17	,"	",,,Fulfillment by seller,otto,QM979765339GB,Shipped by seller,Royal Mail,,carol.reilly6,Carol Reilly,(+44)7813390976,G13 1YB	,United Kingdom,Scotland,Glasgow,,"522 Anniesland Road, Glasgow","522 Anniesland Road, Glasgow",,Credit/debit card,0.1,Coffee Substitutes,1154077381022816595	,,"Carol Reilly
+(+44)7813390976
+522 Anniesland Road, Glasgow
+Glasgow
+G13 1YB
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895632275380788	,Cancelled,Cancelled,Cancel,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,1,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 23.50,GBP 23.50,13/05/2026 21:24:20	,"	",,"	","	",13/05/2026 21:24:57	,System,Customer hasn't paid,Fulfillment by seller,otto,,Shipped by seller,,,coolrayna,R**** b****,(+44)074******03,B8 1LS	,United Kingdom,England,West Midlands,,****************************,****************************,,ClearPay,0.1,Coffee Substitutes,"	",,"R**** b****
+(+44)074******03
+****************************
+West Midlands
+B8 1LS
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895630889425903	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 7.05,GBP 16.49,GBP 16.45,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 16.45,,13/05/2026 21:23:41	,13/05/2026 21:23:44	,,15/05/2026 09:59:25	,16/05/2026 11:24:30	,"	",,,Fulfillment by seller,otto,QM979764815GB,Shipped by seller,Royal Mail,,esenamaddoray,Lawrencia galley ,(+44)7577434171,G4 0QN	,United Kingdom,Scotland,Glasgow,Glasgow,"4/2, 298 High Street, Glasgow","4/2, 298 High Street, Glasgow",,Apple Pay,0.1,Coffee Substitutes,1154077368372206575	,,"Lawrencia galley 
+(+44)7577434171
+4/2, 298 High Street, Glasgow
+Glasgow
+G4 0QN
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895628972890938	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 3.00,GBP 16.49,GBP 20.50,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 20.50,,13/05/2026 21:17:52	,13/05/2026 21:17:56	,,15/05/2026 04:45:11	,16/05/2026 12:03:28	,"	",,,Fulfillment by seller,otto,QM979764713GB,Shipped by seller,Royal Mail,,aminaamiishaali,Amina gaas,(44)7306334069,S3 9JT	,United Kingdom,England,South Yorkshire,,"163 Lopham Street, Sheffield",Flat ,,Credit/debit card,0.1,Coffee Substitutes,1154077356682812218	,,"Amina gaas
+(44)7306334069
+Flat  163 Lopham Street, Sheffield
+South Yorkshire
+S3 9JT
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895628139599888	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 7.00,GBP 71.40,GBP 41.59,GBP 0.00,GBP 4.99,GBP 1.00,GBP 3.99,GBP 0.00,GBP 41.59,,13/05/2026 21:17:09	,13/05/2026 21:18:05	,,14/05/2026 01:32:28	,14/05/2026 09:32:29	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540041328,Fulfilled by TikTok Shop (Express),,,kaur_sardarni55,D***** k***,(+44)739*****85,LE4 2QA	,United Kingdom,England,Leicester,,******************************,******************************,,Credit/debit card,0.1,Coffee Substitutes,1154077262458296336	,,"D***** k***
+(+44)739*****85
+******************************
+Leicester
+LE4 2QA
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895617943575179	,Shipped,Delivered,,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,1,0,GBP 199.99,GBP 199.99,GBP 16.00,GBP 110.00,GBP 73.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 73.99,,13/05/2026 20:55:22	,13/05/2026 20:55:24	,,16/05/2026 03:00:10	,18/05/2026 10:09:55	,"	",,,Fulfillment by seller,otto,FP274307213GB,Shipped by seller,Royal Mail,,hassaqnabir0,Hassaq Nabir,(+44)7411948175,NP19 8EP	,United Kingdom,Wales,Newport,,"8 Eveswell Street, Newport","8 Eveswell Street, Newport",,Apple Pay,0.1,Coffee Substitutes,1154077323416869515	,,"Hassaq Nabir
+(+44)7411948175
+8 Eveswell Street, Newport
+Newport
+NP19 8EP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895617943575179	,Shipped,Completed,,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 73.99,,13/05/2026 20:55:22	,13/05/2026 20:55:24	,,16/05/2026 03:00:10	,18/05/2026 10:09:55	,"	",,,Fulfillment by seller,otto,FP274307213GB,Shipped by seller,Royal Mail,,hassaqnabir0,Hassaq Nabir,(+44)7411948175,NP19 8EP	,United Kingdom,Wales,Newport,,"8 Eveswell Street, Newport","8 Eveswell Street, Newport",,Apple Pay,0.25,Coffee-Making Tools,1154077323416869515	,,"Hassaq Nabir
+(+44)7411948175
+8 Eveswell Street, Newport
+Newport
+NP19 8EP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895615036398377	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 23.50,,13/05/2026 20:49:00	,13/05/2026 20:49:03	,,15/05/2026 10:33:23	,16/05/2026 13:05:20	,"	",,,Fulfillment by seller,otto,QM979764695GB,Shipped by seller,Royal Mail,,thesolowanderer1,yasmin bh,(+44)7563701156,CB4 2UA	,United Kingdom,England,Cambridgeshire,,"36 Minerva Way, Cambridge","36 Minerva Way, Cambridge",,Google Pay,0.1,Coffee Substitutes,1154077313357159209	,,"yasmin bh
+(+44)7563701156
+36 Minerva Way, Cambridge
+Cambridgeshire
+CB4 2UA
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895612033342099	,Shipped,Delivered,,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,1,0,GBP 199.99,GBP 199.99,GBP 16.00,GBP 115.00,GBP 68.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 68.99,,13/05/2026 20:43:35	,13/05/2026 20:47:53	,,16/05/2026 04:11:22	,18/05/2026 14:00:52	,"	",,,Fulfillment by seller,otto,FP274307417GB,Shipped by seller,Royal Mail,,kimfitts,kim fitts,(+44)7719461211,IP27 0LZ	,United Kingdom,England,Suffolk,,"260 London Road, Brandon","260 London Road, Brandon",,Credit/debit card,0.1,Coffee Substitutes,1154077310527642259	,,"kim fitts
+(+44)7719461211
+260 London Road, Brandon
+Suffolk
+IP27 0LZ
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895612033342099	,Shipped,Completed,Cancel,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 68.99,,13/05/2026 20:43:35	,13/05/2026 20:47:53	,,16/05/2026 04:11:22	,18/05/2026 14:00:52	,"	",User,No longer needed,Fulfillment by seller,otto,FP274307417GB,Shipped by seller,Royal Mail,,kimfitts,kim fitts,(+44)7719461211,IP27 0LZ	,United Kingdom,England,Suffolk,,"260 London Road, Brandon","260 London Road, Brandon",,Credit/debit card,0.25,Coffee-Making Tools,1154077310527642259	,,"kim fitts
+(+44)7719461211
+260 London Road, Brandon
+Suffolk
+IP27 0LZ
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895599153682795	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 23.50,,13/05/2026 20:15:26	,13/05/2026 20:15:31	,,15/05/2026 10:34:14	,16/05/2026 15:42:25	,"	",,,Fulfillment by seller,otto,QM979764378GB,Shipped by seller,Royal Mail,,miham0221,Mihaela Vasilasi,(+44)7477242445,TS1 4NB	,Regatul Unit,Anglia,Middlesbrough,,"118 Portman Street, Middlesbrough",118,,Credit/debit card,0.1,Coffee Substitutes,1154077259085945195	,,"Mihaela Vasilasi
+(+44)7477242445
+118 118 Portman Street, Middlesbrough
+Middlesbrough
+TS1 4NB
+Regatul Unit",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895599028050836	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 45.99,,13/05/2026 20:14:19	,13/05/2026 20:15:15	,,14/05/2026 08:29:50	,15/05/2026 12:29:51	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR0273X86L,Fulfiled by TikTok Shop-Standard,,,ruheenajannat,P**** N****,(+44)744*****15,WS10 9BP	,United Kingdom,England,West Midlands,,**************,***********,,PayPal,0.2,Tea,1154077169432763284	,,"P**** N****
+(+44)744*****15
+*********** **************
+West Midlands
+WS10 9BP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895599028050836	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 8.00,GBP 66.00,GBP 45.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 45.99,,13/05/2026 20:14:19	,13/05/2026 20:15:15	,,14/05/2026 08:29:50	,15/05/2026 12:29:51	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR0273X86L,Fulfiled by TikTok Shop-Standard,,,ruheenajannat,P**** N****,(+44)744*****15,WS10 9BP	,United Kingdom,England,West Midlands,,**************,***********,,PayPal,0.1,Coffee Substitutes,1154077169432763284	,,"P**** N****
+(+44)744*****15
+*********** **************
+West Midlands
+WS10 9BP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895591901862267	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 0.00,GBP 60.00,GBP 59.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 59.99,,13/05/2026 19:57:55	,13/05/2026 19:58:00	,,14/05/2026 06:11:35	,15/05/2026 14:11:35	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR7JH16H1W,Fulfiled by TikTok Shop-Standard,,,user1840861657732,T****** A*******,(+44)793*****27,SE28 0LP	,United Kingdom,England,Greater London,,**************************,**************************,,PayPal,0.1,Coffee Substitutes,1154077139766647163	,,"T****** A*******
+(+44)793*****27
+**************************
+Greater London
+SE28 0LP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895591901862267	,Shipped,Completed,,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 59.99,,13/05/2026 19:57:55	,13/05/2026 19:58:00	,,14/05/2026 06:11:35	,15/05/2026 14:11:35	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR7JH16H1W,Fulfiled by TikTok Shop-Standard,,,user1840861657732,T****** A*******,(+44)793*****27,SE28 0LP	,United Kingdom,England,Greater London,,**************************,**************************,,PayPal,0.2,Tea,1154077139766647163	,,"T****** A*******
+(+44)793*****27
+**************************
+Greater London
+SE28 0LP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895590188489670	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 0.00,GBP 42.00,GBP 37.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 37.99,,13/05/2026 19:52:39	,13/05/2026 19:52:43	,,16/05/2026 03:00:10	,18/05/2026 10:05:01	,"	",,,Fulfillment by seller,otto,QM979765285GB,Shipped by seller,Royal Mail,,mjabena2030,Janet Mensah,(+44)7841040595,MK14 7DF	,United Kingdom,England,Milton Keynes,,"30c Cleavers Avenue Conniburrow, Milton keynes","30c Cleavers Avenue Conniburrow, Milton keynes",,PayPal,0.1,Coffee Substitutes,1154077222458006470	,,"Janet Mensah
+(+44)7841040595
+30c Cleavers Avenue Conniburrow, Milton keynes
+Milton Keynes
+MK14 7DF
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895310200412594	,Shipped,Delivered,,Normal,1729723796674353323	,GB = Pack of 1,"VAHDAM Green Burner 500 mg Green Tea Extract with Apple Cider Vinegar, Garcinia Cambogia, L-Carnitine & Bacillus Coagulans Healthcare Supplement Vitamin Natural Dietary Fitness",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 15.00,GBP 24.99,GBP 0.00,GBP 1.72,GBP 0.00,GBP 1.72,GBP 0.00,GBP 24.99,,13/05/2026 02:27:59	,13/05/2026 02:28:03	,,13/05/2026 20:41:58	,14/05/2026 14:41:59	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540034372,Fulfiled by TikTok Shop-Standard,,,roseannallan,r****** a****,(+44)774*****21,KA15 1BG	,United Kingdom,Scotland,North Ayrshire,,*******************,*******************,,TikTok PayLater,0.2,Wellness Supplements,1154075328656808370	,,"r****** a****
+(+44)774*****21
+*******************
+North Ayrshire
+KA15 1BG
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895257969137778	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 5.20,GBP 14.00,GBP 20.79,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 20.79,,12/05/2026 22:26:43	,12/05/2026 22:26:47	,,14/05/2026 07:37:16	,15/05/2026 12:17:16	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,FE561100743GB,Fulfiled by TikTok Shop-Standard,,,suzannewood140865,S****** R****** ,(+44)790*****05,SS8 9SW	,United Kingdom,England,Essex,,**************,**************,,Apple Pay,0.1,Coffee Substitutes,1154075097080305778	,,"S****** R****** 
+(+44)790*****05
+**************
+Essex
+SS8 9SW
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895228415416582	,Cancelled,Cancelled,Cancel,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,1,1,GBP 199.99,GBP 199.99,GBP 0.00,GBP 110.00,GBP 89.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 89.99,GBP 89.99,12/05/2026 21:25:31	,"	",,"	","	",12/05/2026 22:25:36	,System,Customer overdue to pay,Fulfillment by seller,otto,,Shipped by seller,,,rani.bubble,R*** P,(+44)747*****02,LS8 3QW	,United Kingdom,England,West Yorkshire,,************************,************************,,Credit/debit card,0.1,Coffee Substitutes,"	",,"R*** P
+(+44)747*****02
+************************
+West Yorkshire
+LS8 3QW
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895228415416582	,Cancelled,Cancelled,Cancel,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,1,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 89.99,GBP 0.00,12/05/2026 21:25:31	,"	",,"	","	",12/05/2026 22:25:36	,System,Customer overdue to pay,Fulfillment by seller,otto,,Shipped by seller,,,rani.bubble,R*** P,(+44)747*****02,LS8 3QW	,United Kingdom,England,West Yorkshire,,************************,************************,,Credit/debit card,0.25,Coffee-Making Tools,"	",,"R*** P
+(+44)747*****02
+************************
+West Yorkshire
+LS8 3QW
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895141188638954	,Cancelled,Cancelled,Cancel,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,1,GBP 79.99,GBP 79.99,GBP 0.00,GBP 40.10,GBP 39.89,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 39.89,GBP 39.89,12/05/2026 18:00:21	,12/05/2026 18:00:24	,,"	","	",12/05/2026 18:37:04	,User,No longer needed,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR5LJ52HLV,Fulfiled by TikTok Shop-Standard,,,chrisroopnarine1,C***************,(+44)776*****02,DA16 3ET	,United Kingdom,England,Greater London,,**********************************************,**********************************************,,Credit/debit card,0.1,Coffee Substitutes,1154074675637623018	,,"C***************
+(+44)776*****02
+**********************************************
+Greater London
+DA16 3ET
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895138366528334	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 23.50,,12/05/2026 17:53:06	,12/05/2026 17:53:10	,,13/05/2026 02:07:00	,13/05/2026 14:07:00	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540033861,Fulfiled by TikTok Shop-Standard,,,sarahjanemills,S**** m****,(+44)749*****24,GL5 1PP	,United Kingdom,England,Gloucestershire,,*************************,*************************,,Google Pay,0.1,Coffee Substitutes,1154074665996557134	,,"S**** m****
+(+44)749*****24
+*************************
+Gloucestershire
+GL5 1PP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895137210669636	,Cancelled,Cancelled,Cancel,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,1,GBP 39.99,GBP 39.99,GBP 4.70,GBP 16.49,GBP 18.80,GBP 3.99,GBP 3.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 37.19,GBP 18.80,12/05/2026 17:49:22	,12/05/2026 17:49:26	,,"	","	",12/05/2026 18:06:46	,User,Wrong delivery information,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540033783,Fulfiled by TikTok Shop-Standard,,,hairstylistbibijay21,H******** J****,(+44)776*****18,FY4 1DR	,United Kingdom,England,Blackpool,,**************************,**************************,,Apple Pay,0.1,Coffee Substitutes,1154074660724447812	,,"H******** J****
+(+44)776*****18
+**************************
+Blackpool
+FY4 1DR
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895137210669636	,Cancelled,Cancelled,Cancel,Normal,1729629542578690219	,M2-5FS8-0C6A,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 1,1,1,GBP 19.99,GBP 19.99,GBP 0.00,GBP 5.59,GBP 14.40,GBP 3.99,GBP 3.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 37.19,GBP 14.40,12/05/2026 17:49:22	,12/05/2026 17:49:26	,,"	","	",12/05/2026 18:06:46	,User,Wrong delivery information,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540033783,Fulfiled by TikTok Shop-Standard,,,hairstylistbibijay21,H******** J****,(+44)776*****18,FY4 1DR	,United Kingdom,England,Blackpool,,**************************,**************************,,Apple Pay,0.2,Tea,1154074660724447812	,,"H******** J****
+(+44)776*****18
+**************************
+Blackpool
+FY4 1DR
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895132225739291	,Shipped,Delivered,,Normal,1729723796674418859	,GB = Pack of 2,"VAHDAM Green Burner 500 mg Green Tea Extract with Apple Cider Vinegar, Garcinia Cambogia, L-Carnitine & Bacillus Coagulans Healthcare Supplement Vitamin Natural Dietary Fitness",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 3.90,GBP 42.00,GBP 34.09,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 34.09,,12/05/2026 17:35:48	,12/05/2026 17:35:51	,,14/05/2026 11:17:32	,15/05/2026 13:46:55	,"	",,,Fulfillment by seller,otto,FP274306677GB,Shipped by seller,Royal Mail,,gurds_hundal,Gurdeep,(+44)7376200005,WS2 9SF	,United Kingdom,England,West Midlands,Walsall,"413 Darlaston Road, Walsall","413 Darlaston Road, Walsall",,Credit/debit card,0.2,Wellness Supplements,1154074733354785307	,,"Gurdeep
+(+44)7376200005
+413 Darlaston Road, Walsall
+Walsall
+WS2 9SF
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895123510434751	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 5.00,GBP 66.00,GBP 48.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 48.99,,12/05/2026 17:09:02	,12/05/2026 17:11:25	,,13/05/2026 05:25:02	,14/05/2026 21:25:04	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRGT1C77HF,Fulfiled by TikTok Shop-Standard,,,lolabike2,O*********** B*******,(+44)790*****18,ME4 5NY	,United Kingdom,England,Medway,,*************************,*************************,,PayPal,0.1,Coffee Substitutes,1154074585647455167	,,"O*********** B*******
+(+44)790*****18
+*************************
+Medway
+ME4 5NY
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895121188493386	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 14.00,GBP 25.99,GBP 3.99,GBP 3.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 29.98,,12/05/2026 17:01:47	,12/05/2026 17:01:50	,,13/05/2026 03:15:52	,13/05/2026 13:15:52	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR97RH5CP8,Fulfiled by TikTok Shop-Standard,,,kashifa.sheeraz,K****** S****** s******,(+44)746*****00,E14 0WR	,United Kingdom,England,Greater London,,****************************************************,****************************************************,,Credit/debit card,0.1,Coffee Substitutes,1154074569447938122	,,"K****** S****** s******
+(+44)746*****00
+****************************************************
+Greater London
+E14 0WR
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895120038927205	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 10.00,GBP 66.00,GBP 43.99,GBP 3.99,GBP 3.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 47.98,,12/05/2026 17:00:15	,12/05/2026 17:00:19	,,13/05/2026 01:13:09	,13/05/2026 13:13:09	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540033175,Fulfiled by TikTok Shop-Standard,,,yetundeadetona6,Y****** A******,(+44)794*****70,GL2 2EE	,United Kingdom,England,Gloucestershire,,********************************************,***************,,Apple Pay,0.1,Coffee Substitutes,1154074566095248229	,,"Y****** A******
+(+44)794*****70
+*************** ********************************************
+Gloucestershire
+GL2 2EE
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895110522444040	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 0.00,GBP 40.00,GBP 39.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 39.99,,12/05/2026 16:32:46	,12/05/2026 16:32:48	,,13/05/2026 02:47:02	,14/05/2026 12:47:02	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540032792,Fulfiled by TikTok Shop-Standard,,,user3467824606790,O**** J***** ,(+44)776*****22,G21 3SA	,United Kingdom,Scotland,Glasgow,,*************************,*************************,,Apple Pay,0.1,Coffee Substitutes,1154074515512662280	,,"O**** J***** 
+(+44)776*****22
+*************************
+Glasgow
+G21 3SA
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895104311204421	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 23.50,,12/05/2026 16:14:52	,12/05/2026 16:14:55	,,13/05/2026 00:27:29	,13/05/2026 12:27:29	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540032542,Fulfiled by TikTok Shop-Standard,,,scousekimmy,K** H****,(+44)752*****13,DN21 1SB	,United Kingdom,England,Lincs,,****************************,****************************,,Credit/debit card,0.1,Coffee Substitutes,1154074481367161413	,,"K** H****
+(+44)752*****13
+****************************
+Lincs
+DN21 1SB
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895104070621613	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 23.50,,12/05/2026 16:14:04	,12/05/2026 16:14:08	,,13/05/2026 00:27:28	,14/05/2026 14:27:29	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540032537,Fulfiled by TikTok Shop-Standard,,,karen46449,K**** U***,(+44)791*****64,G51 3NP	,United Kingdom,Scotland,Glasgow,,**************************,**************************,,Credit/debit card,0.1,Coffee Substitutes,1154074476052060589	,,"K**** U***
+(+44)791*****64
+**************************
+Glasgow
+G51 3NP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895102715075457	,Cancelled,Cancelled,Cancel,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,1,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 23.50,GBP 23.50,12/05/2026 16:12:49	,"	",,"	","	",12/05/2026 16:21:29	,System,Customer hasn't paid,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfiled by TikTok Shop-Standard,,,nnekyugwu,N**** U***,(+44)777*****70,SS16 5SS	,United Kingdom,England,Essex,,***********************,***********************,,Klarna,0.1,Coffee Substitutes,"	",,"N**** U***
+(+44)777*****70
+***********************
+Essex
+SS16 5SS
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576895102890449155	,Cancelled,Cancelled,Cancel,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,1,GBP 39.99,GBP 39.99,GBP 3.00,GBP 16.49,GBP 20.50,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 20.50,GBP 20.50,12/05/2026 16:11:38	,12/05/2026 16:11:42	,,"	","	",12/05/2026 16:35:30	,User,No longer needed,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540032489,Fulfiled by TikTok Shop-Standard,,,hazel.naturals,K********* B****,(+44)749*****86,DN3 2FY	,United Kingdom,England,South Yorkshire,,************************************,************************************,,Apple Pay,0.1,Coffee Substitutes,1154074477762222339	,,"K********* B****
+(+44)749*****86
+************************************
+South Yorkshire
+DN3 2FY
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895102740109624	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 5.00,GBP 66.00,GBP 48.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 48.99,,12/05/2026 16:10:58	,12/05/2026 16:11:32	,,13/05/2026 06:25:01	,14/05/2026 16:25:01	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR5N4QL88V,Fulfiled by TikTok Shop-Standard,,,ken6124,A******** S*****,(+44)749*****27,RM11 2DF	,United Kingdom,England,Greater London,,****************************************************,****************************************************,,ClearPay,0.1,Coffee Substitutes,1154074477668636984	,,"A******** S*****
+(+44)749*****27
+****************************************************
+Greater London
+RM11 2DF
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895098449795982	,Shipped,Completed,,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 89.99,,12/05/2026 15:59:54	,12/05/2026 16:00:20	,,14/05/2026 10:49:40	,15/05/2026 11:14:16	,"	",,,Fulfillment by seller,otto,FP274306646GB,Shipped by seller,Royal Mail,,jacquegeorge7,Jacque George,(+44)7540788850,BR1 3AA	,United Kingdom,England,Greater London,,"Flat D, 81 Widmore Road, Bromley",Kent,,Klarna,0.25,Coffee-Making Tools,1154074566143220622	,,"Jacque George
+(+44)7540788850
+Kent Flat D, 81 Widmore Road, Bromley
+Greater London
+BR1 3AA
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895098449795982	,Shipped,Delivered,,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,1,0,GBP 199.99,GBP 199.99,GBP 0.00,GBP 110.00,GBP 89.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 89.99,,12/05/2026 15:59:54	,12/05/2026 16:00:20	,,14/05/2026 10:49:40	,15/05/2026 11:14:16	,"	",,,Fulfillment by seller,otto,FP274306646GB,Shipped by seller,Royal Mail,,jacquegeorge7,Jacque George,(+44)7540788850,BR1 3AA	,United Kingdom,England,Greater London,,"Flat D, 81 Widmore Road, Bromley",Kent,,Klarna,0.1,Coffee Substitutes,1154074566143220622	,,"Jacque George
+(+44)7540788850
+Kent Flat D, 81 Widmore Road, Bromley
+Greater London
+BR1 3AA
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895095448247218	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 6.30,GBP 38.00,GBP 35.69,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 35.69,,12/05/2026 15:52:52	,12/05/2026 15:52:56	,,13/05/2026 06:06:25	,14/05/2026 10:06:26	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRP6TR6LW8,Fulfiled by TikTok Shop-Standard,,,aklima5479,A***** G****,(+44)784*****66,UB3 2DP	,United Kingdom,England,Greater London,,******************,******************,,Apple Pay,0.1,Coffee Substitutes,1154074438718364594	,,"A***** G****
+(+44)784*****66
+******************
+Greater London
+UB3 2DP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895095547533945	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 5.88,GBP 16.49,GBP 17.62,GBP 3.99,GBP 3.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 21.61,,12/05/2026 15:48:04	,12/05/2026 15:48:12	,,13/05/2026 02:57:33	,14/05/2026 13:18:19	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,FE561051821GB,Fulfiled by TikTok Shop-Standard,,,lady_m_dee,J******* m***,(+44)746*****46,NP19 7QL	,United Kingdom,Wales,Newport,,*****************************,*****************************,,Credit/debit card,0.1,Coffee Substitutes,1154074428676217465	,,"J******* m***
+(+44)746*****46
+*****************************
+Newport
+NP19 7QL
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895090797419374	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 0.00,GBP 66.00,GBP 53.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 53.99,,12/05/2026 15:36:45	,12/05/2026 15:37:17	,,13/05/2026 05:27:03	,14/05/2026 12:21:58	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,FE561050361GB,Fulfiled by TikTok Shop-Standard,,,ayoadekehinde1,K****** A*****,(+44)736*****48,SO18 1EP	,United Kingdom,England,Southampton,,******************************************************,******************************************************,,Klarna,0.1,Coffee Substitutes,1154074409028524910	,,"K****** A*****
+(+44)736*****48
+******************************************************
+Southampton
+SO18 1EP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895087270926792	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 4.19,GBP 66.00,GBP 49.80,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 49.80,,12/05/2026 15:23:56	,12/05/2026 15:24:00	,,13/05/2026 03:39:03	,15/05/2026 17:39:03	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR55YYQX4N,Fulfiled by TikTok Shop-Standard,,,stephanegervaismi,G****** M***** M****** D*****,(+44)741*****97,M18 8DN	,United Kingdom,England,Greater Manchester,,***************************,***************************,,Google Pay,0.1,Coffee Substitutes,1154074367903046088	,,"G****** M***** M****** D*****
+(+44)741*****97
+***************************
+Greater Manchester
+M18 8DN
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895086799723497	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 12.00,GBP 40.00,GBP 27.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 27.99,,12/05/2026 15:22:59	,12/05/2026 15:23:03	,,13/05/2026 01:35:52	,13/05/2026 17:35:52	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRL1LYXHC6,Fulfiled by TikTok Shop-Standard,,,adetoun_alasabi,S*** O*****,(+44)740*****54,SE28 0HL	,United Kingdom,England,Greater London,,***************************,***************,,Google Pay,0.1,Coffee Substitutes,1154074364821150697	,,"S*** O*****
+(+44)740*****54
+*************** ***************************
+Greater London
+SE28 0HL
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895084930178023	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 0.00,GBP 42.00,GBP 37.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 37.99,,12/05/2026 15:20:04	,12/05/2026 15:20:08	,,13/05/2026 01:33:23	,13/05/2026 17:33:24	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRLW2P1WWV,Fulfiled by TikTok Shop-Standard,,,user5766051657404,M****** A*****,(+44)781*****77,SE1 4LL	,United Kingdom,England,Greater London,,************************************,************************************,,Credit/debit card,0.1,Coffee Substitutes,1154074379281734631	,,"M****** A*****
+(+44)781*****77
+************************************
+Greater London
+SE1 4LL
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576895033680894359	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 14.00,GBP 25.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 25.99,,12/05/2026 12:41:10	,12/05/2026 12:41:13	,,12/05/2026 20:59:46	,13/05/2026 10:16:58	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,FE561025591GB,Fulfiled by TikTok Shop-Standard,,,akhan1112,A*** k***,(+44)742*****43,TF1 3LP	,United Kingdom,England,Telford and Wrekin,******************,***************,********************,,Apple Pay,0.1,Coffee Substitutes,1154074008631351703	,,"A*** k***
+(+44)742*****43
+******************** ***************
+******************
+TF1 3LP
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894959842138867	,Shipped,Delivered,,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,1,0,GBP 199.99,GBP 199.99,GBP 15.00,GBP 110.00,GBP 74.99,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 74.99,,12/05/2026 08:25:16	,12/05/2026 08:25:20	,,14/05/2026 07:02:13	,15/05/2026 12:49:00	,"	",,,Fulfillment by seller,otto,FP274305495GB,Shipped by seller,Royal Mail,,appleuser554386465,appleuser554386465 Umar,(+44)7961742192,NW6 1XU	,United Kingdom,England,Greater London,,"4 Worcester Mews, London","4 Worcester Mews, London",,PayPal,0.1,Coffee Substitutes,1154073501856602867	,,"appleuser554386465 Umar
+(+44)7961742192
+4 Worcester Mews, London
+Greater London
+NW6 1XU
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894959842138867	,Shipped,Completed,,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 74.99,,12/05/2026 08:25:16	,12/05/2026 08:25:20	,,14/05/2026 07:02:13	,15/05/2026 12:49:00	,"	",,,Fulfillment by seller,otto,FP274305495GB,Shipped by seller,Royal Mail,,appleuser554386465,appleuser554386465 Umar,(+44)7961742192,NW6 1XU	,United Kingdom,England,Greater London,,"4 Worcester Mews, London","4 Worcester Mews, London",,PayPal,0.25,Coffee-Making Tools,1154073501856602867	,,"appleuser554386465 Umar
+(+44)7961742192
+4 Worcester Mews, London
+Greater London
+NW6 1XU
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894845473037223	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 2.41,GBP 14.00,GBP 23.58,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 23.58,,11/05/2026 21:33:20	,11/05/2026 21:34:24	,,12/05/2026 04:16:09	,12/05/2026 15:43:40	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,FE560992718GB,Fulfiled by TikTok Shop-Standard,,,hasnax0,H**** I****,(+44)792*****97,IG3 8PD	,United Kingdom,England,Greater London,,*************************,*************************,,Klarna,0.1,Coffee Substitutes,1154072730617420711	,,"H**** I****
+(+44)792*****97
+*************************
+Greater London
+IG3 8PD
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894598387833488	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 0.00,GBP 41.99,GBP 38.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 38.00,,11/05/2026 09:57:18	,11/05/2026 09:58:43	,,12/05/2026 02:13:00	,12/05/2026 20:13:01	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRLN7MCRTV,Fulfiled by TikTok Shop-Standard,,,the_dsfamily,R***** D***,(+44)740*****02,BR1 4RH	,United Kingdom,England,Greater London,,***************************,***************************,,Klarna,0.1,Coffee Substitutes,1154071068971539088	,,"R***** D***
+(+44)740*****02
+***************************
+Greater London
+BR1 4RH
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894597789816937	,Completed,Completed,,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,,11/05/2026 09:54:39	,11/05/2026 09:55:01	,,13/05/2026 08:07:42	,14/05/2026 13:08:48	,"	",,,Fulfillment by seller,otto,QM979763179GB,Shipped by seller,Royal Mail,,shabnamiqbal88,shabnam Iqbal,(+44)7956903099,B8 2LG	,United Kingdom,England,West Midlands,,"42 Thornton Road, Birmingham","42 Thornton Road, Birmingham",,TikTok PayLater,0.25,Coffee-Making Tools,1154071228426459241	,,"shabnam Iqbal
+(+44)7956903099
+42 Thornton Road, Birmingham
+West Midlands
+B8 2LG
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894597078096467	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 0.00,GBP 38.00,GBP 41.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 41.99,,11/05/2026 09:51:12	,11/05/2026 09:51:15	,,12/05/2026 00:04:36	,12/05/2026 16:04:37	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540022665,Fulfiled by TikTok Shop-Standard,,,anike.glow,A****** E**,(+44)770*****90,G41 3JT	,United Kingdom,Scotland,Glasgow,,********************************,********************************,,Apple Pay,0.1,Coffee Substitutes,1154071048864504403	,,"A****** E**
+(+44)770*****90
+********************************
+Glasgow
+G41 3JT
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894596673083987	,Cancelled,Cancelled,Cancel,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,1,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,11/05/2026 09:49:46	,"	",,"	","	",11/05/2026 10:49:49	,System,Customer overdue to pay,Fulfillment by seller,otto,,Shipped by seller,,,anike.glow,A****** E**,(+44)770*****90,G41 3JT	,United Kingdom,Scotland,Glasgow,,********************************,********************************,,,0.25,Coffee-Making Tools,"	",,"A****** E**
+(+44)770*****90
+********************************
+Glasgow
+G41 3JT
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576894596673018451	,Cancelled,Cancelled,Cancel,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,2,2,GBP 119.99,GBP 239.98,GBP 0.00,GBP 120.00,GBP 119.98,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 119.98,GBP 119.98,11/05/2026 09:49:46	,"	",,"	","	",11/05/2026 10:49:49	,System,Customer overdue to pay,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfiled by TikTok Shop-Standard,,,anike.glow,A****** E**,(+44)770*****90,G41 3JT	,United Kingdom,Scotland,Glasgow,,********************************,********************************,,,0.2,Coffee Substitutes,"	",,"A****** E**
+(+44)770*****90
+********************************
+Glasgow
+G41 3JT
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576894595811810014	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 7.00,GBP 64.99,GBP 48.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 48.00,,11/05/2026 09:46:15	,11/05/2026 09:46:39	,,12/05/2026 02:01:36	,12/05/2026 14:01:36	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR76MMVTGK,Fulfiled by TikTok Shop-Standard,,,queenhertie1,H****** A*****,(+44)753*****49,MK10 7GN	,United Kingdom,England,Milton Keynes,,*********************************************,*********************************************,,Klarna,0.1,Coffee Substitutes,1154071036402440926	,,"H****** A*****
+(+44)753*****49
+*********************************************
+Milton Keynes
+MK10 7GN
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894594947455894	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 11.40,GBP 41.99,GBP 26.60,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 26.60,,11/05/2026 09:43:52	,11/05/2026 09:43:55	,,12/05/2026 01:58:22	,12/05/2026 15:58:23	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRLXG72KK2,Fulfiled by TikTok Shop-Standard,,,user69408691248382,F****** H******,(+44)752*****84,NW6 4TL	,United Kingdom,England,Greater London,,********************************************,*******,,Google Pay,0.1,Coffee Substitutes,1154071026742631318	,,"F****** H******
+(+44)752*****84
+******* ********************************************
+Greater London
+NW6 4TL
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894593468504394	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 8.25,GBP 64.99,GBP 46.75,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 46.75,,11/05/2026 09:43:25	,11/05/2026 09:44:57	,,12/05/2026 01:59:28	,12/05/2026 13:59:29	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540022568,Fulfiled by TikTok Shop-Standard,,,lorrainesouthern,l******* s*******,(+44)749*****78,NR11 8BA	,United Kingdom,England,Norfolk,,******************************,******************************,,ClearPay,0.1,Coffee Substitutes,1154071033938352458	,,"l******* s*******
+(+44)749*****78
+******************************
+Norfolk
+NR11 8BA
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894594867763230	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 1.18,GBP 16.49,GBP 22.32,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 22.32,,11/05/2026 09:42:13	,11/05/2026 09:42:42	,,12/05/2026 01:56:20	,12/05/2026 13:56:20	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRMJNQWK7W,Fulfiled by TikTok Shop-Standard,,,baraqah_decor,f****** r****,(+44)772*****26,BD18 2DS	,United Kingdom,England,West Yorkshire,,*************************,*************************,,Klarna,0.1,Coffee Substitutes,1154071023485556766	,,"f****** r****
+(+44)772*****26
+*************************
+West Yorkshire
+BD18 2DS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894590320876232	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 0.00,GBP 43.89,GBP 36.10,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 36.10,,11/05/2026 09:26:21	,11/05/2026 09:26:24	,,12/05/2026 01:40:11	,12/05/2026 21:40:11	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR23LWWFKK,Fulfiled by TikTok Shop-Standard,,,wendythomas865gmailcom,W**** T*****,(+44)738*****18,SW2 4PS	,United Kingdom,England,Greater London,,*************************************************,**************,,Apple Pay,0.1,Coffee Substitutes,1154070979507755720	,,"W**** T*****
+(+44)738*****18
+************** *************************************************
+Greater London
+SW2 4PS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894589497547057	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 23.50,,11/05/2026 09:26:08	,11/05/2026 09:26:11	,,11/05/2026 23:39:28	,12/05/2026 13:39:29	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540022325,Fulfiled by TikTok Shop-Standard,,,bestwex6,R** W***,(+44)790*****07,PE13 5QX	,United Kingdom,England,Lincs,,*********************************************,*********************,,PayPal,0.1,Coffee Substitutes,1154070979085703473	,,"R** W***
+(+44)790*****07
+********************* *********************************************
+Lincs
+PE13 5QX
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894589789444462	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 3.52,GBP 16.49,GBP 19.98,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 19.98,,11/05/2026 09:24:46	,11/05/2026 09:24:49	,,12/05/2026 01:37:12	,12/05/2026 17:37:14	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR44MCCR1K,Fulfiled by TikTok Shop-Standard,,,queencyedoziem,Q****** E****** ,(+44)074******55,RM7 9QF	,United Kingdom,England,Greater London,,*************************************,******,,Credit/debit card,0.1,Coffee Substitutes,1154070977107892590	,,"Q****** E****** 
+(+44)074******55
+****** *************************************
+Greater London
+RM7 9QF
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894587787123674	,Shipped,Delivered,,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,0,GBP 39.99,GBP 39.99,GBP 0.00,GBP 16.49,GBP 23.50,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 23.50,,11/05/2026 09:18:04	,11/05/2026 09:18:08	,,12/05/2026 01:30:29	,12/05/2026 11:30:30	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR4KRRG65V,Fulfiled by TikTok Shop-Standard,,,tanny340,t****,(+44)789*****03,E7 9QF	,United Kingdom,England,Greater London,,**********************,**********************,,Credit/debit card,0.1,Coffee Substitutes,1154070953999113178	,,"t****
+(+44)789*****03
+**********************
+Greater London
+E7 9QF
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894587261590085	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 0.00,GBP 64.99,GBP 55.00,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 55.00,,11/05/2026 09:14:21	,11/05/2026 09:15:11	,,11/05/2026 21:28:47	,12/05/2026 11:28:47	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540022192,Fulfiled by TikTok Shop-Standard,,,user4490166616979,S**** A****,(+44)780*****02,DY10 2GD	,United Kingdom,England,Worcestershire,,***********************************,***********************************,,ClearPay,0.1,Coffee Substitutes,1154070944000154181	,,"S**** A****
+(+44)780*****02
+***********************************
+Worcestershire
+DY10 2GD
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894586353261005	,Completed,Completed,,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,,11/05/2026 09:12:10	,11/05/2026 09:12:14	,,13/05/2026 11:51:15	,14/05/2026 13:40:26	,"	",,,Fulfillment by seller,otto,QM979763148GB,Shipped by seller,Royal Mail,,n50nas,Nasser Sarwar,(+44)7855786333,NG5 1FS	,United Kingdom,England,Nottingham,,"318 Hucknall Road,Nottingham","318 Hucknall Road,Nottingham",,Credit/debit card,0.25,Coffee-Making Tools,1154071104181606861	,,"Nasser Sarwar
+(+44)7855786333
+318 Hucknall Road,Nottingham
+Nottingham
+NG5 1FS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894586353195469	,Shipped,Delivered,,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,1,0,GBP 199.99,GBP 199.99,GBP 22.00,GBP 110.00,GBP 67.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 67.99,,11/05/2026 09:12:10	,11/05/2026 09:12:14	,,13/05/2026 09:26:11	,15/05/2026 13:26:12	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR2WM5TXH2,Fulfiled by TikTok Shop-Standard,,,n50nas,N***** S*****,(+44)785*****33,NG5 1FS	,United Kingdom,England,Nottingham,,****************************,****************************,,Credit/debit card,0.1,Coffee Substitutes,1154070937250077133	,,"N***** S*****
+(+44)785*****33
+****************************
+Nottingham
+NG5 1FS
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894585703799580	,Cancelled,Cancelled,Cancel,Normal,1729581609641744555	,TC-100 G,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 1,1,1,GBP 39.99,GBP 39.99,GBP 1.30,GBP 15.30,GBP 23.39,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 23.39,GBP 23.39,11/05/2026 09:06:25	,"	",,"	","	",11/05/2026 10:06:27	,System,Customer overdue to pay,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,,Fulfiled by TikTok Shop-Standard,,,criollacakes,G***** D* A******,(+44)750*****52,DA8 1EA	,United Kingdom,England,Greater London,,************************,************************,,ClearPay,0.1,Coffee Substitutes,"	",,"G***** D* A******
+(+44)750*****52
+************************
+Greater London
+DA8 1EA
+United Kingdom",,,GBP 0.00,0,GBP 0.00,0
+576894579668655024	,Shipped,Delivered,,Normal,1729581609641810091	,TC-100 G = pack of 2,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 2,1,0,GBP 79.99,GBP 79.99,GBP 1.71,GBP 45.79,GBP 32.49,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 32.49,,11/05/2026 08:48:00	,11/05/2026 08:48:04	,,12/05/2026 05:02:53	,12/05/2026 17:02:53	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRMC7L321J,Fulfiled by TikTok Shop-Standard,,,oyindamola5782,o****** A*******,(+44)778*****21,OL1 3FU	,United Kingdom,England,Greater Manchester,,****************************************************,****************************************************,,Credit/debit card,0.1,Coffee Substitutes,1154070883424967600	,,"o****** A*******
+(+44)778*****21
+****************************************************
+Greater Manchester
+OL1 3FU
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894579659807310	,Completed,Completed,,Normal,1729821017345923243	,FROTHER-01,VAHDAM Premium Electric Coffee Frother Handheld Battery-Operated Whisk for Ashwagandha Coffee Lattes & Cappuccinos Portable Mini Foam Maker in Durable Stainless Steel,Default,1,0,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,GBP 0.00,,11/05/2026 08:47:39	,11/05/2026 08:48:16	,,13/05/2026 08:07:57	,14/05/2026 14:41:21	,"	",,,Fulfillment by seller,otto,QM979763134GB,Shipped by seller,Royal Mail,,tinashairandbeauty,Tina Cumberbatch ,(+44)07853214393,HA8 9NY	,United Kingdom,England,Greater London,,"Tinas Hair & Products, 133 Deans Lane, Edgware Deans Lane ","Tinas Hair & Products, 133 Deans Lane, Edgware Deans Lane ",,PayPal,0.25,Coffee-Making Tools,1154071037710801486	,,"Tina Cumberbatch 
+(+44)07853214393
+Tinas Hair & Products, 133 Deans Lane, Edgware Deans Lane 
+Greater London
+HA8 9NY
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894579659741774	,Shipped,Delivered,,Normal,1729812118344013995	,TC-100 G = pack of 5,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 5,1,0,GBP 199.99,GBP 199.99,GBP 0.00,GBP 115.00,GBP 84.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 84.99,,11/05/2026 08:47:39	,11/05/2026 08:48:16	,,12/05/2026 03:03:02	,12/05/2026 13:03:02	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELR9KMPW9YR,Fulfiled by TikTok Shop-Standard,,,tinashairandbeauty,T*** C********** ,(+44)078******93,HA8 9NY	,United Kingdom,England,Greater London,,**********************************************************,**********************************************************,,PayPal,0.1,Coffee Substitutes,1154070879507749454	,,"T*** C********** 
+(+44)078******93
+**********************************************************
+Greater London
+HA8 9NY
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894579146201758	,Shipped,Delivered,,Normal,1729629542578755755	,M2-5FS8-0C6A-PACKOF2,"VAHDAM Turmeric Ginger Herbal Tea Bags (100 Pyramid Tea Bags) - Caffeine Free, Blend of Real Spices - Turmeric Tea, Ginger Tea | Herbal Tea",Pack of 2,1,0,GBP 39.99,GBP 39.99,GBP 1.35,GBP 13.00,GBP 25.64,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 25.64,,11/05/2026 08:43:31	,11/05/2026 08:43:34	,,12/05/2026 02:57:29	,12/05/2026 16:57:30	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,RELRK4RX6WPK,Fulfiled by TikTok Shop-Standard,,,d1llyg,M******* D**,(+44)741*****94,BD9 6BE	,United Kingdom,England,West Yorkshire,,*************************,*************************,,Apple Pay,0.2,Tea,1154070873278159518	,,"M******* D**
+(+44)741*****94
+*************************
+West Yorkshire
+BD9 6BE
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
+576894578509584702	,Shipped,Delivered,,Normal,1729636075899295915	,TC-100 G = pack of 3,"VAHDAM KSM-66 Ashwagandha Coffee | Instant Coffee with KSM-66, 95% Curcuminoids Turmeric, Lion’s Mane & Chaga | 40 Servings",Pack of 3,1,0,GBP 119.99,GBP 119.99,GBP 0.00,GBP 60.00,GBP 59.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 3.99,GBP 0.00,GBP 59.99,,11/05/2026 08:38:41	,11/05/2026 08:39:06	,,11/05/2026 20:52:55	,12/05/2026 14:52:55	,"	",,,Fulfillment by TikTok Shop,TIKTOKSHOP WAREHOUSE No.1,JJD0002234540021779,Fulfiled by TikTok Shop-Standard,,,sharon.mooney8,S***** M*****,(+44)774*****02,ML4 1QD	,United Kingdom,Scotland,North Lanarkshire,,***************************,***************************,,Klarna,0.1,Coffee Substitutes,1154070859254634814	,,"S***** M*****
+(+44)774*****02
+***************************
+North Lanarkshire
+ML4 1QD
+United Kingdom",Unchecked,,GBP 0.00,0,GBP 0.00,0
