@@ -569,8 +569,13 @@ function renderPnLTable(){
   h += marginRow('<b>CM1</b> = Net Sales ex-VAT − Unit costs', ukCM1, usCM1, ukNetSalesExVat, usNetSalesExVat, {requireCosts:true, cls:'subtotal'});
   h += '<tr class="section"><td class="label">CM2 build-up — marketing</td><td>&nbsp;</td></tr>';
   h += row('Affiliate commission (Std + Shop Ads + Co-funded)', a.ukAff.commission, a.usAff.commission, {cls:'deduct', zeroDash:true});
-  h += row('Ad spend — Product GMV Max (UK ×1.20 VAT-incl)', ukAdInc, a.adSpendUS, {cls:'deduct', zeroDash:true});
-  h += row('Ad spend — LIVE GMV Max + Auto (UK ×1.20 VAT-incl)', ukAdUnInc, a.adUnallocUS, {cls:'deduct', zeroDash:true});
+  // FIX BUG #3: Combine Product GMV Max + LIVE GMV Max + Auto into one line.
+  // The data file lumps LIVE share into each SKU's daily ad spend (distributed
+  // by revenue mix), so the separate "LIVE GMV Max + Auto" line is always 0
+  // unless there's a true unallocated bucket. Show combined total.
+  h += row('Ad spend (Product GMV Max + LIVE distributed by revenue, UK ×1.20 VAT-incl)',
+           ukAdInc + ukAdUnInc, a.adSpendUS + a.adUnallocUS,
+           {cls:'deduct', zeroDash:true});
   h += row('Smart Promotion fee (UK ×1.20 VAT-incl)', ukSPinc, usSP, {cls:'deduct', zeroDash:true});
   h += row('VAT Recovery — Ad Spend + Smart Promo (UK 20/120 on VAT-incl)', ukVatRec, 0, {cls:'add', zeroDash:true});
   h += row('Free Sample Cost (units × per-pack UK rates, -£2 post Feb 14)', ukFsCost, usFsCost, {cls:'deduct', hideZero:true});
@@ -626,10 +631,13 @@ function renderSkuTable(){
             toDisp(b.net_sales, srcCcy), b.cancelled_orders,
             toDisp(affComm, srcCcy), toDisp(adv, srcCcy), toDisp(contrib, srcCcy), ccy];
   }).sort((x,y) => y[4]-x[4]);
+  // FIX 6: For SKU rows where ad spend / affiliate comm is zero (typical
+  // niche-SKU days), show "—" instead of "£0" / "$0".
+  const dashOrMoney = (v, c) => Math.abs(v) < 0.005 ? '—' : fmtMoney(v, c);
   const data = rows.map(r => [
     r[0], gridjs.html(r[1]), r[2], r[3],
     fmtMoney(r[4], r[9]), String(r[5]),
-    fmtMoney(r[6], r[9]), fmtMoney(r[7], r[9]), fmtMoney(r[8], r[9])
+    dashOrMoney(r[6], r[9]), dashOrMoney(r[7], r[9]), fmtMoney(r[8], r[9])
   ]);
   const host = document.getElementById('skuTableHost');
   host.innerHTML = '';
@@ -1066,6 +1074,18 @@ _uk_ad_inc = _uk_ad_ex * 1.20
 _uk_sp_inc = _uk_sp_ex * 1.20
 _uk_vat_rec = (_uk_ad_inc + _uk_sp_inc) * (20/120)
 _uk_net_marketing_deduction = _uk_ad_inc + _uk_sp_inc - _uk_vat_rec
+
+print()
+print('================ AFFILIATE LOOKUP AUDIT (Yesterday) ================')
+_yday = PNL['window_end']
+for _r in ['UK', 'US']:
+    _rows = [a for a in PNL.get('aff_daily', []) if a['region']==_r and a['date']==_yday]
+    _sum = sum(a.get('aff_commission', 0) for a in _rows)
+    _sym = '£' if _r == 'UK' else '$'
+    print(f'  {_r} Yesterday ({_yday}): {len(_rows)} rows, sum aff_commission = {_sym}{_sum:,.2f}')
+    if _rows:
+        for _a in _rows:
+            print(f'    {_a["sku"]:18s} {_sym}{_a.get("aff_commission",0):>10,.2f}')
 
 print()
 print('================ AD SPEND MATH AUDIT (L30) ================')

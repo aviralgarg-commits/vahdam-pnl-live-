@@ -50,6 +50,20 @@ def main() -> int:
     size = DST.stat().st_size
     log(f"  copied -> {DST} ({size:,} bytes)")
 
+    # FIX 4: Rebuild US monthly_history from raw_metric_keyed snapshot. The
+    # handoff JSON ships with US.overall = {} and the metric-keyed structure
+    # under overall_raw_metric_keyed. Transform to month-keyed schema (same as
+    # UK) so the dashboard Monthly CM History table renders US rows.
+    log("Rebuilding US monthly_history...")
+    rc_us = subprocess.run(
+        [sys.executable, str(LIVE / "scripts" / "rebuild_us_monthly.py")],
+        cwd=LIVE, capture_output=True, text=True,
+    )
+    if rc_us.returncode != 0:
+        log(f"FAIL rebuild_us_monthly rc={rc_us.returncode}\nSTDERR: {rc_us.stderr[:300]}")
+        return 5
+    log("  rebuild_us_monthly OK")
+
     # Rebuild
     log("Rebuilding dashboard...")
     rc = subprocess.run(
