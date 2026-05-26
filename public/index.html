@@ -435,7 +435,20 @@ function renderKPIs(){
   const ukAdSpendExVat = a.adSpendUK + a.adUnallocUK;
   const ukAdSpendIncVat = ukAdSpendExVat * 1.20;
   const ukSmartPromoIncVat = ukSmartPromoExVat * 1.20;
-  const ukVatRec = (ukAdSpendIncVat + ukSmartPromoIncVat) * (20/120);
+  // VAT recovery: 20/120 of every UK input that carries reclaimable input VAT.
+  // Matches Vahdam Inventory Planning Tiktok!UK Coffee!C11 formula
+  // =(C8+C10+C17+C18)*0.2/1.2 (per-pack: Commission+Storage+Fulfillment+Shipping)
+  // plus aggregate inputs I19: (Affiliated Comm + Actual Comm + Ad Spend Incl VAT) * 0.2/1.2,
+  // extended per user spec to also include Smart Promo and per-order shipping.
+  const ukVatRec = (
+      (a.ukCosts.storage           || 0)
+    + (a.ukCosts.fulfillment       || 0)
+    + ukAdSpendIncVat
+    + (a.ukCosts.per_order_shipping|| 0)
+    + (a.ukCosts.commission        || 0)
+    + (a.ukAff.commission          || 0)
+    + ukSmartPromoIncVat
+  ) * (20/120);
   const ukFreeSampleCost = a.ukFreeSampleCost || 0;
   const usFreeSampleCost = a.usFreeSampleCost || 0;
   const ukCM2 = ukCM1 - a.ukAff.commission - ukAdSpendIncVat + ukVatRec - ukFreeSampleCost - ukSmartPromoIncVat;
@@ -544,7 +557,17 @@ function renderPnLTable(){
   const ukAdUnEx = a.adUnallocUK || 0;
   const ukAdInc = ukAdEx * 1.20;
   const ukAdUnInc = ukAdUnEx * 1.20;
-  const ukVatRec = (ukAdInc + ukAdUnInc + ukSPinc) * (20/120);
+  // VAT recovery: 20/120 on every UK input carrying reclaimable VAT.
+  // See renderKPIs comment for sheet reference.
+  const ukVatRec = (
+      (ukC.storage              || 0)
+    + (ukC.fulfillment          || 0)
+    + ukAdInc + ukAdUnInc
+    + (ukC.per_order_shipping   || 0)
+    + (ukC.commission           || 0)
+    + (a.ukAff.commission       || 0)
+    + ukSPinc
+  ) * (20/120);
   const ukFsCost = a.ukFreeSampleCost || 0;
   const usFsCost = a.usFreeSampleCost || 0;
   const ukCM2 = ukCM1 - a.ukAff.commission - ukAdInc - ukAdUnInc + ukVatRec - ukFsCost - ukSPinc;
@@ -621,7 +644,7 @@ function renderPnLTable(){
            ukAdInc + ukAdUnInc, a.adSpendUS + a.adUnallocUS,
            {cls:'deduct', zeroDash:true});
   h += row('Smart Promotion fee (UK ×1.20 VAT-incl)', ukSPinc, usSP, {cls:'deduct', zeroDash:true});
-  h += row('VAT Recovery — Ad Spend + Smart Promo (UK 20/120 on VAT-incl)', ukVatRec, 0, {cls:'add', zeroDash:true});
+  h += row('VAT Recovery (UK 20/120 on Storage + Fulfillment + Ad Spend + Per-order Shipping + TT Comm + Aff Comm + Smart Promo)', ukVatRec, 0, {cls:'add', zeroDash:true});
   h += row('Free Sample Cost (units × per-pack UK rates, -£2 post Feb 14)', ukFsCost, usFsCost, {cls:'deduct', hideZero:true});
   h += marginRow('<b>CM2 (Net Margin)</b>', ukCM2, usCM2, ukNetSalesExVat, usNetSalesExVat, {requireCosts:true, cls:'total'});
   h += '</tbody>';
