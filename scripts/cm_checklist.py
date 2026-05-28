@@ -50,11 +50,14 @@ def compute(region: str) -> dict:
                             'logistics_duty', 'logistics_cost', 'fulfillment',
                             'shipping', 'per_order_shipping')}
     cpp = UK_CPP if region == 'UK' else US_CPP
+    # TT commission: flat % of Net Sales (CLAUDE.md spec, robust to missing variations)
+    tt_comm_rate = 0.09 if region == 'UK' else 0.06
     for r in rows:
         cps = cpp.get(r['sku'])
         cp = cps.get(r['variation']) if cps else None
         q = r.get('net_qty', 0)
         o = r.get('net_orders', 0)
+        ns = r.get('net_sales', 0)
         sku = r['sku']
         if region == 'UK':
             if sku in VAT_KEPT:
@@ -67,9 +70,9 @@ def compute(region: str) -> dict:
                 vat_applies = True
         else:
             vat_applies = True
+        cb['commission'] += ns * tt_comm_rate
         if cp:
             cb['cogs'] += (cp.get('cogs', 0) or 0) * q
-            cb['commission'] += (cp.get('commission', 0) or 0) * q
             cb['dsf'] += (cp.get('digital_service_fee', 0) or 0) * q
             cb['storage'] += (cp.get('storage', 0) or 0) * q
             if vat_applies:

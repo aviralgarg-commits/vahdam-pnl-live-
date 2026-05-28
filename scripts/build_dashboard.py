@@ -221,6 +221,14 @@ function aggregate(){
     const coffeeVatCutoff = (tax.vat_removed_from_date && tax.vat_removed_from_date.Coffee) || '2026-04-01';
     const shipFrom = tax.shipping_per_order_from_date || '2026-03-01';
     const shipAmt = tax.shipping_per_order_amount || 1.99;
+    // TT commission rates per CLAUDE.md spec: 9% UK, 6% US (flat % of Net Sales,
+    // not per-pack from costs files). The per-pack `commission` field in
+    // *_costs.json equals 6%/9% of MSRP, but breaks for unmapped variations
+    // (e.g. "2 - Pack", "3 - Pack", Berberine, Curry Powder, Moringa,
+    // Psyllium Husk in US -- they show up in orders_daily but are absent from
+    // costs_per_pack, so the per-pack-times-qty approach charges 0 commission
+    // on those units. Flat % is robust + matches the operator's sheet method.
+    const ttCommRate = region === 'UK' ? 0.09 : 0.06;
     let total = { cogs:0, commission:0, dsf:0, storage:0, vat:0, logistics_duty:0, logistics_cost:0, fulfillment:0, shipping:0, per_order_shipping:0 };
     for(const r of rows){
       if(r.region !== region) continue;
@@ -228,14 +236,18 @@ function aggregate(){
       const cp = cps ? cps[r.variation] : null;
       const q = r.net_qty || 0;
       const orders_ct = r.net_orders || 0;
+      const ns = r.net_sales || 0;
       let vatApplies;
       if(vatKept.has(r.sku)) vatApplies = true;
       else if(r.sku === 'Coffee') vatApplies = (r.date < coffeeVatCutoff);
       else if(vatRemovedAlways.has(r.sku)) vatApplies = false;
       else vatApplies = true;
+      // Commission: ALWAYS flat % of Net Sales (per CLAUDE.md). Per-pack values
+      // in costs file are ignored for commission to keep the rule robust to
+      // missing variations.
+      total.commission += ns * ttCommRate;
       if(cp){
         total.cogs += (cp.cogs||0) * q;
-        total.commission += (cp.commission||0) * q;
         total.dsf += (cp.digital_service_fee||0) * q;
         total.storage += (cp.storage||0) * q;
         if(vatApplies) total.vat += (cp.vat||0) * q;
