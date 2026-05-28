@@ -273,11 +273,29 @@ function aggregate(){
     // costs_per_pack, so the per-pack-times-qty approach charges 0 commission
     // on those units. Flat % is robust + matches the operator's sheet method.
     const ttCommRate = region === 'UK' ? 0.09 : 0.06;
+    // Variation aliasing: orders_daily uses some variation names that don't
+    // appear verbatim in the costs file. Resolve common aliases so the per-pack
+    // cost lookup works for "2 - Pack" / "3 - Pack" / "Starter Kit" rows.
+    // This is the bulk of the dashboard-vs-sheet "Other Fix Charges" gap.
+    function resolveCp(skuCps, variation){
+      if(!skuCps) return null;
+      if(skuCps[variation]) return skuCps[variation];
+      const aliases = {
+        '2 - Pack': 'Pack of 2',
+        '3 - Pack': 'Pack of 3',
+        '5 - Pack': 'Pack of 5',
+        '2 Pack': 'Pack of 2',
+        '3 Pack': 'Pack of 3',
+        'Starter Kit': 'Pack of 1',  // Coffee Starter Kit ≈ Pack-of-1 economics
+      };
+      const alias = aliases[variation];
+      return alias ? (skuCps[alias] || null) : null;
+    }
     let total = { cogs:0, commission:0, dsf:0, storage:0, vat:0, logistics_duty:0, logistics_cost:0, fulfillment:0, shipping:0, per_order_shipping:0 };
     for(const r of rows){
       if(r.region !== region) continue;
       const cps = costs[r.sku];
-      const cp = cps ? cps[r.variation] : null;
+      const cp = resolveCp(cps, r.variation);
       const q = r.net_qty || 0;
       const orders_ct = r.net_orders || 0;
       const ns = r.net_sales || 0;

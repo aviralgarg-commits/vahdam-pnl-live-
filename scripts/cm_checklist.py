@@ -52,9 +52,20 @@ def compute(region: str) -> dict:
     cpp = UK_CPP if region == 'UK' else US_CPP
     # TT commission: flat % of Net Sales (CLAUDE.md spec, robust to missing variations)
     tt_comm_rate = 0.09 if region == 'UK' else 0.06
+    # Variation aliases for cost lookup -- mirror build_dashboard.py
+    var_aliases = {
+        '2 - Pack': 'Pack of 2', '3 - Pack': 'Pack of 3', '5 - Pack': 'Pack of 5',
+        '2 Pack': 'Pack of 2', '3 Pack': 'Pack of 3',
+        'Starter Kit': 'Pack of 1',
+    }
+    def resolve_cp(cps, variation):
+        if not cps: return None
+        if variation in cps: return cps[variation]
+        alias = var_aliases.get(variation)
+        return cps.get(alias) if alias else None
     for r in rows:
         cps = cpp.get(r['sku'])
-        cp = cps.get(r['variation']) if cps else None
+        cp = resolve_cp(cps, r['variation'])
         q = r.get('net_qty', 0)
         o = r.get('net_orders', 0)
         ns = r.get('net_sales', 0)
