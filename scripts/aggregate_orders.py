@@ -89,9 +89,21 @@ NICK = {
 }
 
 VARIATION_ALIASES = {
-    "2 - Pack": "Pack of 2", "3 - Pack": "Pack of 3", "5 - Pack": "Pack of 5",
+    # Hyphenated forms (TikTok seller-center variant)
+    "2 - Pack": "Pack of 2", "3 - Pack": "Pack of 3",
+    "1 - Pack": "Pack of 1", "5 - Pack": "Pack of 5",
+    # No-space hyphenated
+    "2-Pack": "Pack of 2", "3-Pack": "Pack of 3",
+    "1-Pack": "Pack of 1", "5-Pack": "Pack of 5",
+    # Space-separated (no "of")
     "2 Pack": "Pack of 2", "3 Pack": "Pack of 3",
+    # Full word forms (added 2026-05-29 from US CSV rebuild)
+    "Pack of Two": "Pack of 2", "Pack of Three": "Pack of 3",
+    "Pack of One": "Pack of 1", "Pack of Five": "Pack of 5",
 }
+
+# Alias kept under a stable name so other modules can import it.
+NORMALIZE_VARIATION = VARIATION_ALIASES
 
 PACK_SIZE = {"Pack of 1": 1, "Pack of 2": 2, "Pack of 3": 3, "Pack of 5": 5,
              "Starter Kit": 1, "Default": 1}

@@ -964,31 +964,80 @@ function refresh(){
   renderKPIs(); renderPnLTable(); renderSkuTable(); renderAdCharts(); renderCampaignTable(); renderCreatives(); renderMonthlyHistory();
 }
 
-function init(){
-  // FIX 3: Hide "Other" SKU from default dropdown (data exhaust / unclassified).
-  // User can still select it via "Other (unclassified)" item; surface as last item.
-  const allSkusRaw = [...new Set(PNL.orders_daily.map(r => r.sku))];
-  const allSkus = allSkusRaw.filter(s => s !== 'Other').sort();
-  if(allSkusRaw.includes('Other')) allSkus.push('Other');
+// Cascading filter helpers. Recompute SKU options from region + free-gift
+// toggle; recompute Variation options from region + sku + free-gift toggle.
+// Auto-reset the dropdown value when the previously-selected item is no
+// longer in the option list (e.g. switching Region=UK while SKU=Shatavari).
+// "Other" SKU is always surfaced last (data exhaust per FIX 3).
+function rebuildSkuOptions(){
   const skuSel = document.getElementById('skuSel');
-  for(const s of allSkus){
+  const seen = new Set(), hasOther = {flag:false};
+  for(const r of PNL.orders_daily){
+    if(state.region !== 'both' && r.region !== state.region) continue;
+    if(!state.includeFreeGifts && r.is_free_gift) continue;
+    if(r.sku === 'Other'){ hasOther.flag = true; continue; }
+    seen.add(r.sku);
+  }
+  const sorted = [...seen].sort();
+  if(hasOther.flag) sorted.push('Other');
+  const placeholder = state.includeFreeGifts
+    ? 'All SKUs (incl. free gifts)'
+    : 'All SKUs (excl. free gifts)';
+  skuSel.innerHTML = '<option value="">'+placeholder+'</option>';
+  for(const s of sorted){
     const o = document.createElement('option');
     o.value = s;
     o.textContent = s === 'Other' ? 'Other (unclassified)' : s;
     skuSel.appendChild(o);
   }
-  // FIX 3: Show "Default" variation as "Unspecified" but keep it selectable.
-  const allVars = [...new Set(PNL.orders_daily.map(r => r.variation))].sort();
+  // Auto-reset if the currently-selected SKU is no longer in the new list
+  const valid = new Set(sorted);
+  if(state.sku && !valid.has(state.sku)){
+    state.sku = '';
+  }
+  skuSel.value = state.sku;
+  rebuildVarOptions();
+}
+
+function rebuildVarOptions(){
   const varSel = document.getElementById('varSel');
-  for(const v of allVars){
+  const seen = new Set();
+  for(const r of PNL.orders_daily){
+    if(state.region !== 'both' && r.region !== state.region) continue;
+    if(!state.includeFreeGifts && r.is_free_gift) continue;
+    if(r.sku === 'Other' && state.sku !== 'Other') continue;
+    if(state.sku && r.sku !== state.sku){
+      // Mirror the orders filter: free-gift rows bypass the SKU match
+      // when the include-gifts toggle is ON (gifts are bundled with paid
+      // orders of the selected SKU; their own sku is "X (free gift)").
+      if(!(state.includeFreeGifts && r.is_free_gift)) continue;
+    }
+    seen.add(r.variation || 'Default');
+  }
+  const sorted = [...seen].sort();
+  varSel.innerHTML = '<option value="">All variations</option>';
+  for(const v of sorted){
     const o = document.createElement('option');
     o.value = v;
     o.textContent = v === 'Default' ? 'Unspecified' : v;
     varSel.appendChild(o);
   }
+  if(state.variation && !seen.has(state.variation)){
+    state.variation = '';
+  }
+  varSel.value = state.variation;
+}
+
+function init(){
+  const skuSel = document.getElementById('skuSel');
+  const varSel = document.getElementById('varSel');
+  // Initial dropdown population (cascading: region → sku → variation).
+  rebuildSkuOptions();
   document.querySelectorAll('#regionSeg button').forEach(b => b.addEventListener('click', e=>{
     document.querySelectorAll('#regionSeg button').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active'); state.region = b.dataset.v; refresh();
+    b.classList.add('active'); state.region = b.dataset.v;
+    rebuildSkuOptions();  // region change cascades SKU + variation
+    refresh();
   }));
   document.querySelectorAll('#periodSeg button').forEach(b => b.addEventListener('click', e=>{
     document.querySelectorAll('#periodSeg button').forEach(x=>x.classList.remove('active'));
@@ -996,11 +1045,19 @@ function init(){
     document.getElementById('customRange').classList.toggle('hidden', state.period!=='CUSTOM');
     refresh();
   }));
-  skuSel.addEventListener('change', e=>{ state.sku = e.target.value; refresh(); });
+  skuSel.addEventListener('change', e=>{
+    state.sku = e.target.value;
+    rebuildVarOptions();  // SKU change cascades variation
+    refresh();
+  });
   varSel.addEventListener('change', e=>{ state.variation = e.target.value; refresh(); });
   document.getElementById('fromDate').addEventListener('change', e=>{ state.customFrom = e.target.value; refresh(); });
   document.getElementById('toDate').addEventListener('change', e=>{ state.customTo = e.target.value; refresh(); });
-  document.getElementById('giftToggle').addEventListener('change', e=>{ state.includeFreeGifts = e.target.checked; refresh(); });
+  document.getElementById('giftToggle').addEventListener('change', e=>{
+    state.includeFreeGifts = e.target.checked;
+    rebuildSkuOptions();  // gift toggle changes the SKU + variation lists
+    refresh();
+  });
   document.getElementById('fxInput').addEventListener('change', e=>{ state.fxRate = parseFloat(e.target.value) || 1.27; refresh(); });
   document.getElementById('creativeSnap').addEventListener('change', e=>{ creativeState.snapshotIdx = parseInt(e.target.value); renderCreatives(); });
   document.querySelectorAll('#creativeBucketSeg button').forEach(b => b.addEventListener('click', e=>{
