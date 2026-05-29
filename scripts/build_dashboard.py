@@ -161,7 +161,13 @@ function aggregate(){
     // FIX 3: "Other" SKU is data exhaust; exclude from default views unless explicitly selected.
     if(r.sku === 'Other' && state.sku !== 'Other') return false;
     if(state.region!=='both' && r.region!==state.region) return false;
-    if(state.sku && r.sku!==state.sku) return false;
+    // SKU filter: free-gift rows bypass when "Include free gifts" toggle is
+    // ON, since gifts are conceptually bundled with paid orders of the
+    // selected SKU (e.g. a Coffee customer gets a Tea gift; the gift row's
+    // sku is "Turmeric Ginger Tea (free gift)", not "Coffee").
+    if(state.sku && r.sku!==state.sku){
+      if(!(state.includeFreeGifts && r.is_free_gift)) return false;
+    }
     if(state.variation && r.variation!==state.variation) return false;
     return inWindow(r.date, win);
   });
