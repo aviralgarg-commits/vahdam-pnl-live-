@@ -5,6 +5,10 @@ Re-aggregate affiliate commissions properly:
 - For each component: use Actual if > 0 else Estimated
 - Exclude Order Status = 'Ineligible'
 - Keep Settled + Pending
+- DEDUP: (Order ID, Product ID) — TikTok ships the same line-item across
+  multiple page-exports and across overlapping date-range exports. Without
+  dedup the L30 affiliate triple-counts (was ~3x the actual). Largest CSV
+  processed first so subsequent files only add genuinely new line-items.
 Aggregate by (date, region, sku) for the daily series.
 """
 import csv, glob, json, os, re
@@ -60,10 +64,18 @@ def parse_date(s):
 buckets = defaultdict(lambda: {'aff_orders':0, 'aff_revenue':0.0, 'aff_commission':0.0,
                                 'aff_std':0.0, 'aff_shop_ads':0.0, 'aff_co_funded':0.0})
 
-stats = {'total_rows':0, 'ineligible':0, 'invalid_date':0, 'unknown_region':0, 'in_window':0}
+stats = {'total_rows':0, 'ineligible':0, 'invalid_date':0, 'unknown_region':0,
+         'in_window':0, 'dupe_skipped':0}
 
-files = sorted(glob.glob(os.path.join(DOWNLOADS, 'affiliate_orders_*.csv')))
-print(f'Files: {len(files)}')
+# DEDUP: (Order ID, Product ID) — TikTok exports overlap across pages/date
+# ranges, so a row can appear in 2-3 CSVs. Without dedup the L30 sum bloats ~3x.
+# Process the LARGEST CSV first (assumed authoritative / most recent); smaller
+# files then only contribute genuinely new line-items.
+seen_line_items = set()
+
+files = sorted(glob.glob(os.path.join(DOWNLOADS, 'affiliate_orders_*.csv')),
+               key=lambda fp: os.path.getsize(fp), reverse=True)
+print(f'Files: {len(files)} (largest first)')
 
 for fp in files:
     with open(fp, encoding='utf-8', errors='replace') as fh:
@@ -92,6 +104,15 @@ for fp in files:
             if status == 'Ineligible':
                 stats['ineligible'] += 1
                 continue
+            # DEDUP key: (Order ID, Product ID). Skip if we've already counted
+            # this exact line-item from a prior (larger) CSV.
+            order_id = row[0] if len(row) > 0 else ''
+            product_id = row[1] if len(row) > 1 else ''
+            key_li = (order_id, product_id)
+            if key_li in seen_line_items:
+                stats['dupe_skipped'] += 1
+                continue
+            seen_line_items.add(key_li)
             tc = parse_date(row[IDX_TIME_CREATED])
             if not tc or len(tc) != 10:
                 stats['invalid_date'] += 1
@@ -101,7 +122,6 @@ for fp in files:
             if not region:
                 stats['unknown_region'] += 1
                 continue
-            product_id = row[1] if len(row) > 1 else ''
             product_name = row[2] if len(row) > 2 else ''
             sku_nick = NICK.get(product_id) or nick_from_name(product_name)
             payment = f(row[5])

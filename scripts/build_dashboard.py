@@ -109,7 +109,8 @@ function combine(ukVal, usVal){
   return ukToDisplay(ukVal) + usVal;
 }
 // Latest date that has ANY non-zero orders/aff for the current region+sku+variation
-// filter. Falls back to PNL.window_end when nothing matches. Cached per filter.
+// filter. Capped at PNL.window_end (handoff's declared cutoff -- partial rows
+// beyond it shouldn't anchor period buttons). Cached per filter.
 const _ldCache = {};
 function latestDataDate(){
   const k = state.region+'|'+state.sku+'|'+state.variation;
@@ -119,6 +120,7 @@ function latestDataDate(){
     if(state.region!=='both' && r.region!==state.region) continue;
     if(state.sku && r.sku!==state.sku) continue;
     if(state.variation && r.variation!==state.variation) continue;
+    if(PNL.window_end && r.date > PNL.window_end) continue;  // ignore partial post-cutoff
     const has = (r.net_orders||0) > 0 || (r.orders||0) > 0 || (r.net_sales||0) > 0;
     if(has && (!latest || r.date > latest)) latest = r.date;
   }
@@ -127,9 +129,11 @@ function latestDataDate(){
 }
 // Globally most recent date with ANY orders (region-agnostic) — used as the
 // anchor for L7/L30 so they don't drift when today's clock outruns the data.
+// Capped at PNL.window_end so partial post-cutoff rows can't anchor the window.
 function dataEndDate(){
   let latest = null;
   for(const r of PNL.orders_daily){
+    if(PNL.window_end && r.date > PNL.window_end) continue;
     if(((r.net_orders||0) > 0 || (r.net_sales||0) > 0) && (!latest || r.date > latest)){
       latest = r.date;
     }
